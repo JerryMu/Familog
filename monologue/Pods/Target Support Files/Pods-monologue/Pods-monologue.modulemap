@@ -1,0 +1,6 @@
+framework module Pods_monologue {
+  umbrella header "Pods-monologue-umbrella.h"
+
+  export *
+  module * { export * }
+}
