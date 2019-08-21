@@ -120,7 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="n8b-6D-7j3" id="hgl-nq-qcN"/>
-                        <outlet property="errorLabel" destination="vdj-sT-HYk" id="IJ5-Qe-0rC"/>
+                        <outlet property="errorLabel" destination="vdj-sT-HYk" id="E8F-fa-Blu"/>
                         <outlet property="logInButton" destination="ecb-WT-vqj" id="hiv-zs-URl"/>
                         <outlet property="passwordTextField" destination="x63-B3-aUN" id="PaA-wI-NKo"/>
                     </connections>
