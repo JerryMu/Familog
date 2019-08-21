@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,10 @@
 		862AD3E8230298C400CB350C /* monologueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3E7230298C400CB350C /* monologueTests.swift */; };
 		862AD3F3230298C400CB350C /* monologueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3F2230298C400CB350C /* monologueUITests.swift */; };
 		862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862AD4002302AB1000CB350C /* GoogleService-Info.plist */; };
+		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
+		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
+		86D45C6E230B0E63007724E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C6D230B0E63007724E4 /* Constants.swift */; };
+		86D45C72230B1195007724E4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C71230B1195007724E4 /* WelcomeViewController.swift */; };
 		F7A03C54638AA7F343CB48A3 /* Pods_monologue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DB92C9C6DA188FFA2AE02D /* Pods_monologue.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		862AD3F2230298C400CB350C /* monologueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monologueUITests.swift; sourceTree = "<group>"; };
 		862AD3F4230298C400CB350C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		862AD4002302AB1000CB350C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		869DAC7E230920C000ACF10C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		869DAC80230920CD00ACF10C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		86D45C6D230B0E63007724E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		86D45C71230B1195007724E4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A7116C4F515AB02ACA7322C3 /* Pods-monologueUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monologueUITests.release.xcconfig"; path = "Target Support Files/Pods-monologueUITests/Pods-monologueUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CF90D237C58D5570BE73387F /* Pods-monologue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monologue.release.xcconfig"; path = "Target Support Files/Pods-monologue/Pods-monologue.release.xcconfig"; sourceTree = "<group>"; };
 		D2DB92C9C6DA188FFA2AE02D /* Pods_monologue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monologue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,8 +134,9 @@
 		862AD3D1230298C200CB350C /* monologue */ = {
 			isa = PBXGroup;
 			children = (
+				86D45C6C230B0E40007724E4 /* Controllers */,
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
-				862AD3D4230298C200CB350C /* ViewController.swift */,
+				8646B1FF2309119900A4C785 /* ViewControllers */,
 				862AD3D6230298C200CB350C /* Main.storyboard */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
 				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
@@ -155,6 +164,25 @@
 			path = monologueUITests;
 			sourceTree = "<group>";
 		};
+		8646B1FF2309119900A4C785 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				86D45C71230B1195007724E4 /* WelcomeViewController.swift */,
+				869DAC7E230920C000ACF10C /* LogInViewController.swift */,
+				862AD3D4230298C200CB350C /* ViewController.swift */,
+				869DAC80230920CD00ACF10C /* SignUpViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		86D45C6C230B0E40007724E4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86D45C6D230B0E63007724E4 /* Constants.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		FF768F097C5FD80E2F7CC110 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +193,6 @@
 				FAB7482066AF798FF20848F7 /* Pods-monologueUITests.debug.xcconfig */,
 				A7116C4F515AB02ACA7322C3 /* Pods-monologueUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -392,6 +419,10 @@
 			files = (
 				862AD3D5230298C200CB350C /* ViewController.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
+				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
+				86D45C72230B1195007724E4 /* WelcomeViewController.swift in Sources */,
+				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
+				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
