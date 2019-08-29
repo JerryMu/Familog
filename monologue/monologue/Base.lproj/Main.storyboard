@@ -66,15 +66,11 @@
         <!--Log In View Controller-->
         <scene sceneID="Z64-Pr-iYD">
             <objects>
-                <viewController id="4RP-Ov-qeR" customClass="LogInViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInVC" id="4RP-Ov-qeR" customClass="LogInViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fSS-Ix-6hf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_6805.JPG" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bL-sB-JIu">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U13-iI-CKV">
                                 <rect key="frame" x="40" y="298" width="334" height="220"/>
                                 <subviews>
@@ -113,12 +109,21 @@
                                     <constraint firstItem="vdj-sT-HYk" firstAttribute="height" secondItem="n8b-6D-7j3" secondAttribute="height" id="qXX-mr-mY6"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B04-Jg-gAU">
+                                <rect key="frame" x="145.5" y="802" width="123" height="30"/>
+                                <state key="normal" title="Forgot Password?"/>
+                                <connections>
+                                    <segue destination="8K6-Ex-LGP" kind="show" id="vE9-bx-knF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="U13-iI-CKV" firstAttribute="leading" secondItem="eX4-yC-uLP" secondAttribute="leading" constant="40" id="Svo-UE-waN"/>
+                            <constraint firstItem="B04-Jg-gAU" firstAttribute="centerX" secondItem="fSS-Ix-6hf" secondAttribute="centerX" id="iFJ-z2-Hfl"/>
                             <constraint firstItem="U13-iI-CKV" firstAttribute="top" secondItem="eX4-yC-uLP" secondAttribute="top" constant="254" id="nAt-ov-VH2"/>
                             <constraint firstItem="eX4-yC-uLP" firstAttribute="trailing" secondItem="U13-iI-CKV" secondAttribute="trailing" constant="40" id="rdr-QN-pqP"/>
+                            <constraint firstItem="B04-Jg-gAU" firstAttribute="top" secondItem="U13-iI-CKV" secondAttribute="bottom" constant="284" id="uIR-Hx-aWU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eX4-yC-uLP"/>
                     </view>
@@ -132,6 +137,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5U-I3-8pD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2566.666666666667" y="515.625"/>
+        </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="E8W-eb-RbI">
+            <objects>
+                <viewController id="8K6-Ex-LGP" customClass="ResetPasswordViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GUQ-tv-QVp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wzq-TS-cGS">
+                                <rect key="frame" x="40" y="194" width="334" height="160"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7W-FE-G01">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5Je-7U-K3q"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJK-Ik-FLK">
+                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <state key="normal" title="Reset password"/>
+                                        <connections>
+                                            <action selector="resetPasswordTapped:" destination="8K6-Ex-LGP" eventType="touchUpInside" id="GOe-5s-Tg2"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D03-wh-VKx">
+                                        <rect key="frame" x="0.0" y="120" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.075857991259999993" blue="0.066603166480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="D03-wh-VKx" firstAttribute="height" secondItem="D7W-FE-G01" secondAttribute="height" id="Tcd-dj-HmJ"/>
+                                    <constraint firstItem="JJK-Ik-FLK" firstAttribute="height" secondItem="D7W-FE-G01" secondAttribute="height" id="yiF-Dt-fzR"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rSq-Vv-vMd" firstAttribute="trailing" secondItem="Wzq-TS-cGS" secondAttribute="trailing" constant="40" id="HkM-Jr-AJD"/>
+                            <constraint firstItem="Wzq-TS-cGS" firstAttribute="leading" secondItem="rSq-Vv-vMd" secondAttribute="leading" constant="40" id="pMg-gm-6Ec"/>
+                            <constraint firstItem="Wzq-TS-cGS" firstAttribute="top" secondItem="rSq-Vv-vMd" secondAttribute="top" constant="150" id="ui5-33-JiH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rSq-Vv-vMd"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="D7W-FE-G01" id="SOL-xU-72m"/>
+                        <outlet property="errorLabel" destination="D03-wh-VKx" id="RU9-W1-abY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSs-LI-drj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3475" y="753"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="YQv-qH-JOz">
@@ -250,7 +312,4 @@
             <point key="canvasLocation" x="563.768115942029" y="90.401785714285708"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="IMG_6805.JPG" width="1242" height="2688"/>
-    </resources>
 </document>
