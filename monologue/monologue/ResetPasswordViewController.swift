@@ -20,6 +20,7 @@ class ResetPasswordViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func setUpElements() {
+        
         errorLabel.alpha = 0
     }
     func showErrorMessage(_ message:String) {
