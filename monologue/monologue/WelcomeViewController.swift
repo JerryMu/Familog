@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class WelcomeViewController: UIViewController {
 
@@ -14,6 +15,10 @@ class WelcomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    let storage = Storage.storage()
+    
+
     
 
     /*
