@@ -1,12 +1,13 @@
+
 //
 //  PersonalProfileController.swift
 //  monologue
 //
 //  Created by 刘仕晟 on 2019/9/3.
 //
-
 import Foundation
 import UIKit
+import FirebaseStorage
 
 class PersonalProfileController: UIViewController {
     var imagePicker:UIImagePickerController!
@@ -16,8 +17,22 @@ class PersonalProfileController: UIViewController {
         super.viewDidLoad()
         setupAvatar()
         // Do any additional setup after loading the view.
-    
+        
     }
+    func uploadToFirebase(_ image: UIImage) {
+        let imageName = NSUUID().uuidString
+        let imageRef = Storage.storage().reference().child("images").child(imageName)
+        if  let uploadData = image.jpegData(compressionQuality: 0.2) {
+            imageRef.putData(uploadData, metadata: nil, completion: {(metadata, error) in
+                if error != nil {
+                    print("Failed to upload")
+                    return
+                }
+                //if let imageURL = metadata?.downloadURL()?.absoluteString {
+            })
+        }
+    }
+    
     func setupAvatar(){
         
         avatar.layer.cornerRadius = 40
@@ -26,7 +41,7 @@ class PersonalProfileController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self ,action: #selector(presentPicker))
         avatar.addGestureRecognizer(tapGesture)
     }
-   @objc func presentPicker(){
+    @objc func presentPicker(){
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
@@ -47,6 +62,8 @@ extension PersonalProfileController:UIImagePickerControllerDelegate,UINavigation
             UIImage{
             avatar.image = imageOriginal
         }
+        
+        uploadToFirebase(avatar.image!)
         picker.dismiss(animated: true, completion: nil)
     }
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		382212AE231FBE7900BAA224 /* NewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382212AD231FBE7900BAA224 /* NewController.swift */; };
+		38A4DE892320F2050046A443 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4DE882320F2050046A443 /* ProfileController.swift */; };
+		38A4DE8E2320F5EE0046A443 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4DE8D2320F5EE0046A443 /* ProfileCell.swift */; };
 		38D8DF5B231E21310082632B /* PersonalProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D8DF5A231E21310082632B /* PersonalProfileController.swift */; };
 		3ABF64654CF4F328814EDC24 /* Pods_monologueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D644D5DE96B45ACE30E901 /* Pods_monologueTests.framework */; };
 		6DA03B2F0AB82A49B4A2DD30 /* Pods_monologueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C62D953EEA11892B2A8894C /* Pods_monologueUITests.framework */; };
@@ -48,6 +50,8 @@
 		04529CA187FB8C161B726103 /* Pods-monologueTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monologueTests.release.xcconfig"; path = "Target Support Files/Pods-monologueTests/Pods-monologueTests.release.xcconfig"; sourceTree = "<group>"; };
 		31B7C7600EFF996075CAB2B7 /* Pods-monologue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monologue.debug.xcconfig"; path = "Target Support Files/Pods-monologue/Pods-monologue.debug.xcconfig"; sourceTree = "<group>"; };
 		382212AD231FBE7900BAA224 /* NewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewController.swift; sourceTree = "<group>"; };
+		38A4DE882320F2050046A443 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		38A4DE8D2320F5EE0046A443 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		38D8DF5A231E21310082632B /* PersonalProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileController.swift; sourceTree = "<group>"; };
 		6C62D953EEA11892B2A8894C /* Pods_monologueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_monologueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D24C205959723DD048AD99A /* Pods-monologueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monologueTests.debug.xcconfig"; path = "Target Support Files/Pods-monologueTests/Pods-monologueTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38A4DE8A2320F25B0046A443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				862AD3D6230298C200CB350C /* Main.storyboard */,
+				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		4DE42F4518DE2B15D87880E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +156,8 @@
 				86D45C6C230B0E40007724E4 /* Controllers */,
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
 				8646B1FF2309119900A4C785 /* ViewControllers */,
-				862AD3D6230298C200CB350C /* Main.storyboard */,
+				38A4DE8A2320F25B0046A443 /* View */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
-				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
 				862AD4002302AB1000CB350C /* GoogleService-Info.plist */,
 				862AD3DE230298C400CB350C /* Info.plist */,
 			);
@@ -180,6 +192,8 @@
 				869DAC80230920CD00ACF10C /* SignUpViewController.swift */,
 				38D8DF5A231E21310082632B /* PersonalProfileController.swift */,
 				382212AD231FBE7900BAA224 /* NewController.swift */,
+				38A4DE882320F2050046A443 /* ProfileController.swift */,
+				38A4DE8D2320F5EE0046A443 /* ProfileCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -429,8 +443,10 @@
 				862AD3D5230298C200CB350C /* ViewController.swift in Sources */,
 				382212AE231FBE7900BAA224 /* NewController.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
+				38A4DE8E2320F5EE0046A443 /* ProfileCell.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				38D8DF5B231E21310082632B /* PersonalProfileController.swift in Sources */,
+				38A4DE892320F2050046A443 /* ProfileController.swift in Sources */,
 				86D45C72230B1195007724E4 /* WelcomeViewController.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
