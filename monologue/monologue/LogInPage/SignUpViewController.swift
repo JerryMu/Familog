@@ -109,6 +109,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+
     
     func moveToWelcomePage() {
         let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.welcomeViewController) as? WelcomeViewController
