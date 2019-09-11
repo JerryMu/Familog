@@ -18,7 +18,12 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-
+ /*       if Auth.auth().currentUser != nil{
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {(Timer) in
+                self.performSegue(withIdentifier: "sin", sender: nil)
+            })
+            
+        }*/
         // Do any additional setup after loading the view.
     }
     

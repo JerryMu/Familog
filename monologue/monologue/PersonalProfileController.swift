@@ -8,17 +8,30 @@
 import Foundation
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
 
 class PersonalProfileController: UIViewController {
     var imagePicker:UIImagePickerController!
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var avatar: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAvatar()
+        // use an instance of it to supply data to this particular table view
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
         
+        //load posts updated on the database
+      //  loadPost()
     }
+    
+  /*  func loadPost(){
+        Storage.storage().reference().child("images").observe(.value){(Snapshot:DataSnapshot) in
+            }
+        
+    }*/
+    
     func uploadToFirebase(_ image: UIImage) {
         let imageName = NSUUID().uuidString
         let imageRef = Storage.storage().reference().child("images").child(imageName)
@@ -31,6 +44,18 @@ class PersonalProfileController: UIViewController {
                 //if let imageURL = metadata?.downloadURL()?.absoluteString {
             })
         }
+    }
+    @IBAction func logoutTapped(_ sender: Any) {
+        do{
+          
+            try Auth.auth().signOut()
+        } catch let logoutError{
+            print(logoutError)
+        }
+        //go back to login
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "logInVC")
+        self.present(signInVC,animated: true , completion: nil)
     }
     
     func setupAvatar(){
@@ -50,8 +75,9 @@ class PersonalProfileController: UIViewController {
     }
     
     
+    
 }
-extension PersonalProfileController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+extension PersonalProfileController:UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDataSource{
     
     func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
@@ -66,5 +92,18 @@ extension PersonalProfileController:UIImagePickerControllerDelegate,UINavigation
         uploadToFirebase(avatar.image!)
         picker.dismiss(animated: true, completion: nil)
     }
+    // decide how many rows table has
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
     
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //create reuasble cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        cell.textLabel?.text="\(indexPath.row)"
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+   
 }
