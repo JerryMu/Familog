@@ -467,7 +467,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-kn-KQ7">
-                                <rect key="frame" x="335" y="198" width="46" height="30"/>
+                                <rect key="frame" x="87" y="748" width="46" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -503,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMK-Lr-a3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527.536231884058" y="-338.16964285714283"/>
+            <point key="canvasLocation" x="2526.0869565217395" y="-338.16964285714283"/>
         </scene>
     </scenes>
     <resources>
