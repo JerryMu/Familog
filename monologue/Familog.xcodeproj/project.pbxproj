@@ -125,6 +125,7 @@
 		3575D489232215B200470564 /* LogInPage */ = {
 			isa = PBXGroup;
 			children = (
+				354D159F232CB1A400AB2431 /* ProfileController.swift */,
 				866F797223154AF90059FB81 /* ResetPasswordViewController.swift */,
 				86D45C71230B1195007724E4 /* WelcomeViewController.swift */,
 				869DAC7E230920C000ACF10C /* LogInViewController.swift */,
@@ -203,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				86D45C6D230B0E63007724E4 /* Constants.swift */,
-				354D159F232CB1A400AB2431 /* ProfileController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
