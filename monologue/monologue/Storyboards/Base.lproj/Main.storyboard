@@ -22,8 +22,8 @@
                             <userLayoutGuide location="394" affinity="minX"/>
                         </userGuides>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MainColorPage" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-Xe-KeG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainColorPage" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-Xe-KeG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-g8-xsC">
                                 <rect key="frame" x="20" y="355" width="374" height="186"/>
@@ -1014,7 +1014,8 @@
         <image name="Timeline" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VIj-YU-lVl"/>
-        <segue reference="Qqd-Xn-moQ"/>
+        <segue reference="mUk-iP-o5x"/>
+        <segue reference="y7X-DG-Gad"/>
+        <segue reference="E5Y-lA-JGn"/>
     </inferredMetricsTieBreakers>
 </document>

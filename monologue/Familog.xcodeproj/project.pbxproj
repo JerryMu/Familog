@@ -28,6 +28,7 @@
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5A2329CF2800AA852C /* Artifacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B592329CF2800AA852C /* Artifacts.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
+		B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DF038F2330AB8600AD14E5 /* Start.storyboard */; };
 		D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		B26E7B592329CF2800AA852C /* Artifacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifacts.swift; sourceTree = "<group>"; };
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
+		B2DF038F2330AB8600AD14E5 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		B678C54CDA1A2E953513EA2E /* Pods-Familog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.debug.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.release.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +227,7 @@
 		B2DF0388232A3B0D00AD14E5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				B2DF038F2330AB8600AD14E5 /* Start.storyboard */,
 				862AD3D6230298C200CB350C /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				862AD3DD230298C400CB350C /* LaunchScreen.storyboard in Resources */,
+				B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */,
 				862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */,
 				862AD3DA230298C400CB350C /* Assets.xcassets in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
