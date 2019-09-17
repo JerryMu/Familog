@@ -353,10 +353,10 @@
             </objects>
             <point key="canvasLocation" x="3277" y="2385"/>
         </scene>
-        <!--Profile Controller-->
+        <!--Profile Table View Controller-->
         <scene sceneID="ltk-Tx-EhE">
             <objects>
-                <tableViewController id="2dw-sU-kr7" customClass="ProfileController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2dw-sU-kr7" customClass="ProfileTableViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ttc-TU-3Sk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
