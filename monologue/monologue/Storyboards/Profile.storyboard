@@ -191,7 +191,7 @@
         <scene sceneID="sCx-xj-lW0">
             <objects>
                 <navigationController storyboardIdentifier="ProfileStoryBoard" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="btm-18-5hm" customClass="Pro" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Profile" id="OfP-kz-JCi">
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="OfP-kz-JCi">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -397,7 +397,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Profile" width="26" height="25"/>
         <image name="imageView:22k-cG-m1O:image" width="200" height="200">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGaWpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QGAcI
@@ -38001,5 +38000,6 @@ ImnlACJp5wAiaewAImn6ACJp/gAiagUAImoKACJqFwAiahoAImonACJqLAAiajQAImo3ACJqPAAiakQA
 ImpHACJqWQAialwAImphAAAAAAAABAEAAAAAAAAAbQAAAAAAAAAAAAAAAAAiamM
 </mutableData>
         </image>
+        <image name="profile" width="26" height="25"/>
     </resources>
 </document>
