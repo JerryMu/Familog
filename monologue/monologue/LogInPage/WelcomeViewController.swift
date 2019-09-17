@@ -17,7 +17,7 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    let storage = Storage.storage()
+//    let storage = Storage.storage()
     
 
     
@@ -33,14 +33,16 @@ class WelcomeViewController: UIViewController {
     */
 
 }
-extension WelcomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = "1"
-        cell.backgroundColor = UIColor.red
-        return cell
-    }
-}
+
+
+//extension WelcomeViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 100
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+//        cell.textLabel?.text = "1"
+//        cell.backgroundColor = UIColor.red
+//        return cell
+//    }
+//}
