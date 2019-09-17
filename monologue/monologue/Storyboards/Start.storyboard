@@ -23,7 +23,7 @@
                         </userGuides>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainColorPage" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-Xe-KeG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-g8-xsC">
                                 <rect key="frame" x="20" y="355" width="374" height="186"/>
@@ -102,7 +102,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dm7-g8-xsC" secondAttribute="trailing" constant="20" id="YNn-p2-rqH"/>
                             <constraint firstItem="dm7-g8-xsC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bsQ-YG-uCD"/>
                             <constraint firstItem="dm7-g8-xsC" firstAttribute="top" secondItem="cXZ-q0-Glz" secondAttribute="bottom" constant="114" id="gLE-n4-QgT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="E1V-Xe-KeG" secondAttribute="bottom" id="k02-dB-Teh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="E1V-Xe-KeG" secondAttribute="bottom" constant="-34" id="k02-dB-Teh"/>
                             <constraint firstItem="dm7-g8-xsC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n2l-Kz-kcb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E1V-Xe-KeG" secondAttribute="trailing" id="rRE-A8-QgU"/>
                             <constraint firstItem="E1V-Xe-KeG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ta4-Ll-o2q"/>
@@ -513,7 +513,7 @@
         <image name="Password_Icon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y7X-DG-Gad"/>
-        <segue reference="E5Y-lA-JGn"/>
+        <segue reference="VIj-YU-lVl"/>
+        <segue reference="y9K-j4-6Ru"/>
     </inferredMetricsTieBreakers>
 </document>

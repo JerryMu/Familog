@@ -523,20 +523,12 @@
         <!--UIViewController-BYZ-38-t0r-->
         <scene sceneID="Yjc-nv-YP3">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-BYZ-38-t0r" id="XTV-0o-f6l" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Start" referencedIdentifier="UIViewController-BYZ-38-t0r" id="XTV-0o-f6l" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3s6-bc-I0P"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRa-Nh-IWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1473.913043478261" y="90.401785714285708"/>
-        </scene>
-        <!--logInVC-->
-        <scene sceneID="dJB-6a-6s6">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="logInVC" storyboardName="Main" referencedIdentifier="logInVC" id="4v1-5f-8xU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FQP-3T-AgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2566.666666666667" y="515.625"/>
         </scene>
     </scenes>
     <resources>
