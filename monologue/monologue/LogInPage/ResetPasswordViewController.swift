@@ -36,10 +36,11 @@ class ResetPasswordViewController: UIViewController {
     }
     */
     func moveToLogInPage() {
-        let logInViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.logInViewController) as? LogInViewController
+        let logInViewController = storyboard?.instantiateViewController(withIdentifier: "logInVC") as? LogInViewController
         view.window?.rootViewController = logInViewController
         view.window?.makeKeyAndVisible()
     }
+    
     @IBAction func resetPasswordTapped(_ sender: Any) {
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             self.showErrorMessage("Please fill your email address")

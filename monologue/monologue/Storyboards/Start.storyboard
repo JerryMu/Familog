@@ -295,6 +295,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resetPasswordTapped:" destination="8K6-Ex-LGP" eventType="touchUpInside" id="ne9-MS-zV3"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D03-wh-VKx">
                                         <rect key="frame" x="0.0" y="120" width="340" height="40"/>
@@ -451,6 +454,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="5yf-wY-yrn" eventType="touchUpInside" id="Ek6-1M-lc4"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bed-Ue-wFv">
                                         <rect key="frame" x="0.0" y="360" width="334" height="20.5"/>
@@ -499,6 +505,7 @@
                         <outlet property="firstNameTextField" destination="0Vr-5b-cjT" id="O6w-7O-PjH"/>
                         <outlet property="lastNameTextField" destination="4YW-zj-Egj" id="CUf-vW-qxw"/>
                         <outlet property="passwordTextField" destination="0YY-b5-Daz" id="9Zj-gc-81z"/>
+                        <outlet property="signUpButton" destination="cxb-f9-5HV" id="Dfw-us-PC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMK-Lr-a3P" userLabel="First Responder" sceneMemberID="firstResponder"/>

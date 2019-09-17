@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     struct Storyboard {
-       static let welcomeViewController = "welcomeVC"
+       static let timeLineViewController = "timeLineVC"
        static let logInViewController = "logInVC"
     }
 }

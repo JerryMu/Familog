@@ -72,6 +72,7 @@ class SignUpViewController: UIViewController {
         if password != confirmedPassword {
             return " Please make sure that your passwords are same"
         }
+        
         return nil
     }
     
@@ -103,7 +104,7 @@ class SignUpViewController: UIViewController {
                             self.showErrorMessage("Error: Saving user data")
                         }
                     }
-                    self.moveToWelcomePage()
+                    self.moveToTimeLinePage()
                 }
             }
         }
@@ -111,9 +112,9 @@ class SignUpViewController: UIViewController {
     
 
     
-    func moveToWelcomePage() {
-        let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.welcomeViewController) as? WelcomeViewController
-        view.window?.rootViewController = welcomeViewController
+    func moveToTimeLinePage() {
+        let timeLineViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.timeLineViewController) as? TimeLineViewController
+        view.window?.rootViewController = timeLineViewController
         view.window?.makeKeyAndVisible()
     }
  }

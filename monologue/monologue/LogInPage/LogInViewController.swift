@@ -67,14 +67,14 @@ class LogInViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                self.moveToWelcomePage()
+                self.moveToTimeLinePage()
             }
         }
     }
     
-    func moveToWelcomePage() {
-        let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.welcomeViewController) as? WelcomeViewController
-        view.window?.rootViewController = welcomeViewController
-        view.window?.makeKeyAndVisible()
+    func moveToTimeLinePage() {
+        let storyboard = UIStoryboard(name: "Timeline", bundle: nil)
+        let TimeLineViewController = storyboard.instantiateViewController(withIdentifier: "timeLineVC") as UIViewController
+        present(TimeLineViewController, animated: true, completion: nil)
     }
 }
