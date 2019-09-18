@@ -6,21 +6,20 @@
 //
 
 import Foundation
-class User {
-    var email: String?
-    var profileImageUrl: String?
-    var username: String?
-    var id: String?
-    var isFollowing: Bool?
-}
+import FirebaseDatabase
+import FirebaseAuth
 
-extension User {
-    static func transformUser(dict: [String: Any], key: String) -> User {
-        let user = User()
-        user.email = dict["email"] as? String
-        user.profileImageUrl = dict["profileImageUrl"] as? String
-        user.username = dict["username"] as? String
-        user.id = key
-        return user
+class UserApi {
+    var REF_USERS = Database.database().reference().child("users")
+    
+    func observeUserByUsername(username: String, completion: @escaping (User) -> Void) {
+        REF_USERS.queryOrdered(byChild: "username_lowercase").queryEqual(toValue: username).observeSingleEvent(of: .childAdded, with: {
+            snapshot in
+            print(snapshot)
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.
+                completion(user)
+            }
+        })
     }
 }

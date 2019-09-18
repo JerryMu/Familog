@@ -14,7 +14,7 @@ class TimelineViewController: UIViewController {
     var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self as! UITableViewDataSource
+        tableView.dataSource = self as UITableViewDataSource
         loadPosts()
         
         //        var post = Post(captionText: "test", photoUrlString: "url1")
