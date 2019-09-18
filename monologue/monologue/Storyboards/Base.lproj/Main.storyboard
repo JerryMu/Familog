@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="563.768115942029" y="90.401785714285708"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="tja-D4-hWY">
             <objects>
-                <tabBarController id="91f-RJ-gNu" sceneMemberID="viewController">
+                <tabBarController id="91f-RJ-gNu" customClass="TabBarViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1z7-tP-N5W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

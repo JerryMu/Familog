@@ -27,11 +27,12 @@
 		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
 		86D45C6E230B0E63007724E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C6D230B0E63007724E4 /* Constants.swift */; };
-		86D45C72230B1195007724E4 /* TimeLIneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C71230B1195007724E4 /* TimeLIneViewController.swift */; };
+		86D45C72230B1195007724E4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C71230B1195007724E4 /* WelcomeViewController.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5A2329CF2800AA852C /* Artifacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B592329CF2800AA852C /* Artifacts.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
 		B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DF038F2330AB8600AD14E5 /* Start.storyboard */; };
+		B2DF03922331D4AF00AD14E5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */; };
 		D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +82,7 @@
 		869DAC7E230920C000ACF10C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		869DAC80230920CD00ACF10C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		86D45C6D230B0E63007724E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		86D45C71230B1195007724E4 /* TimeLIneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLIneViewController.swift; sourceTree = "<group>"; };
+		86D45C71230B1195007724E4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +91,7 @@
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		B2DF038F2330AB8600AD14E5 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B678C54CDA1A2E953513EA2E /* Pods-Familog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.debug.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.release.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				866F797223154AF90059FB81 /* ResetPasswordViewController.swift */,
-				86D45C71230B1195007724E4 /* TimeLIneViewController.swift */,
+				86D45C71230B1195007724E4 /* WelcomeViewController.swift */,
 				869DAC7E230920C000ACF10C /* LogInViewController.swift */,
 				862AD3D4230298C200CB350C /* ViewController.swift */,
 				869DAC80230920CD00ACF10C /* SignUpViewController.swift */,
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */,
+				B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */,
 				354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */,
 				354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */,
 			);
@@ -486,7 +489,8 @@
 				862AD3D5230298C200CB350C /* ViewController.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
-				86D45C72230B1195007724E4 /* TimeLIneViewController.swift in Sources */,
+				86D45C72230B1195007724E4 /* WelcomeViewController.swift in Sources */,
+				B2DF03922331D4AF00AD14E5 /* TabBarViewController.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,

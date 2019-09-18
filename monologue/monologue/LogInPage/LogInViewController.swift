@@ -73,8 +73,8 @@ class LogInViewController: UIViewController {
     }
     
     func moveToTimeLinePage() {
-        let storyboard = UIStoryboard(name: "Timeline", bundle: nil)
-        let TimeLineViewController = storyboard.instantiateViewController(withIdentifier: "timeLineVC") as UIViewController
+        let storyboard = UIStoryboard(name: "TabBarViewController", bundle: nil)
+        let TimeLineViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as UIViewController
         present(TimeLineViewController, animated: true, completion: nil)
     }
 }
