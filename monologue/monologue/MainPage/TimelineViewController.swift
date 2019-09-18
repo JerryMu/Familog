@@ -14,13 +14,10 @@ class TimelineViewController: UIViewController {
     var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self as! UITableViewDataSource
+        tableView.estimatedRowHeight = 521
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.dataSource = self
         loadPosts()
-        
-        //        var post = Post(captionText: "test", photoUrlString: "url1")
-        //        print(post.caption)
-        //        print(post.photoUrl)
-        
     }
     
     func loadPosts() {
@@ -38,11 +35,15 @@ class TimelineViewController: UIViewController {
 
 extension TimelineViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = posts[indexPath.row].caption
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
+        cell.profileImageView.image = UIImage(named: "Head_Icon.png")
+        cell.nameLabel.text = "Leo Xiao"
+        cell.postImageView.image = UIImage(named: "photo2.jpeg")
+        cell.captionLabel.text = "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest"
+//        cell.textLabel?.text = posts[indexPath.row].caption
         return cell
     }
 }

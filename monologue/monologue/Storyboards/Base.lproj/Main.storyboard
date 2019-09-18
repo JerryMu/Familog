@@ -62,7 +62,9 @@
         <scene sceneID="lXC-vS-ETi">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="TimeLineStoryBoard" storyboardName="Timeline" referencedIdentifier="TimeLineStoryBoard" id="VDi-C9-4AJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aAR-11-wbK"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="Timeline" id="aAR-11-wbK">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUJ-HF-4cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,4 +91,7 @@
             <point key="canvasLocation" x="1962" y="1358"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Timeline" width="25" height="25"/>
+    </resources>
 </document>
