@@ -32,7 +32,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="tja-D4-hWY">
             <objects>
-                <tabBarController id="91f-RJ-gNu" customClass="TabBarViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Tabbar" id="91f-RJ-gNu" customClass="TabBarViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1z7-tP-N5W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

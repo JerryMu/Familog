@@ -113,8 +113,8 @@ class SignUpViewController: UIViewController {
 
     
     func moveToTimeLinePage() {
-        let timeLineViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.timeLineViewController) as? TimeLineViewController
-        view.window?.rootViewController = timeLineViewController
-        view.window?.makeKeyAndVisible()
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        self.present(newViewController, animated: true, completion: nil)
     }
  }
