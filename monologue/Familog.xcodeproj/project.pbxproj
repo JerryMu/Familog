@@ -14,6 +14,8 @@
 		354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */; };
 		354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159B232CB0F600AB2431 /* ProfileCell.swift */; };
 		354D15A0232CB1A400AB2431 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */; };
+		358E616123322E8600A5A8B8 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E616023322E8600A5A8B8 /* TimelineViewController.swift */; };
+		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
 		862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3D2230298C200CB350C /* AppDelegate.swift */; };
 		862AD3D5230298C200CB350C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3D4230298C200CB350C /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 		354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileController.swift; sourceTree = "<group>"; };
 		354D159B232CB0F600AB2431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		358E616023322E8600A5A8B8 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CE091D6A183E072ED8870F0 /* Pods-Familog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.release.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,14 @@
 			path = LogInPage;
 			sourceTree = "<group>";
 		};
+		358E61622332373C00A5A8B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				358E61632332375500A5A8B8 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		862AD3C6230298C100CB350C = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		862AD3D1230298C200CB350C /* monologue */ = {
 			isa = PBXGroup;
 			children = (
+				358E61622332373C00A5A8B8 /* Model */,
 				86D45C6C230B0E40007724E4 /* HelperClass */,
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
 				354D159B232CB0F600AB2431 /* ProfileCell.swift */,
@@ -222,6 +235,7 @@
 		B26E7B4C2329260F00AA852C /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
+				358E616023322E8600A5A8B8 /* TimelineViewController.swift */,
 				B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */,
 				B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */,
 				354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */,
@@ -492,8 +506,10 @@
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
 				354D15A0232CB1A400AB2431 /* ProfileTableViewController.swift in Sources */,
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
+				358E61642332375500A5A8B8 /* Post.swift in Sources */,
 				B26E7B5A2329CF2800AA852C /* Artifacts.swift in Sources */,
 				354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */,
+				358E616123322E8600A5A8B8 /* TimelineViewController.swift in Sources */,
 				B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */,
 				866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */,
 			);
