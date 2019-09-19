@@ -7,6 +7,7 @@
 
 import UIKit
 
+//The main page of personal profile storyboard
 class ProfileViewController: UIViewController {
     var user: User!
     var posts: [Post] = []

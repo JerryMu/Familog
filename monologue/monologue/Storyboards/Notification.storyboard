@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="1123" y="1551"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--Notification-->
         <scene sceneID="VLA-uF-SeV">
             <objects>
                 <viewController id="osa-bq-emt" customClass="NotificationViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +132,7 @@
                     <tabBarItem key="tabBarItem" title="" image="Notification" id="ER8-dg-qFL">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="Oz9-2x-d2o"/>
+                    <navigationItem key="navigationItem" title="Notification" id="Zgt-bW-323"/>
                     <connections>
                         <outlet property="tableView" destination="oaU-4V-V9g" id="o7i-k8-6YV"/>
                     </connections>
