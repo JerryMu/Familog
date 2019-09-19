@@ -165,6 +165,8 @@
 		35E6A2E32332616C00B66E4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				354D159B232CB0F600AB2431 /* ProfileCell.swift */,
+				38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */,
 				35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */,
 			);
 			name = Views;
@@ -199,8 +201,6 @@
 				358E61622332373C00A5A8B8 /* Model */,
 				86D45C6C230B0E40007724E4 /* HelperClass */,
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
-				38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */,
-				354D159B232CB0F600AB2431 /* ProfileCell.swift */,
 				8646B1FF2309119900A4C785 /* ViewControllers */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
 				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
