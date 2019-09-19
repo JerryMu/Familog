@@ -209,13 +209,24 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoCell" id="77S-qK-5El">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoCollectionViewCell" id="77S-qK-5El">
                                         <rect key="frame" x="0.0" y="180" width="84" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="84" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIZ-EE-fnK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="86"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="iIZ-EE-fnK" firstAttribute="leading" secondItem="77S-qK-5El" secondAttribute="leading" id="QZa-jP-Nul"/>
+                                            <constraint firstAttribute="trailing" secondItem="iIZ-EE-fnK" secondAttribute="trailing" id="bY6-jD-M2Z"/>
+                                            <constraint firstItem="iIZ-EE-fnK" firstAttribute="top" secondItem="77S-qK-5El" secondAttribute="top" id="efR-pO-EXs"/>
+                                            <constraint firstAttribute="bottom" secondItem="iIZ-EE-fnK" secondAttribute="bottom" id="wEe-2J-93o"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileHeaderCollectionReusableView" id="QhJ-u3-tOI" customClass="ProfileHeaderCollectionReusableView" customModule="Familog" customModuleProvider="target">
@@ -235,30 +246,30 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-aZ-dIX">
-                                            <rect key="frame" x="15" y="130" width="34.5" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="15" y="130" width="37" height="26.5"/>
+                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7w5-q2-mU1">
                                             <rect key="frame" x="130" y="15" width="269" height="100"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8gS-Od-MHM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="62"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xjn-pH-YyF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="62"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-38-0Jw">
-                                                                    <rect key="frame" x="121" y="0.0" width="27" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="121" y="0.0" width="27" height="26.5"/>
+                                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artifacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nb-Hq-gnb">
-                                                                    <rect key="frame" x="107" y="27" width="55.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <rect key="frame" x="101" y="35.5" width="67.5" height="26.5"/>
+                                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -266,12 +277,12 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7x-qE-PWJ">
-                                                    <rect key="frame" x="0.0" y="52" width="269" height="30"/>
+                                                    <rect key="frame" x="0.0" y="70" width="269" height="30"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.89411764709999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="PLg-4Z-N1d"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                     <state key="normal" title="Edit Profile">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -282,7 +293,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="1Yb-we-wbY"/>
                                                 <constraint firstAttribute="trailing" secondItem="8gS-Od-MHM" secondAttribute="trailing" id="KU9-3e-au0"/>
@@ -294,6 +305,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="7w5-q2-mU1" firstAttribute="top" secondItem="QhJ-u3-tOI" secondAttribute="top" constant="15" id="3NT-os-rc2"/>
                                         <constraint firstItem="xPQ-aZ-dIX" firstAttribute="top" secondItem="8V0-gy-JN6" secondAttribute="bottom" constant="15" id="6Di-Xc-VIt"/>
@@ -303,6 +315,11 @@
                                         <constraint firstItem="7w5-q2-mU1" firstAttribute="leading" secondItem="8V0-gy-JN6" secondAttribute="trailing" constant="15" id="qhh-3n-8YV"/>
                                         <constraint firstAttribute="trailing" secondItem="7w5-q2-mU1" secondAttribute="trailing" constant="15" id="x2n-qa-3Pb"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="artifactsNumberLabel" destination="OqA-38-0Jw" id="OaK-73-DXl"/>
+                                        <outlet property="nameLabel" destination="xPQ-aZ-dIX" id="cv5-sd-byd"/>
+                                        <outlet property="profileImage" destination="8V0-gy-JN6" id="KZt-vt-Gc0"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
@@ -324,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQI-h3-T6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="289"/>
+            <point key="canvasLocation" x="2569.5652173913045" y="287.94642857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jN3-Ml-oX8">
