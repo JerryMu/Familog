@@ -1,15 +1,15 @@
  //
-//  SignUpViewController.swift
-//  monologue
-//
-//  Created by 袁翥 on 2019/8/18.
-//
-
-import UIKit
-import FirebaseAuth
-import FirebaseFirestore
+ //  SignUpViewController.swift
+ //  monologue
+ //
+ //  Created by 袁翥 on 2019/8/18.
+ //
  
-class SignUpViewController: UIViewController {
+ import UIKit
+ import FirebaseAuth
+ import FirebaseFirestore
+ 
+ class SignUpViewController: UIViewController {
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -22,35 +22,17 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
         // Do any additional setup after loading the view.
     }
     
-    func setUpElements() {
-        errorLabel.alpha = 0
-    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // Make a standard format of password : "It must have at least one uppercase letter, one lowercase letter and one number, the length of the password should be greater than 8
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]{8,}")
         return passwordTest.evaluate(with: password)
     }
     
-    
-    func showErrorMessage(_ message:String) {
-        errorLabel.alpha = 1
-        errorLabel.text = message
-    }
-    
-
+    // Validate all the field users fill, if there any error, return the error message, otherwise returns nil
     func validateFields() -> String? {
         
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -78,12 +60,11 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUpTapped(_ sender: Any) {
-        // Validate
         let error = validateFields()
         
+        // Something wrong show error message!
         if error != nil {
-            // something wrong show error message!
-            showErrorMessage(error!)
+            Alert.presentAlert(on: self, with: "Error!", message: error!)
         }
         else {
             // Create users
@@ -95,13 +76,14 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 if err != nil {
-                    self.showErrorMessage("Error: Creating user")
+                    Alert.presentAlert(on: self, with: "Error!", message: "Creating user")
                 }
+                    // Upload user information to database
                 else {
                     let db = Firestore.firestore()
-                    db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName,"uid":result!.user.uid]) { (error) in
+                    db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName,"uid":result!.user.uid, "email": email]) { (error) in
                         if error != nil {
-                            self.showErrorMessage("Error: Saving user data")
+                            Alert.presentAlert(on: self, with: "Error!", message: "Saving user data")
                         }
                     }
                     self.moveToTimeLinePage()
@@ -110,10 +92,10 @@ class SignUpViewController: UIViewController {
         }
     }
     
-
     
+    // Move to timeline page
     func moveToTimeLinePage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }

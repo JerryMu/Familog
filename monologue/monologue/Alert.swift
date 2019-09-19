@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+struct Alert {
+    static func presentAlert(on vc: UIViewController, with title: String, message: String) {
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        DispatchQueue.main.async {
+            vc.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+}

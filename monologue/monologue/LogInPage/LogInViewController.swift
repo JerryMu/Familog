@@ -17,54 +17,20 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
-
         // Do any additional setup after loading the view.
     }
     
-    func setUpElements() {
-        errorLabel.alpha = 0
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-//    func showErrorMessage(_ message:String) {
-//        errorLabel.alpha = 1
-//        errorLabel.text = message
-//    }
-//
-//    func validateFields() -> String? {
-//        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-//            return "Please fill the email"
-//        }
-//        if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-//            return "Please fill the password"
-//        }
-//        return nil
-//    }
     
+    // The function of log in
     @IBAction func logInTapped(_ sender: Any) {
-//        // Validate
-//        let errMessage = validateFields()
-//        if errMessage != nil {
-//            self.showErrorMessage(errMessage!)
-//        }
         
         let email = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        // Sign in
+        
+        // Validate first, if success then sign in and move to the timeline page
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
+                Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
             }
             else {
                 self.moveToTimeLinePage()
@@ -72,8 +38,9 @@ class LogInViewController: UIViewController {
         }
     }
     
+    // Move to the timeline page
     func moveToTimeLinePage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }

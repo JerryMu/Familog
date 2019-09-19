@@ -15,45 +15,34 @@ class ResetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
-
-    }
-    func setUpElements() {
-        errorLabel.alpha = 0
-    }
-    func showErrorMessage(_ message:String) {
-        errorLabel.alpha = 1
-        errorLabel.text = message
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func moveToLogInPage() {
-        let logInViewController = storyboard?.instantiateViewController(withIdentifier: "logInVC") as? LogInViewController
-        view.window?.rootViewController = logInViewController
-        view.window?.makeKeyAndVisible()
     }
     
+    
+    // Move to log in page
+    func moveToLogInPage() {
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let logInViewController = storyboard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
+        self.present(logInViewController, animated: true, completion: nil)
+    }
+    
+    // The function of reset password
     @IBAction func resetPasswordTapped(_ sender: Any) {
+        // Validate the email address, if it is nil, shows error message
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            self.showErrorMessage("Please fill your email address")
+            Alert.presentAlert(on: self, with: "Error!", message: "Please fill your email address")
         }
+            
+            // If the email address is not nil, send the reset password email to it
         else {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().sendPasswordReset(withEmail: email) { (error) in
                 if error != nil {
-                    self.showErrorMessage(error!.localizedDescription)
+                    Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
                 }
-            
+                
             }
             self.moveToLogInPage()
-        
+            
         }
     }
 }
