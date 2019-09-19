@@ -9,26 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="4Jg-8H-9kc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ctR-qt-XGw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eo1-kb-xd3">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fda-Gx-ftQ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="XTV-0o-f6l" kind="relationship" relationship="rootViewController" id="Qqd-Xn-moQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQu-Ib-AUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="563.768115942029" y="90.401785714285708"/>
-        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="tja-D4-hWY">
             <objects>
@@ -47,16 +27,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sa9-U7-10c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564" y="1067"/>
-        </scene>
-        <!--Authentication-->
-        <scene sceneID="Yjc-nv-YP3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Start" referencedIdentifier="Authentication" id="XTV-0o-f6l" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="3s6-bc-I0P"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XRa-Nh-IWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1473.913043478261" y="90.401785714285708"/>
         </scene>
         <!--TimeLineStoryBoard-->
         <scene sceneID="lXC-vS-ETi">
