@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 19/9/19.
 //
+//  Collection View Controller for display all user artifacts
 
 import UIKit
 
@@ -21,7 +22,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             updateView()
         }
     }
-    
+    //update profile photo
     func updateView() {
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)

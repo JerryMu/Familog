@@ -4,9 +4,8 @@
 //
 //  Created by Ziyuan on 18/09/19.
 //
-
-
 //In this file, we will create a class, each instance of which holds the data of a post we retrieve from the database.
+
 import Foundation
 class Post {
     var caption: String?
@@ -14,9 +13,6 @@ class Post {
     var videoUrl: String?
     var id : String?
 }
-
-
-
 
 // Unlike using initializers, here we use different methods with distinctly meaningful name for
 // creating corresponding post instances.
