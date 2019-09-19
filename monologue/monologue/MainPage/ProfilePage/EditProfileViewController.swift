@@ -89,8 +89,9 @@ extension EditProfileViewController:UIImagePickerControllerDelegate,UINavigation
             UIImage{
             avatar.image = imageOriginal
         }
-        
+        //uploadToFirebase
         uploadToFirebase(avatar.image!)
+        // close it
         picker.dismiss(animated: true, completion: nil)
 }
 }
