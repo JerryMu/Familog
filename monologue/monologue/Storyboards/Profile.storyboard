@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Edit Profile View Controller-->
         <scene sceneID="ZDJ-Lr-NfU">
             <objects>
-                <viewController id="OCk-3r-kcE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="4rz-NN-AwP" userLabel="screen">
+                <viewController id="OCk-3r-kcE" customClass="EditProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4rz-NN-AwP" userLabel="screen">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -81,6 +81,11 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imageView:22k-cG-m1O:image" translatesAutoresizingMaskIntoConstraints="NO" id="22k-cG-m1O">
                                                         <rect key="frame" x="-7" y="0.0" width="200" height="200"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="50"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,6 +187,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18K-X5-lhV"/>
                     </view>
+                    <connections>
+                        <outlet property="avatar" destination="22k-cG-m1O" id="ury-hK-X9q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FT3-PC-RMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -607,10 +615,10 @@
             </objects>
             <point key="canvasLocation" x="4878" y="179"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Setting Table View Controller-->
         <scene sceneID="5TZ-Jl-nRG">
             <objects>
-                <tableViewController id="xap-3g-eFC" sceneMemberID="viewController">
+                <tableViewController id="xap-3g-eFC" customClass="SettingTableViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="siW-0s-Z6P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -739,6 +747,12 @@
                                                     <state key="normal" title="Log Out">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="dd:" destination="d4r-6Q-lcl" eventType="touchUpInside" id="knl-Ji-DOf"/>
+                                                        <action selector="logoutButtonTapped:" destination="d4r-6Q-lcl" eventType="touchUpInside" id="lLK-1b-DsY"/>
+                                                        <action selector="logoutTapped:" destination="xap-3g-eFC" eventType="touchUpInside" id="Cd2-1J-RCx"/>
+                                                        <action selector="rrr:" destination="d4r-6Q-lcl" eventType="touchUpInside" id="vc5-fU-LLH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -757,6 +771,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BrF-Wy-14f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="d4r-6Q-lcl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3577" y="288"/>
         </scene>
