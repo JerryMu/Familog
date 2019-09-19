@@ -4,6 +4,10 @@
 //
 //  Created by Pengyu Mu on 12/9/19.
 //
+//for "editprofile" StoryBoard
+//Developed Function:
+//  1.Change profile Photo
+//  2.Edit user Name
 
 import Foundation
 import UIKit
@@ -15,6 +19,7 @@ import FirebaseDatabase
 
 class EditProfileViewController: UIViewController {
     
+    // set profile photo function
     @IBOutlet weak var avatar: UIImageView!
     //    @IBOutlet weak var toolBar: UIView!
 //    @IBOutlet weak var cofrimEditButton: UIView!
@@ -36,7 +41,7 @@ class EditProfileViewController: UIViewController {
             })
         }
     }
-    
+    // setup Avatar
     func setupAvatar(){
         
         avatar.layer.cornerRadius = 40
@@ -57,6 +62,7 @@ class EditProfileViewController: UIViewController {
     
     
 }
+//
 extension EditProfileViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           return 100

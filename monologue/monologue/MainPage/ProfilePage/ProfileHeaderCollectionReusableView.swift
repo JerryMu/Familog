@@ -4,7 +4,7 @@
 //
 //  Created by Pengyu Mu on 18/9/19.
 //
-
+//For personal profile page header
 import UIKit
 
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
@@ -19,6 +19,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         }
     }
     
+    //get current users' information
     func updateView(){
 //        Api.User.REF_CURRENT_USER?.observeSingleEvent(of: .value, with: {
 //            snapshot in
