@@ -20,18 +20,10 @@ class PersonalProfileController: UIViewController {
         setupAvatar()
         // use an instance of it to supply data to this particular table view
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
         
         //load posts updated on the database
-        //  loadPost()
     }
-    
-    /*  func loadPost(){
-     Storage.storage().reference().child("images").observe(.value){(Snapshot:DataSnapshot) in
-     }
-     
-     }*/
-    
+    // upload the avatar to the firebase
     func uploadToFirebase(_ image: UIImage) {
         let imageName = NSUUID().uuidString
         let imageRef = Storage.storage().reference().child("images").child(imageName)
@@ -41,13 +33,14 @@ class PersonalProfileController: UIViewController {
                     print("Failed to upload")
                     return
                 }
-                //if let imageURL = metadata?.downloadURL()?.absoluteString {
+               
             })
         }
     }
+    // logout
     @IBAction func logoutTapped(_ sender: Any) {
         do{
-            
+            // database signout
             try Auth.auth().signOut()
         } catch let logoutError{
             print(logoutError)
@@ -80,10 +73,12 @@ class PersonalProfileController: UIViewController {
 extension PersonalProfileController:UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDataSource{
     
     func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
+        //editedImage
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
             UIImage{
             avatar.image = imageSelected
         }
+        //originalImage
         if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as?
             UIImage{
             avatar.image = imageOriginal
