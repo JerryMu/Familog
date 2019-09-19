@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Edit Profile View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="ZDJ-Lr-NfU">
             <objects>
                 <viewController id="OCk-3r-kcE" customClass="EditProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4rz-NN-AwP" userLabel="screen">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="4rz-NN-AwP" userLabel="screen">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -187,6 +187,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="18K-X5-lhV"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="38a-kv-IOi"/>
                     <connections>
                         <outlet property="avatar" destination="22k-cG-m1O" id="ury-hK-X9q"/>
                     </connections>
@@ -195,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="2570" y="1002"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="t9d-ys-VnL">
             <objects>
                 <viewController id="kkP-1o-Wh4" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
@@ -343,7 +344,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sVe-Tt-1JI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fg6-GY-Lb2">
+                    <navigationItem key="navigationItem" title="Profile" id="Fg6-GY-Lb2">
                         <barButtonItem key="rightBarButtonItem" image="setting" id="Rxo-WU-vlk">
                             <connections>
                                 <segue destination="xap-3g-eFC" kind="show" id="9bb-b0-GxC"/>
@@ -615,7 +616,7 @@
             </objects>
             <point key="canvasLocation" x="4878" y="179"/>
         </scene>
-        <!--Setting Table View Controller-->
+        <!--Setting-->
         <scene sceneID="5TZ-Jl-nRG">
             <objects>
                 <tableViewController id="xap-3g-eFC" customClass="SettingTableViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
@@ -719,8 +720,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5R-Ix-Ep3">
-                                                    <rect key="frame" x="190" y="7" width="34" height="30"/>
-                                                    <state key="normal" title="Save">
+                                                    <rect key="frame" x="160" y="7" width="94" height="30"/>
+                                                    <state key="normal" title="Switch Family">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
@@ -769,6 +770,7 @@
                             <outlet property="delegate" destination="xap-3g-eFC" id="83q-4Q-wie"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Setting" id="swC-r0-8dU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BrF-Wy-14f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="d4r-6Q-lcl" userLabel="Exit" sceneMemberID="exit"/>
