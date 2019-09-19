@@ -11,9 +11,7 @@
 		35005A242330BF3B00239C7E /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A232330BF3B00239C7E /* Timeline.storyboard */; };
 		35005A262330BF8300239C7E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* Notification.storyboard */; };
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
-		354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */; };
 		354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159B232CB0F600AB2431 /* ProfileCell.swift */; };
-		354D15A0232CB1A400AB2431 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
@@ -66,9 +64,7 @@
 		35005A232330BF3B00239C7E /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		35005A252330BF8300239C7E /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		35005A2D2330C23500239C7E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileController.swift; sourceTree = "<group>"; };
 		354D159B232CB0F600AB2431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,8 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */,
-				354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */,
-				354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */,
 				B2BF6970233260A000E846D5 /* ProfileHeaderCollectionReusableView.swift */,
 				B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */,
 				B2BF69722332612000E846D5 /* ProfileViewController.swift */,
@@ -564,14 +558,12 @@
 				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
-				354D15A0232CB1A400AB2431 /* ProfileTableViewController.swift in Sources */,
 				B2BF6971233260A000E846D5 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
 				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,
-				354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */,
 				B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */,
 				866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */,
 				B2BF69772332F4BF00E846D5 /* Api.swift in Sources */,
@@ -752,13 +744,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.monologue";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -772,13 +764,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.monologue";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

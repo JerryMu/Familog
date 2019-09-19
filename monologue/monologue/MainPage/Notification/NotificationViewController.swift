@@ -30,14 +30,16 @@ class NotificationViewController: UIViewController {
     
 }
 extension NotificationViewController: UITableViewDataSource {
+    //numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath) as! NotificationTableViewCell
-        
+        // the name of notification
         cell.nameLabel.text = "Jim"
-        
+        //avatar
         cell.profileImage.image = UIImage(named: "Head_Icon")
         return cell
     }

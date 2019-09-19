@@ -42,6 +42,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     
 }
 
+//set image distance and image size
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
