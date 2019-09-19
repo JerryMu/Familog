@@ -14,7 +14,6 @@
 		354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */; };
 		354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159B232CB0F600AB2431 /* ProfileCell.swift */; };
 		354D15A0232CB1A400AB2431 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */; };
-		358E616123322E8600A5A8B8 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E616023322E8600A5A8B8 /* TimelineViewController.swift */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
@@ -40,8 +39,9 @@
 		B2BF69752332F3BD00E846D5 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69742332F3BD00E846D5 /* UserApi.swift */; };
 		B2BF69772332F4BF00E846D5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69762332F4BF00E846D5 /* Api.swift */; };
 		B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */; };
+		B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF697E233335E900E846D5 /* TabBarViewController.swift */; };
+		B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF6980233335F500E846D5 /* TimelineViewController.swift */; };
 		B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DF038F2330AB8600AD14E5 /* Start.storyboard */; };
-		B2DF03922331D4AF00AD14E5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */; };
 		D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,6 @@
 		354D1599232CB0AC00AB2431 /* PersonalProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileController.swift; sourceTree = "<group>"; };
 		354D159B232CB0F600AB2431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		354D159F232CB1A400AB2431 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
-		358E616023322E8600A5A8B8 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +107,9 @@
 		B2BF69742332F3BD00E846D5 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		B2BF69762332F4BF00E846D5 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B2BF697E233335E900E846D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B2BF6980233335F500E846D5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		B2DF038F2330AB8600AD14E5 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
-		B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B678C54CDA1A2E953513EA2E /* Pods-Familog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.debug.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.release.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +156,7 @@
 		358E61622332373C00A5A8B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B26E7B572329CF0000AA852C /* User.swift */,
 				358E61632332375500A5A8B8 /* Post.swift */,
 			);
 			name = Model;
@@ -240,7 +241,6 @@
 		86D45C6C230B0E40007724E4 /* HelperClass */ = {
 			isa = PBXGroup;
 			children = (
-				B26E7B572329CF0000AA852C /* User.swift */,
 				86D45C6D230B0E63007724E4 /* Constants.swift */,
 				B2BF69742332F3BD00E846D5 /* UserApi.swift */,
 				B2BF69762332F4BF00E846D5 /* Api.swift */,
@@ -262,10 +262,9 @@
 		B26E7B4C2329260F00AA852C /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
+				B2BF697D2333348800E846D5 /* TimeLine */,
+				B2BF697C2333345A00E846D5 /* Notification */,
 				B2BF696B23325F1500E846D5 /* ProfilePage */,
-				358E616023322E8600A5A8B8 /* TimelineViewController.swift */,
-				B2DF03912331D4AF00AD14E5 /* TabBarViewController.swift */,
-				38880F152333323400E407A2 /* NotificationViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -282,6 +281,23 @@
 				38880F1B23333DC600E407A2 /* SettingTableViewController.swift */,
 			);
 			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		B2BF697C2333345A00E846D5 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				38880F152333323400E407A2 /* NotificationViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		B2BF697D2333348800E846D5 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				B2BF697E233335E900E846D5 /* TabBarViewController.swift */,
+				B2BF6980233335F500E846D5 /* TimelineViewController.swift */,
+			);
+			path = TimeLine;
 			sourceTree = "<group>";
 		};
 		B2DF0388232A3B0D00AD14E5 /* Storyboards */ = {
@@ -543,7 +559,7 @@
 				862AD3D5230298C200CB350C /* ViewController.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
-				B2DF03922331D4AF00AD14E5 /* TabBarViewController.swift in Sources */,
+				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
@@ -553,9 +569,9 @@
 				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
+				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,
 				354D159A232CB0AC00AB2431 /* PersonalProfileController.swift in Sources */,
-				358E616123322E8600A5A8B8 /* TimelineViewController.swift in Sources */,
 				B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */,
 				866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */,
 				B2BF69772332F4BF00E846D5 /* Api.swift in Sources */,

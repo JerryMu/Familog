@@ -10,10 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="4Es-iJ-ZkV">
+            <objects>
+                <navigationController storyboardIdentifier="NotificationStoryBoard" id="r3E-Vf-fS6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jyS-xn-Obh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="osa-bq-emt" kind="relationship" relationship="rootViewController" id="48b-01-ith"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGo-yn-yY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1123" y="1551"/>
+        </scene>
         <!--Notification View Controller-->
         <scene sceneID="VLA-uF-SeV">
             <objects>
-                <viewController storyboardIdentifier="NotificationStoryBoard" id="osa-bq-emt" customClass="NotificationViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="osa-bq-emt" customClass="NotificationViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MDV-oU-2gP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +40,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oaU-4V-V9g">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotificationTableViewCell" rowHeight="124" id="6Hs-0V-oin" customClass="NotificationTableViewCell" customModule="Familog" customModuleProvider="target">
@@ -116,6 +132,7 @@
                     <tabBarItem key="tabBarItem" title="" image="Notification" id="ER8-dg-qFL">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="Oz9-2x-d2o"/>
                     <connections>
                         <outlet property="tableView" destination="oaU-4V-V9g" id="o7i-k8-6YV"/>
                     </connections>
