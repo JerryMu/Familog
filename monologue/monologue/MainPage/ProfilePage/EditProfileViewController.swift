@@ -16,15 +16,13 @@ import FirebaseDatabase
 class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var avatar: UIImageView!
-    //    @IBOutlet weak var toolBar: UIView!
-//    @IBOutlet weak var cofrimEditButton: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAvatar()
-//        cofrimEditButton.backgroundColor = UIColor.blue;
     }
     func uploadToFirebase(_ image: UIImage) {
         let imageName = NSUUID().uuidString
+        //where to put the image data in the database
         let imageRef = Storage.storage().reference().child("images").child(imageName)
         if  let uploadData = image.jpegData(compressionQuality: 0.2) {
             imageRef.putData(uploadData, metadata: nil, completion: {(metadata, error) in
@@ -32,14 +30,15 @@ class EditProfileViewController: UIViewController {
                     print("Failed to upload")
                     return
                 }
-                
             })
         }
     }
     
     func setupAvatar(){
-        
-        avatar.layer.cornerRadius = 40
+        avatar.layer.borderWidth = 1
+        avatar.layer.masksToBounds = false
+        avatar.layer.borderColor = UIColor.black.cgColor
+        avatar.layer.cornerRadius = avatar.frame.height/2
         avatar.clipsToBounds = true
         avatar.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self ,action: #selector(presentPicker))
