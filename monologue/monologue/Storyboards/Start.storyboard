@@ -472,11 +472,6 @@
                                     <constraint firstItem="FL7-SQ-oXB" firstAttribute="height" secondItem="0YY-b5-Daz" secondAttribute="height" id="g3t-LP-dF4"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-kn-KQ7">
-                                <rect key="frame" x="87" y="748" width="46" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -520,7 +515,7 @@
         <image name="Password_Icon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y7X-DG-Gad"/>
-        <segue reference="y9K-j4-6Ru"/>
+        <segue reference="VIj-YU-lVl"/>
+        <segue reference="E5Y-lA-JGn"/>
     </inferredMetricsTieBreakers>
 </document>
