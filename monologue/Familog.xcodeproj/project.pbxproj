@@ -20,8 +20,9 @@
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
 		861571FE233361F400AD5CB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861571FD233361F400AD5CB5 /* Alert.swift */; };
 		861572002333631B00AD5CB5 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861571FF2333631B00AD5CB5 /* UploadViewController.swift */; };
+		86157202233492E200AD5CB5 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86157201233492E200AD5CB5 /* Start.storyboard */; };
 		862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3D2230298C200CB350C /* AppDelegate.swift */; };
-		862AD3D5230298C200CB350C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3D4230298C200CB350C /* ViewController.swift */; };
+		862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3D4230298C200CB350C /* WelcomeViewController.swift */; };
 		862AD3D8230298C200CB350C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3D6230298C200CB350C /* Main.storyboard */; settings = {ASSET_TAGS = (PersonalProfile, ); }; };
 		862AD3DA230298C400CB350C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3D9230298C400CB350C /* Assets.xcassets */; };
 		862AD3DD230298C400CB350C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3DB230298C400CB350C /* LaunchScreen.storyboard */; };
@@ -41,7 +42,6 @@
 		B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */; };
 		B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF697E233335E900E846D5 /* TabBarViewController.swift */; };
 		B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF6980233335F500E846D5 /* TimelineViewController.swift */; };
-		B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DF038F2330AB8600AD14E5 /* Start.storyboard */; };
 		D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,9 +78,10 @@
 		6D739C9C4E7CB12EF26517B5 /* Pods-FamilogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.release.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.release.xcconfig"; sourceTree = "<group>"; };
 		861571FD233361F400AD5CB5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		861571FF2333631B00AD5CB5 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		86157201233492E200AD5CB5 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		862AD3CF230298C200CB350C /* Familog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Familog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		862AD3D2230298C200CB350C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		862AD3D4230298C200CB350C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		862AD3D4230298C200CB350C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		862AD3D7230298C200CB350C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		862AD3D9230298C400CB350C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		862AD3DC230298C400CB350C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2BF697E233335E900E846D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B2BF6980233335F500E846D5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		B2DF038F2330AB8600AD14E5 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		B678C54CDA1A2E953513EA2E /* Pods-Familog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.debug.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.release.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,7 +147,7 @@
 			children = (
 				866F797223154AF90059FB81 /* ResetPasswordViewController.swift */,
 				869DAC7E230920C000ACF10C /* LogInViewController.swift */,
-				862AD3D4230298C200CB350C /* ViewController.swift */,
+				862AD3D4230298C200CB350C /* WelcomeViewController.swift */,
 				869DAC80230920CD00ACF10C /* SignUpViewController.swift */,
 			);
 			path = LogInPage;
@@ -303,10 +303,10 @@
 		B2DF0388232A3B0D00AD14E5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				86157201233492E200AD5CB5 /* Start.storyboard */,
 				35005A2D2330C23500239C7E /* Profile.storyboard */,
 				35005A252330BF8300239C7E /* Notification.storyboard */,
 				35005A232330BF3B00239C7E /* Timeline.storyboard */,
-				B2DF038F2330AB8600AD14E5 /* Start.storyboard */,
 				862AD3D6230298C200CB350C /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -438,9 +438,9 @@
 				862AD3DD230298C400CB350C /* LaunchScreen.storyboard in Resources */,
 				35005A242330BF3B00239C7E /* Timeline.storyboard in Resources */,
 				35005A2E2330C23500239C7E /* Profile.storyboard in Resources */,
-				B2DF03902330AB8600AD14E5 /* Start.storyboard in Resources */,
 				862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */,
 				862AD3DA230298C400CB350C /* Assets.xcassets in Resources */,
+				86157202233492E200AD5CB5 /* Start.storyboard in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
 			);
@@ -557,7 +557,7 @@
 				38880F1C23333DC600E407A2 /* SettingTableViewController.swift in Sources */,
 				38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */,
 				35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */,
-				862AD3D5230298C200CB350C /* ViewController.swift in Sources */,
+				862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,

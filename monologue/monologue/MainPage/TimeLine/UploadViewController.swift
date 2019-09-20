@@ -8,6 +8,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 import AVFoundation
+import FirebaseAuth
 
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
@@ -49,18 +50,20 @@ class UploadViewController: UIViewController{
                     
                     // Upload the image download URL and uid to the database
                     let db = Firestore.firestore()
-                    let documentUid = db.collection("Artifacts").document().documentID
+                    let userRef = db.collection("Users")
+                    let currentUser = Auth.auth().currentUser!.uid
+                    let postRef = userRef.document(currentUser).collection("Post").document()
+                    let postUid = postRef.documentID
                     let urlString = downloadurl.absoluteString
                     
-                    let data = ["uid": documentUid, "imageURL": urlString]
-                    
-                    db.collection("Artifacts").document().setData(data, completion: {(error) in
+                    let data = ["discription": "good", "URL": urlString, "uid": postUid]
+                    postRef.setData(data, completion: {(error) in
                         if error != nil {
                             Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
                             return
                         }
-                        UserDefaults.standard.set(documentUid, forKey: "uid")
-                        Alert.presentAlert(on: self, with: "Error!", message: "Upload Successfully!")
+                        UserDefaults.standard.set(postUid, forKey: "uid")
+                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
                     })
                 })
             }
