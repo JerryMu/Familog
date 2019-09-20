@@ -8,16 +8,15 @@
  import UIKit
  import FirebaseAuth
  
- class ViewController: UIViewController {
-    
+ class WelcomeViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if Auth.auth().currentUser != nil {
             Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {(timer) in
                 
