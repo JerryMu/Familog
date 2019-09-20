@@ -17,6 +17,7 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
+        tableView.delegate = self
         loadPosts()
     }
     
@@ -33,7 +34,7 @@ class TimelineViewController: UIViewController {
     
 }
 
-extension TimelineViewController: UITableViewDataSource {
+extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -45,6 +46,10 @@ extension TimelineViewController: UITableViewDataSource {
         cell.captionLabel.text = "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest"
 //        cell.textLabel?.text = posts[indexPath.row].caption
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

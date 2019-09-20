@@ -146,13 +146,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-co-REH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-co-REH">
                                 <rect key="frame" x="64" y="148" width="286" height="213"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="213" id="Usr-zO-rln"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cyi-Ma-b9t">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cyi-Ma-b9t">
                                 <rect key="frame" x="64" y="455" width="286" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -167,8 +167,10 @@
                         <constraints>
                             <constraint firstItem="cyi-Ma-b9t" firstAttribute="leading" secondItem="u2C-ok-tdF" secondAttribute="leading" constant="64" id="Fol-Gl-Pb8"/>
                             <constraint firstItem="2nC-co-REH" firstAttribute="leading" secondItem="u2C-ok-tdF" secondAttribute="leading" constant="64" id="RyN-2F-PBP"/>
+                            <constraint firstItem="2nC-co-REH" firstAttribute="top" secondItem="u2C-ok-tdF" secondAttribute="top" constant="60" id="VVV-7Y-Vmo"/>
                             <constraint firstItem="u2C-ok-tdF" firstAttribute="trailing" secondItem="cyi-Ma-b9t" secondAttribute="trailing" constant="64" id="gHZ-4L-Yzm"/>
                             <constraint firstItem="u2C-ok-tdF" firstAttribute="trailing" secondItem="2nC-co-REH" secondAttribute="trailing" constant="64" id="sYT-PE-VV1"/>
+                            <constraint firstItem="cyi-Ma-b9t" firstAttribute="top" secondItem="2nC-co-REH" secondAttribute="bottom" constant="94" id="xp8-lN-LdE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u2C-ok-tdF"/>
                     </view>
