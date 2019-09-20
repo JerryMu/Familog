@@ -1,15 +1,15 @@
  //
- //  SignUpViewController.swift
- //  monologue
- //
- //  Created by 袁翥 on 2019/8/18.
- //
- 
- import UIKit
- import FirebaseAuth
- import FirebaseFirestore
- 
- class SignUpViewController: UIViewController {
+//  SignUpViewController.swift
+//  monologue
+//
+//  Created by 袁翥 on 2019/8/18.
+//
+
+import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+  
+class SignUpViewController: UIViewController {
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -22,17 +22,35 @@
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpElements()
         // Do any additional setup after loading the view.
     }
     
+    func setUpElements() {
+        errorLabel.alpha = 0
+    }
     
-    // Make a standard format of password : "It must have at least one uppercase letter, one lowercase letter and one number, the length of the password should be greater than 8
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]{8,}")
         return passwordTest.evaluate(with: password)
     }
     
-    // Validate all the field users fill, if there any error, return the error message, otherwise returns nil
+    
+    func showErrorMessage(_ message:String) {
+        errorLabel.alpha = 1
+        errorLabel.text = message
+    }
+    
+
     func validateFields() -> String? {
         
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -54,17 +72,18 @@
         if password != confirmedPassword {
             return " Please make sure that your passwords are same"
         }
-        
+         
         return nil
     }
     
     
     @IBAction func signUpTapped(_ sender: Any) {
+        // Validate
         let error = validateFields()
         
-        // Something wrong show error message!
         if error != nil {
-            Alert.presentAlert(on: self, with: "Error!", message: error!)
+            // something wrong show error message!
+            showErrorMessage(error!)
         }
         else {
             // Create users
@@ -73,29 +92,34 @@
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 if err != nil {
-                    Alert.presentAlert(on: self, with: "Error!", message: "Creating user")
+                    self.showErrorMessage("Error: Creating user")
                 }
-                    // Upload user information to database
                 else {
                     let db = Firestore.firestore()
-                    db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName,"uid":result!.user.uid, "email": email]) { (error) in
+                    let currentUser = Auth.auth().currentUser!.uid
+                    
+                    let user = ["email": email, "profileImageUrl": nil, "firstname": firstName, "lastname": lastName, "uid": currentUser, "isFollowing": false] as [String : Any?]
+                    
+                    db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                         if error != nil {
-                            Alert.presentAlert(on: self, with: "Error!", message: "Saving user data")
+                            self.showErrorMessage("Error: Saving user data")
                         }
-                    }
+                    })
+                    Alert.presentAlert(on: self, with: "Success", message: "Sign up Successfully!")
                     self.moveToTimeLinePage()
                 }
             }
         }
     }
     
+
     
-    // Move to timeline page
     func moveToTimeLinePage() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
