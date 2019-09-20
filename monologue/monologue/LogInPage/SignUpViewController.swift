@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
- 
+  
 class SignUpViewController: UIViewController {
     
     
@@ -72,7 +72,7 @@ class SignUpViewController: UIViewController {
         if password != confirmedPassword {
             return " Please make sure that your passwords are same"
         }
-        
+         
         return nil
     }
     
@@ -92,6 +92,7 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 if err != nil {
@@ -99,11 +100,16 @@ class SignUpViewController: UIViewController {
                 }
                 else {
                     let db = Firestore.firestore()
-                    db.collection("Users").addDocument(data: ["firstname":firstName, "lastname":lastName,"uid":result!.user.uid]) { (error) in
+                    let currentUser = Auth.auth().currentUser!.uid
+                    
+                    let user = ["email": email, "profileImageUrl": nil, "firstname": firstName, "lastname": lastName, "uid": currentUser, "isFollowing": false] as [String : Any?]
+                    
+                    db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                         if error != nil {
                             self.showErrorMessage("Error: Saving user data")
                         }
-                    }
+                    })
+                    Alert.presentAlert(on: self, with: "Success", message: "Sign up Successfully!")
                     self.moveToTimeLinePage()
                 }
             }
