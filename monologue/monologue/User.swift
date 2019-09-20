@@ -16,6 +16,7 @@ class User {
 }
 
 extension User {
+    
     static func transformUser(dict: [String: Any], key: String) -> User {
         let user = User()
         user.email = dict["email"] as? String
