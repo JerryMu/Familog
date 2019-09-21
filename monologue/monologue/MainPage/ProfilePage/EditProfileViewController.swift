@@ -13,8 +13,7 @@ import Foundation
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
-import FirebaseDatabase
-
+import FirebaseFirestore
 
 
 class EditProfileViewController: UIViewController {
@@ -26,16 +25,45 @@ class EditProfileViewController: UIViewController {
         setupAvatar()
     }
     func uploadToFirebase(_ image: UIImage) {
-        let imageName = NSUUID().uuidString
-        //where to put the image data in the database
-        let imageRef = Storage.storage().reference().child("images").child(imageName)
-        if  let uploadData = image.jpegData(compressionQuality: 0.2) {
-            imageRef.putData(uploadData, metadata: nil, completion: {(metadata, error) in
+        let avatarName = NSUUID().uuidString
+        // Set the image folder in the firebase storage
+        let avatarRef = Storage.storage().reference(forURL: "gs://monologue-10303.appspot.com/").child("Avatar").child(avatarName)
+        // Compress the image quality then upload to the firebase storage
+        if  let uploadData = image.jpegData(compressionQuality: 0.8) {
+            avatarRef.putData(uploadData, metadata: nil) {(metadata, error) in
                 if error != nil {
-                    print("Failed to upload")
+                    Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
                     return
                 }
-            })
+                avatarRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                        return
+                    }
+                    guard let downloadurl = url else {
+                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                        return
+                    }
+                    
+                    // Upload the image download URL and uid to the database
+                    let db = Firestore.firestore()
+                    let userRef = db.collection("Users")
+                    let currentUser = Auth.auth().currentUser!.uid
+                    let avatarRef = userRef.document(currentUser).collection("Avatar").document()
+                    let avatarUid = avatarRef.documentID
+                    let urlString = downloadurl.absoluteString
+                    
+                    let data = ["URL": urlString, "uid": avatarUid]
+                    avatarRef.setData(data, completion: {(error) in
+                        if error != nil {
+                            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                            return
+                        }
+                        UserDefaults.standard.set(avatarUid, forKey: "uid")
+                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
+                    })
+                })
+            }
         }
     }
     // setup Avatar
