@@ -177,7 +177,7 @@
 			children = (
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
 				862AD3D1230298C200CB350C /* monologue */,
-				862AD3E6230298C400CB350C /* monologueTests */,
+				862AD3E6230298C400CB350C /* monologueTest */,
 				862AD3F1230298C400CB350C /* monologueUITests */,
 				862AD3D0230298C200CB350C /* Products */,
 				FF768F097C5FD80E2F7CC110 /* Pods */,
@@ -210,13 +210,13 @@
 			path = monologue;
 			sourceTree = "<group>";
 		};
-		862AD3E6230298C400CB350C /* monologueTests */ = {
+		862AD3E6230298C400CB350C /* monologueTest */ = {
 			isa = PBXGroup;
 			children = (
 				862AD3E7230298C400CB350C /* monologueTests.swift */,
 				862AD3E9230298C400CB350C /* Info.plist */,
 			);
-			path = monologueTests;
+			path = monologueTest;
 			sourceTree = "<group>";
 		};
 		862AD3F1230298C400CB350C /* monologueUITests */ = {
