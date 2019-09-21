@@ -4,12 +4,14 @@
 //
 //  Created by Ziyuan on 18/09/19.
 //
-
+//  This file works primarily for the Timeline page, which defines how we use the table cell to display our post.
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 class TimelineViewController: UIViewController {
-    
+
+//  Each of our tablecells is dynamic.
+//  It can determine the width of each cell based on the length of the text uploaded by the user.
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ class TimelineViewController: UIViewController {
     }
     
 }
-
+// Use fake data to show that our post can be displayed correctly
 extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10

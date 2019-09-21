@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
         fetchUser()
     }
     
+//  Take out user information from the database
     func fetchUser() {
         Api.User.observeUserByUid(Uid: uid){ (user) in
             self.user = user
@@ -29,7 +30,7 @@ class ProfileViewController: UIViewController {
     }
 
 }
-
+// Show how many and what kinds of artificates user has uploaded and add them the cell
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count

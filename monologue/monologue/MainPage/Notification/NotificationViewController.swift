@@ -4,7 +4,7 @@
 //
 //  Created by 刘仕晟 on 2019/9/19.
 //
-
+//  The entire file is working for the notification page
 import UIKit
 
 class NotificationViewController: UIViewController {
@@ -29,6 +29,7 @@ class NotificationViewController: UIViewController {
      */
     
 }
+// Use fake data to show that notification can be displayed correctly
 extension NotificationViewController: UITableViewDataSource {
     //numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

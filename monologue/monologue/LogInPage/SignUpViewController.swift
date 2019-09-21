@@ -4,6 +4,7 @@
 //
 //  Created by 袁翥 on 2019/8/18.
 //
+// The entire file is working for the authentication function
 
 import UIKit
 import FirebaseAuth
@@ -76,7 +77,9 @@ class SignUpViewController: UIViewController {
         return nil
     }
     
-    
+// Check the input information and the database to match, if the account password is correct, you can enter
+// If the account password is wrong, an error message will be displayed.
+
     @IBAction func signUpTapped(_ sender: Any) {
         // Validate
         let error = validateFields()
@@ -118,7 +121,7 @@ class SignUpViewController: UIViewController {
     }
     
 
-    
+// After verification is complete, if you jump to the Timeline page correctly
     func moveToTimeLinePage() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController

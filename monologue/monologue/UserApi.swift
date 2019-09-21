@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 19/9/19.
 //
+// This file mainly shows how we look for users in the database and extract information about this user.
 
 import Foundation
 import FirebaseFirestore

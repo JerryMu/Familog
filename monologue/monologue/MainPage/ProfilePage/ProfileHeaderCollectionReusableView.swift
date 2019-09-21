@@ -4,7 +4,8 @@
 //
 //  Created by Pengyu Mu on 18/9/19.
 //
-//For personal profile page header
+//  For personal profile page header
+
 import UIKit
 import FirebaseAuth
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
@@ -21,7 +22,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    //get current users' information
+    //get current user's information
     func updateView(){
         nameLabel.text = user?.firstname
         if let data = try? Data(contentsOf: user?.profileImageUrl ?? initImage!)

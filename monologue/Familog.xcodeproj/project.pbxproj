@@ -296,9 +296,9 @@
 		B2BF697D2333348800E846D5 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
-				B2BF697E233335E900E846D5 /* TabBarViewController.swift */,
 				B2BF6980233335F500E846D5 /* TimelineViewController.swift */,
 				861571FF2333631B00AD5CB5 /* UploadViewController.swift */,
+				B2BF697E233335E900E846D5 /* TabBarViewController.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";

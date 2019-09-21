@@ -4,7 +4,7 @@
 //
 //  Created by 袁翥 on 2019/9/19.
 //
-
+//  This file mainly shows that we use UIAlertController to push some important information.
 import Foundation
 import UIKit
 

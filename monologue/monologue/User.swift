@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 12/9/19.
 //
+// This file mainly shows what important information will be recorded by us in our database.
 
 import Foundation
 class User {
