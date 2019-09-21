@@ -11,13 +11,13 @@ import FirebaseAuth
 class UserApi {
     var REF_USERS = Firestore.firestore().collection("Users")
     
-    func observeUserByUid(Uid: String, completion: @escaping (User) -> Void) {
+    func observeUserByUid(Uid: String){
         let userRef = REF_USERS.document(Uid)
         
         userRef.getDocument { (document, error) in
             if let user = document.flatMap({
                 $0.data().flatMap({ (data) in
-                    return User.transformUser(dict: data, key: Uid)
+                    return User.transformUser(dict: data, key: Uid).firstname
                 })
             }) {
                 print("User: \(user)")
@@ -25,6 +25,8 @@ class UserApi {
                 print("Document does not exist")
             }
         }
-
     }
+//    func getCurrent(){
+//        return Auth.auth().currentUser!.uid
+//    }
 }

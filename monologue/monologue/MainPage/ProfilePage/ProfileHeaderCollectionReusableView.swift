@@ -6,12 +6,13 @@
 //
 //For personal profile page header
 import UIKit
-
+import FirebaseAuth
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var artifactsNumberLabel: UILabel!
     
+    let uid =  Auth.auth().currentUser!.uid
     //current user information
     var user: User? {
         didSet {
@@ -21,11 +22,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     //get current users' information
     func updateView(){
-//        Api.User.REF_CURRENT_USER?.observeSingleEvent(of: .value, with: {
-//            snapshot in
-//            print(snapshot)
-//        })
-        nameLabel.text = "JerryMu"
+        Api.User.observeUserByUid(Uid : uid)
+        nameLabel.text = "user.username"
         profileImage.image = UIImage(named : "Head_Icon.png")
         artifactsNumberLabel.text = "0"
     }

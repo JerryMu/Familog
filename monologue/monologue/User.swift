@@ -9,7 +9,8 @@ import Foundation
 class User {
     var email: String?
     var profileImageUrl: String?
-    var username: String?
+    var firstname: String?
+    var lastname: String?
     var id: String?
     var age : String?
     var bio : String?
@@ -21,8 +22,10 @@ extension User {
         let user = User()
         user.email = dict["email"] as? String
         user.profileImageUrl = dict["profileImageUrl"] as? String
-        user.username = dict["username"] as? String
-        user.id = key
+        user.firstname = dict["firstname"] as? String
+        user.lastname = dict["lastname"] as? String
+        user.id = dict["uid"] as? String
+        user.bio = dict["bio"] as? String
         return user
     }
 }

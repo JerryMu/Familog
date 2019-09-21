@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "monologue/MainPage/ProfilePage/ProfileHeaderCollectionReusableView.swift"
-            timestampString = "590573094.317041"
+            timestampString = "590651691.7613961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33">
+            startingLineNumber = "31"
+            endingLineNumber = "31">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "monologue/MainPage/ProfilePage/ProfileViewController.swift"
-            timestampString = "590573094.317117"
+            timestampString = "590651691.7614599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "ProfileViewController"
             landmarkType = "3">
             <Locations>
@@ -121,99 +121,6 @@
                   startingLineNumber = "14"
                   endingLineNumber = "14"
                   offsetFromSymbolStart = "350">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-            timestampString = "590564017.046685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.EditProfileViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Familog.EditProfileViewController"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-                  timestampString = "590647412.7022181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.EditProfileViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Familog.EditProfileViewController"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-                  timestampString = "590647412.7067"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "178">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.EditProfileViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Familog.EditProfileViewController&gt;"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-                  timestampString = "590647412.7087981"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.EditProfileViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Familog.EditProfileViewController&gt;"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-                  timestampString = "590647412.710906"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "107">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.EditProfileViewController.__deallocating_deinit"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/EditProfileViewController.swift"
-                  timestampString = "590647412.712909"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

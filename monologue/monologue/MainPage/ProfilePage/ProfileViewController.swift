@@ -6,16 +6,21 @@
 //
 
 import UIKit
-
+//test only
+import FirebaseAuth
 //The main page of personal profile storyboard
 class ProfileViewController: UIViewController {
     var user: User!
     var posts: [Post] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
+    //test only
+    let uid =  Auth.auth().currentUser!.uid
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        Api.User.observeUserByUid(Uid : uid)
+
     }
 
 }
