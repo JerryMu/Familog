@@ -175,6 +175,7 @@
 		862AD3C6230298C100CB350C = {
 			isa = PBXGroup;
 			children = (
+				862AD3D2230298C200CB350C /* AppDelegate.swift */,
 				862AD3D1230298C200CB350C /* monologue */,
 				862AD3E6230298C400CB350C /* monologueTests */,
 				862AD3F1230298C400CB350C /* monologueUITests */,
@@ -200,7 +201,6 @@
 				35E6A2E32332616C00B66E4E /* Views */,
 				358E61622332373C00A5A8B8 /* Model */,
 				86D45C6C230B0E40007724E4 /* HelperClass */,
-				862AD3D2230298C200CB350C /* AppDelegate.swift */,
 				8646B1FF2309119900A4C785 /* ViewControllers */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
 				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
@@ -752,7 +752,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -772,7 +772,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
