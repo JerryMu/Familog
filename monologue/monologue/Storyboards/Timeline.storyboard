@@ -11,7 +11,7 @@
         <!--Timeline-->
         <scene sceneID="L9y-sg-hy7">
             <objects>
-                <viewController storyboardIdentifier="timeLineVC" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeLineVC" automaticallyAdjustsScrollViewInsets="NO" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YML-tG-442">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

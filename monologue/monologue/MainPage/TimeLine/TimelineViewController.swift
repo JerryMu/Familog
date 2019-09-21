@@ -18,6 +18,7 @@ class TimelineViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
+        self.tableView.contentInsetAdjustmentBehavior = .never
         loadPosts()
     }
     
@@ -28,6 +29,7 @@ class TimelineViewController: UIViewController {
                 let newPost = Post.transformPostPhoto(dict: dict)
                 self.posts.append(newPost)
                 self.tableView.reloadData()
+
             }
         }
     }
