@@ -13,6 +13,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var artifactsNumberLabel: UILabel!
     
     let uid =  Auth.auth().currentUser!.uid
+    let initImage = URL(string : "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/images%2FHead_Icon.png?alt=media&token=abd7d70b-ac25-43d1-9289-a811e2e0e7bc")
     //current user information
     var user: User? {
         didSet {
@@ -22,9 +23,13 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     //get current users' information
     func updateView(){
-        Api.User.observeUserByUid(Uid : uid)
-        nameLabel.text = "user.username"
-        profileImage.image = UIImage(named : "Head_Icon.png")
-        artifactsNumberLabel.text = "0"
+        nameLabel.text = user?.firstname
+        if let data = try? Data(contentsOf: user?.profileImageUrl ?? initImage!)
+        {
+            profileImage.image = UIImage(data: data)
+        }
+        
+        
+        artifactsNumberLabel.text = String(user!.postNumber ?? 0)
     }
 }
