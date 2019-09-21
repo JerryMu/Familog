@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 21/9/19.
 //
+//Implement auto Sign in Function
 
 import UIKit
 import FirebaseAuth
