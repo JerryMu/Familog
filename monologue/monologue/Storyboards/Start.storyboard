@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8y-1X-hs9">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,6 +8,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch Screen View Controller-->
+        <scene sceneID="sZN-3k-g2J">
+            <objects>
+                <viewController id="D8y-1X-hs9" customClass="LaunchScreenViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Z4-9h-dv5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="eSS-7P-pGq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eSS-7P-pGq" firstAttribute="trailing" secondItem="gEX-xb-0dp" secondAttribute="trailing" id="6v5-7H-9lI"/>
+                            <constraint firstAttribute="bottom" secondItem="eSS-7P-pGq" secondAttribute="bottom" id="EOc-0O-Ii9"/>
+                            <constraint firstItem="eSS-7P-pGq" firstAttribute="top" secondItem="5Z4-9h-dv5" secondAttribute="top" id="QDe-pI-din"/>
+                            <constraint firstItem="eSS-7P-pGq" firstAttribute="leading" secondItem="gEX-xb-0dp" secondAttribute="leading" id="rqS-0h-dBr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gEX-xb-0dp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwd-1X-Y60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403" y="90"/>
+        </scene>
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -498,6 +524,7 @@
     <resources>
         <image name="App_Icon" width="351" height="351"/>
         <image name="Head_Icon" width="200" height="200"/>
+        <image name="LaunchScreen" width="2064" height="3646"/>
         <image name="MainColorPage" width="1242" height="2688"/>
         <image name="Password_Icon" width="200" height="200"/>
     </resources>
