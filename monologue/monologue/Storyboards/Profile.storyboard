@@ -205,7 +205,7 @@
         <!--Profile-->
         <scene sceneID="t9d-ys-VnL">
             <objects>
-                <viewController id="kkP-1o-Wh4" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="kkP-1o-Wh4" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8DA-hM-ESj"/>
                         <viewControllerLayoutGuide type="bottom" id="EDo-Q3-WV6"/>
@@ -368,7 +368,7 @@
         <!--Navigation Controller-->
         <scene sceneID="guO-Zw-TLw">
             <objects>
-                <navigationController storyboardIdentifier="ProfileStoryBoard" automaticallyAdjustsScrollViewInsets="NO" id="CuD-0Z-H7b" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="CuD-0Z-H7b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile" id="syk-gS-Pfc">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
@@ -390,7 +390,7 @@
         <!--Setting-->
         <scene sceneID="5TZ-Jl-nRG">
             <objects>
-                <tableViewController id="xap-3g-eFC" customClass="SettingTableViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="xap-3g-eFC" customClass="SettingTableViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="siW-0s-Z6P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

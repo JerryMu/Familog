@@ -11,7 +11,7 @@
         <!--Timeline-->
         <scene sceneID="L9y-sg-hy7">
             <objects>
-                <viewController storyboardIdentifier="timeLineVC" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeLineVC" modalPresentationStyle="fullScreen" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YML-tG-442">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,19 +142,19 @@
         <!--Upload-->
         <scene sceneID="TxM-6e-wsE">
             <objects>
-                <viewController id="mhk-CV-hy8" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="mhk-CV-hy8" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0k1-zl-yu3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-co-REH">
-                                <rect key="frame" x="64" y="116" width="286" height="213"/>
+                                <rect key="frame" x="64" y="148" width="286" height="213"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="213" id="Usr-zO-rln"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ido-QU-U5m">
-                                <rect key="frame" x="150" y="267" width="114" height="30"/>
+                                <rect key="frame" x="150" y="299" width="114" height="30"/>
                                 <state key="normal" title="Select the Photo"/>
                                 <connections>
                                     <action selector="uploadTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="ziL-yF-S3r"/>
@@ -192,7 +192,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7zg-7q-k7a">
             <objects>
-                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" id="lQs-2V-bCt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="lQs-2V-bCt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Timeline" id="XB2-MA-DGf" colorLabel="IBBuiltInLabel-Red">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
@@ -217,10 +217,10 @@
         <!--Navigation Controller-->
         <scene sceneID="Jq2-cC-mpR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AAo-2i-O0d" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="AAo-2i-O0d" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t5e-Jw-Ivg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

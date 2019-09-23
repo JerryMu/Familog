@@ -21,7 +21,7 @@ class LaunchScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if Auth.auth().currentUser != nil {
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {(timer) in
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyboard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
