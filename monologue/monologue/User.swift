@@ -16,6 +16,7 @@ class User {
     var age : String?
     var bio : String?
     var postNumber : Int?
+    var posts : Post?
 }
 
 extension User {
@@ -28,6 +29,7 @@ extension User {
         user.lastname = dict["lastname"] as? String
         user.id = key
         user.bio = dict["bio"] as? String
+        user.posts = dict["Post"] as? Post
         return user
     }
 }

@@ -12,6 +12,7 @@ target 'Familog' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Protobuf', :inhibit_warnings => true
+  pod 'SDWebImage'
   # Pods for Familog
 
   target 'FamilogTests' do

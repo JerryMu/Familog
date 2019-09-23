@@ -53,16 +53,21 @@ class UploadViewController: UIViewController{
                     let userRef = db.collection("Users")
                     let currentUser = Auth.auth().currentUser!.uid
                     let postRef = userRef.document(currentUser).collection("Post").document()
-                    let postUid = postRef.documentID
                     let urlString = downloadurl.absoluteString
                     
-                    let data = ["discription": "good", "URL": urlString, "uid": postUid]
-                    postRef.setData(data, completion: {(error) in
+                    let data = ["discription": "good", "URL": urlString, "uid": currentUser, "username": nil]
+                    postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
                             Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
                             return
                         }
-                        UserDefaults.standard.set(postUid, forKey: "uid")
+                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
+                    })
+                    db.collection("AllPost").document().setData(data as [String : Any], completion: {(error) in
+                        if error != nil {
+                            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                            return
+                        }
                         Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
                     })
                 })

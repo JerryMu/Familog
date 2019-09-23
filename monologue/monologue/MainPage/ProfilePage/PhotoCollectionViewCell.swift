@@ -26,7 +26,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     //update profile photo
     func updateView() {
-        if let photoUrlString = post?.photoUrl {
+        if let photoUrlString = post?.URL {
             let photoUrl = URL(string: photoUrlString)
             let data = try? Data(contentsOf: photoUrl!)
             photo.image = UIImage(data: data!)
@@ -39,7 +39,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func photo_TouchUpInside() {
-        if let id = post?.id {
+        if let id = post?.uid {
             delegate?.goToDetailVC(postId: id)
         }
     }

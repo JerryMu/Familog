@@ -8,10 +8,10 @@
 
 import Foundation
 class Post {
-    var caption: String?
-    var photoUrl: String?
-    var videoUrl: String?
-    var id : String?
+    var discription: String?
+    var URL: String?
+    var uid: String?
+    var username: String?
 }
 
 // Unlike using initializers, here we use different methods with distinctly meaningful name for
@@ -22,9 +22,9 @@ class Post {
 extension Post {
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
-        
-        post.caption = dict["caption"] as? String
-        post.photoUrl = dict["photoUrl"] as? String
+        post.discription = dict["discription"] as? String
+        post.URL = dict["URL"] as? String
+        post.username = dict["username"] as? String
         return post
     }
     
