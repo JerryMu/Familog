@@ -10,42 +10,59 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class PostApi {
-    var REF_USER = Firestore.firestore().collection("Users")
+    var postRef = Firestore.firestore().collection("AllPost")
+    var userPosts = [Post]()
+    var familyPosts = [Post]()
     
-    
-    func observePost(Uid: String, completion: @escaping (Post) -> Void){
-        
-        let postRef = REF_USER.document(Uid).collection("Post")
-        postRef.getDocuments{ (querySnapshot, err) in
+    func observePost(document: DocumentReference,completion: @escaping (Post) -> Void){
+        document.getDocument { (document, error) in
+            if let post = document.flatMap({
+                $0.data().flatMap({ (data) in
+                    return Post.transformPostPhoto(dict: data)
+                })
+            })
+            {
+                completion(post)
+            }
+            else{
+                print("Post not found")
+            }
+        }
+    }
+    func observePostsByUser(userId: String, userPosts: [Post]){
+        postRef.whereField("userId", isEqualTo: userId).getDocuments{ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    let postdb = postRef.document(document.documentID)
-                    postdb.getDocument { (document, error) in
-                        if let post = document.flatMap({
-                            $0.data().flatMap({ (data) in
-                                return Post.transformPostPhoto(dict: data)
-                            })
+                    let postdb = self.postRef.document(document.documentID)
+                    self.observePost(document: postdb, completion:  { (post) in
+                        Api.User.observeUserByUid(Uid: document.get("userId") as! String, completion: { (user) in
+                            post.username = user.firstname! + " " + user.lastname!
+                            self.userPosts.append(post)
                         })
-                        {
-                            print("POST\(post)")
-                            completion(post)
-                        }
-                        else{
-                            print("User not found")
-                        }
-                    }
+                    })
                 }
             }
         }
     }
     
-    func observePostsByUser(){
-        
+    func observePostsByFamily(familyId: String, familyPost: [Post]){
+        postRef.whereField("userId", isEqualTo: familyId).getDocuments{ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let postdb = self.postRef.document(document.documentID)
+                    self.observePost(document: postdb, completion:  { (post) in
+                        Api.User.observeUserByUid(Uid: document.get("userId") as! String, completion: { (user) in
+                            post.username = user.firstname! + " " + user.lastname!
+                            self.familyPosts.append(post)
+                        })
+                    })
+                }
+            }
+        }
     }
     
-    func observePostsByFamily(){
-        
-    }
 }

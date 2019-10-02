@@ -50,12 +50,12 @@ class UploadViewController: UIViewController{
                     
                     // Upload the image download URL and uid to the database
                     let db = Firestore.firestore()
-                    let userRef = db.collection("Users")
-                    let currentUser = Auth.auth().currentUser!.uid
-                    let postRef = userRef.document(currentUser).collection("Post").document()
+                    let postRef = db.collection("Post").document()
+                    let uid = postRef.documentID
                     let urlString = downloadurl.absoluteString
+                    let currentUser = Auth.auth().currentUser!.uid
+                    let data = ["discription": "good", "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":nil]
                     
-                    let data = ["discription": "good", "URL": urlString, "uid": currentUser, "username": nil]
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
                             Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")

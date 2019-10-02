@@ -9,7 +9,7 @@
 import Foundation
 class Post {
     var discription: String?
-    var URL: String?
+    var url: String?
     var uid: String?
     var username: String?
     var userId : String?
@@ -25,7 +25,7 @@ extension Post {
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
         post.discription = dict["discription"] as? String
-        post.URL = dict["URL"] as? String
+        post.url = dict["url"] as? String
         post.username = dict["username"] as? String
         return post
     }

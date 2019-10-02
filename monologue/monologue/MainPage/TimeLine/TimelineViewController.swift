@@ -16,8 +16,10 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
-    var users = [User]()
-    let userRef = Firestore.firestore().collection("Users")
+    var familyId: String = ""
+    let currentUser = Auth.auth().currentUser!.uid
+    let userRef = Firestore.firestore().collection("User")
+//    let postRef = Firestore.firestore().collection("AllPost")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,51 +29,37 @@ class TimelineViewController: UIViewController {
         loadPosts()
     }
     
+    func getFamily() {
+        userRef.document(currentUser).getDocument {(document, error) in
+            if let document = document, document.exists {
+                self.familyId = document.get("familyId") as! String
+            } else {
+                print("Family does not exist")
+            }
+        }
+            
+
+    }
+    
     func loadPosts() {
-//       //let currentUser = Auth.auth().currentUser!.uid
-//        Firestore.firestore().collection("AllPost").addSnapshotListener { [unowned self] (snapshot, error) in
-//            guard let snapshot = snapshot else {
-//                print("Error fetching snapshot results: \(error!)")
-//                return
-//            }
-//            _ = snapshot.documents.map { (document) in
-//                let newPost = Post.transformPostPhoto(dict: document.data())
-//                self.posts.append(newPost)
-//                self.tableView.reloadData()
-//            }
-//            }
-//        let userdb = Firestore.firestore().collection("Users")
-//        let postdb = userdb.document().collection("Post")
-//        postdb.getDocuments{ (querySnapshot, err) in
+        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
+        self.tableView.reloadData()
+//        postRef.getDocuments{ (querySnapshot, err) in
 //            if let err = err {
 //                print("Error getting documents: \(err)")
 //            } else {
 //                for document in querySnapshot!.documents {
-//                    Api.Post.observePost(Uid: document.documentID){ (post) in
-//                        self.posts.append(post)
-//                        self.tableView.reloadData()
-//                        print("POST\(post)")
-//                    }
+//                    Api.Post.observePost(Uid: document.documentID, completion: { (post) in
+//                        Api.User.observeUserByUid(Uid: document.documentID, completion: { (user) in
+//                            post.username = user.firstname! + " " + user.lastname!
+//                            self.posts.append(post)
+//                            self.tableView.reloadData()
+//                        })
+//                    })
+//
 //                }
 //            }
-//
 //        }
-        userRef.getDocuments{ (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    Api.Post.observePost(Uid: document.documentID, completion: { (post) in
-                        Api.User.observeUserByUid(Uid: document.documentID, completion: { (user) in
-                            post.username = user.firstname! + " " + user.lastname!
-                            self.posts.append(post)
-                            self.tableView.reloadData()
-                        })
-                    })
-                    
-                }
-            }
-        }
     }
     
 }
@@ -87,7 +75,7 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLabel.text = post.username
         cell.postImageView.image = UIImage(named: "photo2.jpeg")
         cell.captionLabel.text = post.discription
-        if let urlString = post.URL {
+        if let urlString = post.url {
             let url = URL(string: urlString)
             cell.postImageView.sd_setImage(with: url)
         }
