@@ -33,6 +33,7 @@
 		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
 		86D45C6E230B0E63007724E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C6D230B0E63007724E4 /* Constants.swift */; };
+		B2603E932344613800797EF8 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E922344613800797EF8 /* Family.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
 		B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4B2336197A0086E97B /* LaunchScreen.swift */; };
@@ -102,6 +103,7 @@
 		876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2603E922344613800797EF8 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		B26E7B572329CF0000AA852C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				B26E7B572329CF0000AA852C /* User.swift */,
 				358E61632332375500A5A8B8 /* Post.swift */,
+				B2603E922344613800797EF8 /* Family.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
+				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				861571FE233361F400AD5CB5 /* Alert.swift in Sources */,
 				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,

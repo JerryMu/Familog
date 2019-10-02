@@ -12,6 +12,8 @@ class Post {
     var URL: String?
     var uid: String?
     var username: String?
+    var userId : String?
+    var familyId : String?
 }
 
 // Unlike using initializers, here we use different methods with distinctly meaningful name for
