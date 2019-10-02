@@ -34,6 +34,7 @@
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
 		86D45C6E230B0E63007724E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C6D230B0E63007724E4 /* Constants.swift */; };
 		B2603E932344613800797EF8 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E922344613800797EF8 /* Family.swift */; };
+		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
 		B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4B2336197A0086E97B /* LaunchScreen.swift */; };
@@ -104,6 +105,7 @@
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2603E922344613800797EF8 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		B2603E942344660000797EF8 /* FamilyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyApi.swift; sourceTree = "<group>"; };
 		B26E7B572329CF0000AA852C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
@@ -249,11 +251,12 @@
 		86D45C6C230B0E40007724E4 /* HelperClass */ = {
 			isa = PBXGroup;
 			children = (
-				86D45C6D230B0E63007724E4 /* Constants.swift */,
-				B2BF69742332F3BD00E846D5 /* UserApi.swift */,
 				B2BF69762332F4BF00E846D5 /* Api.swift */,
 				861571FD233361F400AD5CB5 /* Alert.swift */,
+				86D45C6D230B0E63007724E4 /* Constants.swift */,
+				B2BF69742332F3BD00E846D5 /* UserApi.swift */,
 				B2B16A4D2338B06C0086E97B /* PostApi.swift */,
+				B2603E942344660000797EF8 /* FamilyApi.swift */,
 			);
 			name = HelperClass;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */,
 				35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */,
 				862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */,
+				B2603E952344660000797EF8 /* FamilyApi.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,

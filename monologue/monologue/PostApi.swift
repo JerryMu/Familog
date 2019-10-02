@@ -40,4 +40,12 @@ class PostApi {
             }
         }
     }
+    
+    func observePostsByUser(){
+        
+    }
+    
+    func observePostsByFamily(){
+        
+    }
 }
