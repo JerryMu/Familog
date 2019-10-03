@@ -54,7 +54,7 @@ class UploadViewController: UIViewController{
                     let uid = postRef.documentID
                     let urlString = downloadurl.absoluteString
                     let currentUser = Auth.auth().currentUser!.uid
-                    let data = ["discription": "good", "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":nil]
+                    let data = ["discription": "good", "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":"123456"]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {

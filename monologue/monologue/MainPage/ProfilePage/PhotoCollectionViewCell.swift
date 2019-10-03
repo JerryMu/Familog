@@ -14,9 +14,9 @@ protocol PhotoCollectionViewCellDelegate {
 }
 
 // The cell take charge of displaying artificates
-class PhotoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var photo: UIImageView!
+class PhotoCollectionViewCell : UICollectionViewCell {
     
+    @IBOutlet weak var photo: UIImageView!
     var delegate: PhotoCollectionViewCellDelegate?
     
     var post: Post? {
@@ -26,22 +26,22 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     //update profile photo
     func updateView() {
-        if let photoUrlString = post?.URL {
+        if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
-            let data = try? Data(contentsOf: photoUrl!)
-            photo.image = UIImage(data: data!)
+            photo.sd_setImage(with : photoUrl)
+            
         }
         
-        let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
-        photo.addGestureRecognizer(tapGestureForPhoto)
-        photo.isUserInteractionEnabled = true
+//        let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
+//        photo.addGestureRecognizer(tapGestureForPhoto)
+//        photo.isUserInteractionEnabled = true
         
     }
     
-    @objc func photo_TouchUpInside() {
-        if let id = post?.uid {
-            delegate?.goToDetailVC(postId: id)
-        }
-    }
+//    @objc func photo_TouchUpInside() {
+//        if let id = post?.uid {
+//            delegate?.goToDetailVC(postId: id)
+//        }
+//    }
 }
 

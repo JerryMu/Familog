@@ -42,7 +42,7 @@ class TimelineViewController: UIViewController {
     }
     
     func loadPosts() {
-        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
+//        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
         self.tableView.reloadData()
 //        postRef.getDocuments{ (querySnapshot, err) in
 //            if let err = err {

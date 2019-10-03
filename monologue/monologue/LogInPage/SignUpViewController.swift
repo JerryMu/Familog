@@ -102,11 +102,10 @@ class SignUpViewController: UIViewController {
                     self.showErrorMessage("Error: Creating user")
                 }
                 else {
-                    let initImage = URL(string : "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/images%2FHead_Icon.png?alt=media&token=abd7d70b-ac25-43d1-9289-a811e2e0e7bc")
                     let db = Firestore.firestore()
                     let currentUser = Auth.auth().currentUser!.uid
                                         
-                    let user = ["email": email, "profileImageUrl": initImage, "firstname": firstName,"bio" : nil,  "lastname": lastName, "uid": currentUser, "isFollowing": false, "postNumber" : 0] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": nil, "firstname": firstName,"bio" : nil,  "lastname": lastName, "uid": currentUser, "isFollowing": false, "postNumber" : 0] as [String : Any?]
                     
                     db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                         if error != nil {

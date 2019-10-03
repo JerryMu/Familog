@@ -14,7 +14,8 @@ class PostApi {
     var userPosts = [Post]()
     var familyPosts = [Post]()
     
-    func observePost(document: DocumentReference,completion: @escaping (Post) -> Void){
+    func observePost(uid: String,completion: @escaping (Post) -> Void){
+        let document = postRef.document(uid)
         document.getDocument { (document, error) in
             if let post = document.flatMap({
                 $0.data().flatMap({ (data) in
@@ -29,40 +30,13 @@ class PostApi {
             }
         }
     }
-    func observePostsByUser(userId: String, userPosts: [Post]){
-        postRef.whereField("userId", isEqualTo: userId).getDocuments{ (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let postdb = self.postRef.document(document.documentID)
-                    self.observePost(document: postdb, completion:  { (post) in
-                        Api.User.observeUserByUid(Uid: document.get("userId") as! String, completion: { (user) in
-                            post.username = user.firstname! + " " + user.lastname!
-                            self.userPosts.append(post)
-                        })
-                    })
-                }
-            }
-        }
+    func observePostsByUser(userId: String) -> Query{
+        
+        return postRef.whereField("userId", isEqualTo: userId)
     }
     
     func observePostsByFamily(familyId: String, familyPost: [Post]){
-        postRef.whereField("userId", isEqualTo: familyId).getDocuments{ (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let postdb = self.postRef.document(document.documentID)
-                    self.observePost(document: postdb, completion:  { (post) in
-                        Api.User.observeUserByUid(Uid: document.get("userId") as! String, completion: { (user) in
-                            post.username = user.firstname! + " " + user.lastname!
-                            self.familyPosts.append(post)
-                        })
-                    })
-                }
-            }
-        }
+        return postRef.whereField("familyId", isEqualTo: familyId)
     }
     
 }

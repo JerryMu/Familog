@@ -17,7 +17,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        collectionView.delegate = self
         fetchUser()
+        fetchPost()
+        
     }
     
 //  Take out user information from the database
@@ -28,8 +31,23 @@ class ProfileViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-
+    
+    func fetchPost() {
+        Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    Api.Post.observePost(uid: document.documentID, completion:  { (post) in
+                        self.posts.append(post)
+                        self.collectionView.reloadData()
+                    })
+                }
+            }
+        }
+    }
 }
+
 // Show how many and what kinds of artificates user has uploaded and add them the cell
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

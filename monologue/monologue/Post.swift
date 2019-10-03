@@ -24,6 +24,7 @@ class Post {
 extension Post {
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
+        post.uid = dict["uid"] as? String
         post.discription = dict["discription"] as? String
         post.url = dict["url"] as? String
         post.username = dict["username"] as? String

@@ -182,7 +182,6 @@
                         <viewLayoutGuide key="safeArea" id="u2C-ok-tdF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Upload" id="ZJq-ss-dDX"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kx-rY-r7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,6 +223,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fVS-3u-8Vs">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="mhk-CV-hy8" kind="relationship" relationship="rootViewController" id="liN-bF-hYJ"/>
                     </connections>

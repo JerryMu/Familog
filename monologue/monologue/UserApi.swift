@@ -30,9 +30,5 @@ class UserApi {
         }
 
     }
-    
-    func getFamily(){
-        
-    }
 }
 
