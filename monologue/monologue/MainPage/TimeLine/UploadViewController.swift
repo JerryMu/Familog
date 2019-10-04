@@ -13,18 +13,25 @@ import FirebaseAuth
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Api.Family.getFamilyId()
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var selectButton: UIButton!
+    
+    @IBOutlet weak var selectImage: UIImageView!
+    
+    @IBOutlet weak var descriptionField: UITextField!
     // Set the image picker
-    @IBAction func uploadTapped(_ sender: Any) {
+    
+    @IBAction func selectThePhoteTapped(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
     
     // Upload image to Firebase
     func uploadToFirebase(_ image: UIImage) {
@@ -54,7 +61,9 @@ class UploadViewController: UIViewController{
                     let uid = postRef.documentID
                     let urlString = downloadurl.absoluteString
                     let currentUser = Auth.auth().currentUser!.uid
-                    let data = ["discription": "good", "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":"123456"]
+                    let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                    //let familyId = Api.Family.familyId
+                    let data = ["description": description, "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":"123456"]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
@@ -75,7 +84,21 @@ class UploadViewController: UIViewController{
         }
     }
     
+    @IBAction func shareTapped(_ sender: Any) {
+        if selectImage.image == nil {
+            Alert.presentAlert(on: self, with: "Error!", message: "You must pick one Photo")
+        } else {
+        uploadToFirebase(selectImage.image!)
+        moveToTimeLinePage()
+        }
+    }
     
+    // Move to the timeline page
+    func moveToTimeLinePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
     
 }
 
@@ -83,16 +106,20 @@ extension UploadViewController:UIImagePickerControllerDelegate,UINavigationContr
     
     // Pick the image from iphone's photo library
     func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
+        
         var selectedImageFromPicker: UIImage?
+        
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             selectedImageFromPicker = editedImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             selectedImageFromPicker = originalImage
         }
         if let selectedImage = selectedImageFromPicker {
-            uploadToFirebase(selectedImage)
+            selectImage.image = selectedImage
+            self.selectButton.alpha = 0
         }
         picker.dismiss(animated: true, completion: nil)
+        
     }
     
 }
