@@ -12,6 +12,7 @@
 		35005A262330BF8300239C7E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* Notification.storyboard */; };
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
 		354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159B232CB0F600AB2431 /* ProfileCell.swift */; };
+		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
@@ -71,6 +72,7 @@
 		35005A252330BF8300239C7E /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		35005A2D2330C23500239C7E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		354D159B232CB0F600AB2431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,7 +215,6 @@
 				86D45C6C230B0E40007724E4 /* HelperClass */,
 				8646B1FF2309119900A4C785 /* ViewControllers */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
-				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
 				862AD4002302AB1000CB350C /* GoogleService-Info.plist */,
 				862AD3DE230298C400CB350C /* Info.plist */,
 			);
@@ -315,11 +316,13 @@
 		B2DF0388232A3B0D00AD14E5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				862AD3DB230298C400CB350C /* LaunchScreen.storyboard */,
 				86157201233492E200AD5CB5 /* Start.storyboard */,
-				35005A2D2330C23500239C7E /* Profile.storyboard */,
-				35005A252330BF8300239C7E /* Notification.storyboard */,
-				35005A232330BF3B00239C7E /* Timeline.storyboard */,
 				862AD3D6230298C200CB350C /* Main.storyboard */,
+				35555B652347272900B0D7CD /* Family.storyboard */,
+				35005A232330BF3B00239C7E /* Timeline.storyboard */,
+				35005A252330BF8300239C7E /* Notification.storyboard */,
+				35005A2D2330C23500239C7E /* Profile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				86157202233492E200AD5CB5 /* Start.storyboard in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
+				35555B662347272900B0D7CD /* Family.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

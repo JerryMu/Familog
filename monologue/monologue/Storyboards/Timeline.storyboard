@@ -142,6 +142,34 @@
             </objects>
             <point key="canvasLocation" x="-13704.347826086958" y="-5832.5892857142853"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Fkj-D3-8oY">
+            <objects>
+                <viewController id="aK4-ka-F6N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3rj-mH-ZD6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Rzr-rS-eLL"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="pSR-Z2-qyb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ido-QU-U5m">
+                                <rect key="frame" x="20" y="12" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select the Photo"/>
+                                <connections>
+                                    <action selector="selectThePhoteTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="rLD-oG-JT5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZ7-yH-xuC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11626" y="-5840"/>
+        </scene>
         <!--Upload-->
         <scene sceneID="TxM-6e-wsE">
             <objects>
@@ -153,13 +181,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-co-REH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="298"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ido-QU-U5m">
-                                <rect key="frame" x="150" y="222" width="114" height="30"/>
-                                <state key="normal" title="Select the Photo"/>
-                                <connections>
-                                    <action selector="selectThePhoteTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="rLD-oG-JT5"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment your artificates" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ss-1X-eEs">
                                 <rect key="frame" x="20" y="431" width="374" height="100"/>
                                 <constraints>
@@ -195,7 +216,6 @@
                             <constraint firstItem="u2C-ok-tdF" firstAttribute="trailing" secondItem="3Ss-1X-eEs" secondAttribute="trailing" constant="20" id="dYk-BK-xJU"/>
                             <constraint firstItem="cqz-5m-zsi" firstAttribute="leading" secondItem="u2C-ok-tdF" secondAttribute="leading" constant="10" id="gxp-7H-td4"/>
                             <constraint firstItem="3Ss-1X-eEs" firstAttribute="top" secondItem="2nC-co-REH" secondAttribute="bottom" constant="45" id="nR8-Uf-idK"/>
-                            <constraint firstItem="ido-QU-U5m" firstAttribute="top" secondItem="u2C-ok-tdF" secondAttribute="top" constant="211" id="pKD-bX-2Mb"/>
                             <constraint firstItem="3Ss-1X-eEs" firstAttribute="leading" secondItem="u2C-ok-tdF" secondAttribute="leading" constant="20" id="wKr-Xm-bTD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u2C-ok-tdF"/>
@@ -210,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kx-rY-r7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11542.028985507248" y="-5832.5892857142853"/>
+            <point key="canvasLocation" x="-10262" y="-5824"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7zg-7q-k7a">

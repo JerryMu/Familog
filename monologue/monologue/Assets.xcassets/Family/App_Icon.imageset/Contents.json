@@ -1,8 +1,11 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
-      "filename" : "film.png",
+      "filename" : "settlement.png",
       "scale" : "1x"
     },
     {
