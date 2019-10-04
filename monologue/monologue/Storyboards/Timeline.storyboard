@@ -157,7 +157,7 @@
                                 <rect key="frame" x="150" y="222" width="114" height="30"/>
                                 <state key="normal" title="Select the Photo"/>
                                 <connections>
-                                    <action selector="uploadTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="ziL-yF-S3r"/>
+                                    <action selector="selectThePhoteTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="rLD-oG-JT5"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment your artificates" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ss-1X-eEs">
@@ -168,8 +168,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-5m-zsi">
-                                <rect key="frame" x="10" y="771" width="394" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-5m-zsi">
+                                <rect key="frame" x="11" y="771" width="394" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="OUo-2H-blC"/>
@@ -178,6 +178,9 @@
                                 <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareTapped:" destination="mhk-CV-hy8" eventType="touchUpInside" id="cG4-Ra-Xsp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -199,6 +202,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Upload" id="ZJq-ss-dDX"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="descriptionField" destination="3Ss-1X-eEs" id="FkE-ZF-8CG"/>
+                        <outlet property="selectButton" destination="ido-QU-U5m" id="P2L-DI-3ah"/>
+                        <outlet property="selectImage" destination="2nC-co-REH" id="vN0-5S-Wof"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kx-rY-r7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -232,7 +240,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Jq2-cC-mpR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oCr-yA-nhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="AAo-2i-O0d" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t5e-Jw-Ivg">
@@ -247,6 +254,7 @@
                         <segue destination="mhk-CV-hy8" kind="relationship" relationship="rootViewController" id="liN-bF-hYJ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCr-yA-nhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12561" y="-5832"/>
         </scene>

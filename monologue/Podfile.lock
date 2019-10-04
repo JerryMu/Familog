@@ -142,7 +142,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - Protobuf
-  - SDWebImage
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -195,6 +195,6 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
 
-PODFILE CHECKSUM: 339786db51a205d66c3cce8e20e151f6440f715b
+PODFILE CHECKSUM: 82d522a55af5226f64525ff950349d53d9b451bb
 
 COCOAPODS: 1.7.5
