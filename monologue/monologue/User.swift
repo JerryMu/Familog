@@ -15,8 +15,16 @@ class User {
     var id: String?
     var age : String?
     var bio : String?
-    var postNumber : Int?
+    var postNumber = 0
     var familyId : String?
+    var dictionary: [String: Any] {
+        return ["email": email!,
+                "profileImageUrl": profileImageUrl!,
+                "firstname": firstname!,
+                "lastname" : lastname!,
+                "bio" : bio!
+                ]
+    }
 }
 
 extension User {
@@ -30,5 +38,8 @@ extension User {
         user.id = key
         user.bio = dict["bio"] as? String
         return user
+    }
+    var nsDictionary: NSDictionary {
+        return dictionary as NSDictionary
     }
 }

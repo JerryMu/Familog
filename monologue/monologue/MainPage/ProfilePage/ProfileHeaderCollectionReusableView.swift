@@ -13,7 +13,6 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var artifactsNumberLabel: UILabel!
     
-    let uid =  Auth.auth().currentUser!.uid
     let initImage = URL(string : "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/images%2FHead_Icon.png?alt=media&token=abd7d70b-ac25-43d1-9289-a811e2e0e7bc")
     //current user information
     var user: User? {
@@ -31,6 +30,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         }
         
         
-        artifactsNumberLabel.text = String(user!.postNumber ?? 0)
+        Api.Post.observePostsNumberByUser(userId: user!.id!){count in
+            self.artifactsNumberLabel.text = "\(count)"
+        }
     }
 }

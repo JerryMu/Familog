@@ -30,9 +30,21 @@ class PostApi {
             }
         }
     }
+    func observePostsNumberByUser(userId: String, completion : @escaping (Int) -> Void){
+        
+        postRef.whereField("userId", isEqualTo: userId).getDocuments{(querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                completion((querySnapshot?.documents.count)!)
+            }
+        }
+        
+    }
     func observePostsByUser(userId: String) -> Query{
         
         return postRef.whereField("userId", isEqualTo: userId)
+        
     }
     
     func observePostsByFamily(familyId: String) -> Query{
