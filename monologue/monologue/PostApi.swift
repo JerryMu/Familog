@@ -35,7 +35,7 @@ class PostApi {
         return postRef.whereField("userId", isEqualTo: userId)
     }
     
-    func observePostsByFamily(familyId: String, familyPost: [Post]){
+    func observePostsByFamily(familyId: String) -> Query{
         return postRef.whereField("familyId", isEqualTo: familyId)
     }
     

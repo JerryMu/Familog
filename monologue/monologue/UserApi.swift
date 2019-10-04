@@ -30,5 +30,13 @@ class UserApi {
         }
 
     }
+    
+//    func setUserByUid(Uid : String, user : User){
+//        let userRef = REF_USERS.document(Uid)
+//
+//        userRef.setData(<#T##documentData: [String : Any]##[String : Any]#>)
+//
+//
+//    }
 }
 

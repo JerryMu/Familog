@@ -19,6 +19,7 @@ class TimelineViewController: UIViewController {
     var familyId: String = ""
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
+    let fakeFamilyID = "123456"
 //    let postRef = Firestore.firestore().collection("AllPost")
     
     override func viewDidLoad() {
@@ -44,22 +45,19 @@ class TimelineViewController: UIViewController {
     func loadPosts() {
 //        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
         self.tableView.reloadData()
-//        postRef.getDocuments{ (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    Api.Post.observePost(Uid: document.documentID, completion: { (post) in
-//                        Api.User.observeUserByUid(Uid: document.documentID, completion: { (user) in
-//                            post.username = user.firstname! + " " + user.lastname!
-//                            self.posts.append(post)
-//                            self.tableView.reloadData()
-//                        })
-//                    })
-//
-//                }
-//            }
-//        }
+        Api.Post.observePostsByFamily(familyId: fakeFamilyID).getDocuments{ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    Api.Post.observePost(uid: document.documentID, completion:  { (post) in
+                        self.posts.append(post)
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+        }
+        
     }
     
 }
