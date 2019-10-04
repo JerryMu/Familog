@@ -51,4 +51,10 @@ class PostApi {
         return postRef.whereField("familyId", isEqualTo: familyId)
     }
     
+    func setPostByUid(Uid : String, dictionary : [String : Any]){
+        let post = postRef.document(Uid)
+        
+        post.setData(dictionary)
+    }
+    
 }

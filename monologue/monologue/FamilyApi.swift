@@ -17,6 +17,7 @@ class FamilyApi{
     
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
+    let familyRef = Firestore.firestore().collection("Family")
     var familyId:String = ""
     
     func getFamilyId() {
@@ -28,4 +29,12 @@ class FamilyApi{
             }
         }
     }
+    
+    func setFamilyByUid(Uid : String, dictionary : [String : Any]){
+        let family = familyRef.document(Uid)
+        
+        family.setData(dictionary)
+    }
+    
+    
 }

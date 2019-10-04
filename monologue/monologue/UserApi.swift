@@ -31,12 +31,10 @@ class UserApi {
 
     }
     
-    func setUserByUid(Uid : String, user : User){
+    func setUserByUid(Uid : String, dictionary : [String : Any]){
         let userRef = REF_USERS.document(Uid)
         
-        userRef.setData(user.dictionary)
-        
-        
+        userRef.setData(dictionary)  
     }
 }
 
