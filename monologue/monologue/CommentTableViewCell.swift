@@ -50,9 +50,9 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     @objc func nameLabel_TouchUpInside() {
-        if let id = user?.id {
+     //   if let id = user?.id {
           
-        }
+        
     }
     
     override func prepareForReuse() {

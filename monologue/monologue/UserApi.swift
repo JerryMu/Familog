@@ -20,7 +20,7 @@ class UserApi {
            REF_USERS2.child(uid).observeSingleEvent(of: .value, with: {
                snapshot in
                if let dict = snapshot.value as? [String: Any] {
-                   let user = User.transformUser(dict: dict, key: snapshot.key)
+                   let user = User.transformUser(dict: dict)
                    completion(user)
                }
            })

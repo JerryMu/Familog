@@ -17,11 +17,11 @@
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		3841206C2348418D006EC47E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206B2348418D006EC47E /* CommentViewController.swift */; };
 		3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206D234841BC006EC47E /* CommentTableViewCell.swift */; };
-		3841207023486ED1006EC47E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206F23486ED1006EC47E /* Comment.swift */; };
 		3841207223488836006EC47E /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841207123488836006EC47E /* CommentApi.swift */; };
 		384120742348896A006EC47E /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384120732348896A006EC47E /* Post_CommentApi.swift */; };
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
 		38880F1C23333DC600E407A2 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F1B23333DC600E407A2 /* SettingTableViewController.swift */; };
+		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
 		38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */; };
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
 		861571FE233361F400AD5CB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861571FD233361F400AD5CB5 /* Alert.swift */; };
@@ -85,11 +85,11 @@
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3841206B2348418D006EC47E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		3841206D234841BC006EC47E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
-		3841206F23486ED1006EC47E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3841207123488836006EC47E /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		384120732348896A006EC47E /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		38880F152333323400E407A2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		38880F1B23333DC600E407A2 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CE091D6A183E072ED8870F0 /* Pods-Familog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.release.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +187,7 @@
 				358E61632332375500A5A8B8 /* Post.swift */,
 				B2603E922344613800797EF8 /* Family.swift */,
 				B2A4BCFF2349EA4A00B62066 /* Config.swift */,
+				38C822C12349F91800168FD1 /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -202,6 +203,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		38F603DD2349F46000F857D3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		862AD3C6230298C100CB350C = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +220,7 @@
 				862AD3D0230298C200CB350C /* Products */,
 				FF768F097C5FD80E2F7CC110 /* Pods */,
 				93F6D3C5B9865A4B5AC91844 /* Frameworks */,
+				38F603DD2349F46000F857D3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -599,6 +608,7 @@
 				862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */,
 				B2603E952344660000797EF8 /* FamilyApi.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
+				38C822C22349F91800168FD1 /* Comment.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
@@ -617,7 +627,6 @@
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
 				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,
-				3841207023486ED1006EC47E /* Comment.swift in Sources */,
 				B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */,
 				866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */,
 				B2BF69772332F4BF00E846D5 /* Api.swift in Sources */,
@@ -799,7 +808,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -819,7 +828,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
