@@ -33,7 +33,7 @@ class FamilyApi{
     func setFamilyByUid(Uid : String, dictionary : [String : Any]){
         let family = familyRef.document(Uid)
         
-        family.setData(dictionary)
+        family.updateData(dictionary)
     }
     
     

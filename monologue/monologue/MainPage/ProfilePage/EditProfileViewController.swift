@@ -15,111 +15,77 @@ import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
 
+protocol EditProfileControllerDelegate {
+    func updateUserInfor()
+}
 
 class EditProfileViewController: UIViewController {
     
     // set profile photo function
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var usernnameTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var bioTextField: UITextField!
+    
+    var delegate: EditProfileControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAvatar()
+        navigationItem.title = "Edit Profile"
+        usernnameTextField.delegate = self
+        ageTextField.delegate = self
+        bioTextField.delegate = self
+        fetchCurrentUser()
     }
-    func uploadToFirebase(_ image: UIImage) {
-        let avatarName = NSUUID().uuidString
-        // Set the image folder in the firebase storage
-        let avatarRef = Storage.storage().reference(forURL: "gs://monologue-10303.appspot.com/").child("Avatar").child(avatarName)
-        // Compress the image quality then upload to the firebase storage
-        if  let uploadData = image.jpegData(compressionQuality: 0.8) {
-            avatarRef.putData(uploadData, metadata: nil) {(metadata, error) in
-                if error != nil {
-                    Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                    return
-                }
-                avatarRef.downloadURL(completion: { (url, error) in
-                    if error != nil {
-                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                        return
-                    }
-                    guard let downloadurl = url else {
-                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                        return
-                    }
-                    
-                    // Upload the image download URL and uid to the database
-                    let db = Firestore.firestore()
-                    let userRef = db.collection("Users")
-                    let currentUser = Auth.auth().currentUser!.uid
-                    let avatarRef = userRef.document(currentUser).collection("Avatar").document()
-                    let avatarUid = avatarRef.documentID
-                    let urlString = downloadurl.absoluteString
-                    
-                    let data = ["URL": urlString, "uid": avatarUid]
-                    avatarRef.setData(data, completion: {(error) in
-                        if error != nil {
-                            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                            return
-                        }
-                        UserDefaults.standard.set(avatarUid, forKey: "uid")
-                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
-                    })
-                })
+    
+    func fetchCurrentUser() {
+        Api.User.observeCurrentUser {  (user) in
+            if(user.profileImageUrl != nil)
+            {
+                self.avatar.sd_setImage(with: user.profileImageUrl)
             }
         }
+        
     }
-    // setup Avatar
-    func setupAvatar(){
-        avatar.layer.borderWidth = 1
-        avatar.layer.masksToBounds = false
-        avatar.layer.borderColor = UIColor.black.cgColor
-        avatar.layer.cornerRadius = avatar.frame.height/2
-        avatar.clipsToBounds = true
-        avatar.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self ,action: #selector(presentPicker))
-        avatar.addGestureRecognizer(tapGesture)
+    @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
+//            ProgressHUD.show("Waiting...")
+        if(usernnameTextField.text!.count > 4){
+            Api.User.setCurrentUser(dictionary:["firstname" : usernnameTextField.text!])
+            print(1)
+        }
+        if(ageTextField.text!.count < 3){
+            Api.User.setCurrentUser(dictionary:["age" : ageTextField.text!])
+            print(2)
+        }
+        if(bioTextField.text!.count < 50){
+            Api.User.setCurrentUser(dictionary:["bio" : bioTextField.text!])
+        }
+        if(self.avatar.sd_imageURL != nil){
+            Api.User.setCurrentUser(dictionary:["profileImageUrl" : self.avatar.sd_imageURL!])
+        }
     }
-    // open image picker
-    @objc func presentPicker(){
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(picker,animated: true,completion: nil)
+    @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
-    
-    
     
 }
-//
-extension EditProfileViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //create reuasble cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text="\(indexPath.row)"
-        cell.backgroundColor = UIColor.red
-        return cell
-    }
-    
-    
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
-        //editedImage
-        if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
-            UIImage{
-            avatar.image = imageSelected
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("did Finish Picking Media")
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            avatar.image = image
         }
-        //originalImage
-        if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as?
-            UIImage{
-            avatar.image = imageOriginal
-        }
-        //uploadToFirebase
-        uploadToFirebase(avatar.image!)
-        // close it
-        picker.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+    }
 }
+
+extension EditProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("return")
+        textField.resignFirstResponder()
+        return true
+    }
 }

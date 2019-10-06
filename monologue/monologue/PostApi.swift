@@ -54,7 +54,7 @@ class PostApi {
     func setPostByUid(Uid : String, dictionary : [String : Any]){
         let post = postRef.document(Uid)
         
-        post.setData(dictionary)
+        post.updateData(dictionary)
     }
     
 }

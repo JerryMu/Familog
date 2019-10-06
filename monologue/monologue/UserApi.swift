@@ -18,7 +18,29 @@ class UserApi {
         userRef.getDocument { (document, error) in
             if let user = document.flatMap({
                 $0.data().flatMap({ (data) in
-                    return User.transformUser(dict: data, key: Uid)
+                    return User.transformUser(dict: data)
+                })
+            })
+            {
+                completion(user)
+            }
+            else{
+                print("User not found")
+            }
+        }
+
+    }
+    
+    func observeCurrentUser(completion: @escaping (User) -> Void){
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        let userRef = REF_USERS.document(currentUser.uid)
+
+        userRef.getDocument { (document, error) in
+            if let user = document.flatMap({
+                $0.data().flatMap({ (data) in
+                    return User.transformUser(dict: data)
                 })
             })
             {
@@ -34,7 +56,16 @@ class UserApi {
     func setUserByUid(Uid : String, dictionary : [String : Any]){
         let userRef = REF_USERS.document(Uid)
         
-        userRef.setData(dictionary)  
+        userRef.updateData(dictionary)
+    }
+    
+    func setCurrentUser(dictionary : [String : Any]){
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        let userRef = REF_USERS.document(currentUser.uid)
+        
+        userRef.updateData(dictionary)
     }
 }
 
