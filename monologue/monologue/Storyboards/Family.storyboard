@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="Rmc-yZ-qxV">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="EWq-Ns-TvE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="familyVC" modalPresentationStyle="fullScreen" id="EWq-Ns-TvE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2my-RF-1fb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="-665" y="-839"/>
         </scene>
-        <!--View Controller-->
+        <!--Join Family View Controller-->
         <scene sceneID="TXT-3Z-fsA">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="xkY-Yq-4EK" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="xkY-Yq-4EK" customClass="JoinFamilyViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZWF-L2-J3w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,15 +255,18 @@
                         <viewLayoutGuide key="safeArea" id="CGt-m2-dH5"/>
                     </view>
                     <navigationItem key="navigationItem" id="n2q-m1-XXg"/>
+                    <connections>
+                        <outlet property="preferIdTextField" destination="qbc-T9-RUV" id="WPd-WY-W1C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfv-ZA-yTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1207" y="-102"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Family View Controller-->
         <scene sceneID="90I-QI-BHd">
             <objects>
-                <viewController id="i4W-Kb-om9" sceneMemberID="viewController">
+                <viewController id="i4W-Kb-om9" customClass="CreateFamilyViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MU5-Qv-FqX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +277,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-qW-oT5">
                                 <rect key="frame" x="20" y="362" width="374" height="172"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your family name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYA-FQ-w1O">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your family name here " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYA-FQ-w1O">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="JWf-I7-y3m"/>
@@ -311,6 +314,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createTapped:" destination="i4W-Kb-om9" eventType="touchUpInside" id="rcP-8W-lk3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -354,6 +360,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JeK-ei-SFy"/>
                     </view>
+                    <connections>
+                        <outlet property="familyNameTextField" destination="nYA-FQ-w1O" id="q5C-pY-C0S"/>
+                        <outletCollection property="preferIdTextField" destination="mkc-qq-BWv" collectionClass="NSMutableArray" id="p0j-Dc-IVa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4V-Ge-gVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
