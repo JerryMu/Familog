@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="OCk-3r-kcE" customClass="EditProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rz-NN-AwP" userLabel="screen">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rL-UM-ay8">
-                                <rect key="frame" x="0.0" y="108" width="414" height="705"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="700"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpD-rO-h7y">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
@@ -120,6 +120,7 @@
                                                 <state key="normal" title="EDIT"/>
                                                 <connections>
                                                     <action selector="saveBtn_TouchUpInside:" destination="OCk-3r-kcE" eventType="touchUpInside" id="iOj-Rv-kXg"/>
+                                                    <segue destination="kkP-1o-Wh4" kind="show" id="7GZ-lJ-qdH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -178,7 +179,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ift-Bz-jH4">
-                                <rect key="frame" x="0.0" y="74" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="-14" width="414" height="122"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -504,4 +505,7 @@
         <image name="profile" width="26" height="25"/>
         <image name="setting" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7GZ-lJ-qdH"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -32,10 +32,10 @@ extension User {
     static func transformUser(dict: [String: Any]) -> User {
         let user = User()
         user.email = dict["email"] as? String
-        user.profileImageUrl = dict["profileImageUrl"] as? URL
+        user.profileImageUrl = URL(string : dict["profileImageUrl"] as! String) ?? nil
         user.firstname = dict["firstname"] as? String
         user.lastname = dict["lastname"] as? String
-        user.id = dict["uid"] as? String
+        user.uid = dict["uid"] as? String
         user.bio = dict["bio"] as? String
         return user
     }

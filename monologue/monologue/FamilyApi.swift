@@ -21,7 +21,7 @@ class FamilyApi{
     var familyId:String = ""
     
     func getFamilyId() {
-        userRef.document(currentUser).getDocument {(document, error) in
+        userRef.document(currentUser!).getDocument {(document, error) in
             if let document = document, document.exists {
                 self.familyId = document.get("familyId") as! String
             } else {

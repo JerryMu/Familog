@@ -49,19 +49,16 @@ class EditProfileViewController: UIViewController {
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
 //            ProgressHUD.show("Waiting...")
-        if(usernnameTextField.text!.count > 4){
+        if(usernnameTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["firstname" : usernnameTextField.text!])
             print(1)
         }
-        if(ageTextField.text!.count < 3){
+        if(ageTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["age" : ageTextField.text!])
             print(2)
         }
-        if(bioTextField.text!.count < 50){
+        if(bioTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextField.text!])
-        }
-        if(self.avatar.sd_imageURL != nil){
-            Api.User.setCurrentUser(dictionary:["profileImageUrl" : self.avatar.sd_imageURL!])
         }
     }
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
@@ -73,14 +70,39 @@ class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("did Finish Picking Media")
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-            avatar.image = image
-        }
-        dismiss(animated: true, completion: nil)
+        func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
+            //editedImage
+            if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
+                UIImage{
+                avatar.image = imageSelected
+            }
+            //originalImage
+            if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as?
+                UIImage{
+                avatar.image = imageOriginal
+            }
+            //uploadToFirebase
+            
+            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser)
+            
+            storageRef.putData((avatar.image?.pngData())!, metadata: nil){ (metadata, error) in
+                if error != nil {
+                    return
+                }
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                    }
+                    Api.User.setCurrentUser(dictionary:["profileImageUrl" : downloadURL.absoluteString])
+                }
+                
+            }
+
+            picker.dismiss(animated: true, completion: nil)
     }
 }
+
 
 extension EditProfileViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
