@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        fetchPost()
+    //    fetchPost()
         fetchUser()
         
     }

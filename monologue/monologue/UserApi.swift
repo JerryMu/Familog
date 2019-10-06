@@ -9,8 +9,21 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseDatabase
 class UserApi {
+    
     var REF_USERS = Firestore.firestore().collection("Users")
+    var REF_USERS2 = Database.database().reference().child("Users")
+    
+    func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
+           REF_USERS2.child(uid).observeSingleEvent(of: .value, with: {
+               snapshot in
+               if let dict = snapshot.value as? [String: Any] {
+                   let user = User.transformUser(dict: dict, key: snapshot.key)
+                   completion(user)
+               }
+           })
+       }
     
     func observeUserByUid(Uid: String, completion: @escaping (User) -> Void){
         let userRef = REF_USERS.document(Uid)
@@ -36,5 +49,8 @@ class UserApi {
         
         userRef.setData(dictionary)  
     }
+
+       
+       
 }
 

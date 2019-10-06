@@ -16,6 +16,7 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var users = [User]()
     var familyId: String = ""
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
@@ -26,10 +27,14 @@ class TimelineViewController: UIViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 521
         tableView.dataSource = self
-        tableView.delegate = self
+        tableView.delegate =  self
         loadPosts()
     }
     
+    @IBAction func button_TouchUpInside(_ sender: Any) {
+        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
+        
+    }
     func getFamily() {
         userRef.document(currentUser).getDocument {(document, error) in
             if let document = document, document.exists {
@@ -39,10 +44,33 @@ class TimelineViewController: UIViewController {
             }
         }
             
-
     }
+/*
+   func loadPosts() {
+    //        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
+           
+        Api.Post.observePosts{(post) in
+            self.fetchUser(uid: post.uid!, completed: {
+                
+                self.posts.append(post)
+                self.tableView.reloadData()
+                
+            })
+           
+            }
+    }
+    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+           
+        Api.User.observeUser(withId: uid, completion: {
+               user in
+               self.users.append(user)
+               completed()
+           })
+       }
     
-    func loadPosts() {
+  */
+    
+  func loadPosts() {
 //        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
         self.tableView.reloadData()
         Api.Post.observePostsByFamily(familyId: fakeFamilyID).getDocuments{ (querySnapshot, err) in
@@ -59,8 +87,21 @@ class TimelineViewController: UIViewController {
         }
         
     }
+     
     
+ /*   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "CommentSegue" {
+                let commentVC = segue.destination as! CommentViewController
+                let postId = sender  as! String
+                commentVC.postId = postId
+            }
+        
+    }*/
+
 }
+    
+    
+
 // Use fake data to show that our post can be displayed correctly
 extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,6 +119,8 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
             cell.postImageView.sd_setImage(with: url)
         }
 //        cell.textLabel?.text = posts[indexPath.row].caption
+        
+    //    cell.timelineVC = self
         return cell
     }
     
@@ -85,3 +128,4 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+

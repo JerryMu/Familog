@@ -14,6 +14,8 @@ class Post {
     var username: String?
     var userId : String?
     var familyId : String?
+   
+    var caption: String?
 }
 
 // Unlike using initializers, here we use different methods with distinctly meaningful name for
@@ -24,10 +26,12 @@ class Post {
 extension Post {
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
+        
         post.uid = dict["uid"] as? String
         post.discription = dict["discription"] as? String
         post.url = dict["url"] as? String
         post.username = dict["username"] as? String
+         post.caption = dict["caption"] as? String
         return post
     }
     

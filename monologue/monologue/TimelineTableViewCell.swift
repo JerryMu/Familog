@@ -16,15 +16,56 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    @IBOutlet weak var commentImageView: UIImageView!
+    var timelineVC : TimelineViewController?
+    
+  /*  var post: Post? {
+         didSet {
+             updateView()
+         }
+     }
+     
+     var user: User? {
+         didSet {
+             setupUserInfo()
+         }
+     }
+    
+    func updateView() {
+        captionLabel.text = post?.caption
+    }
+    
+    func setupUserInfo() {
+        nameLabel.text = user?.firstname
+        if let photoUrlString = user?.profileImageUrl?.absoluteString {
+            let photoUrl = URL(string: photoUrlString)
+            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Placeholder-image"))
+        }
+    }*/
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        captionLabel.text = ""
+   /*     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
+        commentImageView.addGestureRecognizer(tapGesture)
+        commentImageView.isUserInteractionEnabled = true
+       */
+        
     }
-
+    
+ /*  @objc func commentImageView_TouchUpInside() {
+        if let id = post?.uid {
+        timelineVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+       }
+    }*/
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
 
 }
