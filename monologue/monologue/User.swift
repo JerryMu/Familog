@@ -12,19 +12,19 @@ class User {
     var profileImageUrl: URL?
     var firstname: String?
     var lastname: String?
-    var id: String?
+    var uid: String?
     var age : String?
     var bio : String?
     var postNumber = 0
     var familyId : String?
-    var dictionary: [String: Any] {
-        return ["email": email!,
-                "profileImageUrl": profileImageUrl!,
-                "firstname": firstname!,
-                "lastname" : lastname!,
-                "bio" : bio!
-                ]
-    }
+//    var dictionary: [String: Any] {
+//        return ["email": email!,
+//                "profileImageUrl": profileImageUrl!,
+//                "firstname": firstname!,
+//                "lastname" : lastname!,
+//                "bio" : bio!
+//                ]
+//    }
 }
 
 extension User {
@@ -35,11 +35,11 @@ extension User {
         user.profileImageUrl = dict["profileImageUrl"] as? URL
         user.firstname = dict["firstname"] as? String
         user.lastname = dict["lastname"] as? String
-        user.id = key
+        user.uid = key
         user.bio = dict["bio"] as? String
         return user
     }
-    var nsDictionary: NSDictionary {
-        return dictionary as NSDictionary
-    }
+//    var nsDictionary: NSDictionary {
+//        return dictionary as NSDictionary
+//    }
 }

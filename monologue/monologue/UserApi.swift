@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 class UserApi {
     var REF_USERS = Firestore.firestore().collection("Users")
-    
+    let currentUser = Auth.auth().currentUser!.uid
     func observeUserByUid(Uid: String, completion: @escaping (User) -> Void){
         let userRef = REF_USERS.document(Uid)
         

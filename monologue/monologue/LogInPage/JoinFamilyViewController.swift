@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class JoinFamilyViewController: UIViewController {
 
@@ -19,6 +21,16 @@ class JoinFamilyViewController: UIViewController {
     
     func joinTapped(){
         let preferId = preferIdTextField.text!
+        let userRef = Firestore.firestore().collection("Users").document(Auth.auth().currentUser!.uid)
+        userRef.updateData([
+            "familyId": preferId
+        ]) {err in
+            if err == nil {
+                Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+            } else {
+                Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
+            }
+        }
         
     }
     
