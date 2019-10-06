@@ -506,6 +506,7 @@
         <image name="setting" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wNb-eB-4Yt"/>
         <segue reference="7GZ-lJ-qdH"/>
     </inferredMetricsTieBreakers>
 </document>

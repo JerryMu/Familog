@@ -40,9 +40,9 @@ class EditProfileViewController: UIViewController {
     
     func fetchCurrentUser() {
         Api.User.observeCurrentUser {  (user) in
-            if(user.profileImageUrl != nil)
+            if(user.profileImageUrl != "")
             {
-                self.avatar.sd_setImage(with: user.profileImageUrl)
+                self.avatar.sd_setImage(with: URL(string: user.profileImageUrl!))
             }
         }
         

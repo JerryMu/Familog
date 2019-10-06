@@ -9,7 +9,7 @@
 import Foundation
 class User {
     var email: String?
-    var profileImageUrl: URL?
+    var profileImageUrl: String?
     var firstname: String?
     var lastname: String?
     var uid: String?
@@ -32,7 +32,7 @@ extension User {
     static func transformUser(dict: [String: Any]) -> User {
         let user = User()
         user.email = dict["email"] as? String
-        user.profileImageUrl = URL(string : dict["profileImageUrl"] as! String) ?? nil
+        user.profileImageUrl = dict["profileImageUrl"] as? String
         user.firstname = dict["firstname"] as? String
         user.lastname = dict["lastname"] as? String
         user.uid = dict["uid"] as? String
