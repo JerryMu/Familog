@@ -31,9 +31,10 @@
 		862AD3F3230298C400CB350C /* monologueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3F2230298C400CB350C /* monologueUITests.swift */; };
 		862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862AD4002302AB1000CB350C /* GoogleService-Info.plist */; };
 		866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F797223154AF90059FB81 /* ResetPasswordViewController.swift */; };
+		86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */; };
+		86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */; };
 		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
-		86D45C6E230B0E63007724E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D45C6D230B0E63007724E4 /* Constants.swift */; };
 		B2603E932344613800797EF8 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E922344613800797EF8 /* Family.swift */; };
 		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
@@ -100,9 +101,10 @@
 		862AD3F4230298C400CB350C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		862AD4002302AB1000CB350C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		866F797223154AF90059FB81 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFamilyViewController.swift; sourceTree = "<group>"; };
+		86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
 		869DAC7E230920C000ACF10C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		869DAC80230920CD00ACF10C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		86D45C6D230B0E63007724E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,8 @@
 				862AD3D4230298C200CB350C /* WelcomeViewController.swift */,
 				869DAC80230920CD00ACF10C /* SignUpViewController.swift */,
 				B2B16A4B2336197A0086E97B /* LaunchScreen.swift */,
+				86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */,
+				86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */,
 			);
 			path = LogInPage;
 			sourceTree = "<group>";
@@ -254,7 +258,6 @@
 			children = (
 				B2BF69762332F4BF00E846D5 /* Api.swift */,
 				861571FD233361F400AD5CB5 /* Alert.swift */,
-				86D45C6D230B0E63007724E4 /* Constants.swift */,
 				B2BF69742332F3BD00E846D5 /* UserApi.swift */,
 				B2B16A4D2338B06C0086E97B /* PostApi.swift */,
 				B2603E942344660000797EF8 /* FamilyApi.swift */,
@@ -582,7 +585,8 @@
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				861571FE233361F400AD5CB5 /* Alert.swift in Sources */,
-				86D45C6E230B0E63007724E4 /* Constants.swift in Sources */,
+				86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */,
+				86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,

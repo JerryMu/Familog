@@ -15,7 +15,7 @@ class FamilyApi{
         
     }
     
-    let currentUser = Auth.auth().currentUser!.uid
+    let currentUser = Auth.auth().currentUser?.uid
     let userRef = Firestore.firestore().collection("User")
     let familyRef = Firestore.firestore().collection("Family")
     var familyId:String = ""
