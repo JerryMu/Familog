@@ -24,13 +24,10 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     //get current user's information
     func updateView(){
         nameLabel.text = user?.firstname
-        if let data = try? Data(contentsOf: user?.profileImageUrl ?? initImage!)
-        {
-            profileImage.image = UIImage(data: data)
-        }
+        profileImage.sd_setImage(with: user?.profileImageUrl ?? initImage!)
         
         
-        Api.Post.observePostsNumberByUser(userId: user!.id!){count in
+        Api.Post.observePostsNumberByUser(userId: user!.uid!){count in
             self.artifactsNumberLabel.text = "\(count)"
         }
     }

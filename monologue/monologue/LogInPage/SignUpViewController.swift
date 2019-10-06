@@ -19,36 +19,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
         // Do any additional setup after loading the view.
     }
     
-    func setUpElements() {
-        errorLabel.alpha = 0
-    }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]{8,}")
         return passwordTest.evaluate(with: password)
-    }
-    
-    
-    func showErrorMessage(_ message:String) {
-        errorLabel.alpha = 1
-        errorLabel.text = message
     }
     
 
@@ -86,7 +66,7 @@ class SignUpViewController: UIViewController {
         
         if error != nil {
             // something wrong show error message!
-            showErrorMessage(error!)
+            Alert.presentAlert(on: self, with: "Error!", message: error!)
         }
         else {
             // Create users
@@ -99,31 +79,37 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 if err != nil {
-                    self.showErrorMessage("Error: Creating user")
+                    Alert.presentAlert(on: self, with:"Error!", message: "Creating user")
                 }
                 else {
                     let db = Firestore.firestore()
                     let currentUser = Auth.auth().currentUser!.uid
                                         
-                    let user = ["email": email, "profileImageUrl": nil, "firstname": firstName,"bio" : nil,  "lastname": lastName, "uid": currentUser, "isFollowing": false, "postNumber" : 0] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "age": "", "bio" : "", "postNumber" : 0, "familyId": ""] as [String : Any?]
                     
                     db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                         if error != nil {
-                            self.showErrorMessage("Error: Saving user data")
+                            Alert.presentAlert(on: self, with: "Error!", message: "Saving user data")
                         }
                     })
-                    Alert.presentAlert(on: self, with: "Success", message: "Sign up Successfully!")
-                    self.moveToTimeLinePage()
+                    Alert.presentAlert(on: self, with: "Success!", message: "Sign up Successfully!")
+                    self.moveToLogInPage()
                 }
             }
         }
     }
     
 
-// After verification is complete, if you jump to the Timeline page correctly
-    func moveToTimeLinePage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+// After verification, jump to the log in page
+    func moveToLogInPage() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Start", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
+    func moveToFamilyPage() {
+        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
         self.present(newViewController, animated: true, completion: nil)
     }
  }

@@ -15,13 +15,13 @@ class FamilyApi{
         
     }
     
-    let currentUser = Auth.auth().currentUser!.uid
+    let currentUser = Auth.auth().currentUser?.uid
     let userRef = Firestore.firestore().collection("User")
     let familyRef = Firestore.firestore().collection("Family")
     var familyId:String = ""
     
     func getFamilyId() {
-        userRef.document(currentUser).getDocument {(document, error) in
+        userRef.document(currentUser!).getDocument {(document, error) in
             if let document = document, document.exists {
                 self.familyId = document.get("familyId") as! String
             } else {
@@ -33,7 +33,7 @@ class FamilyApi{
     func setFamilyByUid(Uid : String, dictionary : [String : Any]){
         let family = familyRef.document(Uid)
         
-        family.setData(dictionary)
+        family.updateData(dictionary)
     }
     
     

@@ -14,10 +14,10 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Api.Family.getFamilyId()
     }
     
     
@@ -32,7 +32,9 @@ class LogInViewController: UIViewController {
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
             }
-            else {
+            else if Api.Family.familyId == nil {
+                self.moveToFamilyPage()
+            } else {
                 self.moveToTimeLinePage()
             }
         }
@@ -42,6 +44,12 @@ class LogInViewController: UIViewController {
     func moveToTimeLinePage() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
+    func moveToFamilyPage() {
+        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
         self.present(newViewController, animated: true, completion: nil)
     }
 }
