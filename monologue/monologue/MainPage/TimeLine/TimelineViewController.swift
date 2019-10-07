@@ -25,6 +25,14 @@ class TimelineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                if let document = document, document.exists {
+                    self.familyId = document.get("familyId") as! String
+                    if self.familyId == "" {
+                        self.moveToFamilyPage()
+                    }
+                }
+        }
         tableView.estimatedRowHeight = 521
         tableView.dataSource = self
         loadPosts()
@@ -76,6 +84,11 @@ class TimelineViewController: UIViewController {
                 commentVC.postId = postId
             }
     }
+     func moveToFamilyPage() {
+            let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
+            self.present(newViewController, animated: true, completion: nil)
+        }
     
 
 }

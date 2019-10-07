@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+//import FirebaseFirestore
 
 class LogInViewController: UIViewController {
     
@@ -31,14 +32,11 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
-            }
-//            else if Api.Family.familyId == nil {
-//                self.moveToFamilyPage()
-//            }
-            else {
+            } else{
                 self.moveToTimeLinePage()
             }
         }
+
     }
     
     // Move to the timeline page
@@ -48,9 +46,9 @@ class LogInViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
-    func moveToFamilyPage() {
-        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
-        self.present(newViewController, animated: true, completion: nil)
-    }
+//    func moveToFamilyPage() {
+//        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
+//        self.present(newViewController, animated: true, completion: nil)
+//    }
 }
