@@ -75,8 +75,8 @@ class TimelineViewController: UIViewController {
                 let postId = sender  as! String
                 commentVC.postId = postId
             }
-        
     }
+    
 
 }
     
@@ -89,13 +89,13 @@ extension TimelineViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
-        let post = posts[indexPath.row]
-        let user = users[indexPath.row]
-        print("User",users.count)
-        print("Post",posts.count)
-        cell.post = post
-        cell.user = user
-        cell.delegate = self
+        if(posts.count == users.count){
+            let post = posts[indexPath.row]
+            let user = users[indexPath.row]
+            cell.post = post
+            cell.user = user
+            cell.delegate = self
+        }
         return cell
     }
 }

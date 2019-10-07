@@ -70,11 +70,6 @@ class TimelineTableViewCell: UITableViewCell {
         }
     }
     
- /*  @objc func commentImageView_TouchUpInside() {
-        if let id = post?.uid {
-        timelineVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
-       }
-    }*/
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

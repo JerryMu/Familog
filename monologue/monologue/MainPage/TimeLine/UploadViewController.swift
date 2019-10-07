@@ -63,7 +63,7 @@ class UploadViewController: UIViewController{
                     let currentUser = Auth.auth().currentUser!.uid
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                     //let familyId = Api.Family.familyId
-                    let data = ["description": description, "url": urlString, "uid": uid, "username": nil, "userId": currentUser, "familyId":"123456"]
+                    let data = ["description": description, "url": urlString, "uid": uid, "username": "", "userId": currentUser, "familyId":"123456","comment" : []] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
@@ -72,7 +72,7 @@ class UploadViewController: UIViewController{
                         }
                         Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
                     })
-                    db.collection("AllPost").document().setData(data as [String : Any], completion: {(error) in
+                    db.collection("AllPost").document(uid).setData(data as [String : Any], completion: {(error) in
                         if error != nil {
                             Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
                             return

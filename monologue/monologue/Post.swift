@@ -14,6 +14,7 @@ class Post {
     var username: String?
     var userId : String?
     var familyId : String?
+    var comments : [String] = []
    
     var caption: String?
 }
@@ -33,6 +34,7 @@ extension Post {
         post.username = dict["username"] as? String
         post.caption = dict["caption"] as? String
         post.userId = dict["userId"] as? String
+        post.comments = dict["comment"] as! [String]
         return post
     }
     

@@ -23,6 +23,7 @@ class CommentTableViewCell: UITableViewCell {
     
     var user: User? {
         didSet {
+            print("Userer")
             setupUserInfo()
         }
     }

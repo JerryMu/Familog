@@ -21,6 +21,7 @@ class CommentViewController: UIViewController {
     var postUid: String!
     var comments = [Comment]()
     var users = [User]()
+    var commentString :[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Comment"
@@ -29,7 +30,7 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         empty()
         handleTextField()
-        loadComments()        
+        loadComments()
     }
     
     func loadComments() {
@@ -85,25 +86,13 @@ class CommentViewController: UIViewController {
     
     
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
-        
-        let commentsReference = Api.Comment.REF_COMMENTS
-        let newCommentId = commentsReference.childByAutoId().key
-        let newCommentReference = commentsReference.child(newCommentId!)
-        guard let currentUser = Auth.auth().currentUser else  {
-            return
+        Api.Post.observePost(uid: postId){post in
+            self.commentString = post.comments
+            self.commentString.append(self.commentTextField.text!)
+            Api.Post.updateComment(postId: self.postId, newComment: self.commentString)
         }
-        let currentUserId = currentUser.uid
-        newCommentReference.setValue(["uid": currentUserId, "commentText": commentTextField.text!], withCompletionBlock: {
-            (error, ref) in
-            if error != nil {
-       Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-         return
-               }
-            
-        })
-    
-            self.empty()
-            self.view.endEditing(true)
+        self.empty()
+        self.view.endEditing(true)
     }
     
     
