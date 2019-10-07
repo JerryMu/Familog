@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class CommentViewController: UIViewController {
 
@@ -28,21 +29,20 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         empty()
         handleTextField()
-        loadComments()
-        
+        loadComments()        
     }
     
     func loadComments() {
-         Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
-            snapshot in
-            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
-                comment in
-                self.fetchUser(uid: comment.uid!, completed: {
-                    self.comments.append(comment)
-                    self.tableView.reloadData()
-                })
-            })
-        })
+//         Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
+//            snapshot in
+//            Api.Comment.observeComments(withPostId: snapshot.key, completion: {
+//                comment in
+//                self.fetchUser(uid: comment.uid!, completed: {
+//                    self.comments.append(comment)
+//                    self.tableView.reloadData()
+//                })
+//            })
+//        })
     }
     
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
@@ -98,7 +98,7 @@ class CommentViewController: UIViewController {
             if error != nil {
        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
          return
-                           }
+               }
             
         })
     

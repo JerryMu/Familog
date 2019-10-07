@@ -31,7 +31,8 @@ extension Post {
         post.discription = dict["discription"] as? String
         post.url = dict["url"] as? String
         post.username = dict["username"] as? String
-         post.caption = dict["caption"] as? String
+        post.caption = dict["caption"] as? String
+        post.userId = dict["userId"] as? String
         return post
     }
     

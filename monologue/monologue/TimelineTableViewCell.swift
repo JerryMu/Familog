@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol TimelineTableViewCellDelegate {
+    func goToCommentVC(postId: String)
+    func goToProfileUserVC(userId: String)
+}
+
 class TimelineTableViewCell: UITableViewCell {
 
 
@@ -19,8 +24,9 @@ class TimelineTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentImageView: UIImageView!
     var timelineVC : TimelineViewController?
+    var delegate: TimelineTableViewCellDelegate?
     
-  /*  var post: Post? {
+    var post: Post? {
          didSet {
              updateView()
          }
@@ -38,22 +44,30 @@ class TimelineTableViewCell: UITableViewCell {
     
     func setupUserInfo() {
         nameLabel.text = user?.firstname
-        if let photoUrlString = user?.profileImageUrl?.absoluteString {
+        if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Placeholder-image"))
         }
-    }*/
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         captionLabel.text = ""
-   /*     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
         commentImageView.addGestureRecognizer(tapGesture)
         commentImageView.isUserInteractionEnabled = true
-       */
+       
         
+    }
+    
+    @objc func commentImageView_TouchUpInside() {
+      print("commentImageView_TouchUpInside")
+        
+        if let id = post?.uid {
+            delegate?.goToCommentVC(postId: id)
+        }
     }
     
  /*  @objc func commentImageView_TouchUpInside() {
@@ -66,6 +80,8 @@ class TimelineTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
     
 
 }
+

@@ -27,7 +27,6 @@ class TimelineViewController: UIViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 521
         tableView.dataSource = self
-        tableView.delegate =  self
         loadPosts()
     }
     
@@ -45,30 +44,7 @@ class TimelineViewController: UIViewController {
         }
             
     }
-/*
-   func loadPosts() {
-    //        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
-           
-        Api.Post.observePosts{(post) in
-            self.fetchUser(uid: post.uid!, completed: {
-                
-                self.posts.append(post)
-                self.tableView.reloadData()
-                
-            })
-           
-            }
-    }
-    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
-           
-        Api.User.observeUser(withId: uid, completion: {
-               user in
-               self.users.append(user)
-               completed()
-           })
-       }
-    
-  */
+
     
   func loadPosts() {
 //        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
@@ -80,7 +56,11 @@ class TimelineViewController: UIViewController {
                 for document in querySnapshot!.documents {
                     Api.Post.observePost(uid: document.documentID, completion:  { (post) in
                         self.posts.append(post)
-                        self.tableView.reloadData()
+                        //get user for each post
+                        Api.User.observeUserByUid(Uid: post.userId!){user in
+                            self.users.append(user)
+                            self.tableView.reloadData()
+                        }
                     })
                 }
             }
@@ -89,43 +69,43 @@ class TimelineViewController: UIViewController {
     }
      
     
- /*   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "CommentSegue" {
                 let commentVC = segue.destination as! CommentViewController
                 let postId = sender  as! String
                 commentVC.postId = postId
             }
         
-    }*/
+    }
 
 }
     
     
 
 // Use fake data to show that our post can be displayed correctly
-extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
+extension TimelineViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
         let post = posts[indexPath.row]
-        cell.profileImageView.image = UIImage(named: "Head_Icon.png")
-        cell.nameLabel.text = post.username
-        cell.postImageView.image = UIImage(named: "photo2.jpeg")
-        cell.captionLabel.text = post.discription
-        if let urlString = post.url {
-            let url = URL(string: urlString)
-            cell.postImageView.sd_setImage(with: url)
-        }
-//        cell.textLabel?.text = posts[indexPath.row].caption
-        
-    //    cell.timelineVC = self
+        let user = users[indexPath.row]
+        print("User",users.count)
+        print("Post",posts.count)
+        cell.post = post
+        cell.user = user
+        cell.delegate = self
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+}
+
+extension TimelineViewController: TimelineTableViewCellDelegate {
+    func goToCommentVC(postId: String) {
+        performSegue(withIdentifier: "CommentSegue", sender: postId)
+    }
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
 }
 

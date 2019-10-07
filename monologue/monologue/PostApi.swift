@@ -22,7 +22,7 @@ class PostApi {
         document.getDocument { (document, error) in
             if let post = document.flatMap({
                 $0.data().flatMap({ (data) in
-                    return Post.transformPostPhoto(dict: data )
+                    return Post.transformPostPhoto(dict: data)
                 })
             })
             {
