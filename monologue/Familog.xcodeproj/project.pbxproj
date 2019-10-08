@@ -14,6 +14,10 @@
 		354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D159B232CB0F600AB2431 /* ProfileCell.swift */; };
 		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
+		35AD5674234C373E00964364 /* Redressed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35AD5673234C373D00964364 /* Redressed.ttf */; };
+		35AD5679234C389900964364 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5678234C389900964364 /* BounceButton.swift */; };
+		35AD567F234C402B00964364 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD567E234C402B00964364 /* DesignableButton.swift */; };
+		35AD5681234C40DE00964364 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5680234C40DE00964364 /* DesignableView.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		3841206C2348418D006EC47E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206B2348418D006EC47E /* CommentViewController.swift */; };
 		3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206D234841BC006EC47E /* CommentTableViewCell.swift */; };
@@ -82,6 +86,10 @@
 		354D159B232CB0F600AB2431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		35AD5673234C373D00964364 /* Redressed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Redressed.ttf; sourceTree = "<group>"; };
+		35AD5678234C389900964364 /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
+		35AD567E234C402B00964364 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		35AD5680234C40DE00964364 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3841206B2348418D006EC47E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +203,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		35AD5677234C387200964364 /* IBDesignables */ = {
+			isa = PBXGroup;
+			children = (
+				35AD5678234C389900964364 /* BounceButton.swift */,
+				35AD567E234C402B00964364 /* DesignableButton.swift */,
+				35AD5680234C40DE00964364 /* DesignableView.swift */,
+			);
+			path = IBDesignables;
+			sourceTree = "<group>";
+		};
 		35E6A2E32332616C00B66E4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				862AD3D2230298C200CB350C /* AppDelegate.swift */,
+				35AD5673234C373D00964364 /* Redressed.ttf */,
 				862AD3D1230298C200CB350C /* monologue */,
 				862AD3E6230298C400CB350C /* monologueTest */,
 				862AD3F1230298C400CB350C /* monologueUITests */,
@@ -240,6 +259,7 @@
 		862AD3D1230298C200CB350C /* monologue */ = {
 			isa = PBXGroup;
 			children = (
+				35AD5677234C387200964364 /* IBDesignables */,
 				35E6A2E32332616C00B66E4E /* Views */,
 				358E61622332373C00A5A8B8 /* Model */,
 				86D45C6C230B0E40007724E4 /* HelperClass */,
@@ -488,6 +508,7 @@
 				862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */,
 				862AD3DA230298C400CB350C /* Assets.xcassets in Resources */,
 				86157202233492E200AD5CB5 /* Start.storyboard in Resources */,
+				35AD5674234C373E00964364 /* Redressed.ttf in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
 				35555B662347272900B0D7CD /* Family.storyboard in Resources */,
@@ -619,6 +640,7 @@
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				861571FE233361F400AD5CB5 /* Alert.swift in Sources */,
+				35AD5681234C40DE00964364 /* DesignableView.swift in Sources */,
 				86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */,
 				86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
@@ -628,6 +650,8 @@
 				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
+				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,
+				35AD5679234C389900964364 /* BounceButton.swift in Sources */,
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
 				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,

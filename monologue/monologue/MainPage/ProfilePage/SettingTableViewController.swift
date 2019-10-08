@@ -32,7 +32,7 @@ class SettingTableViewController: UITableViewController {
         }
         //go back to login
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let signInVC = storyboard.instantiateViewController(withIdentifier: "logInVC")
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "Authentication")
         //show the new page
         self.present(signInVC,animated: true , completion: nil)
     }

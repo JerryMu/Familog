@@ -17,6 +17,9 @@ class JoinFamilyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func dismissPopup(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var preferIdTextField: UITextField!
     
     func joinTapped(){
