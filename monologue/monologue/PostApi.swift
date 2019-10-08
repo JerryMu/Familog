@@ -15,7 +15,7 @@ class PostApi {
     var postRef = Firestore.firestore().collection("AllPost")
     var userPosts = [Post]()
     var familyPosts = [Post]()
-    
+    // get the information from the database
     func observePost(uid: String,completion: @escaping (Post) -> Void){
         let document = postRef.document(uid)
         document.getDocument { (document, error) in
@@ -36,11 +36,11 @@ class PostApi {
     
     
 
-    func updateComment(postId: String, newComment : [String])
+    func updateComment(postId: String, commentsIDList : String)
     {
         let postref = postRef.document(postId)
         
-            postref.updateData(["comment" : newComment])
+            postref.updateData(["comment" : commentsIDList])
 
     }
     func observePostsNumberByUser(userId: String, completion : @escaping (Int) -> Void){

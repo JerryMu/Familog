@@ -25,6 +25,7 @@
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
 		38880F1C23333DC600E407A2 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F1B23333DC600E407A2 /* SettingTableViewController.swift */; };
 		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
+		38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C3234C4AB300168FD1 /* Post_Comment.swift */; };
 		38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */; };
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
 		861571FE233361F400AD5CB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861571FD233361F400AD5CB5 /* Alert.swift */; };
@@ -96,6 +97,7 @@
 		38880F152333323400E407A2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		38880F1B23333DC600E407A2 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		38C822C3234C4AB300168FD1 /* Post_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Comment.swift; sourceTree = "<group>"; };
 		38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CE091D6A183E072ED8870F0 /* Pods-Familog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.release.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				B2603E922344613800797EF8 /* Family.swift */,
 				B2A4BCFF2349EA4A00B62066 /* Config.swift */,
 				38C822C12349F91800168FD1 /* Comment.swift */,
+				38C822C3234C4AB300168FD1 /* Post_Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				B2603E952344660000797EF8 /* FamilyApi.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				38C822C22349F91800168FD1 /* Comment.swift in Sources */,
+				38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
