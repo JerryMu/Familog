@@ -11,17 +11,17 @@ class CreateFamilyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        familyIdTextField.text! = randomString()
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var familyNameTextField: UITextField!
     
-   
+    @IBOutlet weak var familyIdTextField: UITextField!
+    
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    @IBOutlet var preferIdTextField: UITextField!
     
     @IBAction func createTapped(_ sender: Any) {
         
@@ -31,19 +31,29 @@ class CreateFamilyViewController: UIViewController {
             Alert.presentAlert(on: self, with: "Error!", message: "You must fill family name")
             return
         }
-        let preferId = randomString()
+        let familyId = familyIdTextField.text!
         
-        let data = ["profileImageUrl": nil, "familyName": familyName, "uid":preferId, "introduce" : nil, "familyOwner":nil, "userNumber" : 1] as [String : Any?]
+        let data = ["profileImageUrl": nil, "familyName": familyName, "uid":familyId, "introduce" : nil, "familyOwner":nil, "userNumber" : 1] as [String : Any?]
         
-        let family = Api.Family.familyRef.document(preferId)
+        let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
-                Alert.presentAlert(on: self, with: "Error!", message: "Saving user data")
+                Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
             } else {
-                Alert.presentAlert(on: self, with: "Success!", message: "Sign up Successfully!")
-                self.moveToLogInPage()
+                Api.User.REF_USERS.document(Api.User.currentUser).updateData([
+                    "familyId": familyId
+                ]) {err in
+                    if err != nil {
+                        Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
+                    } else {
+                        Alert.presentAlert(on: self, with: "Success", message: "Create family successfully!")
+                        self.moveToTimeLinePage()
+                    }
+                }
             }
         })
+       
+
     }
     
     func randomString() -> String {
@@ -54,9 +64,10 @@ class CreateFamilyViewController: UIViewController {
         return randomString
     }
     
-    func moveToLogInPage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Start", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
+    // Move to the timeline page
+    func moveToTimeLinePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
 }
