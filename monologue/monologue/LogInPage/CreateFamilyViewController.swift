@@ -17,6 +17,10 @@ class CreateFamilyViewController: UIViewController {
     
     @IBOutlet weak var familyNameTextField: UITextField!
     
+   
+    @IBAction func dismissPopup(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var preferIdTextField: UITextField!
     
     @IBAction func createTapped(_ sender: Any) {
