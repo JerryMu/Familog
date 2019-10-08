@@ -96,18 +96,10 @@ class SignUpViewController: UIViewController {
                         }
                     })
                     Alert.presentAlert(on: self, with: "Success!", message: "Sign up Successfully!")
-                    self.moveToLogInPage()
+                    self.moveToFamilyPage()
                 }
             }
         }
-    }
-    
-
-// After verification, jump to the log in page
-    func moveToLogInPage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Start", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
-        self.present(newViewController, animated: true, completion: nil)
     }
     
     func moveToFamilyPage() {

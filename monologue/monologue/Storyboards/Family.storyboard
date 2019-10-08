@@ -143,7 +143,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="Join">
-                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -153,9 +153,12 @@
                                                     <real key="value" value="20"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="joinTapped:" destination="xkY-Yq-4EK" eventType="touchUpInside" id="l6V-jI-3gV"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.50461852549999997" green="0.70535296199999997" blue="0.85769456619999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -198,7 +201,7 @@
                         <blurEffect style="regular"/>
                     </visualEffectView>
                     <connections>
-                        <outlet property="preferIdTextField" destination="qbc-T9-RUV" id="WPd-WY-W1C"/>
+                        <outlet property="familyIdTextField" destination="qbc-T9-RUV" id="h6d-Fq-UvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfv-ZA-yTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -233,7 +236,7 @@
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="#$^%DF(example)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfu-mH-vM0">
                                             <rect key="frame" x="74" y="216" width="156" height="23"/>
-                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -253,7 +256,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Create now">
-                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -263,7 +266,7 @@
                                                     <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -323,6 +326,7 @@
                         <blurEffect style="light"/>
                     </visualEffectView>
                     <connections>
+                        <outlet property="familyIdTextField" destination="gfu-mH-vM0" id="euc-K3-YMQ"/>
                         <outlet property="familyNameTextField" destination="nYA-FQ-w1O" id="q5C-pY-C0S"/>
                     </connections>
                 </viewController>
