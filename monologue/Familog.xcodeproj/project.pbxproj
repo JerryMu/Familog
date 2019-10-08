@@ -15,7 +15,6 @@
 		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35AD5674234C373E00964364 /* Redressed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35AD5673234C373D00964364 /* Redressed.ttf */; };
-		35AD5679234C389900964364 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5678234C389900964364 /* BounceButton.swift */; };
 		35AD567F234C402B00964364 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD567E234C402B00964364 /* DesignableButton.swift */; };
 		35AD5681234C40DE00964364 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5680234C40DE00964364 /* DesignableView.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
@@ -86,7 +85,6 @@
 		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35AD5673234C373D00964364 /* Redressed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Redressed.ttf; sourceTree = "<group>"; };
-		35AD5678234C389900964364 /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		35AD567E234C402B00964364 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		35AD5680234C40DE00964364 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		35AD5677234C387200964364 /* IBDesignables */ = {
 			isa = PBXGroup;
 			children = (
-				35AD5678234C389900964364 /* BounceButton.swift */,
 				35AD567E234C402B00964364 /* DesignableButton.swift */,
 				35AD5680234C40DE00964364 /* DesignableView.swift */,
 			);
@@ -647,7 +644,6 @@
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,
-				35AD5679234C389900964364 /* BounceButton.swift in Sources */,
 				354D159C232CB0F600AB2431 /* ProfileCell.swift in Sources */,
 				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,

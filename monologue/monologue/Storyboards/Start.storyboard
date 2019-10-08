@@ -182,7 +182,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-WT-vqj" customClass="BounceButton" customModule="Familog" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-WT-vqj" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
                                             <rect key="frame" x="20" y="274" width="292" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -213,7 +213,9 @@
                                                 <constraint firstAttribute="height" constant="36" id="dZn-zl-pLo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <state key="normal" title="Forgot Password?"/>
+                                            <state key="normal" title="Forgot Password?">
+                                                <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <segue destination="8K6-Ex-LGP" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="vE9-bx-knF"/>
                                             </connections>
@@ -449,7 +451,7 @@
                                                 </textField>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxb-f9-5HV" customClass="BounceButton" customModule="Familog" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxb-f9-5HV" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
                                             <rect key="frame" x="51" y="399" width="232" height="47"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -489,6 +491,11 @@
                                         <constraint firstAttribute="bottom" secondItem="Ut4-6m-rjn" secondAttribute="bottom" constant="331" id="ogv-6o-wGJ"/>
                                         <constraint firstItem="cxb-f9-5HV" firstAttribute="top" secondItem="oIS-2V-YBT" secondAttribute="bottom" constant="26" id="wup-Tj-Zri"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <constraints>
@@ -522,6 +529,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="25q-VI-4T4"/>
+        <segue reference="vE9-bx-knF"/>
     </inferredMetricsTieBreakers>
 </document>
