@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class bounceButton: UIButton {
+class BounceButton: UIButton {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
