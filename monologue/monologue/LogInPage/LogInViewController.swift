@@ -21,6 +21,9 @@ class LogInViewController: UIViewController {
 //        Api.Family.getFamilyId()
     }
     
+    @IBAction func dismissPopup(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // The function of log in
     @IBAction func logInTapped(_ sender: Any) {
