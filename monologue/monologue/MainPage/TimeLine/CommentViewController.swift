@@ -75,7 +75,7 @@ class CommentViewController: UIViewController {
          
     }
     }
-    
+    //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         
         Api.User.observeUserByUid(Uid: uid, completion: {
