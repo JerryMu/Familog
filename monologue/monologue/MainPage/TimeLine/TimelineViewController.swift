@@ -21,25 +21,17 @@ class TimelineViewController: UIViewController {
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
     let fakeFamilyID = "123456"
+    let refreshControl = UIRefreshControl()
 //    let NaviImg = UIImage(named: "NaviBackground")
 
-//    let postRef = Firestore.firestore().collection("AllPost")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
-                if let document = document, document.exists {
-                    self.familyId = document.get("familyId") as! String
-                    if self.familyId == "" {
-                        self.moveToFamilyPage()
-                    }
-                }
-        }
-//        UINavigationBar.appearance().setBackgroundImage(NaviImg?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode: .stretch), for: .default)
-
+        self.tableView.reloadData()
+        getFamilyId()
         navigationController?.navigationBar.shadowImage = UIImage()
-
-        
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
@@ -50,31 +42,36 @@ class TimelineViewController: UIViewController {
         self.performSegue(withIdentifier: "CommentSegue", sender: nil)
         
     }
-    func getFamily() {
-        userRef.document(currentUser).getDocument {(document, error) in
-            if let document = document, document.exists {
-                self.familyId = document.get("familyId") as! String
-            } else {
-                print("Family does not exist")
-            }
-        }
-            
-    }
-
     
-  func loadPosts() {
-//        Api.Post.observePostsByFamily(familyId: familyId, familyPost: posts)
-        self.tableView.reloadData()
+    @objc func refresh() {
+        posts.removeAll()
+        users.removeAll()
+        loadPosts()
+    }
+    
+    func getFamilyId() {
+        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                if let document = document, document.exists {
+                    self.familyId = document.get("familyId") as! String
+                    if self.familyId == "" {
+                        self.moveToFamilyPage()
+                    }
+                }
+        }
+    }
+    
+    func loadPosts() {
         Api.Post.observePostsByFamily(familyId: fakeFamilyID).getDocuments{ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     Api.Post.observePost(uid: document.documentID, completion:  { (post) in
-                        self.posts.append(post)
+                        self.posts.insert(post, at: 0)
+                        self.tableView.reloadData()
                         //get user for each post
                         Api.User.observeUserByUid(Uid: post.userId!){user in
-                            self.users.append(user)
+                            self.users.insert(user, at: 0)
                             self.tableView.reloadData()
                         }
                     })

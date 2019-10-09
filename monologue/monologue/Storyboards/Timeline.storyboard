@@ -224,10 +224,10 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="shareTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="MCK-hm-cf8"/>
+                                                <action selector="shareTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="ea6-Yj-t2G"/>
                                             </connections>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-8G-ulq">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-8G-ulq">
                                             <rect key="frame" x="42" y="59" width="283" height="245"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWV-46-ECH">
@@ -236,7 +236,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="selectThePhoteTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="MC1-aE-QO8"/>
+                                                <action selector="selectThePhoteTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="bp8-b2-zZU"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All memories start here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-1Y-x9g">

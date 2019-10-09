@@ -59,8 +59,8 @@ class CommentViewController: UIViewController {
 //        })
         
         Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
-            print(self.postId)
-            print(post_comment.commentsID)
+//            print(self.postId)
+//            print(post_comment.commentsID)
             self.commentIDList = post_comment.commentsID
             for i in 0..<self.commentIDList.count{
                 Api.Comment.observeComment(commentID: self.commentIDList[i]){comment in

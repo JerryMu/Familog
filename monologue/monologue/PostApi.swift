@@ -12,7 +12,7 @@ import FirebaseDatabase
 import SDWebImage
 
 class PostApi {
-    var postRef = Firestore.firestore().collection("AllPost")
+    var postRef = Firestore.firestore().collection("Post")
     var userPosts = [Post]()
     var familyPosts = [Post]()
     // get the information from the database

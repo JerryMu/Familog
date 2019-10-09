@@ -13,7 +13,7 @@ import FirebaseAuth
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Api.Family.getFamilyId()
+        getFamilyId()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -23,8 +23,10 @@ class UploadViewController: UIViewController{
     @IBOutlet weak var selectImage: UIImageView!
     
     @IBOutlet weak var descriptionField: UITextField!
-    // Set the image picker
     
+    var familyId : String = ""
+
+    // Set the image picker
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -36,6 +38,13 @@ class UploadViewController: UIViewController{
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    func getFamilyId() {
+        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                if let document = document, document.exists {
+                    self.familyId = document.get("familyId") as! String
+                }
+        }
+    }
     
     // Upload image to Firebase
     func uploadToFirebase(_ image: UIImage) {
@@ -66,17 +75,11 @@ class UploadViewController: UIViewController{
                     let urlString = downloadurl.absoluteString
                     let currentUser = Auth.auth().currentUser!.uid
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
-                    //let familyId = Api.Family.familyId
-                    let data = ["description": description, "url": urlString, "uid": uid, "username": "", "userId": currentUser, "familyId":"123456","comment" : []] as [String : Any]
+                    let timestamp = Int(Date().timeIntervalSince1970)
+                    
+                    let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId":"123456","timestamp": timestamp, "comment" : []] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
-                        if error != nil {
-                            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                            return
-                        }
-                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
-                    })
-                    db.collection("AllPost").document(uid).setData(data as [String : Any], completion: {(error) in
                         if error != nil {
                             Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
                             return
@@ -90,11 +93,11 @@ class UploadViewController: UIViewController{
     
     @IBAction func shareTapped(_ sender: Any) {
         if selectImage.image == nil {
-            Alert.presentAlert(on: self, with: "Error!", message: "You must pick one Photo")
-        } else {
+            Alert.presentAlert(on: self, with: "Error", message: "You must pick one Photo")
+            return
+        }
         uploadToFirebase(selectImage.image!)
         moveToTimeLinePage()
-        }
     }
     
     // Move to the timeline page

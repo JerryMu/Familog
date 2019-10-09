@@ -11,9 +11,9 @@ class Post {
     var discription: String?
     var url: String?
     var uid: String?
-    var username: String?
     var userId : String?
     var familyId : String?
+    var timestamp : Int?
     var commentsIDList : [String] = []
 }
 
@@ -29,8 +29,8 @@ extension Post {
         post.uid = dict["uid"] as? String
         post.discription = dict["description"] as? String
         post.url = dict["url"] as? String
-        post.username = dict["username"] as? String
         post.userId = dict["userId"] as? String
+        post.timestamp = dict["timestamp"] as? Int
         post.commentsIDList = dict["comment"] as! [String]
         return post
     }
