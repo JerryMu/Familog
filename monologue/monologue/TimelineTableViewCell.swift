@@ -18,7 +18,6 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
@@ -39,7 +38,8 @@ class TimelineTableViewCell: UITableViewCell {
      }
     
     func updateView() {
-        captionLabel.text = post?.caption
+        print(post?.discription)
+        captionLabel.text = post?.discription
     }
     
     func setupUserInfo() {
