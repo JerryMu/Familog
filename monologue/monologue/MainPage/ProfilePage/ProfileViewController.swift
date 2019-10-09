@@ -26,17 +26,17 @@ class ProfileViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchPost()
-        fetchUser()
+        //fetchUser()
     }
     
-//  Take out user information from the database
-    func fetchUser() {
-        Api.User.observeUserByUid(Uid: uid){ (user) in
-            self.user = user
-            self.navigationItem.title = user.firstname
-            self.updateView()
-        }
-    }
+////  Take out user information from the database
+//    func fetchUser() {
+//        Api.User.observeUserByUid(Uid: uid){ (user) in
+//            self.user = user
+//            self.navigationItem.title = user.firstname
+//            self.updateView()
+//        }
+//    }
     
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in

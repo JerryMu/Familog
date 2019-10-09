@@ -42,48 +42,47 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         empty()
         handleTextField()
-        loadComments()
+        //loadComments()
 
     }
     
-    func loadComments() {
-    //     Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
-     //      snapshot in
-     //      Api.Comment.observeComments(withPostId: snapshot.key, completion: {
-//                comment in
-//                self.fetchUser(uid: comment.uid!, completed: {
-//                    self.comments.append(comment)
-//                    self.tableView.reloadData()
-//                })
-//            })
-//        })
-        
-        Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
-//            print(self.postId)
-//            print(post_comment.commentsID)
-            self.commentIDList = post_comment.commentsID
-            for i in 0..<self.commentIDList.count{
-                Api.Comment.observeComment(commentID: self.commentIDList[i]){comment in
-                    self.fetchUser(uid: comment.uid!, completed: {
-                                       self.comments.append(comment)
-                                       self.tableView.reloadData()
-                                   })
-                }
-                
-            }
-              //   Api.Post_Comment.updateComment(postid: self.postId, commentsID: ref)
-         
-    }
-    }
+//    func loadComments() {
+//    //     Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
+//     //      snapshot in
+//     //      Api.Comment.observeComments(withPostId: snapshot.key, completion: {
+////                comment in
+////                self.fetchUser(uid: comment.uid!, completed: {
+////                    self.comments.append(comment)
+////                    self.tableView.reloadData()
+////                })
+////            })
+////        })
+//
+//        Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
+////            print(self.postId)
+////            print(post_comment.commentsID)
+//            self.commentIDList = post_comment.commentsID
+//            for i in 0..<self.commentIDList.count{
+//                Api.Comment.observeComment(commentID: self.commentIDList[i]){comment in
+//                    self.fetchUser(uid: comment.uid!, completed: {
+//                                       self.comments.append(comment)
+//                                       self.tableView.reloadData()
+//                                   })
+//                }
+//
+//            }
+//              //   Api.Post_Comment.updateComment(postid: self.postId, commentsID: ref)
+//        }
+//    }
     
-    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
-        
-        Api.User.observeUserByUid(Uid: uid, completion: {
-            user in
-            self.users.append(user)
-            completed()
-        })
-    }
+//    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+//        
+//        Api.User.observeUserByUid(Uid: uid, completion: {
+//            user in
+//            self.users.append(user)
+//            completed()
+//        })
+//    }
    
     func handleTextField() {
         commentTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)

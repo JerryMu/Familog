@@ -61,24 +61,30 @@ class TimelineViewController: UIViewController {
     }
     
     func loadPosts() {
-        Api.Post.observePostsByFamily(familyId: fakeFamilyID).getDocuments{ (querySnapshot, err) in
+        Api.Post.observePostsByFamily(familyId: fakeFamilyID).addSnapshotListener{ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    Api.Post.observePost(uid: document.documentID, completion:  { (post) in
+//                    Api.Post.observePost(uid: document.documentID, completion:  { (post) in
+                    let post = Post.transformPostPhoto(dict: document.data())
                         self.posts.insert(post, at: 0)
                         self.tableView.reloadData()
                         //get user for each post
-                        Api.User.observeUserByUid(Uid: post.userId!){user in
-                            self.users.insert(user, at: 0)
-                            self.tableView.reloadData()
+                    Api.User.observeUserByUid(Uid: post.userId!).addSnapshotListener{ (querySnapshot, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                for document in querySnapshot!.documents {
+                                    let user = User.transformUser(dict: document.data())
+                                    self.users.insert(user, at: 0)
+                                    self.tableView.reloadData()
+                                }
                         }
-                    })
+                    }
                 }
             }
         }
-        
     }
      
     
