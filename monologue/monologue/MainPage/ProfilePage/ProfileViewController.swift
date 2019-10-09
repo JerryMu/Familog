@@ -10,17 +10,23 @@ import UIKit
 import FirebaseAuth
 //The main page of personal profile storyboard
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var userBioLabel: UILabel!
+    @IBOutlet weak var userDobLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var currentFamily: UILabel!
+    @IBOutlet weak var postLabel: UILabel!
     var user: User!
     var posts: [Post] = []
     let uid =  Auth.auth().currentUser!.uid
+    let initImage =  "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/Avatar%2Fy8sEy6wi7VU2XzQ7IrwOyNpu4tD2?alt=media&token=04c3c554-eb96-4a49-b348-3f1404759acb"
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-    //    fetchPost()
+        fetchPost()
         fetchUser()
-        
     }
     
 //  Take out user information from the database
@@ -28,7 +34,7 @@ class ProfileViewController: UIViewController {
         Api.User.observeUserByUid(Uid: uid){ (user) in
             self.user = user
             self.navigationItem.title = user.firstname
-            self.collectionView.reloadData()
+            self.updateView()
         }
     }
     
@@ -61,16 +67,17 @@ extension ProfileViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeaderCollectionReusableView", for: indexPath) as! ProfileHeaderCollectionReusableView
-        if let user = self.user {
-            headerViewCell.user = user
-        }
-        return headerViewCell
-    }
-    
-}
 
+    func updateView(){
+        userNameLabel.text = user?.firstname
+        userBioLabel.text = user?.bio
+        userDobLabel.text = user?.dob
+        userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
+        Api.Post.observePostsNumberByUser(userId: user!.uid!){count in
+            self.postLabel.text = "\(count)"
+        }
+    }
+}
 //set image distance and image size
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

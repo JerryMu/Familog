@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import monologue
+@testable import Familog
 
 class monologueTests: XCTestCase {
 

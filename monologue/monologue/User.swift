@@ -13,7 +13,7 @@ class User {
     var firstname: String?
     var lastname: String?
     var uid: String?
-    var age : String?
+    var dob : String = "Unknow"
     var bio : String?
     var postNumber = 0
     var familyId : String?
@@ -37,6 +37,7 @@ extension User {
         user.lastname = dict["lastname"] as? String
         user.uid = dict["uid"] as? String
         user.bio = dict["bio"] as? String
+//        user.dob = dict["dob"] as! String
         return user
     }
 //    var nsDictionary: NSDictionary {

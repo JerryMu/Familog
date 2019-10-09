@@ -22,6 +22,7 @@ class PhotoCollectionViewCell : UICollectionViewCell {
     var post: Post? {
         didSet {
             updateView()
+            print("here")
         }
     }
     //update profile photo

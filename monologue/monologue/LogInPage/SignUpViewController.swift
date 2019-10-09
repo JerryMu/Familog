@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     let currentUser = Auth.auth().currentUser!.uid
                                         
-                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "age": "", "bio" : "", "postNumber" : 0, "familyId": ""] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId": ""] as [String : Any?]
                     
                     db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                         if error != nil {
