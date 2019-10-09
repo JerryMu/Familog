@@ -30,6 +30,8 @@ namespace remote {
 
 using auth::CredentialsProvider;
 using auth::Token;
+using model::Mutation;
+using nanopb::ByteString;
 using util::AsyncQueue;
 using util::TimerId;
 using util::Status;
@@ -46,11 +48,11 @@ WriteStream::WriteStream(
       callback_{NOT_NULL(callback)} {
 }
 
-void WriteStream::SetLastStreamToken(NSData* token) {
+void WriteStream::SetLastStreamToken(const ByteString& token) {
   serializer_bridge_.SetLastStreamToken(token);
 }
 
-NSData* WriteStream::GetLastStreamToken() const {
+ByteString WriteStream::GetLastStreamToken() const {
   return serializer_bridge_.GetLastStreamToken();
 }
 
@@ -68,7 +70,7 @@ void WriteStream::WriteHandshake() {
   // stream token on the handshake, ignoring any stream token we might have.
 }
 
-void WriteStream::WriteMutations(const std::vector<FSTMutation*>& mutations) {
+void WriteStream::WriteMutations(const std::vector<Mutation>& mutations) {
   EnsureOnQueue();
   HARD_ASSERT(IsOpen(), "Writing mutations requires an opened stream");
   HARD_ASSERT(handshake_complete(),

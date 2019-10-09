@@ -35,7 +35,7 @@
 #include "Firestore/core/src/firebase/firestore/remote/grpc_unary_call.h"
 #include "Firestore/core/src/firebase/firestore/util/async_queue.h"
 #include "Firestore/core/src/firebase/firestore/util/error_apple.h"
-#include "Firestore/core/src/firebase/firestore/util/executor_libdispatch.h"
+#include "Firestore/core/src/firebase/firestore/util/executor.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "Firestore/core/src/firebase/firestore/util/log.h"
 #include "Firestore/core/src/firebase/firestore/util/statusor.h"
@@ -45,26 +45,24 @@
 namespace firebase {
 namespace firestore {
 namespace remote {
+namespace {
 
 using auth::CredentialsProvider;
 using auth::Token;
 using core::DatabaseInfo;
 using model::DocumentKey;
+using model::MaybeDocument;
+using model::Mutation;
 using util::AsyncQueue;
 using util::Status;
 using util::StatusOr;
 using util::Executor;
-using util::ExecutorLibdispatch;
-
-namespace {
 
 const auto kRpcNameCommit = "/google.firestore.v1.Firestore/Commit";
 const auto kRpcNameLookup = "/google.firestore.v1.Firestore/BatchGetDocuments";
 
 std::unique_ptr<Executor> CreateExecutor() {
-  auto queue = dispatch_queue_create("com.google.firebase.firestore.rpc",
-                                     DISPATCH_QUEUE_SERIAL);
-  return absl::make_unique<ExecutorLibdispatch>(queue);
+  return Executor::CreateSerial("com.google.firebase.firestore.rpc");
 }
 
 std::string MakeString(grpc::string_ref grpc_str) {
@@ -164,7 +162,7 @@ std::shared_ptr<WriteStream> Datastore::CreateWriteStream(
                                        &grpc_connection_, callback);
 }
 
-void Datastore::CommitMutations(const std::vector<FSTMutation*>& mutations,
+void Datastore::CommitMutations(const std::vector<Mutation>& mutations,
                                 CommitCallback&& callback) {
   ResumeRpcWithCredentials(
       // TODO(c++14): move into lambda.
@@ -181,7 +179,7 @@ void Datastore::CommitMutations(const std::vector<FSTMutation*>& mutations,
 
 void Datastore::CommitMutationsWithCredentials(
     const Token& token,
-    const std::vector<FSTMutation*>& mutations,
+    const std::vector<Mutation>& mutations,
     CommitCallback&& callback) {
   grpc::ByteBuffer message = serializer_bridge_.ToByteBuffer(
       serializer_bridge_.CreateCommitRequest(mutations));
@@ -253,7 +251,7 @@ void Datastore::OnLookupDocumentsResponse(
 
   Status parse_status;
   std::vector<grpc::ByteBuffer> responses = std::move(result).ValueOrDie();
-  std::vector<FSTMaybeDocument*> docs =
+  std::vector<MaybeDocument> docs =
       serializer_bridge_.MergeLookupResponses(responses, &parse_status);
   callback(docs, parse_status);
 }
