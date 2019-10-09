@@ -223,6 +223,9 @@
                                                     <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="shareTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="MCK-hm-cf8"/>
+                                            </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-8G-ulq">
                                             <rect key="frame" x="42" y="59" width="283" height="245"/>
@@ -232,6 +235,9 @@
                                             <state key="normal" title="选择图片(显示该字只为测试用)">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="selectThePhoteTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="MC1-aE-QO8"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All memories start here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-1Y-x9g">
                                             <rect key="frame" x="17" y="15" width="333" height="35"/>
@@ -408,7 +414,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7zg-7q-k7a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6w-eR-wux" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="lQs-2V-bCt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabBarItem:XB2-MA-DGf:image" id="XB2-MA-DGf" colorLabel="IBBuiltInLabel-Red">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
@@ -433,6 +438,7 @@
                         <segue destination="54d-fd-gnY" kind="relationship" relationship="rootViewController" id="GQ7-Na-I7f"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6w-eR-wux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-14723" y="-5833"/>
         </scene>
