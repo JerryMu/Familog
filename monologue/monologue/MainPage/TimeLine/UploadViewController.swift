@@ -14,7 +14,8 @@ class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //Api.Family.getFamilyId()
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @IBOutlet weak var selectButton: UIButton!
@@ -24,6 +25,9 @@ class UploadViewController: UIViewController{
     @IBOutlet weak var descriptionField: UITextField!
     // Set the image picker
     
+    @IBAction func dismissPopup(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func selectThePhoteTapped(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true

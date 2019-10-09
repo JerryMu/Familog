@@ -21,6 +21,8 @@ class TimelineViewController: UIViewController {
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
     let fakeFamilyID = "123456"
+//    let NaviImg = UIImage(named: "NaviBackground")
+
 //    let postRef = Firestore.firestore().collection("AllPost")
     
     override func viewDidLoad() {
@@ -33,7 +35,13 @@ class TimelineViewController: UIViewController {
                     }
                 }
         }
-        tableView.estimatedRowHeight = 521
+//        UINavigationBar.appearance().setBackgroundImage(NaviImg?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode: .stretch), for: .default)
+
+        navigationController?.navigationBar.shadowImage = UIImage()
+
+        
+        tableView.estimatedRowHeight = 650
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         loadPosts()
     }

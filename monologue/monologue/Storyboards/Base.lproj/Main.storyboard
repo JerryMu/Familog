@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="91f-RJ-gNu">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,10 +11,14 @@
         <scene sceneID="tja-D4-hWY">
             <objects>
                 <tabBarController storyboardIdentifier="Tabbar" modalPresentationStyle="fullScreen" id="91f-RJ-gNu" customClass="TabBarViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1z7-tP-N5W">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="1z7-tP-N5W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                        <color key="tintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="VDi-C9-4AJ" kind="relationship" relationship="viewControllers" id="xwL-YU-pY7"/>
@@ -30,8 +34,8 @@
         <scene sceneID="lXC-vS-ETi">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="TimeLineStoryBoard" storyboardName="Timeline" referencedIdentifier="TimeLineStoryBoard" id="VDi-C9-4AJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="Timeline" id="aAR-11-wbK">
-                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    <tabBarItem key="tabBarItem" title="Family" image="Timeline" id="aAR-11-wbK">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUJ-HF-4cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +46,7 @@
         <scene sceneID="RjG-QP-Mvm">
             <objects>
                 <viewControllerPlaceholder storyboardName="Notification" referencedIdentifier="NotificationStoryBoard" id="Mix-ry-nw1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8Ye-Bb-vvs"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="group Chat" id="8Ye-Bb-vvs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1b-hD-nRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,7 +56,7 @@
         <scene sceneID="n3a-qO-ouy">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileStoryBoard" id="o51-BE-hQA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BWE-Y6-DIb"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="profile" id="BWE-Y6-DIb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2p-F4-ACz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,6 +64,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Timeline" width="25" height="25"/>
+        <image name="Timeline" width="35" height="35"/>
+        <image name="group Chat" width="35" height="35"/>
+        <image name="profile" width="35" height="35"/>
     </resources>
 </document>
