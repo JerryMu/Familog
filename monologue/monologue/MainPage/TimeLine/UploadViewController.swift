@@ -13,7 +13,6 @@ import FirebaseAuth
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFamilyId()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -38,16 +37,17 @@ class UploadViewController: UIViewController{
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func getFamilyId() {
+    func getFamilyId(_ image: UIImage) {
         Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                 if let document = document, document.exists {
-                    self.familyId = document.get("familyId") as! String
+                    let familyId = document.get("familyId") as! String
+                    self.uploadToFirebase(image, fid: familyId)
                 }
         }
     }
     
     // Upload image to Firebase
-    func uploadToFirebase(_ image: UIImage) {
+    func uploadToFirebase(_ image: UIImage, fid : String) {
         let imageName = NSUUID().uuidString
         // Set the image folder in the firebase storage
         let imageRef = Storage.storage().reference(forURL: "gs://monologue-10303.appspot.com/").child("images").child(imageName)
@@ -77,7 +77,7 @@ class UploadViewController: UIViewController{
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                     let timestamp = Int(Date().timeIntervalSince1970)
                     
-                    let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId":"123456","timestamp": timestamp, "comment" : []] as [String : Any]
+                    let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId": fid,"timestamp": timestamp, "comment" : []] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
@@ -96,8 +96,9 @@ class UploadViewController: UIViewController{
             Alert.presentAlert(on: self, with: "Error", message: "You must pick one Photo")
             return
         }
-        uploadToFirebase(selectImage.image!)
-        moveToTimeLinePage()
+        
+        getFamilyId(selectImage.image!)
+        self.moveToTimeLinePage()
     }
     
     // Move to the timeline page

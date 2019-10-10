@@ -20,12 +20,12 @@ class TimelineViewController: UIViewController {
     var familyId: String = ""
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
-    let fakeFamilyID = "123456"
     let refreshControl = UIRefreshControl()
 //    let NaviImg = UIImage(named: "NaviBackground")
 
     
     override func viewDidLoad() {
+        refresh()
         super.viewDidLoad()
         self.tableView.reloadData()
         getFamilyId()
@@ -35,14 +35,14 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        loadPosts()
+        load()
     }
     
     
     @objc func refresh() {
         posts.removeAll()
         users.removeAll()
-        loadPosts()
+        load()
     }
     
     func getFamilyId() {
@@ -56,8 +56,15 @@ class TimelineViewController: UIViewController {
         }
     }
     
-    func loadPosts() {
-        Api.Post.observePostsByFamily(familyId: fakeFamilyID).addSnapshotListener{ (querySnapshot, err) in
+    func load(){
+        Api.User.observeCurrentUser(){ currentUser in
+            self.loadPosts(fid : currentUser.familyId!)
+        }
+        
+    }
+    
+    func loadPosts(fid : String) {
+        Api.Post.observePostsByFamily(familyId: fid).addSnapshotListener{ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -65,7 +72,6 @@ class TimelineViewController: UIViewController {
 //                    Api.Post.observePost(uid: document.documentID, completion:  { (post) in
                     let post = Post.transformPostPhoto(dict: document.data())
                         self.posts.insert(post, at: 0)
-                        self.tableView.reloadData()
                         //get user for each post
                     Api.User.observeUserByUid(Uid: post.userId!).addSnapshotListener{ (querySnapshot, err) in
                             if let err = err {

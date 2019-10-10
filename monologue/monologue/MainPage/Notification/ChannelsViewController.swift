@@ -20,10 +20,8 @@ class ChannelsViewController: UITableViewController {
   }()
     
     
-    
-    
-    
-    var currentUser: User!
+   
+  var currentUser: User!
   private let channelCellIdentifier = "channelCell"
   private var currentChannelAlertController: UIAlertController?
    let uid =  Auth.auth().currentUser!.uid
@@ -229,9 +227,7 @@ extension ChannelsViewController {
     let channel = channels[indexPath.row]
     print("currentUser")
 
-    print(currentUser)
     let vc = ChatViewController(user: currentUser, channel: channel)
     navigationController?.pushViewController(vc, animated: true)
   }
-  
 }

@@ -37,6 +37,7 @@ extension User {
         user.lastname = dict["lastname"] as? String
         user.uid = dict["uid"] as? String
         user.bio = dict["bio"] as? String
+        user.familyId = dict["familyId"] as? String
 //        user.dob = dict["dob"] as! String
         return user
     }
