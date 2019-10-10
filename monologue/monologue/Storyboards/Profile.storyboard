@@ -347,7 +347,7 @@
             </objects>
             <point key="canvasLocation" x="1843" y="212"/>
         </scene>
-        <!--Me-->
+        <!--Profile View Controller-->
         <scene sceneID="Elz-hg-bge">
             <objects>
                 <viewController storyboardIdentifier="ProfileStoryBoard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CHL-4N-RvH" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
@@ -627,7 +627,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qr2-3d-pXR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="profile" id="iVe-Jb-iXi">
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="iVe-Jb-iXi">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
