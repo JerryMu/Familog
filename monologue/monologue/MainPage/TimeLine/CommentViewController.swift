@@ -78,11 +78,11 @@ class CommentViewController: UIViewController {
     //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         
-        Api.User.observeUserByUid(Uid: uid, completion: {
-            user in
-            self.users.append(user)
-            completed()
-        })
+//        Api.User.observeUserByUid(Uid: uid, completion: {
+//            user in
+//            self.users.append(user)
+//            completed()
+//        })
     }
    
     func handleTextField() {
