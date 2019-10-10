@@ -49,6 +49,7 @@ class JoinFamilyViewController: UIViewController {
                                           Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
                                       } else {
                                           Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
+                                        Api.User.setCurrentUser(dictionary: ["familyId" : familyId])
                                           self.moveToTimeLinePage()
                                       }
                     }
