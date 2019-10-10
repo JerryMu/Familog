@@ -79,7 +79,7 @@ class TimelineTableViewCell: UITableViewCell {
         nameLabel.text = user?.firstname
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
-            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Placeholder-image"))
+            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
         }
     }
     

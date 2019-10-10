@@ -76,7 +76,7 @@ class TimelineViewController: UIViewController {
                                     self.users.insert(user, at: 0)
                                     self.tableView.reloadData()
                                 }
-                        }
+                            }
                     }
                 }
             }

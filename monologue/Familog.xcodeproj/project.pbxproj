@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14B9DE086DE28E365142681F /* Pods_FamilogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */; };
+		067EF39523F599A975D21B9A /* Pods_FamilogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */; };
 		35005A242330BF3B00239C7E /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A232330BF3B00239C7E /* Timeline.storyboard */; };
 		35005A262330BF8300239C7E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* Notification.storyboard */; };
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
@@ -18,7 +18,6 @@
 		35AD567F234C402B00964364 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD567E234C402B00964364 /* DesignableButton.swift */; };
 		35AD5681234C40DE00964364 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5680234C40DE00964364 /* DesignableView.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
-		35F166B5234DED6D009DCB56 /* chooseSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F166B4234DED6D009DCB56 /* chooseSetting.swift */; };
 		3841206C2348418D006EC47E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206B2348418D006EC47E /* CommentViewController.swift */; };
 		3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206D234841BC006EC47E /* CommentTableViewCell.swift */; };
 		3841207223488836006EC47E /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841207123488836006EC47E /* CommentApi.swift */; };
@@ -36,6 +35,8 @@
 		38D4CF31234EC73F0006155D /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF30234EC73F0006155D /* UIColor+Additions.swift */; };
 		38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF32234EC7610006155D /* UIImage+Additions.swift */; };
 		38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF34234EC7800006155D /* UIView+Additions.swift */; };
+		38D4CF8D234EEB920006155D /* FamilogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF8C234EEB920006155D /* FamilogTests.swift */; };
+		38D4CF99234EEDF60006155D /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF98234EEDF60006155D /* UserTests.swift */; };
 		38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */; };
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
 		861571FE233361F400AD5CB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861571FD233361F400AD5CB5 /* Alert.swift */; };
@@ -46,7 +47,6 @@
 		862AD3D8230298C200CB350C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3D6230298C200CB350C /* Main.storyboard */; settings = {ASSET_TAGS = (PersonalProfile, ); }; };
 		862AD3DA230298C400CB350C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3D9230298C400CB350C /* Assets.xcassets */; };
 		862AD3DD230298C400CB350C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3DB230298C400CB350C /* LaunchScreen.storyboard */; };
-		862AD3E8230298C400CB350C /* monologueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3E7230298C400CB350C /* monologueTests.swift */; };
 		862AD3F3230298C400CB350C /* monologueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3F2230298C400CB350C /* monologueUITests.swift */; };
 		862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862AD4002302AB1000CB350C /* GoogleService-Info.plist */; };
 		866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F797223154AF90059FB81 /* ResetPasswordViewController.swift */; };
@@ -72,12 +72,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		862AD3E4230298C400CB350C /* PBXContainerItemProxy */ = {
+		38D4CF8F234EEB920006155D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 862AD3C7230298C100CB350C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 862AD3CE230298C200CB350C;
-			remoteInfo = monologue;
+			remoteInfo = Familog;
 		};
 		862AD3EF230298C400CB350C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -99,7 +99,6 @@
 		35AD567E234C402B00964364 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		35AD5680234C40DE00964364 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
-		35F166B4234DED6D009DCB56 /* chooseSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseSetting.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3841206B2348418D006EC47E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		3841206D234841BC006EC47E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +117,10 @@
 		38D4CF30234EC73F0006155D /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		38D4CF32234EC7610006155D /* UIImage+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		38D4CF34234EC7800006155D /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		38D4CF8A234EEB910006155D /* FamilogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38D4CF8C234EEB920006155D /* FamilogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilogTests.swift; sourceTree = "<group>"; };
+		38D4CF8E234EEB920006155D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38D4CF98234EEDF60006155D /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CE091D6A183E072ED8870F0 /* Pods-Familog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.release.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +135,6 @@
 		862AD3D9230298C400CB350C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		862AD3DC230298C400CB350C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		862AD3DE230298C400CB350C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		862AD3E3230298C400CB350C /* FamilogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		862AD3E7230298C400CB350C /* monologueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monologueTests.swift; sourceTree = "<group>"; };
 		862AD3E9230298C400CB350C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		862AD3EE230298C400CB350C /* FamilogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,19 +169,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38D4CF87234EEB910006155D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067EF39523F599A975D21B9A /* Pods_FamilogTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		862AD3CC230298C200CB350C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		862AD3E0230298C400CB350C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14B9DE086DE28E365142681F /* Pods_FamilogTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +257,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		38D4CF8B234EEB910006155D /* FamilogTests */ = {
+			isa = PBXGroup;
+			children = (
+				38D4CF8C234EEB920006155D /* FamilogTests.swift */,
+				38D4CF8E234EEB920006155D /* Info.plist */,
+			);
+			path = FamilogTests;
+			sourceTree = "<group>";
+		};
 		38F603DD2349F46000F857D3 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +281,7 @@
 				862AD3D1230298C200CB350C /* monologue */,
 				862AD3E6230298C400CB350C /* monologueTest */,
 				862AD3F1230298C400CB350C /* monologueUITests */,
+				38D4CF8B234EEB910006155D /* FamilogTests */,
 				862AD3D0230298C200CB350C /* Products */,
 				FF768F097C5FD80E2F7CC110 /* Pods */,
 				93F6D3C5B9865A4B5AC91844 /* Frameworks */,
@@ -281,8 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				862AD3CF230298C200CB350C /* Familog.app */,
-				862AD3E3230298C400CB350C /* FamilogTests.xctest */,
 				862AD3EE230298C400CB350C /* FamilogUITests.xctest */,
+				38D4CF8A234EEB910006155D /* FamilogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +320,7 @@
 			children = (
 				862AD3E7230298C400CB350C /* monologueTests.swift */,
 				862AD3E9230298C400CB350C /* Info.plist */,
+				38D4CF98234EEDF60006155D /* UserTests.swift */,
 			);
 			path = monologueTest;
 			sourceTree = "<group>";
@@ -373,7 +386,6 @@
 				B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */,
 				B2BF69722332612000E846D5 /* ProfileViewController.swift */,
 				38880F1B23333DC600E407A2 /* SettingTableViewController.swift */,
-				35F166B4234DED6D009DCB56 /* chooseSetting.swift */,
 				B25C0F85234EA2FD00E1104D /* DetailViewController.swift */,
 			);
 			path = ProfilePage;
@@ -430,6 +442,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38D4CF89234EEB910006155D /* FamilogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38D4CF91234EEB920006155D /* Build configuration list for PBXNativeTarget "FamilogTests" */;
+			buildPhases = (
+				FC2B9F0E8E45125E1E7E2E04 /* [CP] Check Pods Manifest.lock */,
+				38D4CF86234EEB910006155D /* Sources */,
+				38D4CF87234EEB910006155D /* Frameworks */,
+				38D4CF88234EEB910006155D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38D4CF90234EEB920006155D /* PBXTargetDependency */,
+			);
+			name = FamilogTests;
+			productName = FamilogTests;
+			productReference = 38D4CF8A234EEB910006155D /* FamilogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		862AD3CE230298C200CB350C /* Familog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 862AD3F7230298C400CB350C /* Build configuration list for PBXNativeTarget "Familog" */;
@@ -448,25 +479,6 @@
 			productName = monologue;
 			productReference = 862AD3CF230298C200CB350C /* Familog.app */;
 			productType = "com.apple.product-type.application";
-		};
-		862AD3E2230298C400CB350C /* FamilogTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 862AD3FA230298C400CB350C /* Build configuration list for PBXNativeTarget "FamilogTests" */;
-			buildPhases = (
-				B2BF6832ED6AB8D043850F89 /* [CP] Check Pods Manifest.lock */,
-				862AD3DF230298C400CB350C /* Sources */,
-				862AD3E0230298C400CB350C /* Frameworks */,
-				862AD3E1230298C400CB350C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				862AD3E5230298C400CB350C /* PBXTargetDependency */,
-			);
-			name = FamilogTests;
-			productName = monologueTests;
-			productReference = 862AD3E3230298C400CB350C /* FamilogTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		862AD3ED230298C400CB350C /* FamilogUITests */ = {
 			isa = PBXNativeTarget;
@@ -496,15 +508,15 @@
 				KnownAssetTags = (
 					PersonalProfile,
 				);
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				TargetAttributes = {
+					38D4CF89234EEB910006155D = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 862AD3CE230298C200CB350C;
+					};
 					862AD3CE230298C200CB350C = {
 						CreatedOnToolsVersion = 10.3;
-					};
-					862AD3E2230298C400CB350C = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 862AD3CE230298C200CB350C;
 					};
 					862AD3ED230298C400CB350C = {
 						CreatedOnToolsVersion = 10.3;
@@ -526,13 +538,20 @@
 			projectRoot = "";
 			targets = (
 				862AD3CE230298C200CB350C /* Familog */,
-				862AD3E2230298C400CB350C /* FamilogTests */,
 				862AD3ED230298C400CB350C /* FamilogUITests */,
+				38D4CF89234EEB910006155D /* FamilogTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38D4CF88234EEB910006155D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		862AD3CD230298C200CB350C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,13 +566,6 @@
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
 				35555B662347272900B0D7CD /* Family.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		862AD3E1230298C400CB350C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +623,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B2BF6832ED6AB8D043850F89 /* [CP] Check Pods Manifest.lock */ = {
+		F5AA944C588BCECD861A4EA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC2B9F0E8E45125E1E7E2E04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -633,26 +662,18 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5AA944C588BCECD861A4EA3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Familog/Pods-Familog-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38D4CF86234EEB910006155D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D4CF99234EEDF60006155D /* UserTests.swift in Sources */,
+				38D4CF8D234EEB920006155D /* FamilogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		862AD3CB230298C200CB350C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -669,7 +690,6 @@
 				B2603E952344660000797EF8 /* FamilyApi.swift in Sources */,
 				862AD3D3230298C200CB350C /* AppDelegate.swift in Sources */,
 				38C822C22349F91800168FD1 /* Comment.swift in Sources */,
-				35F166B5234DED6D009DCB56 /* chooseSetting.swift in Sources */,
 				38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */,
 				38D4CF28234EC0940006155D /* Channel.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
@@ -707,14 +727,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		862AD3DF230298C400CB350C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				862AD3E8230298C400CB350C /* monologueTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		862AD3EA230298C400CB350C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -726,10 +738,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		862AD3E5230298C400CB350C /* PBXTargetDependency */ = {
+		38D4CF90234EEB920006155D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 862AD3CE230298C200CB350C /* Familog */;
-			targetProxy = 862AD3E4230298C400CB350C /* PBXContainerItemProxy */;
+			targetProxy = 38D4CF8F234EEB920006155D /* PBXContainerItemProxy */;
 		};
 		862AD3F0230298C400CB350C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -758,6 +770,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38D4CF92234EEB920006155D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FamilogTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.51work6.FamilogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Familog.app/Familog";
+			};
+			name = Debug;
+		};
+		38D4CF93234EEB920006155D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FamilogTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.51work6.FamilogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Familog.app/Familog";
+			};
+			name = Release;
+		};
 		862AD3F5230298C400CB350C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -914,48 +968,6 @@
 			};
 			name = Release;
 		};
-		862AD3FB230298C400CB350C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = monologueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.it-project.monologueTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Familog.app/Familog";
-			};
-			name = Debug;
-		};
-		862AD3FC230298C400CB350C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = monologueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.it-project.monologueTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Familog.app/Familog";
-			};
-			name = Release;
-		};
 		862AD3FE230298C400CB350C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */;
@@ -999,6 +1011,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38D4CF91234EEB920006155D /* Build configuration list for PBXNativeTarget "FamilogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38D4CF92234EEB920006155D /* Debug */,
+				38D4CF93234EEB920006155D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		862AD3CA230298C100CB350C /* Build configuration list for PBXProject "Familog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1013,15 +1034,6 @@
 			buildConfigurations = (
 				862AD3F8230298C400CB350C /* Debug */,
 				862AD3F9230298C400CB350C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		862AD3FA230298C400CB350C /* Build configuration list for PBXNativeTarget "FamilogTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				862AD3FB230298C400CB350C /* Debug */,
-				862AD3FC230298C400CB350C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

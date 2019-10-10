@@ -15,22 +15,8 @@ class UserApi {
     var REF_USERS = Firestore.firestore().collection("Users")
     let currentUser = Auth.auth().currentUser!.uid
     
-    func observeUserByUid(Uid: String) -> Query{ //completion: @escaping (User) -> Void){
+    func observeUserByUid(Uid: String) -> Query{
         return REF_USERS.whereField("uid", isEqualTo: Uid)
-        
-//        userRef.getDocument { (document, error) in
-//            if let user = document.flatMap({
-//                $0.data().flatMap({ (data) in
-//                    return User.transformUser(dict: data)
-//                })
-//            })
-//            {
-//                completion(user)
-//            }
-//            else{
-//                print("User not found")
-//            }
-//        }
 
     }
     
