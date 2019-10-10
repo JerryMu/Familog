@@ -71,12 +71,12 @@ class ChannelsViewController: UITableViewController {
     }
   }
     
-    func fetchUser() {
-//         Api.User.observeUserByUid(Uid: uid){ (user) in
-//             self.currentUser = user
-//           
-//         }
-     }
+    func fetchUser(){
+        Api.User.observeCurrentUser(){
+            user in
+            self.currentUser = user
+        }
+    }
     
     
   

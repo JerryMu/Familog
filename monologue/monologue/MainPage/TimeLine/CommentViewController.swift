@@ -35,7 +35,6 @@ class CommentViewController: UIViewController {
                 "commentsID" : []]  )
             }
         }
-        
         title = "Comment"
         tableView.dataSource = self
         tableView.estimatedRowHeight = 77
@@ -47,42 +46,35 @@ class CommentViewController: UIViewController {
     }
     
     func loadComments() {
-    //     Api.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: {
-     //      snapshot in
-     //      Api.Comment.observeComments(withPostId: snapshot.key, completion: {
-//                comment in
-//                self.fetchUser(uid: comment.uid!, completed: {
-//                    self.comments.append(comment)
-//                    self.tableView.reloadData()
-//                })
-//            })
-//        })
-        
         Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
-//            print(self.postId)
-//            print(post_comment.commentsID)
             self.commentIDList = post_comment.commentsID
             for i in 0..<self.commentIDList.count{
                 Api.Comment.observeComment(commentID: self.commentIDList[i]){comment in
                     self.fetchUser(uid: comment.uid!, completed: {
                                        self.comments.append(comment)
+                                    print(comment)
                                        self.tableView.reloadData()
                                    })
                 }
                 
             }
-              //   Api.Post_Comment.updateComment(postid: self.postId, commentsID: ref)
          
-    }
+        }
     }
     //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         
-//        Api.User.observeUserByUid(Uid: uid, completion: {
-//            user in
-//            self.users.append(user)
-//            completed()
-//        })
+        Api.User.observeUserByUid(Uid: uid).addSnapshotListener{ (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let user = User.transformUser(dict: document.data())
+                        self.users.insert(user, at: 0)
+                        self.tableView.reloadData()
+                    }
+                }
+        }
     }
    
     func handleTextField() {
