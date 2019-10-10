@@ -16,6 +16,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var currentFamily: UILabel!
     @IBOutlet weak var postLabel: UILabel!
+    
+//    @IBOutlet weak var more: UIButton!
+//    @IBOutlet weak var set: UIButton!
+//    @IBOutlet weak var edit: UIButton!
+    
+    var editButtonCenter: CGPoint!
+    var setButtonCenter: CGPoint!
     var user: User!
     var posts: [Post] = []
     let uid =  Auth.auth().currentUser!.uid
@@ -26,18 +33,62 @@ class ProfileViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchPost()
-        //fetchUser()
+        
+//        editButtonCenter = edit.center
+//        setButtonCenter = set.center
+//
+//        set.center = more.center
+//        edit.center = edit.center
     }
     
-////  Take out user information from the database
-//    func fetchUser() {
-//        Api.User.observeUserByUid(Uid: uid){ (user) in
-//            self.user = user
-//            self.navigationItem.title = user.firstname
-//            self.updateView()
+    // Animation for the left Button
+//
+//    @IBAction func moreClicked(_ sender: UIButton) {
+//        if more.currentImage = "moreOff" {
+//            UIView.animate(withDuration: 0.4, animations: {
+//                // Make button visiable
+//
+//                self.edit.alpha = 1
+//                self.set.alpha = 1
+//
+//                // Animation happens
+//                self.edit.center = self.editButtonCenter
+//                self.set.center = self.setButtonCenter
+//            })
+//            // expand button
+//        } else {
+//            // collapse button
+//            UIView.animate(withDuration: 0.4, animations: {
+//                // Make button invisiable
+//
+//                self.edit.alpha = 0
+//                self.set.alpha = 0
+//
+//                // Animation happens
+//
+//                self.set.center = self.more.center
+//                self.edit.center = self.edit.center
+//            })
 //        }
+    
+//    func toggledButton(button: sender, onImage: "more", offImage: "moreoff")
+//    }
+//
+//    @IBAction func setClicked(_ sender: UIButton) {
+//    }
+//
+//    @IBAction func editClicked(_ sender: UIButton) {
 //    }
     
+//    func toggledButton(button: UIButton, onImage: UIImage, offImage: UIImage){
+//        if button.currentImage == offImage {
+//            button.setImage(onImage, for: .normal)
+//        } else {
+//            button.setImage(offImage, for: .normal)
+//
+//        }
+//    }
+
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
             if let err = err {

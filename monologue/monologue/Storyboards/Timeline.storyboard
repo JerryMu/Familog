@@ -151,6 +151,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aMS-O9-uYR"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="Timeline" id="xv9-FM-M6N">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Timeline" id="jsC-xk-USx">
                         <barButtonItem key="rightBarButtonItem" image="addNew" id="coO-WX-jdA">
                             <connections>
@@ -158,6 +161,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="vw4-4i-oJg" kind="show" identifier="CommentSegue" id="FYF-GI-09Q"/>
@@ -446,6 +450,7 @@
     <resources>
         <image name="Comment" width="43" height="41"/>
         <image name="Placeholder-image" width="840" height="600"/>
+        <image name="Timeline" width="35" height="35"/>
         <image name="UploadColor" width="1242" height="2688"/>
         <image name="addNew" width="25" height="25"/>
         <image name="headHolder" width="225" height="225"/>

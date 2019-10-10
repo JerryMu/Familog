@@ -38,10 +38,6 @@ class TimelineViewController: UIViewController {
         loadPosts()
     }
     
-    @IBAction func button_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
-        
-    }
     
     @objc func refresh() {
         posts.removeAll()

@@ -24,11 +24,13 @@ class EditProfileViewController: UIViewController {
     // set profile photo function
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var usernnameTextField: UITextField!
+    @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
     
     var delegate: EditProfileControllerDelegate?
-    
+    private var datePicker : UIDatePicker?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
@@ -36,6 +38,30 @@ class EditProfileViewController: UIViewController {
         ageTextField.delegate = self
         bioTextField.delegate = self
         fetchCurrentUser()
+        
+        //Chose date for the user's date of birth
+//
+//            datePicker = UIDatePicker()
+//            datePicker?.datePickerMode = .date
+//            datePicker?.addTarget(self, action: #selector(EditProfileViewController.dateChanged(datePicker:)), for: valueChanged)
+//
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(gestureRecongnizer:)))
+//
+//            view.addGestureRecognizer(tapGesture)
+//
+//            dateOfBirth.inputView = datePicker
+//    }
+//
+//    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+//        view.endEditing(true)
+//
+//    }
+//
+//    @objc func dateChanged (datePicker: UIDatePicker){
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "mm/dd/yyyy"
+//        dateOfBirth.text = dateFormatter.string(from: datePicker.date)
+//        view.endEditing(true)
     }
     
     func fetchCurrentUser() {

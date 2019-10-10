@@ -31,7 +31,7 @@ extension Post {
         post.url = dict["url"] as? String
         post.userId = dict["userId"] as? String
         post.timestamp = dict["timestamp"] as? Int
-        post.commentsIDList = dict["comment"] as! [String]
+//        post.commentsIDList = dict["comment"] as! [String]
         return post
     }
     
