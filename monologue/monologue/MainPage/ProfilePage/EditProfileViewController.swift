@@ -62,6 +62,9 @@ class EditProfileViewController: UIViewController {
 //        view.endEditing(true)
     }
     
+    @IBAction func dismissPopup(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     func fetchCurrentUser() {
 //        Api.User.observeCurrentUser(){
 //            user in
