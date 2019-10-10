@@ -25,8 +25,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var usernnameTextField: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var bioTextView: UITextView!
     
     var delegate: EditProfileControllerDelegate?
     private var datePicker : UIDatePicker?
@@ -35,8 +34,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
         usernnameTextField.delegate = self
-        ageTextField.delegate = self
-        bioTextField.delegate = self
+        dateOfBirth.delegate = self
         fetchCurrentUser()
         
         //Chose date for the user's date of birth
@@ -65,26 +63,21 @@ class EditProfileViewController: UIViewController {
     }
     
     func fetchCurrentUser() {
-        Api.User.observeCurrentUser {  (user) in
-            if(user.profileImageUrl != "")
-            {
-                self.avatar.sd_setImage(with: URL(string: user.profileImageUrl!))
-            }
-        }
-        
+//        Api.User.observeCurrentUser(){
+//            user in
+//            self.user = user
+//        }
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
 //            ProgressHUD.show("Waiting...")
         if(usernnameTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["firstname" : usernnameTextField.text!])
-            print(1)
         }
-        if(ageTextField.text!.count > 0){
-            Api.User.setCurrentUser(dictionary:["age" : ageTextField.text!])
-            print(2)
+        if(dateOfBirth.text!.count > 0){
+            Api.User.setCurrentUser(dictionary:["age" : dateOfBirth.text!])
         }
-        if(bioTextField.text!.count > 0){
-            Api.User.setCurrentUser(dictionary:["bio" : bioTextField.text!])
+        if(bioTextView.text!.count > 0){
+            Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
     }
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {

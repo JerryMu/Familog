@@ -14,8 +14,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userBioLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var currentFamily: UILabel!
     @IBOutlet weak var postLabel: UILabel!
+    @IBOutlet weak var familyId: UILabel!
     
 //    @IBOutlet weak var more: UIButton!
 //    @IBOutlet weak var set: UIButton!
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchPost()
+        fetchUser()
         
 //        editButtonCenter = edit.center
 //        setButtonCenter = set.center
@@ -88,7 +89,28 @@ class ProfileViewController: UIViewController {
 //
 //        }
 //    }
+    
+    func fetchUser(){
+        Api.User.observeCurrentUser(){
+            user in
+            self.user = user
+            if(self.user != nil){
+                self.updateInfo()
+            }
+        }
+    }
 
+    func updateInfo(){
+        if let photoUrlString = user?.profileImageUrl {
+            let photoUrl = URL(string: photoUrlString)
+            userAvatar.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+        }
+        userBioLabel.text = user.bio
+        userDobLabel.text = user.dob
+        userNameLabel.text = user.firstname! + " " + user.lastname!
+        postLabel.text = "\(user.postNumber)"
+        familyId.text = user.familyId
+    }
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
             if let err = err {
