@@ -14,8 +14,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-
-    
+    private var messageListener: ListenerRegistration?
+    private var reference: CollectionReference?
     let currentUser = Auth.auth().currentUser?.uid
     var postId: String!
     var postUid: String!
@@ -27,12 +27,32 @@ class CommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Firestore.firestore().collection("Post-comments").document(self.postId).getDocument { (document, error) in
-            if let document = document, document.exists {
-                return
-            } else {
-                Firestore.firestore().collection("Post-comments").document(self.postId).setData([
-                "commentsID" : []]  )
+      
+        reference = Firestore.firestore().collection(["Post-comments", self.postId, "Comment"].joined(separator: "/"))
+       
+        
+        messageListener = reference?.addSnapshotListener { querySnapshot, error in
+          guard let snapshot = querySnapshot else {
+            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+            return
+          }
+          
+          snapshot.documentChanges.forEach { change in
+           
+           
+            self.commentID =  change.document.data()["commentsID"] as! String
+            
+         
+            Api.Comment.observeComments(commentID: self.commentID){comment in
+                           self.fetchUser(uid: comment.uid!, completed: {
+                           
+                                              self.comments.append(comment)
+                                          
+                                              self.tableView.reloadData()
+                                          })
+                       }
+            
+            
             }
         }
         title = "Comment"
@@ -41,40 +61,22 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         empty()
         handleTextField()
-        loadComments()
+     
 
     }
     
-    func loadComments() {
-        Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
-            self.commentIDList = post_comment.commentsID
-            for i in 0..<self.commentIDList.count{
-                Api.Comment.observeComment(commentID: self.commentIDList[i]){comment in
-                    self.fetchUser(uid: comment.uid!, completed: {
-                                       self.comments.append(comment)
-                                    print(comment)
-                                       self.tableView.reloadData()
-                                   })
-                }
-                
-            }
          
-        }
-    }
+        
+    
     //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         
-        Api.User.observeUserByUid(Uid: uid).addSnapshotListener{ (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let user = User.transformUser(dict: document.data())
-                        self.users.insert(user, at: 0)
-                        self.tableView.reloadData()
-                    }
-                }
-        }
+                Api.User.observeUser(withId: uid, completion: {
+                  user in
+                  self.users.append(user)
+                  completed()
+              })
+
     }
    
     func handleTextField() {
@@ -106,26 +108,11 @@ class CommentViewController: UIViewController {
     
     //
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
-       let ref =   Firestore.firestore().collection("Comment").document().documentID
+ /*      let ref =   Firestore.firestore().collection("Comment").document().documentID
      //   print(ref)
      //   print(self.postId)
          let text = self.commentTextField.text!
         
-      //  Api.Post_Comment.observePost_Comment(postid: postId){post_comment in
-    //      self.commentID = post_comment.commentsID
-    //        self.commentID.append(text)
-     //       Api.Post_Comment.updateComment(postid: self.postId, commentsID: ref)
-   /*     Firestore.firestore().collection("Post-comments").document(self.postId).setData([
-                "commentsID" : ref ,
-                
-                
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                }
-            }*/
             
              
         Firestore.firestore().collection("Post-comments").document(self.postId).updateData([
@@ -148,10 +135,28 @@ class CommentViewController: UIViewController {
                                print("Document successfully written!")
                            }
                        }
-     //       self.commentIDList.append(self.commentTextField.text!)
+ 
+        }*/
+        let ref =   Firestore.firestore().collection("Comment").document().documentID
+        let text = self.commentTextField.text!
+        reference?.addDocument(data:[
+            "commentsID": ref] ) { error in
+          if let e = error {
+            print("Error sending message: \(e.localizedDescription)")
+            return
+          }
+          }
+        Firestore.firestore().collection("Comment").document(ref).setData([
+                                  "commentText": text,
+                                  "uid": self.currentUser! ,
+                              ]) { err in
+                                  if let err = err {
+                                      print("Error writing document: \(err)")
+                                  } else {
+                                      print("Document successfully written!")
+                                  }
+                              }
         
-      //      Api.Comment.updateComment(commentId: "1", newComment:self.commentTextField.text! )
-        }
         self.empty()
         self.view.endEditing(true)
     

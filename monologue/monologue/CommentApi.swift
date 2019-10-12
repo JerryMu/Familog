@@ -24,24 +24,26 @@ class CommentApi {
         })
     }*/
     // get the comment
-    func observeComment(commentID: String,completion: @escaping (Comment) -> Void){
-        let document = commentRef.document(commentID)
-        document.getDocument { (document, error) in
-            if let comment = document.flatMap({
-                $0.data().flatMap({ (data) in
-                    return Comment.transformComment(dict: data)
-                })
-            })
-            {
-                completion(comment)
-            }
-            else{
+    func observeComments(commentID: String, completion : @escaping (Comment) -> Void){
+               commentRef.document(commentID)
+             .addSnapshotListener { documentSnapshot, error in
+               guard let document = documentSnapshot else {
+                 print("Error fetching document: \(error!)")
+                 return
+               }
+               guard let data = document.data() else {
+                 print("Document data was empty.")
+                 return
+               }
+                 if let dict = documentSnapshot!.data() {
+             
+                                         let comment = Comment.transformComment(dict: dict)
                 
-                print("Post not found")
-            }
-        }
-        
-    }
+                            completion(comment)
+             }
+         }
+         
+         }
     func updateComment(commentId: String, newComment : String)
     {
         let commentref = commentRef.document(commentId)

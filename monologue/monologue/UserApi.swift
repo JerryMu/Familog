@@ -19,6 +19,26 @@ class UserApi {
         return REF_USERS.whereField("uid", isEqualTo: Uid)
 
     }
+    func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
+          REF_USERS.document(uid)
+        .addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+            if let dict = documentSnapshot!.data() {
+        
+                                    let user = User.transformUser(dict: dict)
+           
+                       completion(user)
+        }
+    }
+    
+    }
     
     func observeUser(uid : String, completion: @escaping (User) -> Void){
         let userRef = REF_USERS.document(uid)
