@@ -20,6 +20,25 @@ class UserApi {
 
     }
     
+    func observeUser(uid : String, completion: @escaping (User) -> Void){
+        let userRef = REF_USERS.document(uid)
+
+        userRef.getDocument { (document, error) in
+            if let user = document.flatMap({
+                $0.data().flatMap({ (data) in
+                    return User.transformUser(dict: data)
+                })
+            })
+            {
+                completion(user)
+            }
+            else{
+                print("User not found")
+            }
+        }
+        
+    }
+    
     
     func observeCurrentUser(completion: @escaping (User) -> Void){
         guard let currentUser = Auth.auth().currentUser else {
@@ -40,7 +59,6 @@ class UserApi {
                 print("User not found")
             }
         }
-
     }
     
     func setUserByUid(Uid : String, dictionary : [String : Any]){

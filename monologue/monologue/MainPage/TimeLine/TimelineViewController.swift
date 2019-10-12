@@ -25,7 +25,6 @@ class TimelineViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        refresh()
         super.viewDidLoad()
         self.tableView.reloadData()
         getFamilyId()

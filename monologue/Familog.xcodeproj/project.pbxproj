@@ -60,6 +60,8 @@
 		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
+		B27D66522352853A00AAAFD9 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B27D66512352853A00AAAFD9 /* DetailView.storyboard */; };
+		B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */; };
 		B2A4BD002349EA4A00B62066 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A4BCFF2349EA4A00B62066 /* Config.swift */; };
 		B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4B2336197A0086E97B /* LaunchScreen.swift */; };
 		B2B16A4E2338B06C0086E97B /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4D2338B06C0086E97B /* PostApi.swift */; };
@@ -156,6 +158,8 @@
 		B2603E942344660000797EF8 /* FamilyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyApi.swift; sourceTree = "<group>"; };
 		B26E7B572329CF0000AA852C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B27D66512352853A00AAAFD9 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		B2A4BCFF2349EA4A00B62066 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B2B16A4B2336197A0086E97B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				38880F1B23333DC600E407A2 /* SettingTableViewController.swift */,
 				B25C0F85234EA2FD00E1104D /* DetailViewController.swift */,
 				3542B4D7234EFA9D0068B6A4 /* SettingViewController.swift */,
+				B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				35005A232330BF3B00239C7E /* Timeline.storyboard */,
 				35005A252330BF8300239C7E /* Notification.storyboard */,
 				35005A2D2330C23500239C7E /* Profile.storyboard */,
+				B27D66512352853A00AAAFD9 /* DetailView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */,
 				862AD3DA230298C400CB350C /* Assets.xcassets in Resources */,
 				86157202233492E200AD5CB5 /* Start.storyboard in Resources */,
+				B27D66522352853A00AAAFD9 /* DetailView.storyboard in Resources */,
 				35AD5674234C373E00964364 /* Redressed.ttf in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
@@ -716,6 +723,7 @@
 				38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */,
 				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
+				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,

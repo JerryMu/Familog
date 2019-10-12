@@ -8,27 +8,73 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
+
     var postId = ""
+    var post = Post()
+    var user = User()
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadPost()
-        // Do any additional setup after loading the view.
+        loadPost()
+    }
+
+    func loadPost() {
+        Api.Post.observePost(uid: postId) { (post) in
+            guard let postUid = post.uid else {
+                return
+            }
+            self.fetchUser(uid: postUid, completed: {
+                self.post = post
+                self.tableView.reloadData()
+            })
+        }
     }
     
-//    func loadPost() {
-//        Api.Post.
-//    }
+    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+        Api.User.observeUser(uid: uid, completion: {
+            user in
+            self.user = user
+            completed()
+        })
+        
+    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "Detail_CommentVC" {
+            let commentVC = segue.destination as! CommentViewController
+            let postId = sender  as! String
+            commentVC.postId = postId
+        }
+        
+        if segue.identifier == "Detail_ProfileUserSegue" {
+            let profileVC = segue.destination as! OthersProfileViewController
+            let userId = sender  as! String
+            profileVC.uid = userId
+        }
     }
-    */
+    
+}
 
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
+        cell.post = post
+        cell.user = user
+        cell.delegate = self
+        return cell
+    }
+}
+
+extension DetailViewController: TimelineTableViewCellDelegate {
+    func goToCommentVC(postId: String) {
+        performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
+    }
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Detail_ProfileUserSegue", sender: userId)
+    }
 }

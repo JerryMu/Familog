@@ -1,15 +1,17 @@
 //
-//  ProfileViewController.swift
+//  OthersProfileViewController.swift
 //  Familog
 //
-//  Created by Pengyu Mu on 18/9/19.
+//  Created by Pengyu Mu on 13/10/19.
 //
+
+import Foundation
 
 import UIKit
 //test only
 import FirebaseAuth
 //The main page of personal profile storyboard
-class ProfileViewController: UIViewController {
+class OthersProfileViewController: UIViewController {
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userBioLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
@@ -128,7 +130,7 @@ class ProfileViewController: UIViewController {
 }
 
 // Show how many and what kinds of artificates user has uploaded and add them the cell
-extension ProfileViewController: UICollectionViewDataSource {
+extension OthersProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -152,7 +154,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
 }
 //set image distance and image size
-extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+extension OthersProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 2
     }
