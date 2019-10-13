@@ -19,14 +19,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Ry-lLN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Familog" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQQ-7T-nYi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Familog" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQQ-7T-nYi">
                                 <rect key="frame" x="0.0" y="84" width="414" height="139"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="139" id="yoh-2t-Hhd"/>
-                                </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="104"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="96"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="cIz-OM-8sB">
@@ -59,17 +56,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9YZ-JA-aWJ"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7zE-8C-bdc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cIz-OM-8sB" secondAttribute="trailing" constant="172" id="Del-I0-4pz"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GfS-qe-y77"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="fdk-Ry-lLN" secondAttribute="trailing" id="Sol-Jb-cer"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Zgv-fT-x4Z"/>
+                            <constraint firstItem="cIz-OM-8sB" firstAttribute="top" secondItem="WQQ-7T-nYi" secondAttribute="bottom" constant="455" id="H7Y-A0-qOG"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zzc-HS-SlK"/>
                             <constraint firstItem="cIz-OM-8sB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eaq-DI-5sg"/>
                             <constraint firstAttribute="bottom" secondItem="fdk-Ry-lLN" secondAttribute="bottom" id="fTM-Ja-3LC"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kPa-jb-Qnx"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="fdk-Ry-lLN" secondAttribute="leading" id="mFs-LD-kMY"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mKD-dX-Uvd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cIz-OM-8sB" secondAttribute="bottom" constant="72" id="naC-G1-32M"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="v4E-fF-8AM"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v8X-tq-KL9"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vCs-hi-PEP"/>
                         </constraints>

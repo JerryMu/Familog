@@ -14,7 +14,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userBioLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var familyId: UILabel!
     
 //    @IBOutlet weak var more: UIButton!
@@ -108,7 +107,6 @@ class ProfileViewController: UIViewController {
         userBioLabel.text = user.bio
         userDobLabel.text = user.dob
         userNameLabel.text = user.firstname! + " " + user.lastname!
-        postLabel.text = "\(user.postNumber)"
         familyId.text = user.familyId
     }
     func fetchPost() {
@@ -155,9 +153,6 @@ extension ProfileViewController: UICollectionViewDataSource {
         userBioLabel.text = user?.bio
         userDobLabel.text = user?.dob
         userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
-        Api.Post.observePostsNumberByUser(userId: user!.uid!){count in
-            self.postLabel.text = "\(count)"
-        }
     }
 }
 //set image distance and image size
