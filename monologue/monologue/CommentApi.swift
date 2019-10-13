@@ -37,10 +37,9 @@ class CommentApi {
                }
                  if let dict = documentSnapshot!.data() {
              
-                                         let comment = Comment.transformComment(dict: dict)
-                
-                            completion(comment)
-             }
+                     let comment = Comment.transformComment(dict: dict)
+                        completion(comment)
+                }
          }
          
          }

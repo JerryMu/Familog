@@ -15,13 +15,14 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        tableView.dataSource = self
         super.viewDidLoad()
         loadPost()
     }
 
     func loadPost() {
         Api.Post.observePost(uid: postId) { (post) in
-            guard let postUid = post.uid else {
+            guard let postUid = post.userId else {
                 return
             }
             self.fetchUser(uid: postUid, completed: {
