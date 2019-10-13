@@ -56,15 +56,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7zE-8C-bdc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cIz-OM-8sB" secondAttribute="trailing" constant="172" id="Del-I0-4pz"/>
-                            <constraint firstItem="cIz-OM-8sB" firstAttribute="top" secondItem="WQQ-7T-nYi" secondAttribute="bottom" constant="455" id="H7Y-A0-qOG"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zzc-HS-SlK"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yx4-d3-P1B"/>
+                            <constraint firstAttribute="bottom" secondItem="WQQ-7T-nYi" secondAttribute="bottom" constant="673" id="cSh-D0-2wz"/>
                             <constraint firstItem="cIz-OM-8sB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eaq-DI-5sg"/>
                             <constraint firstAttribute="bottom" secondItem="fdk-Ry-lLN" secondAttribute="bottom" id="fTM-Ja-3LC"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kPa-jb-Qnx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cIz-OM-8sB" secondAttribute="bottom" constant="72" id="naC-G1-32M"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="v4E-fF-8AM"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="rFP-Jx-2nJ"/>
+                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s5o-xN-aZb"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v8X-tq-KL9"/>
                             <constraint firstItem="fdk-Ry-lLN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vCs-hi-PEP"/>
                         </constraints>
