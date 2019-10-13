@@ -289,8 +289,8 @@
                     </visualEffectView>
                     <connections>
                         <outlet property="descriptionField" destination="ZIg-ht-bSR" id="YqV-6D-iOC"/>
+                        <outlet property="photo" destination="NNA-8G-ulq" id="B22-Xd-23Q"/>
                         <outlet property="selectButton" destination="nWV-46-ECH" id="VaQ-LX-IYC"/>
-                        <outlet property="selectImage" destination="NNA-8G-ulq" id="LOB-sd-PBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1j-c2-D9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
