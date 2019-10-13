@@ -91,8 +91,19 @@ class TimelineTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
         commentImageView.addGestureRecognizer(tapGesture)
         commentImageView.isUserInteractionEnabled = true
+        
+        let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        nameLabel.addGestureRecognizer(tapGestureForNameLabel)
+        nameLabel.isUserInteractionEnabled = true
        
         
+    }
+    
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = user?.uid {
+            delegate?.goToProfileUserVC(userId: id)
+        }
     }
     
     @objc func commentImageView_TouchUpInside() {

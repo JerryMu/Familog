@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
     var setButtonCenter: CGPoint!
     var user: User!
     var posts: [Post] = []
-    let uid =  Auth.auth().currentUser!.uid
+    var uid =  Auth.auth().currentUser!.uid
     let initImage =  "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/Avatar%2Fy8sEy6wi7VU2XzQ7IrwOyNpu4tD2?alt=media&token=04c3c554-eb96-4a49-b348-3f1404759acb"
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {

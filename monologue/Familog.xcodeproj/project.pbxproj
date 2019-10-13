@@ -26,7 +26,6 @@
 		3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */; };
 		3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D9412351EBAE004F8544 /* ChatUser.swift */; };
 		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
-		38880F1C23333DC600E407A2 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F1B23333DC600E407A2 /* SettingTableViewController.swift */; };
 		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
 		38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C3234C4AB300168FD1 /* Post_Comment.swift */; };
 		38D4CF24234EC0500006155D /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF23234EC0500006155D /* ChannelsViewController.swift */; };
@@ -62,6 +61,8 @@
 		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
 		B26E7B582329CF0000AA852C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B572329CF0000AA852C /* User.swift */; };
 		B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */; };
+		B27D66522352853A00AAAFD9 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B27D66512352853A00AAAFD9 /* DetailView.storyboard */; };
+		B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */; };
 		B2A4BD002349EA4A00B62066 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A4BCFF2349EA4A00B62066 /* Config.swift */; };
 		B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4B2336197A0086E97B /* LaunchScreen.swift */; };
 		B2B16A4E2338B06C0086E97B /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B16A4D2338B06C0086E97B /* PostApi.swift */; };
@@ -111,7 +112,6 @@
 		3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
 		3846D9412351EBAE004F8544 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		38880F152333323400E407A2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		38880F1B23333DC600E407A2 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		38C822C3234C4AB300168FD1 /* Post_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Comment.swift; sourceTree = "<group>"; };
 		38D4CF23234EC0500006155D /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +160,8 @@
 		B2603E942344660000797EF8 /* FamilyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyApi.swift; sourceTree = "<group>"; };
 		B26E7B572329CF0000AA852C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B27D66512352853A00AAAFD9 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersProfileViewController.swift; sourceTree = "<group>"; };
 		B28EB2A02327EC3200EFA23D /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		B2A4BCFF2349EA4A00B62066 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B2B16A4B2336197A0086E97B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -393,9 +395,9 @@
 				B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */,
 				B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */,
 				B2BF69722332612000E846D5 /* ProfileViewController.swift */,
-				38880F1B23333DC600E407A2 /* SettingTableViewController.swift */,
 				B25C0F85234EA2FD00E1104D /* DetailViewController.swift */,
 				3542B4D7234EFA9D0068B6A4 /* SettingViewController.swift */,
+				B27D66532352981F00AAAFD9 /* OthersProfileViewController.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -431,6 +433,7 @@
 				35005A232330BF3B00239C7E /* Timeline.storyboard */,
 				35005A252330BF8300239C7E /* Notification.storyboard */,
 				35005A2D2330C23500239C7E /* Profile.storyboard */,
+				B27D66512352853A00AAAFD9 /* DetailView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */,
 				862AD3DA230298C400CB350C /* Assets.xcassets in Resources */,
 				86157202233492E200AD5CB5 /* Start.storyboard in Resources */,
+				B27D66522352853A00AAAFD9 /* DetailView.storyboard in Resources */,
 				35AD5674234C373E00964364 /* Redressed.ttf in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
 				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
@@ -693,7 +697,6 @@
 				384120742348896A006EC47E /* Post_CommentApi.swift in Sources */,
 				3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */,
 				861572002333631B00AD5CB5 /* UploadViewController.swift in Sources */,
-				38880F1C23333DC600E407A2 /* SettingTableViewController.swift in Sources */,
 				38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */,
 				35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */,
 				862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */,
@@ -723,6 +726,7 @@
 				3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */,
 				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
+				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,
@@ -946,13 +950,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -966,13 +970,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

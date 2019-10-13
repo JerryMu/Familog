@@ -6,13 +6,17 @@
 //
 
 import UIKit
-
+protocol CommentTableViewCellDelegate {
+    func goToProfileUserVC(userId: String)
+}
 
 class CommentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    
+    var delegate: CommentTableViewCellDelegate?
     
    
     var comment: Comment? {
@@ -50,11 +54,12 @@ class CommentTableViewCell: UITableViewCell {
         nameLabel.isUserInteractionEnabled = true
     }
     
+    //for jump to view other users profile page
     @objc func nameLabel_TouchUpInside() {
-     //   if let id = user?.id {
-          
-        
-    }
+        if let id = user?.uid {
+            delegate?.goToProfileUserVC(userId: id)
+        }
+}
     
     override func prepareForReuse() {
         super.prepareForReuse()

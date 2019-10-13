@@ -16,6 +16,7 @@ class PostApi {
     var userPosts = [Post]()
     var familyPosts = [Post]()
     // get the information from the database
+    
     func observePost(uid: String,completion: @escaping (Post) -> Void){
         let document = postRef.document(uid)
         document.getDocument { (document, error) in
