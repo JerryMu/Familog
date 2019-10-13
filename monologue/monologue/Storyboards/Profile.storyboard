@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -305,10 +305,10 @@
             </objects>
             <point key="canvasLocation" x="2052" y="-320"/>
         </scene>
-        <!--Others Profile View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="Elz-hg-bge">
             <objects>
-                <viewController storyboardIdentifier="ProfileStoryBoard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CHL-4N-RvH" customClass="OthersProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileStoryBoard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CHL-4N-RvH" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ggS-C5-GEa"/>
                         <viewControllerLayoutGuide type="bottom" id="sje-4t-1Ig"/>
@@ -558,16 +558,27 @@
                         <outlet property="userBioLabel" destination="Vbk-ty-2U2" id="0oR-aG-K1W"/>
                         <outlet property="userDobLabel" destination="Bsr-qG-mUy" id="HxO-Bo-D8L"/>
                         <outlet property="userNameLabel" destination="9Yx-ZE-vNg" id="ZEY-m7-l5W"/>
+                        <segue destination="tBM-6l-Zqm" kind="show" identifier="Profile_DetailSegue" id="dPq-TO-J4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewK-yB-hIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="-320.08928571428572"/>
         </scene>
+        <!--DetailViewController-->
+        <scene sceneID="dEA-QB-lVP">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailViewController" storyboardName="DetailView" referencedIdentifier="DetailViewController" id="tBM-6l-Zqm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6Uy-eD-NCi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCo-eg-Quj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="123"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="ProfileBackground" width="618" height="1334"/>
+        <image name="ProfileBackground" width="1241" height="2688"/>
         <image name="more" width="512" height="512"/>
         <image name="profile" width="35" height="35"/>
     </resources>

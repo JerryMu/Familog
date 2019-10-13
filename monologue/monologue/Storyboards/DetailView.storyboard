@@ -11,15 +11,17 @@
         <!--CommentViewController-->
         <scene sceneID="gPI-VU-8Z6">
             <objects>
-                <viewControllerPlaceholder storyboardName="CommentViewController" id="Pyd-rl-Mg1" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="CommentViewController" storyboardName="Timeline" referencedIdentifier="CommentViewController" id="Pyd-rl-Mg1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="O7e-Gg-ECr"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mY0-HY-BDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13144" y="-5458"/>
+            <point key="canvasLocation" x="-12828" y="-5408"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lig-GZ-Bw6">
             <objects>
-                <viewController id="fB1-mE-2gz" customClass="DetailViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fB1-mE-2gz" customClass="DetailViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YWe-nR-Wk6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,6 +124,7 @@
                                             <outlet property="postImageView" destination="Kc8-sP-t9d" id="fr0-gK-Y0f"/>
                                             <outlet property="profileImageView" destination="1eg-Du-ezI" id="UNk-rq-hoo"/>
                                             <outlet property="shareImageView" destination="koG-fn-hd1" id="Sdc-WJ-pQ4"/>
+                                            <segue destination="Pyd-rl-Mg1" kind="show" id="wWX-Kt-veA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

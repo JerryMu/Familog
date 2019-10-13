@@ -108,35 +108,6 @@ class CommentViewController: UIViewController {
     
     //
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
- /*      let ref =   Firestore.firestore().collection("Comment").document().documentID
-     //   print(ref)
-     //   print(self.postId)
-         let text = self.commentTextField.text!
-        
-            
-             
-        Firestore.firestore().collection("Post-comments").document(self.postId).updateData([
-           "commentsID": FieldValue.arrayUnion([ref])
-       ])
-        
-        
-            Api.Post.observePost(uid: self.postId){post in
-            
-            
-        self.commentIDList = post.commentsIDList
-       
-            Firestore.firestore().collection("Comment").document(ref).setData([
-                           "commentText": text,
-                           "uid": self.currentUser! ,
-                       ]) { err in
-                           if let err = err {
-                               print("Error writing document: \(err)")
-                           } else {
-                               print("Document successfully written!")
-                           }
-                       }
- 
-        }*/
         let ref =   Firestore.firestore().collection("Comment").document().documentID
         let text = self.commentTextField.text!
         reference?.addDocument(data:[

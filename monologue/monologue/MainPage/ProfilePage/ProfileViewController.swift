@@ -30,10 +30,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
         fetchPost()
         fetchUser()
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
 //        editButtonCenter = edit.center
 //        setButtonCenter = set.center
@@ -125,6 +125,14 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Profile_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender  as! String
+            detailVC.postId = postId
+        }
+    }
 }
 
 // Show how many and what kinds of artificates user has uploaded and add them the cell
@@ -132,14 +140,15 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
-    
+
 
     func updateView(){
         userNameLabel.text = user?.firstname
@@ -163,5 +172,11 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
+    }
+}
+
+extension ProfileViewController: PhotoCollectionViewCellDelegate {
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
     }
 }
