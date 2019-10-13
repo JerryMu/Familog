@@ -62,9 +62,31 @@ class EditProfileViewController: UIViewController {
 //        view.endEditing(true)
     }
     
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        do{
+            // database signout
+            try Auth.auth().signOut()
+        } catch let logoutError{
+            print(logoutError)
+        }
+        //go back to login
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "Authentication")
+        //show the new page
+        self.present(signInVC,animated: true , completion: nil)
+    }
+    
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    
+    
     func fetchCurrentUser() {
 //        Api.User.observeCurrentUser(){
 //            user in
