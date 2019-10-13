@@ -107,16 +107,23 @@ class EditProfileViewController: UIViewController {
     }
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
-        pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.sourceType = .photoLibrary
+        pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
     }
+    
     @IBAction func cameraTapped(_ sender: Any) {
         let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        present(pickerController, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            pickerController.sourceType = .camera
+            pickerController.delegate = self
+            present(pickerController, animated: true, completion: nil)
+        } else {
+            Alert.presentAlert(on: self, with: "Error", message: "Can not use camera")
+        }
+        
+       
     }
     
 }

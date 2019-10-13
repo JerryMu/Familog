@@ -138,7 +138,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="cameraTapped:" destination="YsS-rB-R2k" eventType="touchUpInside" id="cY3-dh-34b"/>
+                                                <action selector="cameraTapped:" destination="YsS-rB-R2k" eventType="touchUpInside" id="LHQ-SR-6yD"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-cK-W3e">
