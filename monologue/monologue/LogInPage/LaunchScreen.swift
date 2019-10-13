@@ -5,7 +5,7 @@
 //  Created by Pengyu Mu on 21/9/19.
 //
 //  Implement auto Sign in Function
-//  
+//
 //  This file is mainly used for the automatic login function.
 //  If the user is not using our software for the first time,
 //  he will directly enter the Timeline page instead of the authentication interface.

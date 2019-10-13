@@ -56,6 +56,7 @@
 		86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */; };
 		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
+		86AD48CA2352EC7700069A1E /* SwitchFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD48C92352EC7600069A1E /* SwitchFamilyViewController.swift */; };
 		B25C0F86234EA2FD00E1104D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C0F85234EA2FD00E1104D /* DetailViewController.swift */; };
 		B2603E932344613800797EF8 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E922344613800797EF8 /* Family.swift */; };
 		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
@@ -152,6 +153,7 @@
 		86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
 		869DAC7E230920C000ACF10C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		869DAC80230920CD00ACF10C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		86AD48C92352EC7600069A1E /* SwitchFamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchFamilyViewController.swift; sourceTree = "<group>"; };
 		876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +394,7 @@
 		B2BF696B23325F1500E846D5 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				86AD48C92352EC7600069A1E /* SwitchFamilyViewController.swift */,
 				B26E7B5B2329F2C900AA852C /* EditProfileViewController.swift */,
 				B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */,
 				B2BF69722332612000E846D5 /* ProfileViewController.swift */,
@@ -709,6 +712,7 @@
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
+				86AD48CA2352EC7700069A1E /* SwitchFamilyViewController.swift in Sources */,
 				38D4CF26234EC06A0006155D /* ChatViewController.swift in Sources */,
 				861571FE233361F400AD5CB5 /* Alert.swift in Sources */,
 				3542B4D8234EFA9D0068B6A4 /* SettingViewController.swift in Sources */,
@@ -950,13 +954,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -970,13 +974,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

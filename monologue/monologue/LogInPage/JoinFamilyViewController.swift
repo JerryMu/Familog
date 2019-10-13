@@ -25,11 +25,13 @@ class JoinFamilyViewController: UIViewController {
     
     
     @IBAction func joinTapped(_ sender: Any) {
-         let familyId = familyIdTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+        
+        let familyId = familyIdTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyId == "" {
             Alert.presentAlert(on: self, with: "Error", message: "Please enter family!")
             return
         }
+        
         var familys = [String]()
         Api.Family.REF_FAMILY.getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -42,16 +44,22 @@ class JoinFamilyViewController: UIViewController {
                     Alert.presentAlert(on: self, with: "Error", message: "Can not find this family!")
                     return
                 } else {
-                    Api.User.REF_USERS.document(Api.User.currentUser).updateData([
-                                      "familyId": familyId
-                                  ]) {err in
-                                      if err != nil {
-                                          Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
-                                      } else {
-                                          Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
-                                        Api.User.setCurrentUser(dictionary: ["familyId" : familyId])
-                                          self.moveToTimeLinePage()
-                                      }
+                    Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                        if let document = document, document.exists {
+                            var familyIds = document.get("familyId") as! [String]
+                            familyIds.append(familyId)
+                            Api.User.REF_USERS.document(Api.User.currentUser).updateData(  ["familyId": familyIds])
+                                {err in
+                                    if err != nil {
+                                        Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+                                    } else {
+                                        Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
+                                        self.moveToTimeLinePage()
+                                    }
+                                }
+                            } else {
+                                Alert.presentAlert(on: self, with: "Error", message: "Can not get familys!")
+                            }
                     }
                 }
             }
