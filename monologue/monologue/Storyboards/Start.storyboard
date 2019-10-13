@@ -88,6 +88,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="xIW-BK-K3a" firstAttribute="top" secondItem="fxw-ag-Mi2" secondAttribute="bottom" constant="10" id="EmE-ku-umB"/>
+                                    <constraint firstAttribute="bottom" secondItem="gZP-Ak-btL" secondAttribute="bottom" id="LXe-5V-cf1"/>
+                                    <constraint firstItem="fxw-ag-Mi2" firstAttribute="top" secondItem="54G-bD-oV3" secondAttribute="bottom" constant="10" id="Xpp-TR-jNO"/>
+                                    <constraint firstItem="gZP-Ak-btL" firstAttribute="top" secondItem="xIW-BK-K3a" secondAttribute="bottom" constant="10" id="fhy-Lf-arl"/>
+                                    <constraint firstItem="fxw-ag-Mi2" firstAttribute="top" secondItem="54G-bD-oV3" secondAttribute="bottom" constant="10" id="fqv-GT-AVM"/>
+                                    <constraint firstItem="xIW-BK-K3a" firstAttribute="top" secondItem="fxw-ag-Mi2" secondAttribute="bottom" constant="10" id="pQh-en-8bj"/>
+                                    <constraint firstItem="gZP-Ak-btL" firstAttribute="top" secondItem="xIW-BK-K3a" secondAttribute="bottom" constant="10" id="ppa-PR-Yr1"/>
+                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="zcA-bA-roK">
                                 <rect key="frame" x="122" y="119" width="170" height="170"/>
@@ -548,6 +557,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="25q-VI-4T4"/>
+        <segue reference="vE9-bx-knF"/>
     </inferredMetricsTieBreakers>
 </document>

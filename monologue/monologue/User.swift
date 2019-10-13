@@ -18,6 +18,7 @@ class User {
     var bio : String?
     var postNumber = 0
     var familyId : String?
+    var familys : [String]?
 //    var dictionary: [String: Any] {
 //        return ["email": email!,
 //                "profileImageUrl": profileImageUrl!,

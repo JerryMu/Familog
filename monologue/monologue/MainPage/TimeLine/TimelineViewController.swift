@@ -72,17 +72,16 @@ class TimelineViewController: UIViewController {
                     let post = Post.transformPostPhoto(dict: document.data())
                         self.posts.insert(post, at: 0)
                         //get user for each post
-                    Api.User.observeUserByUid(Uid: post.userId!).addSnapshotListener{ (querySnapshot, err) in
+                    Api.User.REF_USERS.document(post.userId!).addSnapshotListener{ (snapshot, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
                             } else {
-                                for document in querySnapshot!.documents {
-                                    let user = User.transformUser(dict: document.data())
-                                    self.users.insert(user, at: 0)
-                                    self.tableView.reloadData()
-                                }
+                                let data = snapshot!.data()
+                                let user = User.transformUser(dict: data!)
+                                self.users.insert(user, at: 0)
+                                self.tableView.reloadData()
                             }
-                    }
+                        }
                 }
             }
         }
