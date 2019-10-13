@@ -17,8 +17,8 @@ class SwitchFamilyViewController: UIViewController {
     func switchFamily() {
         Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
             if let document = document, document.exists {
-                let allFamilyId = document.get("familyId") as! [String]
-                for familyId in allFamilyId {
+                let familys = document.get("familys") as! [String]
+                for familyId in familys {
                     Api.Family.REF_FAMILY.document(familyId).getDocument{(document, error) in
                         if let document = document, document.exists {
                             let familyName = document.get("familyName") as! String

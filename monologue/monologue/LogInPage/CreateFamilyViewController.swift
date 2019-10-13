@@ -42,9 +42,12 @@ class CreateFamilyViewController: UIViewController {
             } else {
                 Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                 if let document = document, document.exists {
-                    var familyIds = document.get("familyId") as! [String]
-                    familyIds.append(familyId)
-                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyIds])
+                    
+                    var familys = document.get("familys") as! [String]
+                    
+                    familys.append(familyId)
+                    
+                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "familys": familys])
                         {err in
                             if err != nil {
                                 Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")

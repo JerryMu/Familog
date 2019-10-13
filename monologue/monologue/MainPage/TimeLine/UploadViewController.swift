@@ -19,9 +19,11 @@ class UploadViewController: UIViewController{
     
     @IBOutlet weak var selectButton: UIButton!
     
-    @IBOutlet weak var selectImage: UIImageView!
+    @IBOutlet weak var photo: UIImageView!
     
     @IBOutlet weak var descriptionField: UITextField!
+    
+    var selectedImage: UIImage?
     
     var familyId : String = ""
 
@@ -55,16 +57,16 @@ class UploadViewController: UIViewController{
         if  let uploadData = image.jpegData(compressionQuality: 0.8) {
             imageRef.putData(uploadData, metadata: nil) {(metadata, error) in
                 if error != nil {
-                    Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                    Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                     return
                 }
                 imageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
-                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                        Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                         return
                     }
                     guard let downloadurl = url else {
-                        Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                        Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                         return
                     }
                     
@@ -75,16 +77,17 @@ class UploadViewController: UIViewController{
                     let urlString = downloadurl.absoluteString
                     let currentUser = Auth.auth().currentUser!.uid
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                    
                     let timestamp = Int(Date().timeIntervalSince1970)
                     
                     let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId": fid,"timestamp": timestamp, "comment" : []] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
-                            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
+                            Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                             return
                         }
-                        Alert.presentAlert(on: self, with: "Success!", message: "Upload Successfully!")
+                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
                     })
                 })
             }
@@ -92,12 +95,15 @@ class UploadViewController: UIViewController{
     }
     
     @IBAction func shareTapped(_ sender: Any) {
-        if selectImage.image == nil {
+        if selectedImage == nil {
             Alert.presentAlert(on: self, with: "Error", message: "You must pick one Photo")
             return
         }
-        
-        getFamilyId(selectImage.image!)
+        if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "" {
+            Alert.presentAlert(on: self, with: "Error", message: "You must fill description")
+            return
+        }        
+        getFamilyId(photo.image!)
         self.moveToTimeLinePage()
     }
     
@@ -123,9 +129,10 @@ extension UploadViewController:UIImagePickerControllerDelegate,UINavigationContr
             selectedImageFromPicker = originalImage
         }
         if let selectedImage = selectedImageFromPicker {
-            selectImage.image = selectedImage
+            self.selectedImage = selectedImage
             self.selectButton.alpha = 0
         }
+        photo.image =  self.selectedImage
         picker.dismiss(animated: true, completion: nil)
         
     }

@@ -88,7 +88,7 @@
                      let db = Firestore.firestore()
                      let currentUser = Api.User.currentUser
                                          
-                     let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId": []] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId":"", "familys": []] as [String : Any?]
                      
                      db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                          if error != nil {
