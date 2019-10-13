@@ -34,6 +34,7 @@
 #include "absl/strings/string_view.h"
 #include "leveldb/db.h"
 
+@class FSTLevelDB;
 @class FSTLocalSerializer;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -41,8 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 namespace firebase {
 namespace firestore {
 namespace local {
-
-class LevelDbPersistence;
 
 /** Cached Queries backed by LevelDB. */
 class LevelDbQueryCache : public QueryCache {
@@ -59,7 +58,7 @@ class LevelDbQueryCache : public QueryCache {
    *
    * @param db The LevelDB in which to create the cache.
    */
-  LevelDbQueryCache(LevelDbPersistence* db, FSTLocalSerializer* serializer);
+  LevelDbQueryCache(FSTLevelDB* db, FSTLocalSerializer* serializer);
 
   // Target-related methods
   void AddTarget(const QueryData& query_data) override;
@@ -130,8 +129,8 @@ class LevelDbQueryCache : public QueryCache {
    */
   QueryData DecodeTarget(absl::string_view encoded);
 
-  // The LevelDbQueryCache is owned by LevelDbPersistence.
-  LevelDbPersistence* db_;
+  // This instance is owned by FSTLevelDB; avoid a retain cycle.
+  __weak FSTLevelDB* db_;
   FSTLocalSerializer* serializer_;
   /** A write-through cached copy of the metadata for the query cache. */
   FSTPBTargetGlobal* metadata_;

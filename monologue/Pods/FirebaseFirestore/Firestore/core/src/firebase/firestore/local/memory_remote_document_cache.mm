@@ -18,8 +18,8 @@
 
 #include <utility>
 
-#include "Firestore/core/src/firebase/firestore/local/memory_lru_reference_delegate.h"
-#include "Firestore/core/src/firebase/firestore/local/memory_persistence.h"
+#import "Firestore/Source/Local/FSTMemoryPersistence.h"
+
 #include "Firestore/core/src/firebase/firestore/local/sizer.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
@@ -38,14 +38,14 @@ using model::MaybeDocumentMap;
 using model::OptionalMaybeDocumentMap;
 
 MemoryRemoteDocumentCache::MemoryRemoteDocumentCache(
-    MemoryPersistence* persistence) {
+    FSTMemoryPersistence* persistence) {
   persistence_ = persistence;
 }
 
 void MemoryRemoteDocumentCache::Add(const MaybeDocument& document) {
   docs_ = docs_.insert(document.key(), document);
 
-  persistence_->index_manager()->AddToCollectionParentIndex(
+  persistence_.indexManager->AddToCollectionParentIndex(
       document.key().path().PopLast());
 }
 
@@ -99,13 +99,14 @@ DocumentMap MemoryRemoteDocumentCache::GetMatching(const Query& query) {
 }
 
 std::vector<DocumentKey> MemoryRemoteDocumentCache::RemoveOrphanedDocuments(
-    MemoryLruReferenceDelegate* reference_delegate,
+    FSTMemoryLRUReferenceDelegate* reference_delegate,
     ListenSequenceNumber upper_bound) {
   std::vector<DocumentKey> removed;
   MaybeDocumentMap updated_docs = docs_;
   for (const auto& kv : docs_) {
     const DocumentKey& key = kv.first;
-    if (!reference_delegate->IsPinnedAtSequenceNumber(upper_bound, key)) {
+    if (![reference_delegate isPinnedAtSequenceNumber:upper_bound
+                                             document:key]) {
       updated_docs = updated_docs.erase(key);
       removed.push_back(key);
     }
@@ -114,8 +115,8 @@ std::vector<DocumentKey> MemoryRemoteDocumentCache::RemoveOrphanedDocuments(
   return removed;
 }
 
-int64_t MemoryRemoteDocumentCache::CalculateByteSize(const Sizer& sizer) {
-  int64_t count = 0;
+size_t MemoryRemoteDocumentCache::CalculateByteSize(const Sizer& sizer) {
+  size_t count = 0;
   for (const auto& kv : docs_) {
     count += sizer.CalculateByteSize(kv.second);
   }

@@ -19,20 +19,22 @@
 
 #include <memory>
 #include <unordered_map>
-#include <unordered_set>
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/core/query.h"
 #include "Firestore/core/src/firebase/firestore/core/query_listener.h"
-#include "Firestore/core/src/firebase/firestore/core/sync_engine.h"
+#include "Firestore/core/src/firebase/firestore/core/sync_engine_callback.h"
 #include "Firestore/core/src/firebase/firestore/core/view_snapshot.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 #include "Firestore/core/src/firebase/firestore/objc/objc_class.h"
-#include "Firestore/core/src/firebase/firestore/util/empty.h"
 #include "Firestore/core/src/firebase/firestore/util/nullability.h"
-#include "Firestore/core/src/firebase/firestore/util/status_fwd.h"
+#include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "absl/algorithm/container.h"
 #include "absl/types/optional.h"
+
+OBJC_CLASS(FSTSyncEngine);
+
+NS_ASSUME_NONNULL_BEGIN
 
 namespace firebase {
 namespace firestore {
@@ -45,7 +47,7 @@ namespace core {
  */
 class EventManager : public SyncEngineCallback {
  public:
-  explicit EventManager(QueryEventSource* query_event_source_);
+  explicit EventManager(FSTSyncEngine* sync_engine);
 
   /**
    * Adds a query listener that will be called with new snapshots for the query.
@@ -58,28 +60,16 @@ class EventManager : public SyncEngineCallback {
   model::TargetId AddQueryListener(
       std::shared_ptr<core::QueryListener> listener);
 
-  /**
-   * Removes a previously added listener. It's a no-op if the listener is not
-   * found.
-   */
+  /** Removes a previously added listener. It's a no-op if the listener is not
+   * found. */
   void RemoveQueryListener(std::shared_ptr<core::QueryListener> listener);
 
-  void AddSnapshotsInSyncListener(
-      const std::shared_ptr<EventListener<util::Empty>>& listener);
-  void RemoveSnapshotsInSyncListener(
-      const std::shared_ptr<EventListener<util::Empty>>& listener);
-
-  // Implements `QueryEventCallback`.
+  // Implements `SyncEngineCallback`.
   void HandleOnlineStateChange(model::OnlineState online_state) override;
   void OnViewSnapshots(std::vector<core::ViewSnapshot>&& snapshots) override;
-  void OnError(const core::Query& query, const util::Status& error) override;
+  void OnError(const core::Query& query, util::Status error) override;
 
  private:
-  /**
-   * Call all global snapshot listeners that have been set.
-   */
-  void RaiseSnapshotsInSyncEvent();
-
   /**
    * Holds the listeners and the last received ViewSnapshot for a query being
    * tracked by EventManager.
@@ -111,15 +101,15 @@ class EventManager : public SyncEngineCallback {
     absl::optional<ViewSnapshot> snapshot_;
   };
 
-  QueryEventSource* query_event_source_ = nullptr;
+  objc::Handle<FSTSyncEngine> sync_engine_;
   model::OnlineState online_state_ = model::OnlineState::Unknown;
   std::unordered_map<core::Query, QueryListenersInfo> queries_;
-  std::unordered_set<std::shared_ptr<EventListener<util::Empty>>>
-      snapshots_in_sync_listeners_;
 };
 
 }  // namespace core
 }  // namespace firestore
 }  // namespace firebase
+
+NS_ASSUME_NONNULL_END
 
 #endif  // FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_EVENT_MANAGER_H_

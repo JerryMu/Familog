@@ -29,8 +29,6 @@
 #import "SDImageFrame.h"
 #import "SDImageGIFCoder.h"
 #import "SDImageGraphics.h"
-#import "SDImageHEICCoder.h"
-#import "SDImageIOAnimatedCoder.h"
 #import "SDImageIOCoder.h"
 #import "SDImageLoader.h"
 #import "SDImageLoadersManager.h"

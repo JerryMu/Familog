@@ -17,6 +17,8 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_LOCAL_DOCUMENTS_VIEW_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_LOCAL_DOCUMENTS_VIEW_H_
 
+#import <Foundation/Foundation.h>
+
 #include <vector>
 
 #include "Firestore/core/src/firebase/firestore/core/query.h"
@@ -27,6 +29,8 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/document_map.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 namespace firebase {
 namespace firestore {
 namespace local {
@@ -35,7 +39,7 @@ namespace local {
  * A readonly view of the local state of all documents we're tracking (i.e. we
  * have a cached version in remoteDocumentCache or local mutations for the
  * document). The view is computed by applying the mutations in the
- * MutationQueue to the RemoteDocumentCache.
+ * FSTMutationQueue to the FSTRemoteDocumentCache.
  */
 class LocalDocumentsView {
  public:
@@ -120,5 +124,7 @@ class LocalDocumentsView {
 }  // namespace local
 }  // namespace firestore
 }  // namespace firebase
+
+NS_ASSUME_NONNULL_END
 
 #endif  // FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_LOCAL_DOCUMENTS_VIEW_H_

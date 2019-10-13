@@ -33,11 +33,12 @@
 #include "Firestore/core/src/firebase/firestore/model/types.h"
 #include "Firestore/core/src/firebase/firestore/nanopb/byte_string.h"
 #include "Firestore/core/src/firebase/firestore/remote/watch_change.h"
-#include "Firestore/core/src/firebase/firestore/util/status_fwd.h"
+#include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "absl/types/optional.h"
 #include "grpcpp/support/byte_buffer.h"
 
 #import "Firestore/Protos/objc/google/firestore/v1/Firestore.pbobjc.h"
+#import "Firestore/Source/Core/FSTTypes.h"
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 namespace firebase {

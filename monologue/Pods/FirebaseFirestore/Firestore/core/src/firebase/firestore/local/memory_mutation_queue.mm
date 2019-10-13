@@ -18,14 +18,16 @@
 
 #include <utility>
 
+#import "Firestore/Protos/objc/firestore/local/Mutation.pbobjc.h"
+#import "Firestore/Source/Local/FSTLocalSerializer.h"
+#import "Firestore/Source/Local/FSTMemoryPersistence.h"
+
 #include "Firestore/core/src/firebase/firestore/local/document_key_reference.h"
-#include "Firestore/core/src/firebase/firestore/local/index_manager.h"
-#include "Firestore/core/src/firebase/firestore/local/memory_persistence.h"
-#include "Firestore/core/src/firebase/firestore/local/reference_delegate.h"
-#include "Firestore/core/src/firebase/firestore/local/sizer.h"
 #include "Firestore/core/src/firebase/firestore/model/mutation_batch.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 namespace firebase {
 namespace firestore {
@@ -41,7 +43,7 @@ using model::MutationBatch;
 using model::ResourcePath;
 using nanopb::ByteString;
 
-MemoryMutationQueue::MemoryMutationQueue(MemoryPersistence* persistence)
+MemoryMutationQueue::MemoryMutationQueue(FSTMemoryPersistence* persistence)
     : persistence_(persistence) {
 }
 
@@ -68,7 +70,7 @@ void MemoryMutationQueue::Start() {
   // Note: The queue may be shutdown / started multiple times, since we maintain
   // the queue for the duration of the app session in case a user logs out /
   // back in. To behave like the LevelDB-backed MutationQueue (and accommodate
-  // tests that expect as much), we reset next_batch_id_ if the queue is empty.
+  // tests that expect as much), we reset nextBatchID if the queue is empty.
   if (IsEmpty()) {
     next_batch_id_ = 1;
   }
@@ -86,7 +88,7 @@ MutationBatch MemoryMutationQueue::AddMutationBatch(
   if (!queue_.empty()) {
     const MutationBatch& prior = queue_.back();
     HARD_ASSERT(prior.batch_id() < batch_id,
-                "Mutation batch_ids must be in monotonically increasing order");
+                "Mutation batchIDs must be in monotonically increasing order");
   }
 
   MutationBatch batch(batch_id, local_write_time, std::move(base_mutations),
@@ -98,7 +100,7 @@ MutationBatch MemoryMutationQueue::AddMutationBatch(
     batches_by_document_key_ = batches_by_document_key_.insert(
         DocumentKeyReference{mutation.key(), batch_id});
 
-    persistence_->index_manager()->AddToCollectionParentIndex(
+    persistence_.indexManager->AddToCollectionParentIndex(
         mutation.key().path().PopLast());
   }
 
@@ -117,7 +119,7 @@ void MemoryMutationQueue::RemoveMutationBatch(const MutationBatch& batch) {
   // Remove entries from the index too.
   for (const Mutation& mutation : batch.mutations()) {
     const DocumentKey& key = mutation.key();
-    persistence_->reference_delegate()->RemoveMutationReference(key);
+    [persistence_.referenceDelegate removeMutationReference:key];
 
     DocumentKeyReference reference{key, batch.batch_id()};
     batches_by_document_key_ = batches_by_document_key_.erase(reference);
@@ -179,7 +181,7 @@ MemoryMutationQueue::AllMutationBatchesAffectingQuery(const Query& query) {
   }
   DocumentKeyReference start{DocumentKey{start_path}, 0};
 
-  // Find unique batch_ids referenced by all documents potentially matching the
+  // Find unique batchIDs referenced by all documents potentially matching the
   // query.
   std::set<BatchId> unique_batch_ids;
   for (const auto& reference : batches_by_document_key_.values_from(start)) {
@@ -207,10 +209,10 @@ absl::optional<MutationBatch>
 MemoryMutationQueue::NextMutationBatchAfterBatchId(BatchId batch_id) {
   BatchId next_batch_id = batch_id + 1;
 
-  // The requested batch_id may still be out of range so normalize it to the
+  // The requested batchID may still be out of range so normalize it to the
   // start of the queue.
   int raw_index = IndexOfBatchId(next_batch_id);
-  size_t index = raw_index < 0 ? 0 : static_cast<size_t>(raw_index);
+  int index = raw_index < 0 ? 0 : raw_index;
   if (queue_.size() <= index) {
     return absl::nullopt;
   }
@@ -229,7 +231,7 @@ absl::optional<MutationBatch> MemoryMutationQueue::LookupMutationBatch(
   }
 
   int index = IndexOfBatchId(batch_id);
-  if (index < 0 || static_cast<size_t>(index) >= queue_.size()) {
+  if (index < 0 || index >= queue_.size()) {
     return absl::nullopt;
   }
 
@@ -255,10 +257,10 @@ bool MemoryMutationQueue::ContainsKey(const model::DocumentKey& key) {
   return begin != range.end() && begin->key() == key;
 }
 
-int64_t MemoryMutationQueue::CalculateByteSize(const Sizer& sizer) {
-  int64_t count = 0;
+size_t MemoryMutationQueue::CalculateByteSize(FSTLocalSerializer* serializer) {
+  size_t count = 0;
   for (const auto& batch : queue_) {
-    count += sizer.CalculateByteSize(batch);
+    count += [[serializer encodedMutationBatch:batch] serializedSize];
   };
   return count;
 }
@@ -291,9 +293,9 @@ int MemoryMutationQueue::IndexOfBatchId(BatchId batch_id) {
   }
 
   // Examine the front of the queue to figure out the difference between the
-  // batch_id and indexes in the array. Note that since the queue is ordered by
-  // batch_id, if the first batch has a larger batch_id then the requested
-  // batch_id doesn't exist in the queue.
+  // batchID and indexes in the array. Note that since the queue is ordered by
+  // batchID, if the first batch has a larger batchID then the requested batchID
+  // doesn't exist in the queue.
   const MutationBatch& first_batch = queue_.front();
   return batch_id - first_batch.batch_id();
 }
@@ -301,3 +303,5 @@ int MemoryMutationQueue::IndexOfBatchId(BatchId batch_id) {
 }  // namespace local
 }  // namespace firestore
 }  // namespace firebase
+
+NS_ASSUME_NONNULL_END

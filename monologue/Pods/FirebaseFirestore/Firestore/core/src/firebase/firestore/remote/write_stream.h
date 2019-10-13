@@ -31,10 +31,11 @@
 #include "Firestore/core/src/firebase/firestore/remote/remote_objc_bridge.h"
 #include "Firestore/core/src/firebase/firestore/remote/stream.h"
 #include "Firestore/core/src/firebase/firestore/util/async_queue.h"
-#include "Firestore/core/src/firebase/firestore/util/status_fwd.h"
+#include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "absl/strings/string_view.h"
 #include "grpcpp/support/byte_buffer.h"
 
+#import "Firestore/Source/Core/FSTTypes.h"
 #import "Firestore/Source/Remote/FSTSerializerBeta.h"
 
 namespace firebase {

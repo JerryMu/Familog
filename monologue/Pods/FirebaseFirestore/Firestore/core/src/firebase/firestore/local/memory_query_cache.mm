@@ -18,11 +18,13 @@
 
 #include <vector>
 
-#include "Firestore/core/src/firebase/firestore/local/memory_persistence.h"
+#import "Firestore/Source/Local/FSTMemoryPersistence.h"
+
 #include "Firestore/core/src/firebase/firestore/local/query_data.h"
-#include "Firestore/core/src/firebase/firestore/local/reference_delegate.h"
 #include "Firestore/core/src/firebase/firestore/local/sizer.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 namespace firebase {
 namespace firestore {
@@ -35,7 +37,7 @@ using model::ListenSequenceNumber;
 using model::SnapshotVersion;
 using model::TargetId;
 
-MemoryQueryCache::MemoryQueryCache(MemoryPersistence* persistence)
+MemoryQueryCache::MemoryQueryCache(FSTMemoryPersistence* persistence)
     : persistence_(persistence),
       highest_listen_sequence_number_(ListenSequenceNumber(0)),
       highest_target_id_(TargetId(0)),
@@ -100,7 +102,7 @@ void MemoryQueryCache::AddMatchingKeys(const DocumentKeySet& keys,
                                        TargetId target_id) {
   references_.AddReferences(keys, target_id);
   for (const DocumentKey& key : keys) {
-    persistence_->reference_delegate()->AddReference(key);
+    [persistence_.referenceDelegate addReference:key];
   }
 }
 
@@ -108,7 +110,7 @@ void MemoryQueryCache::RemoveMatchingKeys(const DocumentKeySet& keys,
                                           TargetId target_id) {
   references_.RemoveReferences(keys, target_id);
   for (const DocumentKey& key : keys) {
-    persistence_->reference_delegate()->RemoveReference(key);
+    [persistence_.referenceDelegate removeReference:key];
   }
 }
 
@@ -120,8 +122,8 @@ bool MemoryQueryCache::Contains(const DocumentKey& key) {
   return references_.ContainsKey(key);
 }
 
-int64_t MemoryQueryCache::CalculateByteSize(const Sizer& sizer) {
-  int64_t count = 0;
+size_t MemoryQueryCache::CalculateByteSize(const Sizer& sizer) {
+  size_t count = 0;
   for (const auto& kv : queries_) {
     count += sizer.CalculateByteSize(kv.second);
   }
@@ -135,6 +137,8 @@ const SnapshotVersion& MemoryQueryCache::GetLastRemoteSnapshotVersion() const {
 void MemoryQueryCache::SetLastRemoteSnapshotVersion(SnapshotVersion version) {
   last_remote_snapshot_version_ = std::move(version);
 }
+
+NS_ASSUME_NONNULL_END
 
 }  // namespace local
 }  // namespace firestore
