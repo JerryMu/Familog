@@ -486,7 +486,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qr2-3d-pXR"/>
                     </view>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="m2j-B8-0pU">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="JSI-1G-AMx" id="Br0-UO-SMG"/>
                         <outlet property="familyId" destination="WGt-62-Xfj" id="JO1-hW-KN9"/>
@@ -515,5 +518,6 @@
     <resources>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="ProfileBackground" width="1241" height="2688"/>
+        <image name="profile" width="35" height="35"/>
     </resources>
 </document>

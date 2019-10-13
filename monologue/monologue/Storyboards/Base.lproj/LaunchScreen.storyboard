@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -13,67 +13,34 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Ry-lLN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Familog" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQQ-7T-nYi">
-                                <rect key="frame" x="0.0" y="84" width="414" height="139"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="96"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="cIz-OM-8sB">
-                                <rect key="frame" x="20" y="678" width="222" height="112"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Copyright:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69S-DV-Jhj">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="56"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="oai-hG-SVG"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="35"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Monologue" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-pO-HvL">
-                                        <rect key="frame" x="0.0" y="56" width="222" height="56"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="26"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="GYL-7m-feK"/>
-                                    <constraint firstAttribute="width" constant="222" id="VvD-EK-lf6"/>
-                                    <constraint firstItem="wT7-pO-HvL" firstAttribute="top" secondItem="69S-DV-Jhj" secondAttribute="bottom" id="g1d-vt-u13"/>
-                                </constraints>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Familog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPl-ab-GVG">
+                                <rect key="frame" x="21.666666666666657" y="124" width="332" height="130"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="103"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cIz-OM-8sB" secondAttribute="trailing" constant="172" id="Del-I0-4pz"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yx4-d3-P1B"/>
-                            <constraint firstAttribute="bottom" secondItem="WQQ-7T-nYi" secondAttribute="bottom" constant="673" id="cSh-D0-2wz"/>
-                            <constraint firstItem="cIz-OM-8sB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eaq-DI-5sg"/>
-                            <constraint firstAttribute="bottom" secondItem="fdk-Ry-lLN" secondAttribute="bottom" id="fTM-Ja-3LC"/>
-                            <constraint firstItem="fdk-Ry-lLN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kPa-jb-Qnx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cIz-OM-8sB" secondAttribute="bottom" constant="72" id="naC-G1-32M"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="rFP-Jx-2nJ"/>
-                            <constraint firstItem="WQQ-7T-nYi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s5o-xN-aZb"/>
-                            <constraint firstItem="fdk-Ry-lLN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v8X-tq-KL9"/>
-                            <constraint firstItem="fdk-Ry-lLN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vCs-hi-PEP"/>
+                            <constraint firstItem="uPl-ab-GVG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4nX-rz-ylO"/>
+                            <constraint firstItem="fdk-Ry-lLN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5C7-px-wwm"/>
+                            <constraint firstItem="fdk-Ry-lLN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="5FX-Un-Ht7"/>
+                            <constraint firstAttribute="trailing" secondItem="fdk-Ry-lLN" secondAttribute="trailing" id="a45-bX-p1f"/>
+                            <constraint firstAttribute="bottom" secondItem="fdk-Ry-lLN" secondAttribute="bottom" id="gxZ-8F-Dzj"/>
+                            <constraint firstItem="uPl-ab-GVG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="vSR-t8-9Xi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
     <resources>
