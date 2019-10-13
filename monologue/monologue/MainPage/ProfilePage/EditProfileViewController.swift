@@ -108,12 +108,21 @@ class EditProfileViewController: UIViewController {
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = .photoLibrary
+        present(pickerController, animated: true, completion: nil)
+    }
+    @IBAction func cameraTapped(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .camera
         present(pickerController, animated: true, completion: nil)
     }
     
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
         func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
             //editedImage
             if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?

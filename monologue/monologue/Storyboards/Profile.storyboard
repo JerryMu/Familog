@@ -137,6 +137,9 @@
                                                     <real key="value" value="15"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cameraTapped:" destination="YsS-rB-R2k" eventType="touchUpInside" id="cY3-dh-34b"/>
+                                            </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-cK-W3e">
                                             <rect key="frame" x="108" y="52" width="120" height="120"/>
@@ -303,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaT-us-K8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="-320"/>
+            <point key="canvasLocation" x="2052" y="-320.68965517241378"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Elz-hg-bge">
@@ -525,6 +528,6 @@
         <image name="profile" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T3K-c0-ua6"/>
+        <segue reference="jR7-nV-LTE"/>
     </inferredMetricsTieBreakers>
 </document>
