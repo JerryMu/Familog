@@ -127,6 +127,15 @@ class OthersProfileViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ProfileUser_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender  as! String
+            detailVC.postId = postId
+        }
+    }
 }
 
 // Show how many and what kinds of artificates user has uploaded and add them the cell
