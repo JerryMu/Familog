@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2018 MessageKit
+ Copyright (c) 2017-2019 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,16 @@
 
 import Foundation
 
-extension MessagesViewController {
+internal extension MessagesViewController {
 
     // MARK: - Register / Unregister Observers
 
-    /// Add observer for `UIMenuControllerWillShowMenu` notification
-    func addMenuControllerObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.menuControllerWillShow(_:)), name: .UIMenuControllerWillShowMenu, object: nil)
+    internal func addMenuControllerObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.menuControllerWillShow(_:)), name: UIMenuController.willShowMenuNotification, object: nil)
     }
 
-    /// Remove observer for `UIMenuControllerWillShowMenu` notification
-    func removeMenuControllerObservers() {
-        NotificationCenter.default.removeObserver(self, name: .UIMenuControllerWillShowMenu, object: nil)
+    internal func removeMenuControllerObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIMenuController.willShowMenuNotification, object: nil)
     }
 
     // MARK: - Notification Handlers
@@ -47,17 +45,17 @@ extension MessagesViewController {
         guard let currentMenuController = notification.object as? UIMenuController,
             let selectedIndexPath = selectedIndexPathForMenu else { return }
 
-        NotificationCenter.default.removeObserver(self, name: .UIMenuControllerWillShowMenu, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIMenuController.willShowMenuNotification, object: nil)
         defer {
             NotificationCenter.default.addObserver(self,
                                                    selector: #selector(MessagesViewController.menuControllerWillShow(_:)),
-                                                   name: .UIMenuControllerWillShowMenu, object: nil)
+                                                   name: UIMenuController.willShowMenuNotification, object: nil)
             selectedIndexPathForMenu = nil
         }
 
         currentMenuController.setMenuVisible(false, animated: false)
 
-        guard let selectedCell = messagesCollectionView.cellForItem(at: selectedIndexPath) as? MessageCollectionViewCell else { return }
+        guard let selectedCell = messagesCollectionView.cellForItem(at: selectedIndexPath) as? MessageContentCell else { return }
         let selectedCellMessageBubbleFrame = selectedCell.convert(selectedCell.messageContainerView.frame, to: view)
 
         var messageInputBarFrame: CGRect = .zero

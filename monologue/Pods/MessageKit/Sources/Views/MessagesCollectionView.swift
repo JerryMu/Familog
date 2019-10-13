@@ -1,7 +1,7 @@
 /*
  MIT License
  
- Copyright (c) 2017-2018 MessageKit
+ Copyright (c) 2017-2019 MessageKit
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -36,14 +36,21 @@ open class MessagesCollectionView: UICollectionView {
 
     open weak var messageCellDelegate: MessageCellDelegate?
 
-    open var showsDateHeaderAfterTimeInterval: TimeInterval = 3600
+    open var isTypingIndicatorHidden: Bool {
+        return messagesCollectionViewFlowLayout.isTypingIndicatorViewHidden
+    }
 
     private var indexPathForLastItem: IndexPath? {
-
         let lastSection = numberOfSections - 1
         guard lastSection >= 0, numberOfItems(inSection: lastSection) > 0 else { return nil }
         return IndexPath(item: numberOfItems(inSection: lastSection) - 1, section: lastSection)
+    }
 
+    open var messagesCollectionViewFlowLayout: MessagesCollectionViewFlowLayout {
+        guard let layout = collectionViewLayout as? MessagesCollectionViewFlowLayout else {
+            fatalError(MessageKitError.layoutUsedOnForeignType)
+        }
+        return layout
     }
 
     // MARK: - Initializers
@@ -51,11 +58,12 @@ open class MessagesCollectionView: UICollectionView {
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         backgroundColor = .white
+        registerReusableViews()
         setupGestureRecognizers()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(frame: .zero, collectionViewLayout: MessagesCollectionViewFlowLayout())
     }
 
     public convenience init() {
@@ -64,7 +72,18 @@ open class MessagesCollectionView: UICollectionView {
 
     // MARK: - Methods
     
-    func setupGestureRecognizers() {
+    private func registerReusableViews() {
+        register(TextMessageCell.self)
+        register(MediaMessageCell.self)
+        register(LocationMessageCell.self)
+        register(AudioMessageCell.self)
+        register(ContactMessageCell.self)
+        register(TypingIndicatorCell.self)
+        register(MessageReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        register(MessageReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter)
+    }
+    
+    private func setupGestureRecognizers() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
         tapGesture.delaysTouchesBegan = true
         addGestureRecognizer(tapGesture)
@@ -104,6 +123,73 @@ open class MessagesCollectionView: UICollectionView {
             x: contentOffset.x + (afterContentSize.width - beforeContentSize.width),
             y: contentOffset.y + (afterContentSize.height - beforeContentSize.height))
         setContentOffset(newOffset, animated: false)
+    }
+
+    // MARK: - Typing Indicator API
+
+    /// Notifies the layout that the typing indicator will change state
+    ///
+    /// - Parameters:
+    ///   - isHidden: A Boolean value that is to be the new state of the typing indicator
+    internal func setTypingIndicatorViewHidden(_ isHidden: Bool) {
+        messagesCollectionViewFlowLayout.setTypingIndicatorViewHidden(isHidden)
+    }
+    
+    /// A method that by default checks if the section is the last in the
+    /// `messagesCollectionView` and that `isTypingIndicatorViewHidden`
+    /// is FALSE
+    ///
+    /// - Parameter section
+    /// - Returns: A Boolean indicating if the TypingIndicator should be presented at the given section
+    public func isSectionReservedForTypingIndicator(_ section: Int) -> Bool {
+        return messagesCollectionViewFlowLayout.isSectionReservedForTypingIndicator(section)
+    }
+
+    // MARK: View Register/Dequeue
+
+    /// Registers a particular cell using its reuse-identifier
+    public func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
+        register(cellClass, forCellWithReuseIdentifier: String(describing: T.self))
+    }
+
+    /// Registers a reusable view for a specific SectionKind
+    public func register<T: UICollectionReusableView>(_ reusableViewClass: T.Type, forSupplementaryViewOfKind kind: String) {
+        register(reusableViewClass,
+                 forSupplementaryViewOfKind: kind,
+                 withReuseIdentifier: String(describing: T.self))
+    }
+    
+    /// Registers a nib with reusable view for a specific SectionKind
+    public func register<T: UICollectionReusableView>(_ nib: UINib? = UINib(nibName: String(describing: T.self), bundle: nil), headerFooterClassOfNib headerFooterClass: T.Type, forSupplementaryViewOfKind kind: String) {
+        register(nib,
+                 forSupplementaryViewOfKind: kind,
+                 withReuseIdentifier: String(describing: T.self))        
+    }
+
+    /// Generically dequeues a cell of the correct type allowing you to avoid scattering your code with guard-let-else-fatal
+    public func dequeueReusableCell<T: UICollectionViewCell>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("Unable to dequeue \(String(describing: cellClass)) with reuseId of \(String(describing: T.self))")
+        }
+        return cell
+    }
+
+    /// Generically dequeues a header of the correct type allowing you to avoid scattering your code with guard-let-else-fatal
+    public func dequeueReusableHeaderView<T: UICollectionReusableView>(_ viewClass: T.Type, for indexPath: IndexPath) -> T {
+        let view = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: T.self), for: indexPath)
+        guard let viewType = view as? T else {
+            fatalError("Unable to dequeue \(String(describing: viewClass)) with reuseId of \(String(describing: T.self))")
+        }
+        return viewType
+    }
+
+    /// Generically dequeues a footer of the correct type allowing you to avoid scattering your code with guard-let-else-fatal
+    public func dequeueReusableFooterView<T: UICollectionReusableView>(_ viewClass: T.Type, for indexPath: IndexPath) -> T {
+        let view = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: T.self), for: indexPath)
+        guard let viewType = view as? T else {
+            fatalError("Unable to dequeue \(String(describing: viewClass)) with reuseId of \(String(describing: T.self))")
+        }
+        return viewType
     }
 
 }

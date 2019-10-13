@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) 2017-2018 MessageKit
+ Copyright (c) 2017-2019 MessageKit
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -49,7 +49,7 @@ open class MessageLabel: UILabel {
         return textStorage
     }()
 
-    private lazy var rangesForDetectors: [DetectorType: [(NSRange, MessageTextCheckingType)]] = [:]
+    internal lazy var rangesForDetectors: [DetectorType: [(NSRange, MessageTextCheckingType)]] = [:]
     
     private var isConfiguring: Bool = false
 
@@ -112,28 +112,43 @@ open class MessageLabel: UILabel {
             if !isConfiguring { setNeedsDisplay() }
         }
     }
+
+    open override var intrinsicContentSize: CGSize {
+        var size = super.intrinsicContentSize
+        size.width += textInsets.horizontal
+        size.height += textInsets.vertical
+        return size
+    }
     
     internal var messageLabelFont: UIFont?
 
     private var attributesNeedUpdate = false
 
-    public static var defaultAttributes: [NSAttributedStringKey: Any] = {
+    public static var defaultAttributes: [NSAttributedString.Key: Any] = {
         return [
-            NSAttributedStringKey.foregroundColor: UIColor.darkText,
-            NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
-            NSAttributedStringKey.underlineColor: UIColor.darkText
+            NSAttributedString.Key.foregroundColor: UIColor.darkText,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.underlineColor: UIColor.darkText
         ]
     }()
 
-    open internal(set) var addressAttributes: [NSAttributedStringKey: Any] = defaultAttributes
+    open internal(set) var addressAttributes: [NSAttributedString.Key: Any] = defaultAttributes
 
-    open internal(set) var dateAttributes: [NSAttributedStringKey: Any] = defaultAttributes
+    open internal(set) var dateAttributes: [NSAttributedString.Key: Any] = defaultAttributes
 
-    open internal(set) var phoneNumberAttributes: [NSAttributedStringKey: Any] = defaultAttributes
+    open internal(set) var phoneNumberAttributes: [NSAttributedString.Key: Any] = defaultAttributes
 
-    open internal(set) var urlAttributes: [NSAttributedStringKey: Any] = defaultAttributes
+    open internal(set) var urlAttributes: [NSAttributedString.Key: Any] = defaultAttributes
+    
+    open internal(set) var transitInformationAttributes: [NSAttributedString.Key: Any] = defaultAttributes
+    
+    open internal(set) var hashtagAttributes: [NSAttributedString.Key: Any] = defaultAttributes
+    
+    open internal(set) var mentionAttributes: [NSAttributedString.Key: Any] = defaultAttributes
 
-    public func setAttributes(_ attributes: [NSAttributedStringKey: Any], detector: DetectorType) {
+    open internal(set) var customAttributes: [NSRegularExpression: [NSAttributedString.Key: Any]] = [:]
+
+    public func setAttributes(_ attributes: [NSAttributedString.Key: Any], detector: DetectorType) {
         switch detector {
         case .phoneNumber:
             phoneNumberAttributes = attributes
@@ -143,6 +158,14 @@ open class MessageLabel: UILabel {
             dateAttributes = attributes
         case .url:
             urlAttributes = attributes
+        case .transitInformation:
+            transitInformationAttributes = attributes
+        case .mention:
+            mentionAttributes = attributes
+        case .hashtag:
+            hashtagAttributes = attributes
+        case .custom(let regex):
+            customAttributes[regex] = attributes
         }
         if isConfiguring {
             attributesNeedUpdate = true
@@ -155,19 +178,19 @@ open class MessageLabel: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.numberOfLines = 0
-        self.lineBreakMode = .byWordWrapping
+        setupView()
     }
 
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        setupView()
     }
 
     // MARK: - Open Methods
 
     open override func drawText(in rect: CGRect) {
 
-        let insetRect = UIEdgeInsetsInsetRect(rect, textInsets)
+        let insetRect = rect.inset(by: textInsets)
         textContainer.size = CGSize(width: insetRect.width, height: rect.height)
 
         let origin = insetRect.origin
@@ -259,7 +282,7 @@ open class MessageLabel: UILabel {
         }
     }
 
-    private func detectorAttributes(for detectorType: DetectorType) -> [NSAttributedStringKey: Any] {
+    private func detectorAttributes(for detectorType: DetectorType) -> [NSAttributedString.Key: Any] {
 
         switch detectorType {
         case .address:
@@ -270,11 +293,19 @@ open class MessageLabel: UILabel {
             return phoneNumberAttributes
         case .url:
             return urlAttributes
+        case .transitInformation:
+            return transitInformationAttributes
+        case .mention:
+            return mentionAttributes
+        case .hashtag:
+            return hashtagAttributes
+        case .custom(let regex):
+            return customAttributes[regex] ?? MessageLabel.defaultAttributes
         }
 
     }
 
-    private func detectorAttributes(for checkingResultType: NSTextCheckingResult.CheckingType) -> [NSAttributedStringKey: Any] {
+    private func detectorAttributes(for checkingResultType: NSTextCheckingResult.CheckingType) -> [NSAttributedString.Key: Any] {
         switch checkingResultType {
         case .address:
             return addressAttributes
@@ -284,19 +315,64 @@ open class MessageLabel: UILabel {
             return phoneNumberAttributes
         case .link:
             return urlAttributes
+        case .transitInformation:
+            return transitInformationAttributes
         default:
             fatalError(MessageKitError.unrecognizedCheckingResult)
         }
+    }
+    
+    private func setupView() {
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 
     // MARK: - Parsing Text
 
     private func parse(text: NSAttributedString) -> [NSTextCheckingResult] {
         guard enabledDetectors.isEmpty == false else { return [] }
-        let checkingTypes = enabledDetectors.reduce(0) { $0 | $1.textCheckingType.rawValue }
-        let detector = try? NSDataDetector(types: checkingTypes)
         let range = NSRange(location: 0, length: text.length)
-        return detector?.matches(in: text.string, options: [], range: range) ?? []
+        var matches = [NSTextCheckingResult]()
+
+        // Get matches of all .custom DetectorType and add it to matches array
+        let regexs = enabledDetectors
+            .filter { $0.isCustom }
+            .map { parseForMatches(with: $0, in: text, for: range) }
+            .joined()
+        matches.append(contentsOf: regexs)
+
+        // Get all Checking Types of detectors, except for .custom because they contain their own regex
+        let detectorCheckingTypes = enabledDetectors
+            .filter { !$0.isCustom }
+            .reduce(0) { $0 | $1.textCheckingType.rawValue }
+        if detectorCheckingTypes > 0, let detector = try? NSDataDetector(types: detectorCheckingTypes) {
+            let detectorMatches = detector.matches(in: text.string, options: [], range: range)
+            matches.append(contentsOf: detectorMatches)
+        }
+
+        guard enabledDetectors.contains(.url) else {
+            return matches
+        }
+
+        // Enumerate NSAttributedString NSLinks and append ranges
+        var results: [NSTextCheckingResult] = matches
+
+        text.enumerateAttribute(NSAttributedString.Key.link, in: range, options: []) { value, range, _ in
+            guard let url = value as? URL else { return }
+            let result = NSTextCheckingResult.linkCheckingResult(range: range, url: url)
+            results.append(result)
+        }
+
+        return results
+    }
+
+    private func parseForMatches(with detector: DetectorType, in text: NSAttributedString, for range: NSRange) -> [NSTextCheckingResult] {
+        switch detector {
+        case .custom(let regex):
+            return regex.matches(in: text.string, options: [], range: range)
+        default:
+            fatalError("You must pass a .custom DetectorType")
+        }
     }
 
     private func setRangesForDetectors(in checkingResults: [NSTextCheckingResult]) {
@@ -326,6 +402,18 @@ open class MessageLabel: UILabel {
                 let tuple: (NSRange, MessageTextCheckingType) = (result.range, .link(result.url))
                 ranges.append(tuple)
                 rangesForDetectors.updateValue(ranges, forKey: .url)
+            case .transitInformation:
+                var ranges = rangesForDetectors[.transitInformation] ?? []
+                let tuple: (NSRange, MessageTextCheckingType) = (result.range, .transitInfoComponents(result.components))
+                ranges.append(tuple)
+                rangesForDetectors.updateValue(ranges, forKey: .transitInformation)
+            case .regularExpression:
+                guard let text = text, let regex = result.regularExpression, let range = Range(result.range, in: text) else { return }
+                let detector = DetectorType.custom(regex)
+                var ranges = rangesForDetectors[detector] ?? []
+                let tuple: (NSRange, MessageTextCheckingType) = (result.range, .custom(pattern: regex.pattern, match: String(text[range])))
+                ranges.append(tuple)
+                rangesForDetectors.updateValue(ranges, forKey: detector)
             default:
                 fatalError("Received an unrecognized NSTextCheckingResult.CheckingType")
             }
@@ -358,7 +446,7 @@ open class MessageLabel: UILabel {
 
     }
 
-  func handleGesture(_ touchLocation: CGPoint) -> Bool {
+  open func handleGesture(_ touchLocation: CGPoint) -> Bool {
 
         guard let index = stringIndex(at: touchLocation) else { return false }
 
@@ -373,6 +461,7 @@ open class MessageLabel: UILabel {
         return false
     }
 
+    // swiftlint:disable cyclomatic_complexity
     private func handleGesture(for detectorType: DetectorType, value: MessageTextCheckingType) {
         
         switch value {
@@ -392,8 +481,26 @@ open class MessageLabel: UILabel {
         case let .link(url):
             guard let url = url else { return }
             handleURL(url)
+        case let .transitInfoComponents(transitInformation):
+            var transformedTransitInformation = [String: String]()
+            guard let transitInformation = transitInformation else { return }
+            transitInformation.forEach { (key, value) in
+                transformedTransitInformation[key.rawValue] = value
+            }
+            handleTransitInformation(transformedTransitInformation)
+        case let .custom(pattern, match):
+            guard let match = match else { return }
+            switch detectorType {
+            case .hashtag:
+                handleHashtag(match)
+            case .mention:
+                handleMention(match)
+            default:
+                handleCustom(pattern, match: match)
+            }
         }
     }
+    // swiftlint:enable cyclomatic_complexity
     
     private func handleAddress(_ addressComponents: [String: String]) {
         delegate?.didSelectAddress(addressComponents)
@@ -411,11 +518,29 @@ open class MessageLabel: UILabel {
         delegate?.didSelectPhoneNumber(phoneNumber)
     }
     
+    private func handleTransitInformation(_ components: [String: String]) {
+        delegate?.didSelectTransitInformation(components)
+    }
+
+    private func handleHashtag(_ hashtag: String) {
+        delegate?.didSelectHashtag(hashtag)
+    }
+
+    private func handleMention(_ mention: String) {
+        delegate?.didSelectMention(mention)
+    }
+
+    private func handleCustom(_ pattern: String, match: String) {
+        delegate?.didSelectCustom(pattern, match: match)
+    }
+
 }
 
-private enum MessageTextCheckingType {
+internal enum MessageTextCheckingType {
     case addressComponents([NSTextCheckingKey: String]?)
     case date(Date?)
     case phoneNumber(String?)
     case link(URL?)
+    case transitInfoComponents([NSTextCheckingKey: String]?)
+    case custom(pattern: String, match: String?)
 }

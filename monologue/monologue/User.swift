@@ -7,6 +7,7 @@
 // This file mainly shows what important information will be recorded by us in our database.
 
 import Foundation
+import MessageKit
 class User {
     var email: String?
     var profileImageUrl: String?
@@ -26,6 +27,10 @@ class User {
 //                ]
 //    }
 }
+
+
+
+
 
 extension User {
     
