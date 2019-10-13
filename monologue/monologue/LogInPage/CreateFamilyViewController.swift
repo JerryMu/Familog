@@ -26,35 +26,42 @@ class CreateFamilyViewController: UIViewController {
     @IBAction func createTapped(_ sender: Any) {
         
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
-        
         if familyName == "" {
             Alert.presentAlert(on: self, with: "Error!", message: "You must fill family name")
             return
         }
+        
         let familyId = familyIdTextField.text!
         
-        let data = ["profileImageUrl": nil, "familyName": familyName, "uid":familyId, "introduce" : nil, "familyOwner":nil, "userNumber" : 1] as [String : Any?]
+        let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : nil, "familyOwner":"", "userNumber" : 1] as [String : Any?]
         
         let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
             } else {
-                Api.User.REF_USERS.document(Api.User.currentUser).updateData([
-                    "familyId": familyId
-                ]) {err in
-                    if err != nil {
-                        Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
-                    } else {
-                        Alert.presentAlert(on: self, with: "Success", message: "Create family successfully!")
-                        self.moveToTimeLinePage()
+                Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                if let document = document, document.exists {
+                    var familyIds = document.get("familyId") as! [String]
+                    familyIds.append(familyId)
+                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyIds])
+                        {err in
+                            if err != nil {
+                                Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+                            } else {
+                                Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
+                                self.moveToTimeLinePage()
+                            }
+                        }
+                } else {
+                    Alert.presentAlert(on: self, with: "Error", message: "Can not get familys!")
                     }
                 }
             }
         })
-       
-
     }
+        
+        
     
     func randomString() -> String {
         let length = 8

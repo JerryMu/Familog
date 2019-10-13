@@ -1,10 +1,7 @@
-//
-//  NotificationViewController.swift
 //  Familog
 //
-//  Created by 刘仕晟 on 2019/10/10.
+//  Created by 刘仕晟 on 2019/10/6.
 //
-//  The entire file is working for the notification page
 
 import FirebaseFirestore
 

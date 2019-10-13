@@ -11,9 +11,10 @@ target 'Familog' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+ pod 'MessageKit'
   pod 'Protobuf', :inhibit_warnings => true
   pod 'SDWebImage', '~> 5.0'
-  pod 'MessageKit', '~> 0.13.1'
+
   # Pods for Familog
 
   target 'FamilogTests' do

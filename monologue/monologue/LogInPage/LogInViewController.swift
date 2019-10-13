@@ -35,11 +35,23 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
-            } else{
-                self.moveToTimeLinePage()
+            } else {
+                Api.User.REF_USERS.whereField("email", isEqualTo: email).getDocuments() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                let familyId : String = document.get("familyId") as! String
+                                if familyId == "" {
+                                    self.moveToFamilyPage()
+                                } else {
+                                    self.moveToTimeLinePage()
+                                }
+                            }
+                        }
+                }
             }
         }
-
     }
     
     // Move to the timeline page
@@ -49,9 +61,9 @@ class LogInViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
-//    func moveToFamilyPage() {
-//        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
+    func moveToFamilyPage() {
+        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
+        self.present(newViewController, animated: true, completion: nil)
+    }
 }

@@ -1,10 +1,7 @@
-//
-//  NotificationViewController.swift
 //  Familog
 //
-//  Created by 刘仕晟 on 2019/10/10.
+//  Created by 刘仕晟 on 2019/10/6.
 //
-//  The entire file is working for the notification page
 
 import UIKit
 import Photos
@@ -16,11 +13,11 @@ final class ChatViewController: MessagesViewController {
   
   private var isSendingPhoto = false {
     didSet {
-      DispatchQueue.main.async {
-        self.messageInputBar.leftStackViewItems.forEach { item in
-          item.isEnabled = !self.isSendingPhoto
-        }
-      }
+   //   DispatchQueue.main.async {
+   //     self.messageInputBar.leftStackViewItems.forEach { item in
+   //       item.isEnabled = !self.isSendingPhoto
+   //     }
+   //   }
     }
   }
   
@@ -52,7 +49,7 @@ final class ChatViewController: MessagesViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+        
     guard let id = channel.id else {
       navigationController?.popViewController(animated: true)
       return
@@ -70,7 +67,7 @@ final class ChatViewController: MessagesViewController {
         self.handleDocumentChange(change)
       }
     }
-    
+        
     navigationItem.largeTitleDisplayMode = .never
     
     maintainPositionOnKeyboardFrameChanged = true
@@ -82,19 +79,20 @@ final class ChatViewController: MessagesViewController {
     messagesCollectionView.messagesLayoutDelegate = self
     messagesCollectionView.messagesDisplayDelegate = self
     
-    let cameraItem = InputBarButtonItem(type: .system) // 1
+ /*   let cameraItem = InputBarButtonItem(type: .system) // 1
     cameraItem.tintColor = .primary
-    cameraItem.image = #imageLiteral(resourceName: "MainBackground")
+    cameraItem.image = #imageLiteral(resourceName: "camera")
     cameraItem.addTarget(
       self,
       action: #selector(cameraButtonPressed), // 2
       for: .primaryActionTriggered
     )
-    cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
+    cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)*/
     
     messageInputBar.leftStackView.alignment = .center
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
-    messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
+ //   messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
+   
   }
   
   // MARK: - Actions
@@ -115,6 +113,7 @@ final class ChatViewController: MessagesViewController {
   // MARK: - Helpers
   
   private func save(_ message: Message) {
+        print("rach")
     reference?.addDocument(data: message.representation) { error in
       if let e = error {
         print("Error sending message: \(e.localizedDescription)")
@@ -146,7 +145,14 @@ final class ChatViewController: MessagesViewController {
   }
   
   private func handleDocumentChange(_ change: DocumentChange) {
-    guard var message = Message(document: change.document) else {
+
+   let index = change.document.data()
+    let dd = index["created"] as! Timestamp
+    print(dd )
+      print(dd.dateValue() )
+    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: dd.dateValue() as! Date, senderName: index["senderName"] as! String)
+      
+      else {
       return
     }
     
@@ -178,34 +184,34 @@ final class ChatViewController: MessagesViewController {
       completion(nil)
       return
     }
+    
     guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.4) else {
       completion(nil)
-      return}
-    let metadata = StorageMetadata()
-    metadata.contentType = "image/jpeg"
-     let imageName = [UUID().uuidString, String(Date().timeIntervalSince1970)].joined()
-    let imageRef =    storage.child(channelID).child(imageName)
+      return
+    }
     
-    if  let uploadData = image.jpegData(compressionQuality: 0.8) {
-    imageRef.putData(uploadData, metadata: nil) {(metadata, error) in
-        if error != nil {
-            Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-            return
-        }
-        imageRef.downloadURL(completion: { (url, error) in
-            if error != nil {
-                Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                return
-            }
-            guard let downloadurl = url else {
-                Alert.presentAlert(on: self, with: "Error!", message: "Failed to upload")
-                return
-            }
-        })
-        }
-    }
-    }
+    let metaData = StorageMetadata()
+    metaData.contentType = "image/jpeg"
+    
+    let imageName = [UUID().uuidString, String(Date().timeIntervalSince1970)].joined()
+     let storageRef = storage.child(channelID).child(imageName)
+    
+    storageRef.putData(data, metadata: metaData) { metaData, error in
+           if error == nil, metaData != nil {
 
+               storageRef.downloadURL { url, error in
+                   completion(url)
+                   // success!
+               }
+               } else {
+                   // failed
+                   completion(nil)
+               }
+           }
+    
+  
+    }
+  
 
   private func sendPhoto(_ image: UIImage) {
     isSendingPhoto = true
@@ -285,17 +291,18 @@ extension ChatViewController: MessagesLayoutDelegate {
 // MARK: - MessagesDataSource
 
 extension ChatViewController: MessagesDataSource {
-   
-    
-    
-  
-  func currentSender() -> Sender {
+  func currentSender() -> SenderType {
     return Sender(id: user.uid!, displayName: "jim")
   }
   
-  func numberOfMessages(in messagesCollectionView: MessagesCollectionView) -> Int {
-    return messages.count
+  func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+   return  messages.count
   }
+  
+  
+ 
+  
+
   
   func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
     return messages[indexPath.section]
@@ -318,7 +325,8 @@ extension ChatViewController: MessagesDataSource {
 
 extension ChatViewController: MessageInputBarDelegate {
   
-  func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+  func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        print("reach111")
     let message = Message(user: user, content: text)
 
     save(message)
