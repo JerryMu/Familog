@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 class CreateFamilyViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -33,31 +33,42 @@ class CreateFamilyViewController: UIViewController {
         
         let familyId = familyIdTextField.text!
         
-        let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : nil, "familyOwner":"", "userNumber" : 1] as [String : Any?]
+        let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : "", "familyOwner":"", "userNumber" : 1] as [String : Any?]
+    
         
         let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
             } else {
+                
+                // add channel to firebase
+                let channel = Channel(name: familyName, id : familyId)
+                Firestore.firestore().collection("channels").addDocument(data: channel.representation) { error in
+                    if let e = error {
+                        print("Error saving channel: \(e.localizedDescription)")
+                    }
+                }
+                
                 Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                 if let document = document, document.exists {
                     
-                    var familys = document.get("familys") as! [String]
+                    var families = document.get("families") as! [String]
                     
-                    familys.append(familyId)
+                    families.append(familyId)
                     
-                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "familys": familys])
-                        {err in
-                            if err != nil {
-                                Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
-                            } else {
-                                Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
-                                self.moveToTimeLinePage()
-                            }
+                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "families": families])
+                    {
+                        err in
+                        if err != nil {
+                            Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+                        } else {
+                            Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
+                            self.moveToTimeLinePage()
                         }
+                    }
                 } else {
-                    Alert.presentAlert(on: self, with: "Error", message: "Can not get familys!")
+                    Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
                     }
                 }
             }

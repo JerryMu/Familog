@@ -18,7 +18,7 @@ class User {
     var bio : String?
     var postNumber = 0
     var familyId : String?
-    var familys : [String]?
+    var families : [String]?
 //    var dictionary: [String: Any] {
 //        return ["email": email!,
 //                "profileImageUrl": profileImageUrl!,
@@ -44,7 +44,8 @@ extension User {
         user.uid = dict["uid"] as? String
         user.bio = dict["bio"] as? String
         user.familyId = dict["familyId"] as? String
-//        user.dob = dict["dob"] as! String
+//        user.dob = dict["dob"] as! Strings
+        user.families = dict["families"] as? [String]
         return user
     }
 //    var nsDictionary: NSDictionary {
