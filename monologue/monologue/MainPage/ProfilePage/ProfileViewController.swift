@@ -32,6 +32,14 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         
     }
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.fetchPost()
+                self.fetchUser()
+            }
+            
+        }
     
     func fetchUser(){
         Api.User.observeCurrentUser(){

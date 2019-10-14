@@ -111,9 +111,7 @@ class EditProfileViewController: UIViewController {
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
-        
-        
-        
+                
     }
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
@@ -121,6 +119,7 @@ class EditProfileViewController: UIViewController {
         pickerController.sourceType = .photoLibrary
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
+        
     }
     
     @IBAction func cameraTapped(_ sender: Any) {

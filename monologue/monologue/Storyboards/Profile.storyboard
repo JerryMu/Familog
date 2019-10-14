@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHL-4N-RvH">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -25,7 +25,6 @@
                                     <state key="normal" title="Button"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="YsS-rB-R2k" eventType="touchUpInside" id="GuY-Ll-orp"/>
-                                        <segue destination="CHL-4N-RvH" kind="show" id="J9t-e5-xgu"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-gm-FnG" userLabel="Content">
@@ -123,6 +122,7 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="saveBtn_TouchUpInside:" destination="YsS-rB-R2k" eventType="touchUpInside" id="RHY-4H-QBG"/>
+                                                <segue destination="CHL-4N-RvH" kind="show" id="e2S-8k-OaU"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1s-Mk-nQf" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
@@ -753,7 +753,6 @@
         <image name="profile" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T3K-c0-ua6"/>
         <segue reference="dPq-TO-J4H"/>
     </inferredMetricsTieBreakers>
 </document>
