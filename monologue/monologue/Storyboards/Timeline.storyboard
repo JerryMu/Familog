@@ -254,6 +254,9 @@
                                                             <color key="value" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="cameraTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="jMG-xp-UeA"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
