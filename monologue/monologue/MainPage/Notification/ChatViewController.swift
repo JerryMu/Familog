@@ -132,7 +132,7 @@ final class ChatViewController: MessagesViewController {
     messages.append(message)
     messages.sort()
     
-    let isLatestMessage = messages.index(of: message) == (messages.count - 1)
+    let isLatestMessage = messages.firstIndex(of: message) == (messages.count - 1)
     let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
     
     messagesCollectionView.reloadData()
@@ -150,7 +150,7 @@ final class ChatViewController: MessagesViewController {
     let dd = index["created"] as! Timestamp
     print(dd )
       print(dd.dateValue() )
-    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: dd.dateValue() as! Date, senderName: index["senderName"] as! String)
+    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: dd.dateValue() , senderName: index["senderName"] as! String)
       
       else {
       return

@@ -13,7 +13,7 @@
  class SignUpViewController: UIViewController {
      
      
-     @IBOutlet weak var nameameTextField: UITextField!
+     @IBOutlet weak var nameTextField: UITextField!
      @IBOutlet weak var emailTextField: UITextField!
      @IBOutlet weak var passwordTextField: UITextField!
      @IBOutlet weak var confirmedPasswordTextField: UITextField!
@@ -38,7 +38,7 @@
 
      func validateFields() -> String? {
          
-         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+         if  nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              confirmedPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
@@ -73,7 +73,7 @@
          }
          else {
              // Create users
-             let firstName = nameameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+             let firstName = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              

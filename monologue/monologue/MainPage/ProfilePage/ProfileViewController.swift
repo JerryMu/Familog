@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController {
         }
         userBioLabel.text = user.bio
         userDobLabel.text = user.dob
-        userNameLabel.text = user.firstname! + " " + user.lastname!
+        userNameLabel.text = user.firstname!
         familyId.text = user.familyId
     }
     func fetchPost() {
