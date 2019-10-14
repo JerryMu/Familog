@@ -13,8 +13,7 @@
  class SignUpViewController: UIViewController {
      
      
-     @IBOutlet weak var firstNameTextField: UITextField!
-     @IBOutlet weak var lastNameTextField: UITextField!
+     @IBOutlet weak var nameameTextField: UITextField!
      @IBOutlet weak var emailTextField: UITextField!
      @IBOutlet weak var passwordTextField: UITextField!
      @IBOutlet weak var confirmedPasswordTextField: UITextField!
@@ -40,7 +39,6 @@
      func validateFields() -> String? {
          
          if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-             lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
              confirmedPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
@@ -75,8 +73,7 @@
          }
          else {
              // Create users
-             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+             let firstName = nameameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              
@@ -90,7 +87,7 @@
                      let db = Firestore.firestore()
                      let currentUser = Api.User.currentUser
                                          
-                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "lastname": lastName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId":"", "familys": []] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId":"", "familys": []] as [String : Any?]
                      
                      db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
                          if error != nil {

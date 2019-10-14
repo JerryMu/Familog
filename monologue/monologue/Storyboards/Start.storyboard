@@ -546,8 +546,8 @@
                     <connections>
                         <outlet property="confirmedPasswordTextField" destination="FL7-SQ-oXB" id="Flj-AK-3BX"/>
                         <outlet property="emailTextField" destination="bGA-8l-G03" id="E5f-hT-Asc"/>
-                        <outlet property="firstNameTextField" destination="0Vr-5b-cjT" id="yHe-dL-9Oy"/>
                         <outlet property="lastNameTextField" destination="4YW-zj-Egj" id="59b-Om-WBV"/>
+                        <outlet property="nameameTextField" destination="0Vr-5b-cjT" id="yHe-dL-9Oy"/>
                         <outlet property="passwordTextField" destination="0YY-b5-Daz" id="kGh-5X-M5s"/>
                         <outlet property="signUpButton" destination="cxb-f9-5HV" id="d7l-og-6p8"/>
                     </connections>
