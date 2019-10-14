@@ -94,7 +94,6 @@
                              Alert.presentAlert(on: self, with: "Error", message: "Saving user data")
                          }
                      })
-                     Alert.presentAlert(on: self, with: "Success", message: "Sign up Successfully!")
                      self.moveToLogInPage()
                  }
              }
