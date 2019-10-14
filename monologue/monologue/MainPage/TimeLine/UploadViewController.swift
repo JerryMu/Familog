@@ -130,7 +130,7 @@ extension UploadViewController:UIImagePickerControllerDelegate,UINavigationContr
         }
         if let selectedImage = selectedImageFromPicker {
             self.selectedImage = selectedImage
-            self.selectButton.alpha = 0
+//            self.selectButton.alpha = 0
         }
         photo.image =  self.selectedImage
         picker.dismiss(animated: true, completion: nil)
