@@ -39,7 +39,7 @@ struct Message: MessageType {
   
   var image: UIImage? = nil
   var downloadURL: URL? = nil
-  /* init?(document: QueryDocumentSnapshot) {
+ /*  init?(document: QueryDocumentSnapshot) {
      let data = document.data()
      
      guard let sentDate = data["created"] as? Date else {
@@ -67,6 +67,25 @@ struct Message: MessageType {
        return nil
      }
    }*/
+    
+    init?(id: String, urlString: String,image: UIImage, senderID: String, sentDate: Date ,senderName : String) {
+             let mediaItem = ImageMediaItem(image: image)
+      sender = Sender(id: senderID, displayName: senderName)
+      self.content = ""
+     if let url = URL(string: urlString) {
+        downloadURL = url
+       
+      }else {
+        return nil
+      }
+        
+       self.sentDate = sentDate
+       self.id = id
+     self.kind = .photo(mediaItem)
+    }
+    
+    
+    
   init(user: User, content: String) {
     sender = Sender(id: user.uid!, displayName: "jim")
     self.content = content
@@ -85,6 +104,8 @@ struct Message: MessageType {
      self.id = id
     self.kind = .text(content)
   }
+    
+
   
   init(user: User, image: UIImage, id: String, sentDate: Date ) {
     let mediaItem = ImageMediaItem(image: image)
@@ -95,6 +116,7 @@ struct Message: MessageType {
     self.id = id
     self.kind = .photo(mediaItem)
   }
+    
   init(user: User, image: UIImage) {
     let mediaItem = ImageMediaItem(image: image)
     sender = Sender(id: user.uid!, displayName: "jim")
