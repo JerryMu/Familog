@@ -18,8 +18,8 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var commentImageView: UIImageView!
     var timelineVC : TimelineViewController?
@@ -38,7 +38,6 @@ class TimelineTableViewCell: UITableViewCell {
      }
     
     func updateView() {
-//        print(post?.discription)
         captionLabel.text = post?.discription
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
@@ -71,7 +70,7 @@ class TimelineTableViewCell: UITableViewCell {
                 timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
             }
             
-//            timeLabel.text = timeText
+            timeLabel.text = timeText
         }
     }
     
