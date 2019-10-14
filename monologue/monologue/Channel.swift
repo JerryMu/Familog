@@ -7,13 +7,13 @@ import FirebaseFirestore
 
 struct Channel {
   
-  let id: String?
-  let name: String
+    let id: String?
+    let name: String
   
-  init(name: String) {
-    id = nil
-    self.name = name
-  }
+    init(name: String, id : String) {
+        self.id = id
+        self.name = name
+    }
   
   init?(document: QueryDocumentSnapshot) {
     let data = document.data()
@@ -21,8 +21,12 @@ struct Channel {
     guard let name = data["name"] as? String else {
       return nil
     }
+    guard let id = data["id"] as? String else {
+      return nil
+    }
+
     
-    id = document.documentID
+    self.id = id
     self.name = name
   }
   

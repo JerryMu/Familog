@@ -118,11 +118,13 @@ extension TimelineViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
+        if(posts.count > indexPath.row && users.count > indexPath.row){
             let post = posts[indexPath.row]
             let user = users[indexPath.row]
             cell.post = post
             cell.user = user
             cell.delegate = self
+        }
         return cell
     }
 }
