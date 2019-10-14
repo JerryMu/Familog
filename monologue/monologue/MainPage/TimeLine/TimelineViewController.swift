@@ -34,7 +34,7 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        load()
+        refresh()
     }
     
     
@@ -42,6 +42,7 @@ class TimelineViewController: UIViewController {
         posts.removeAll()
         users.removeAll()
         load()
+        refreshControl.endRefreshing()
     }
     
     func getFamilyId() {
@@ -62,27 +63,33 @@ class TimelineViewController: UIViewController {
         
     }
     
+    
     func loadPosts(fid : String) {
-        Api.Post.observePostsByFamily(familyId: fid).addSnapshotListener{ (querySnapshot, err) in
+        Api.Post.observePostsByFamily(familyId: fid).getDocuments{ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     let post = Post.transformPostPhoto(dict: document.data())
-                        self.posts.insert(post, at: 0)
-                    Api.User.REF_USERS.document(post.userId!).addSnapshotListener{ (snapshot, err) in
-                            if let err = err {
-                                print("Error getting documents: \(err)")
-                            } else {
-                                let data = snapshot!.data()
-                                let user = User.transformUser(dict: data!)
-                                self.users.insert(user, at: 0)
-                                self.tableView.reloadData()
-                            }
-                        }
+                    guard let postUid = post.userId else {
+                        return
+                    }
+                    self.fetchUser(uid: postUid, completed: {
+                        self.posts.append(post)
+                        self.tableView.reloadData()
+                    })
+                    
                 }
             }
         }
+    }
+    
+    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+        Api.User.observeUser(withId: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
+        })
     }
      
     
@@ -111,13 +118,11 @@ extension TimelineViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
-        if(posts.count == users.count){
             let post = posts[indexPath.row]
             let user = users[indexPath.row]
             cell.post = post
             cell.user = user
             cell.delegate = self
-        }
         return cell
     }
 }
