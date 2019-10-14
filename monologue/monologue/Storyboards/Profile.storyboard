@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwq-uy-hje">
-                                            <rect key="frame" x="110.66666666666666" y="227" width="114.66666666666666" height="24"/>
+                                            <rect key="frame" x="110.33333333333331" y="227" width="115" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -320,9 +320,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-c6-yos">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJ6-J2-OSX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPD-6l-Jhu">
+                                        <rect key="frame" x="270" y="35" width="88" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="2tP-Ph-WP2"/>
+                                            <constraint firstAttribute="width" constant="88" id="ihw-BP-z9j"/>
+                                        </constraints>
+                                        <state key="normal" title="· · ·"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="YsS-rB-R2k" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="T3K-c0-ua6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VPD-6l-Jhu" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" constant="35" id="4mC-7o-wjq"/>
+                                    <constraint firstAttribute="trailing" secondItem="VPD-6l-Jhu" secondAttribute="trailing" constant="17" id="SuG-WL-gYb"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bbG-8p-eEw">
                                 <rect key="frame" x="20" y="64" width="80" height="80"/>
                                 <constraints>
@@ -445,42 +468,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPD-6l-Jhu">
-                                <rect key="frame" x="271" y="35" width="88" height="34"/>
-                                <state key="normal" title="Edit Profile"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="YsS-rB-R2k" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="T3K-c0-ua6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JSI-1G-AMx" firstAttribute="top" secondItem="Odi-ay-rMv" secondAttribute="bottom" constant="2" id="33f-yv-vd2"/>
                             <constraint firstItem="9Yx-ZE-vNg" firstAttribute="top" secondItem="ggS-C5-GEa" secondAttribute="bottom" constant="108" id="4Yf-bJ-wl8"/>
-                            <constraint firstItem="eDj-c6-yos" firstAttribute="trailing" secondItem="qr2-3d-pXR" secondAttribute="trailing" id="5vN-mT-Mm0"/>
                             <constraint firstItem="sje-4t-1Ig" firstAttribute="top" secondItem="JSI-1G-AMx" secondAttribute="bottom" id="62W-Jz-wR8"/>
                             <constraint firstAttribute="trailing" secondItem="Odi-ay-rMv" secondAttribute="trailing" id="6IX-a9-z6d"/>
-                            <constraint firstAttribute="bottom" secondItem="eDj-c6-yos" secondAttribute="bottom" id="9Fc-7n-fvr"/>
+                            <constraint firstItem="JSI-1G-AMx" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="bottom" constant="2" id="7gc-ie-VyB"/>
+                            <constraint firstItem="GJ6-J2-OSX" firstAttribute="top" secondItem="frR-YL-YIX" secondAttribute="top" id="AtB-Xr-xoN"/>
+                            <constraint firstItem="GJ6-J2-OSX" firstAttribute="leading" secondItem="qr2-3d-pXR" secondAttribute="leading" id="Awg-2y-wEj"/>
                             <constraint firstItem="9Yx-ZE-vNg" firstAttribute="centerX" secondItem="bbG-8p-eEw" secondAttribute="centerX" id="DTj-l9-hpY"/>
                             <constraint firstItem="hlq-Lt-CyS" firstAttribute="centerY" secondItem="GAU-dp-J6V" secondAttribute="centerY" id="Gmr-j9-uUK"/>
                             <constraint firstItem="JSI-1G-AMx" firstAttribute="trailing" secondItem="qr2-3d-pXR" secondAttribute="trailing" id="M9n-Zh-IoI"/>
+                            <constraint firstItem="GJ6-J2-OSX" firstAttribute="trailing" secondItem="qr2-3d-pXR" secondAttribute="trailing" id="PZj-TM-APH"/>
                             <constraint firstItem="Odi-ay-rMv" firstAttribute="leading" secondItem="frR-YL-YIX" secondAttribute="leading" id="RuE-Kh-KdV"/>
-                            <constraint firstItem="eDj-c6-yos" firstAttribute="top" secondItem="frR-YL-YIX" secondAttribute="top" id="V5v-9s-zeU"/>
                             <constraint firstItem="GAU-dp-J6V" firstAttribute="top" secondItem="ggS-C5-GEa" secondAttribute="bottom" constant="20" id="drF-tQ-tOH"/>
                             <constraint firstItem="qr2-3d-pXR" firstAttribute="trailing" secondItem="Vbk-ty-2U2" secondAttribute="trailing" constant="7" id="f1L-kt-rr0"/>
                             <constraint firstItem="GAU-dp-J6V" firstAttribute="leading" secondItem="frR-YL-YIX" secondAttribute="leadingMargin" constant="110" id="h7U-bT-G2E"/>
                             <constraint firstItem="hlq-Lt-CyS" firstAttribute="leading" secondItem="GAU-dp-J6V" secondAttribute="trailing" constant="25" id="jWH-Rm-LFz"/>
                             <constraint firstItem="Odi-ay-rMv" firstAttribute="top" secondItem="9Yx-ZE-vNg" secondAttribute="bottom" constant="8" id="mCq-RO-TUd"/>
                             <constraint firstItem="bbG-8p-eEw" firstAttribute="top" secondItem="ggS-C5-GEa" secondAttribute="bottom" constant="20" id="mae-FP-nBk"/>
-                            <constraint firstItem="qr2-3d-pXR" firstAttribute="trailing" secondItem="VPD-6l-Jhu" secondAttribute="trailing" constant="16" id="nbg-S0-VqJ"/>
                             <constraint firstItem="JSI-1G-AMx" firstAttribute="leading" secondItem="qr2-3d-pXR" secondAttribute="leading" id="oDo-W3-EaK"/>
-                            <constraint firstItem="VPD-6l-Jhu" firstAttribute="top" secondItem="frR-YL-YIX" secondAttribute="top" constant="35" id="qNW-Ti-kqi"/>
-                            <constraint firstItem="eDj-c6-yos" firstAttribute="leading" secondItem="qr2-3d-pXR" secondAttribute="leading" id="sEW-Vp-Hqc"/>
                             <constraint firstItem="bbG-8p-eEw" firstAttribute="leading" secondItem="qr2-3d-pXR" secondAttribute="leading" constant="20" id="ubX-Sq-VuQ"/>
                             <constraint firstItem="Vbk-ty-2U2" firstAttribute="top" secondItem="ggS-C5-GEa" secondAttribute="bottom" constant="60" id="viB-k7-y4k"/>
                         </constraints>
@@ -517,7 +526,6 @@
     </scenes>
     <resources>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="ProfileBackground" width="1241" height="2688"/>
         <image name="profile" width="35" height="35"/>
     </resources>
 </document>
