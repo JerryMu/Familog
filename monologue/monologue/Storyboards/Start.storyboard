@@ -363,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSs-LI-drj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="963"/>
+            <point key="canvasLocation" x="1473" y="886"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="W0P-f7-Yrp">
@@ -545,6 +545,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vE9-bx-knF"/>
+        <segue reference="25q-VI-4T4"/>
     </inferredMetricsTieBreakers>
 </document>

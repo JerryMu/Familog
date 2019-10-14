@@ -25,6 +25,7 @@
                                     <state key="normal" title="Button"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="YsS-rB-R2k" eventType="touchUpInside" id="GuY-Ll-orp"/>
+                                        <segue destination="CHL-4N-RvH" kind="show" id="J9t-e5-xgu"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-gm-FnG" userLabel="Content">
@@ -513,6 +514,7 @@
                     <tabBarItem key="tabBarItem" title="" image="profile" id="m2j-B8-0pU">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="9VF-pc-HKp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="JSI-1G-AMx" id="Br0-UO-SMG"/>
@@ -544,4 +546,7 @@
         <image name="ProfileBackground" width="1241" height="2688"/>
         <image name="profile" width="35" height="35"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="J9t-e5-xgu"/>
+    </inferredMetricsTieBreakers>
 </document>

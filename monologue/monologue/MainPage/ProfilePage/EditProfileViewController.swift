@@ -104,6 +104,9 @@ class EditProfileViewController: UIViewController {
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
+        
+        
+        
     }
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
