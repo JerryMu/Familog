@@ -106,7 +106,7 @@ class EditProfileViewController: UIViewController {
             Api.User.setCurrentUser(dictionary:["firstname" : nameTextField.text!])
         }
         if(dateOfBirth.text!.count > 0){
-            Api.User.setCurrentUser(dictionary:["age" : dateOfBirth.text!])
+            Api.User.setCurrentUser(dictionary:["dob" : dateOfBirth.text!])
         }
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])

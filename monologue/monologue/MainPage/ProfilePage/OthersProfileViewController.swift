@@ -1,11 +1,9 @@
 //
-//  OthersProfileViewController.swift
+//  ProfileViewController.swift
 //  Familog
 //
-//  Created by Pengyu Mu on 13/10/19.
+//  Created by Pengyu Mu on 18/9/19.
 //
-
-import Foundation
 
 import UIKit
 //test only
@@ -16,82 +14,24 @@ class OthersProfileViewController: UIViewController {
     @IBOutlet weak var userBioLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var familyId: UILabel!
-    
-//    @IBOutlet weak var more: UIButton!
-//    @IBOutlet weak var set: UIButton!
-//    @IBOutlet weak var edit: UIButton!
     
     var editButtonCenter: CGPoint!
     var setButtonCenter: CGPoint!
     var user: User!
     var posts: [Post] = []
-    var uid =  Auth.auth().currentUser!.uid
+    var uid = ""
     let initImage =  "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/Avatar%2Fy8sEy6wi7VU2XzQ7IrwOyNpu4tD2?alt=media&token=04c3c554-eb96-4a49-b348-3f1404759acb"
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
-        collectionView.delegate = self
         fetchPost()
         fetchUser()
-        
-//        editButtonCenter = edit.center
-//        setButtonCenter = set.center
-//
-//        set.center = more.center
-//        edit.center = edit.center
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
-    // Animation for the left Button
-//
-//    @IBAction func moreClicked(_ sender: UIButton) {
-//        if more.currentImage = "moreOff" {
-//            UIView.animate(withDuration: 0.4, animations: {
-//                // Make button visiable
-//
-//                self.edit.alpha = 1
-//                self.set.alpha = 1
-//
-//                // Animation happens
-//                self.edit.center = self.editButtonCenter
-//                self.set.center = self.setButtonCenter
-//            })
-//            // expand button
-//        } else {
-//            // collapse button
-//            UIView.animate(withDuration: 0.4, animations: {
-//                // Make button invisiable
-//
-//                self.edit.alpha = 0
-//                self.set.alpha = 0
-//
-//                // Animation happens
-//
-//                self.set.center = self.more.center
-//                self.edit.center = self.edit.center
-//            })
-//        }
-    
-//    func toggledButton(button: sender, onImage: "more", offImage: "moreoff")
-//    }
-//
-//    @IBAction func setClicked(_ sender: UIButton) {
-//    }
-//
-//    @IBAction func editClicked(_ sender: UIButton) {
-//    }
-    
-//    func toggledButton(button: UIButton, onImage: UIImage, offImage: UIImage){
-//        if button.currentImage == offImage {
-//            button.setImage(onImage, for: .normal)
-//        } else {
-//            button.setImage(offImage, for: .normal)
-//
-//        }
-//    }
-    
+    //need change
     func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
@@ -109,8 +49,7 @@ class OthersProfileViewController: UIViewController {
         }
         userBioLabel.text = user.bio
         userDobLabel.text = user.dob
-        userNameLabel.text = user.firstname! + " " + user.lastname!
-        postLabel.text = "\(user.postNumber)"
+        userNameLabel.text = user.firstname!
         familyId.text = user.familyId
     }
     func fetchPost() {
@@ -129,8 +68,7 @@ class OthersProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "ProfileUser_DetailSegue" {
+        if segue.identifier == "Profile_DetailSegue" {
             let detailVC = segue.destination as! DetailViewController
             let postId = sender  as! String
             detailVC.postId = postId
@@ -143,23 +81,21 @@ extension OthersProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
-    
+
 
     func updateView(){
         userNameLabel.text = user?.firstname
         userBioLabel.text = user?.bio
         userDobLabel.text = user?.dob
         userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
-        Api.Post.observePostsNumberByUser(userId: user!.uid!){count in
-            self.postLabel.text = "\(count)"
-        }
     }
 }
 //set image distance and image size
@@ -176,3 +112,10 @@ extension OthersProfileViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
     }
 }
+
+extension OthersProfileViewController: PhotoCollectionViewCellDelegate {
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "Profile_DetailSegue", sender: postId)
+    }
+}
+

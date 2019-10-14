@@ -35,7 +35,7 @@ class UserApi {
                 
                 completion(user)
             }
-    }
+        }
 
     }
     

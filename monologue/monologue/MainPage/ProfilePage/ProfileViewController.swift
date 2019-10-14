@@ -15,10 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var familyId: UILabel!
-    
-//    @IBOutlet weak var more: UIButton!
-//    @IBOutlet weak var set: UIButton!
-//    @IBOutlet weak var edit: UIButton!
+    @IBOutlet weak var familyName: UILabel!
     
     var editButtonCenter: CGPoint!
     var setButtonCenter: CGPoint!
@@ -33,6 +30,7 @@ class ProfileViewController: UIViewController {
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
     }
     
     func fetchUser(){
@@ -54,6 +52,10 @@ class ProfileViewController: UIViewController {
         userDobLabel.text = user.dob
         userNameLabel.text = user.firstname!
         familyId.text = user.familyId
+        Api.Family.getFamilyNameById(familyId: user.familyId!){
+            name in
+            self.familyName.text = name
+        }
     }
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
@@ -99,6 +101,10 @@ extension ProfileViewController: UICollectionViewDataSource {
         userBioLabel.text = user?.bio
         userDobLabel.text = user?.dob
         userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
+        Api.Family.getFamilyNameById(familyId: user.familyId!){
+            name in
+            self.familyName.text = name
+        }
     }
 }
 //set image distance and image size

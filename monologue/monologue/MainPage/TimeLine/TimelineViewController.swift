@@ -104,6 +104,14 @@ class TimelineViewController: UIViewController {
                 let postId = sender  as! String
                 commentVC.postId = postId
             }
+        
+        if segue.identifier == "Home_ProfileSegue" {
+            let profileVC = segue.destination as! OthersProfileViewController
+            let userId = sender  as! String
+            profileVC.uid = userId
+        }
+        
+        
     }
      func moveToFamilyPage() {
             let storyBoard = UIStoryboard(name: "Family", bundle: nil)

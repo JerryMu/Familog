@@ -27,7 +27,6 @@ class CommentTableViewCell: UITableViewCell {
     
     var user: User? {
         didSet {
-            print("Userer")
             setupUserInfo()
         }
     }
@@ -46,6 +45,7 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         commentLabel.text = ""
@@ -59,7 +59,9 @@ class CommentTableViewCell: UITableViewCell {
         if let id = user?.uid {
             delegate?.goToProfileUserVC(userId: id)
         }
-}
+    }
+    
+
     
     override func prepareForReuse() {
         super.prepareForReuse()

@@ -22,7 +22,7 @@ class CommentViewController: UIViewController {
     var comments = [Comment]()
     var users = [User]()
     var commentIDList :[String] = []
-     var commentID: String!
+    var commentID: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,10 +151,17 @@ extension CommentViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
         let comment = comments[indexPath.row]
         let user = users[indexPath.row]
+        cell.delegate = self
         cell.comment = comment
         cell.user = user
        
         return cell
+    }
+}
+
+extension CommentViewController: CommentTableViewCellDelegate {
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)
     }
 }
 

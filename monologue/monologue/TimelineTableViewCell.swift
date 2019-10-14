@@ -100,6 +100,7 @@ class TimelineTableViewCell: UITableViewCell {
     
     
     @objc func nameLabel_TouchUpInside() {
+        print("nameLabel_TouchUpInside")
         if let id = user?.uid {
             delegate?.goToProfileUserVC(userId: id)
         }

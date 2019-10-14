@@ -10,10 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class FamilyApi{
-    
-    func observeFamily(){
-        
-    }
+
     
     let currentUser = Auth.auth().currentUser?.uid
     let REF_FAMILY = Firestore.firestore().collection("Family")
@@ -26,5 +23,14 @@ class FamilyApi{
         family.updateData(dictionary)
     }
     
-    
+    func getFamilyNameById(familyId : String, completion: @escaping (String) -> Void){
+        REF_FAMILY.document(familyId).getDocument() { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data()!["familyName"] ?? "nil"
+                    completion(dataDescription as? String ?? "Family")
+                } else {
+                    print("Document does not exist\n\n\n")
+                }
+            }
+        }
 }

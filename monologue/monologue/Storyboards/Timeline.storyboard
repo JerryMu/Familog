@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="54d-fd-gnY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQs-2V-bCt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -146,11 +146,22 @@
                     <connections>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="vw4-4i-oJg" kind="show" identifier="CommentSegue" id="FYF-GI-09Q"/>
+                        <segue destination="tj5-5z-mTN" kind="presentation" identifier="Home_ProfileSegue" id="3us-vA-pXP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22j-sW-vTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13704.347826086958" y="-5832.5892857142853"/>
+        </scene>
+        <!--OtherPeopleViewController-->
+        <scene sceneID="k6F-Dc-Kdi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="OtherPeopleViewController" id="tj5-5z-mTN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gxw-bw-oFO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7w-3c-ofW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13656" y="-4961"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="owM-Lg-B3C">
@@ -435,6 +446,7 @@
                         <outlet property="commentTextField" destination="aCI-f6-ghh" id="FcK-5M-e5d"/>
                         <outlet property="sendButton" destination="dG1-tz-yCn" id="uyS-y5-sve"/>
                         <outlet property="tableView" destination="lMM-fZ-IuL" id="ZBF-l8-eUI"/>
+                        <segue destination="tj5-5z-mTN" kind="presentation" identifier="Comment_ProfileSegue" id="HGD-My-UkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUK-3p-aRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -477,4 +489,7 @@
         <image name="addNew" width="25" height="25"/>
         <image name="addNewPic" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HGD-My-UkH"/>
+    </inferredMetricsTieBreakers>
 </document>
