@@ -33,62 +33,7 @@ class ProfileViewController: UIViewController {
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
-        self.collectionView.reloadData()
-        
-//        editButtonCenter = edit.center
-//        setButtonCenter = set.center
-//
-//        set.center = more.center
-//        edit.center = edit.center
     }
-    
-    // Animation for the left Button
-//
-//    @IBAction func moreClicked(_ sender: UIButton) {
-//        if more.currentImage = "moreOff" {
-//            UIView.animate(withDuration: 0.4, animations: {
-//                // Make button visiable
-//
-//                self.edit.alpha = 1
-//                self.set.alpha = 1
-//
-//                // Animation happens
-//                self.edit.center = self.editButtonCenter
-//                self.set.center = self.setButtonCenter
-//            })
-//            // expand button
-//        } else {
-//            // collapse button
-//            UIView.animate(withDuration: 0.4, animations: {
-//                // Make button invisiable
-//
-//                self.edit.alpha = 0
-//                self.set.alpha = 0
-//
-//                // Animation happens
-//
-//                self.set.center = self.more.center
-//                self.edit.center = self.edit.center
-//            })
-//        }
-    
-//    func toggledButton(button: sender, onImage: "more", offImage: "moreoff")
-//    }
-//
-//    @IBAction func setClicked(_ sender: UIButton) {
-//    }
-//
-//    @IBAction func editClicked(_ sender: UIButton) {
-//    }
-    
-//    func toggledButton(button: UIButton, onImage: UIImage, offImage: UIImage){
-//        if button.currentImage == offImage {
-//            button.setImage(onImage, for: .normal)
-//        } else {
-//            button.setImage(offImage, for: .normal)
-//
-//        }
-//    }
     
     func fetchUser(){
         Api.User.observeCurrentUser(){
