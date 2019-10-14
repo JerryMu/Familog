@@ -84,7 +84,7 @@
              Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                  
                  if err != nil {
-                     Alert.presentAlert(on: self, with:"Error!", message: "Creating user fail, please check all field you has filled")
+                     Alert.presentAlert(on: self, with:"Error", message: "Creating user fail, please check all field you has filled")
                  }
                  else {
                      let db = Firestore.firestore()

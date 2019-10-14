@@ -20,24 +20,23 @@ class UserApi {
 
     }
     func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
-          REF_USERS.document(uid)
-        .addSnapshotListener { documentSnapshot, error in
-          guard let document = documentSnapshot else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-          guard let data = document.data() else {
-            print("Document data was empty.")
-            return
-          }
+        REF_USERS.document(uid).addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            guard document.data() != nil else {
+                print("Document data was empty.")
+                return
+            }
             if let dict = documentSnapshot!.data() {
-        
-                                    let user = User.transformUser(dict: dict)
-           
-                       completion(user)
-        }
+
+                let user = User.transformUser(dict: dict)
+                
+                completion(user)
+            }
     }
-    
+
     }
     
     func observeUser(uid : String, completion: @escaping (User) -> Void){
