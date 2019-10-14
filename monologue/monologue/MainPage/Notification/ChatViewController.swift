@@ -8,18 +8,19 @@ import Photos
 import Firebase
 import MessageKit
 import FirebaseFirestore
+import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController {
   
-  private var isSendingPhoto = false {
-    didSet {
-   //   DispatchQueue.main.async {
-   //     self.messageInputBar.leftStackViewItems.forEach { item in
-   //       item.isEnabled = !self.isSendingPhoto
-   //     }
-   //   }
+  private var isSendingPhoto = false /* {
+   didSet {
+      DispatchQueue.main.async {
+       self.messageInputBar.leftStackViewItems.forEach { item in
+        item. = !self.isSendingPhoto
+        }
+      }
     }
-  }
+  }*/
   
   private let db = Firestore.firestore()
   private var reference: CollectionReference?
@@ -79,19 +80,19 @@ final class ChatViewController: MessagesViewController {
     messagesCollectionView.messagesLayoutDelegate = self
     messagesCollectionView.messagesDisplayDelegate = self
     
- /*   let cameraItem = InputBarButtonItem(type: .system) // 1
+    let cameraItem = InputBarButtonItem(type: .system) // 1
     cameraItem.tintColor = .primary
-    cameraItem.image = #imageLiteral(resourceName: "camera")
+    cameraItem.image = #imageLiteral(resourceName: "addNewPic")
     cameraItem.addTarget(
       self,
       action: #selector(cameraButtonPressed), // 2
       for: .primaryActionTriggered
     )
-    cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)*/
+    cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
     
     messageInputBar.leftStackView.alignment = .center
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
- //   messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
+    messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
    
   }
   
@@ -145,38 +146,69 @@ final class ChatViewController: MessagesViewController {
   }
   
   private func handleDocumentChange(_ change: DocumentChange) {
-
+    
    let index = change.document.data()
-    let dd = index["created"] as! Timestamp
-    print(dd )
-      print(dd.dateValue() )
-    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: dd.dateValue() , senderName: index["senderName"] as! String)
+    let FIRdate = index["created"] as! Timestamp
+ 
+    
+    if index["url"] != nil {
+    
+        switch change.type {
+        case .added:
+           let url = index["url"] as! String
+           let trueurl = URL.init(string: url)
+            downloadImage(at: trueurl!) { [weak self] image in
+              guard let `self` = self else {
+                return
+              }
+              guard let image = image else {
+                return
+              }
+                guard var message = Message(id: change.document.documentID, urlString: index["url"] as! String,image:image, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() as! Date, senderName: index["senderName"] as! String)
+                         
+                         else {
+                         return
+                       }
+              
+              message.image = image
+                print(message)
+              self.insertNewMessage(message)
+            }
+          
+          
+        default:
+          break
+        }
+    }else{
+    
+    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() as! Date, senderName: index["senderName"] as! String)
       
       else {
       return
     }
-    
-    switch change.type {
-    case .added:
-      if let url = message.downloadURL {
-        downloadImage(at: url) { [weak self] image in
-          guard let `self` = self else {
-            return
-          }
-          guard let image = image else {
-            return
+        switch change.type {
+        case .added:
+          if let url = message.downloadURL {
+            downloadImage(at: url) { [weak self] image in
+              guard let `self` = self else {
+                return
+              }
+              guard let image = image else {
+                return
+              }
+              
+              message.image = image
+              self.insertNewMessage(message)
+            }
+          } else {
+            insertNewMessage(message)
           }
           
-          message.image = image
-          self.insertNewMessage(message)
+        default:
+          break
         }
-      } else {
-        insertNewMessage(message)
-      }
-      
-    default:
-      break
     }
+ 
   }
   
   private func uploadImage(_ image: UIImage, to channel: Channel, completion: @escaping (URL?) -> Void) {
@@ -236,6 +268,8 @@ final class ChatViewController: MessagesViewController {
   
   private func downloadImage(at url: URL, completion: @escaping (UIImage?) -> Void) {
     let ref = Storage.storage().reference(forURL: url.absoluteString)
+    
+    
     let megaByte = Int64(1 * 1024 * 1024)
     
     ref.getData(maxSize: megaByte) { data, error in
