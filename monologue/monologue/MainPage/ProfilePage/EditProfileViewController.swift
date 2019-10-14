@@ -26,43 +26,50 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
-    
-    var delegate: EditProfileControllerDelegate?
-    private var datePicker : UIDatePicker?
+    let datePicker = UIDatePicker()
 
+    var delegate: EditProfileControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
         nameTextField.delegate = self
-        dateOfBirth.delegate = self
+//        dateOfBirth.delegate = self
         fetchCurrentUser()
+
+        dateOfBirth.inputView = datePicker
+        datePicker.datePickerMode = .date
+//
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        //Chose date for the user's date of birth
-//
-//            datePicker = UIDatePicker()
-//            datePicker?.datePickerMode = .date
-//            datePicker?.addTarget(self, action: #selector(EditProfileViewController.dateChanged(datePicker:)), for: valueChanged)
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(gestureRecongnizer:)))
-//
-//            view.addGestureRecognizer(tapGesture)
-//
-//            dateOfBirth.inputView = datePicker
-//    }
-//
-//    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
-//        view.endEditing(true)
-//
-//    }
-//
-//    @objc func dateChanged (datePicker: UIDatePicker){
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "mm/dd/yyyy"
-//        dateOfBirth.text = dateFormatter.string(from: datePicker.date)
-//        view.endEditing(true)
+        toolbar.setItems([flexSpace,doneButton], animated: true)
+        
+        dateOfBirth.inputAccessoryView = toolbar
+        datePicker.addTarget(self, action: #selector(dateChannged), for: .valueChanged)
+        
+    }
+    @objc func doneAction(){
+        getDateFromPicker()
+        view.endEditing(true)
     }
     
+    @objc func dateChannged(){
+        getDateFromPicker()
+    }
     
+    @objc func tapGestureDone(){
+        view.endEditing(true)
+    }
+    func getDateFromPicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        dateOfBirth.text = formatter.string(from: datePicker.date)
+        
+    }
     @IBAction func logoutTapped(_ sender: Any) {
         do{
             // database signout
