@@ -44,7 +44,8 @@ extension User {
         user.uid = dict["uid"] as? String
         user.bio = dict["bio"] as? String
         user.familyId = dict["familyId"] as? String
-//        user.dob = dict["dob"] as! String
+//        user.dob = dict["dob"] as! Strings
+        user.families = dict["families"] as? [String]
         return user
     }
 //    var nsDictionary: NSDictionary {

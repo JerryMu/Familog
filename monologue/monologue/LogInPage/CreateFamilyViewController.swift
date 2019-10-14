@@ -34,28 +34,30 @@ class CreateFamilyViewController: UIViewController {
         let familyId = familyIdTextField.text!
         
         let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : "", "familyOwner":"", "userNumber" : 1] as [String : Any?]
-        
-        // add channel to firebase
-        let channel = Channel(name: familyName, id : familyId)
-        Firestore.firestore().collection("channels").addDocument(data: channel.representation) { error in
-            if let e = error {
-                print("Error saving channel: \(e.localizedDescription)")
-            }
-        }
+    
         
         let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
             } else {
+                
+                // add channel to firebase
+                let channel = Channel(name: familyName, id : familyId)
+                Firestore.firestore().collection("channels").addDocument(data: channel.representation) { error in
+                    if let e = error {
+                        print("Error saving channel: \(e.localizedDescription)")
+                    }
+                }
+                
                 Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                 if let document = document, document.exists {
                     
-                    var familys = document.get("families") as! [String]
+                    var families = document.get("families") as! [String]
                     
-                    familys.append(familyId)
+                    families.append(familyId)
                     
-                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "families": familys])
+                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "families": families])
                     {
                         err in
                         if err != nil {

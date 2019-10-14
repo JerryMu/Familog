@@ -45,8 +45,6 @@ class ChannelsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchUser()
-    clearsSelectionOnViewWillAppear = true
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: channelCellIdentifier)
     
 //    toolbarItems = [
 //
@@ -55,22 +53,35 @@ class ChannelsViewController: UITableViewController {
 //      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
 //      UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
 //    ]
-    channelListener = channelReference.addSnapshotListener { querySnapshot, error in
-      guard let snapshot = querySnapshot else {
-        print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-        return
-      }
-      
-      snapshot.documentChanges.forEach { change in
-        self.handleDocumentChange(change)
-      }
-    }
+//    channelListener = channelReference.addSnapshotListener { querySnapshot, error in
+//      guard let snapshot = querySnapshot else {
+//        print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+//        return
+//      }
+//
+//      snapshot.documentChanges.forEach { change in
+//        self.handleDocumentChange(change)
+//      }
+//    }
   }
     
     func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
             self.currentUser = user
+            self.clearsSelectionOnViewWillAppear = true
+            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.channelCellIdentifier)
+            
+            self.channelListener = self.channelReference.addSnapshotListener { querySnapshot, error in
+              guard let snapshot = querySnapshot else {
+                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                return
+              }
+              
+              snapshot.documentChanges.forEach { change in
+                self.handleDocumentChange(change)
+              }
+            }
         }
     }
     
@@ -133,9 +144,11 @@ class ChannelsViewController: UITableViewController {
     guard !channels.contains(channel) else {
       return
     }
-    guard let  userFamilies = self.currentUser.families else {
+    guard let userFamilies = self.currentUser.families else {
         return
     }
+    print(userFamilies)
+    print(channel.id!)
     if(userFamilies.contains(channel.id!)){
         channels.append(channel)
         channels.sort()

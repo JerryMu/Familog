@@ -21,8 +21,12 @@ struct Channel {
     guard let name = data["name"] as? String else {
       return nil
     }
+    guard let id = data["id"] as? String else {
+      return nil
+    }
+
     
-    id = document.documentID
+    self.id = id
     self.name = name
   }
   
