@@ -59,12 +59,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="koG-fn-hd1">
-                                                    <rect key="frame" x="81" y="464" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="qy2-Iz-9FP"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="DEb-KG-wET">
                                                     <rect key="frame" x="35" y="464" width="25" height="25"/>
                                                     <constraints>
@@ -72,7 +66,7 @@
                                                         <constraint firstAttribute="width" constant="25" id="jul-BP-ivG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-fT-Uvv" userLabel="Seperate">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-fT-Uvv" userLabel="Seperate">
                                                     <rect key="frame" x="35" y="451" width="359" height="1"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -98,14 +92,10 @@
                                             <constraints>
                                                 <constraint firstItem="DEb-KG-wET" firstAttribute="leading" secondItem="foI-b7-YaI" secondAttribute="leading" constant="35" id="3uF-Ih-AJD"/>
                                                 <constraint firstItem="pP8-fT-Uvv" firstAttribute="leading" secondItem="DEb-KG-wET" secondAttribute="leading" id="8Hl-td-P25"/>
-                                                <constraint firstItem="koG-fn-hd1" firstAttribute="bottom" secondItem="DEb-KG-wET" secondAttribute="bottom" id="BRD-kI-NXY"/>
                                                 <constraint firstItem="1eg-Du-ezI" firstAttribute="trailing" secondItem="DEb-KG-wET" secondAttribute="trailing" id="Bq5-Yw-OBp"/>
-                                                <constraint firstItem="koG-fn-hd1" firstAttribute="leading" secondItem="DEb-KG-wET" secondAttribute="trailing" constant="21" id="EaV-m1-7Gw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="pP8-fT-Uvv" secondAttribute="trailing" id="HKg-9C-PHW"/>
-                                                <constraint firstItem="koG-fn-hd1" firstAttribute="top" secondItem="pP8-fT-Uvv" secondAttribute="bottom" constant="12" id="ID6-ND-VHR"/>
                                                 <constraint firstItem="TMI-jy-dDn" firstAttribute="centerY" secondItem="1eg-Du-ezI" secondAttribute="centerY" id="IoM-Ah-YJu"/>
                                                 <constraint firstItem="1eg-Du-ezI" firstAttribute="top" secondItem="foI-b7-YaI" secondAttribute="top" constant="17" id="JWy-Rx-Pxf"/>
-                                                <constraint firstItem="koG-fn-hd1" firstAttribute="top" secondItem="DEb-KG-wET" secondAttribute="top" id="NDe-Ac-x24"/>
                                                 <constraint firstItem="Kc8-sP-t9d" firstAttribute="top" secondItem="1eg-Du-ezI" secondAttribute="bottom" constant="8" id="PGf-eF-SBw"/>
                                                 <constraint firstItem="1rm-XA-hmr" firstAttribute="leading" secondItem="foI-b7-YaI" secondAttribute="leadingMargin" constant="16" id="Ta2-tI-Qgb"/>
                                                 <constraint firstItem="pP8-fT-Uvv" firstAttribute="top" secondItem="1rm-XA-hmr" secondAttribute="bottom" constant="14.5" id="XOx-a2-SVb"/>
@@ -123,7 +113,6 @@
                                             <outlet property="nameLabel" destination="TMI-jy-dDn" id="psj-ZJ-5tG"/>
                                             <outlet property="postImageView" destination="Kc8-sP-t9d" id="fr0-gK-Y0f"/>
                                             <outlet property="profileImageView" destination="1eg-Du-ezI" id="UNk-rq-hoo"/>
-                                            <outlet property="shareImageView" destination="koG-fn-hd1" id="Sdc-WJ-pQ4"/>
                                             <segue destination="Pyd-rl-Mg1" kind="show" id="wWX-Kt-veA"/>
                                         </connections>
                                     </tableViewCell>
@@ -181,6 +170,5 @@
         <image name="Placeholder-image" width="16" height="16"/>
         <image name="Timeline" width="35" height="35"/>
         <image name="headHolder" width="16" height="16"/>
-        <image name="share" width="37" height="41"/>
     </resources>
 </document>

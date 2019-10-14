@@ -66,6 +66,9 @@
                                                     <real key="value" value="15"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cameraTapped:" destination="YsS-rB-R2k" eventType="touchUpInside" id="vLL-j9-JBG"/>
+                                            </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-cK-W3e">
                                             <rect key="frame" x="20" y="30" width="80" height="80"/>
@@ -289,7 +292,6 @@
                         <outlet property="bioTextView" destination="XSl-mS-mDz" id="kRh-st-LgB"/>
                         <outlet property="dateOfBirth" destination="Xml-dg-GNt" id="RYa-vi-KTv"/>
                         <outlet property="nameTextField" destination="fX9-KJ-YhM" id="7fe-ka-Glj"/>
-                        <outlet property="usernnameTextField" destination="fX9-KJ-YhM" id="iXS-YD-Ec3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaT-us-K8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,7 +387,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="40"/>
+                                                <integer key="value" value="60"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
