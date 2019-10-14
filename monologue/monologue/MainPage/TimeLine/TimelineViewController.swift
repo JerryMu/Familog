@@ -29,20 +29,15 @@ class TimelineViewController: UIViewController {
         self.tableView.reloadData()
         getFamilyId()
         navigationController?.navigationBar.shadowImage = UIImage()
-        
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refreshControl
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        //refresh()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         refresh()
     }
+    
+    
     @objc func refresh() {
         posts.removeAll()
         users.removeAll()

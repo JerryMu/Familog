@@ -304,8 +304,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "TimelineViewController"
-            landmarkType = "3">
+            landmarkName = "loadPosts(fid:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "A7B22563-0936-4A13-B6D3-EBAA4C286BE3 - a3c7464b027c302e"
