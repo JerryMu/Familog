@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.collectionView.reloadData()
         
 //        editButtonCenter = edit.center
 //        setButtonCenter = set.center
