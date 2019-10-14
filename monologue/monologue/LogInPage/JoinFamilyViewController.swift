@@ -46,9 +46,9 @@ class JoinFamilyViewController: UIViewController {
                 } else {
                     Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                         if let document = document, document.exists {
-                            var familys = document.get("familys") as! [String]
+                            var familys = document.get("families") as! [String]
                             familys.append(familyId)
-                            Api.User.REF_USERS.document(Api.User.currentUser).updateData(  ["familyId": familyId, "familys": familys])
+                            Api.User.REF_USERS.document(Api.User.currentUser).updateData(  ["familyId": familyId, "families": familys])
                                 {err in
                                     if err != nil {
                                         Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")

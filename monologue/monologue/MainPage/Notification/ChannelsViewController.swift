@@ -12,12 +12,12 @@ import FirebaseFirestore
 
 class ChannelsViewController: UITableViewController {
     
-  private let toolbarLabel: UILabel = {
-    let label = UILabel()
-    label.textAlignment = .center
-    label.font = UIFont.systemFont(ofSize: 15)
-    return label
-  }()
+//  private let toolbarLabel: UILabel = {
+//    let label = UILabel()
+//    label.textAlignment = .center
+//    label.font = UIFont.systemFont(ofSize: 15)
+//    return label
+//  }()
     
     
    
@@ -45,34 +45,43 @@ class ChannelsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchUser()
-    clearsSelectionOnViewWillAppear = true
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: channelCellIdentifier)
     
-    toolbarItems = [
-     
-      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-      UIBarButtonItem(customView: toolbarLabel),
-      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-      UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
-    ]
-    toolbarLabel.text = "jim"
-    
-    channelListener = channelReference.addSnapshotListener { querySnapshot, error in
-      guard let snapshot = querySnapshot else {
-        print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-        return
-      }
-      
-      snapshot.documentChanges.forEach { change in
-        self.handleDocumentChange(change)
-      }
-    }
+//    toolbarItems = [
+//
+//      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+//      UIBarButtonItem(customView: toolbarLabel),
+//      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+//      UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
+//    ]
+//    channelListener = channelReference.addSnapshotListener { querySnapshot, error in
+//      guard let snapshot = querySnapshot else {
+//        print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+//        return
+//      }
+//
+//      snapshot.documentChanges.forEach { change in
+//        self.handleDocumentChange(change)
+//      }
+//    }
   }
     
     func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
             self.currentUser = user
+            self.clearsSelectionOnViewWillAppear = true
+            self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.channelCellIdentifier)
+            
+            self.channelListener = self.channelReference.addSnapshotListener { querySnapshot, error in
+              guard let snapshot = querySnapshot else {
+                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                return
+              }
+              
+              snapshot.documentChanges.forEach { change in
+                self.handleDocumentChange(change)
+              }
+            }
         }
     }
     
@@ -94,31 +103,31 @@ class ChannelsViewController: UITableViewController {
   
   
   
-  @objc private func addButtonPressed() {
-    let ac = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
-    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-    ac.addTextField { field in
-      field.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-      field.enablesReturnKeyAutomatically = true
-      field.autocapitalizationType = .words
-      field.clearButtonMode = .whileEditing
-      field.placeholder = "Channel name"
-      field.returnKeyType = .done
-      field.tintColor = .primary
-    }
-    
-    let createAction = UIAlertAction(title: "Create", style: .default, handler: { _ in
-      self.createChannel()
-    })
-    createAction.isEnabled = false
-    ac.addAction(createAction)
-    ac.preferredAction = createAction
-    
-    present(ac, animated: true) {
-      ac.textFields?.first?.becomeFirstResponder()
-    }
-    currentChannelAlertController = ac
-  }
+//  @objc private func addButtonPressed() {
+//    let ac = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
+//    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//    ac.addTextField { field in
+//      field.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//      field.enablesReturnKeyAutomatically = true
+//      field.autocapitalizationType = .words
+//      field.clearButtonMode = .whileEditing
+//      field.placeholder = "Channel name"
+//      field.returnKeyType = .done
+//      field.tintColor = .primary
+//    }
+//
+//    let createAction = UIAlertAction(title: "Create", style: .default, handler: { _ in
+//      self.createChannel()
+//    })
+//    createAction.isEnabled = false
+//    ac.addAction(createAction)
+//    ac.preferredAction = createAction
+//
+//    present(ac, animated: true) {
+//      ac.textFields?.first?.becomeFirstResponder()
+//    }
+//    currentChannelAlertController = ac
+//  }
   
   @objc private func textFieldDidChange(_ field: UITextField) {
     guard let ac = currentChannelAlertController else {
@@ -130,39 +139,29 @@ class ChannelsViewController: UITableViewController {
   
   // MARK: - Helpers
   
-  private func createChannel() {
-    guard let ac = currentChannelAlertController else {
-      return
-    }
-    
-    guard let channelName = ac.textFields?.first?.text else {
-      return
-    }
-    
-    let channel = Channel(name: channelName)
-    channelReference.addDocument(data: channel.representation) { error in
-      if let e = error {
-        print("Error saving channel: \(e.localizedDescription)")
-      }
-    }
-  }
   
   private func addChannelToTable(_ channel: Channel) {
     guard !channels.contains(channel) else {
       return
     }
+    guard let userFamilies = self.currentUser.families else {
+        return
+    }
+    print(userFamilies)
+    print(channel.id!)
+    if(userFamilies.contains(channel.id!)){
+        channels.append(channel)
+        channels.sort()
+    }
     
-    channels.append(channel)
-    channels.sort()
-    
-    guard let index = channels.index(of: channel) else {
+    guard let index = channels.firstIndex(of: channel) else {
       return
     }
     tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
   }
   
   private func updateChannelInTable(_ channel: Channel) {
-    guard let index = channels.index(of: channel) else {
+    guard let index = channels.firstIndex(of: channel) else {
       return
     }
     
@@ -171,7 +170,7 @@ class ChannelsViewController: UITableViewController {
   }
   
   private func removeChannelFromTable(_ channel: Channel) {
-    guard let index = channels.index(of: channel) else {
+    guard let index = channels.firstIndex(of: channel) else {
       return
     }
     
