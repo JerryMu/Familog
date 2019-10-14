@@ -13,7 +13,7 @@
  class SignUpViewController: UIViewController {
      
      
-     @IBOutlet weak var nameameTextField: UITextField!
+     @IBOutlet weak var firstNameTextField: UITextField!
      @IBOutlet weak var emailTextField: UITextField!
      @IBOutlet weak var passwordTextField: UITextField!
      @IBOutlet weak var confirmedPasswordTextField: UITextField!
@@ -73,7 +73,7 @@
          }
          else {
              // Create users
-             let firstName = nameameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
              
