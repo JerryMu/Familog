@@ -71,6 +71,7 @@ class TimelineViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let post = Post.transformPostPhoto(dict: document.data())
+                    print("timeStamp:\(post.timestamp)")
                     guard let postUid = post.userId else {
                         return
                     }

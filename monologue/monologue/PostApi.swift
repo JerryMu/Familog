@@ -62,7 +62,7 @@ class PostApi {
     }
     
     func observePostsByFamily(familyId: String) -> Query{
-        return postRef.whereField("familyId", isEqualTo: familyId)
+        return postRef.order(by: "timestamp", descending: true).whereField("familyId", isEqualTo: familyId)
     }
     
     func setPostByUid(Uid : String, dictionary : [String : Any]){
