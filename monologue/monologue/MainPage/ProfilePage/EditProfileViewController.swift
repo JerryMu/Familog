@@ -23,7 +23,7 @@ class EditProfileViewController: UIViewController {
     
     // set profile photo function
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var usernnameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
     
@@ -33,7 +33,7 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
-        usernnameTextField.delegate = self
+        nameTextField.delegate = self
         dateOfBirth.delegate = self
         fetchCurrentUser()
         
@@ -95,8 +95,8 @@ class EditProfileViewController: UIViewController {
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
 //            ProgressHUD.show("Waiting...")
-        if(usernnameTextField.text!.count > 0){
-            Api.User.setCurrentUser(dictionary:["firstname" : usernnameTextField.text!])
+        if(nameTextField.text!.count > 0){
+            Api.User.setCurrentUser(dictionary:["firstname" : nameTextField.text!])
         }
         if(dateOfBirth.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["age" : dateOfBirth.text!])
