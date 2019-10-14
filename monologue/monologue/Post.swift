@@ -34,8 +34,4 @@ extension Post {
 //        post.commentsIDList = dict["comment"] as! [String]
         return post
     }
-    
-    static func transformPostVideo() {
-        
-    }
 }

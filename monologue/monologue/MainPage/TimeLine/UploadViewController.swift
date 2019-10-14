@@ -39,6 +39,17 @@ class UploadViewController: UIViewController{
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func cameraTapped(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+         } else {
+            Alert.presentAlert(on: self, with: "Error", message: "Can not use camera")
+        }
+    }
     func getFamilyId(_ image: UIImage) {
         Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
                 if let document = document, document.exists {
