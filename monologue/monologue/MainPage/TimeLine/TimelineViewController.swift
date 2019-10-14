@@ -34,9 +34,18 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        refresh()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshControl.beginRefreshing()
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.tableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.bounds.height)
+        }) { (finish) in
+            self.refresh()
+        }
+        
+    }
     
     @objc func refresh() {
         posts.removeAll()
