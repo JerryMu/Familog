@@ -409,7 +409,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Vr-5b-cjT">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Vr-5b-cjT">
                                                     <rect key="frame" x="0.0" y="49" width="299" height="34"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -527,7 +527,8 @@
                     <connections>
                         <outlet property="confirmedPasswordTextField" destination="FL7-SQ-oXB" id="Flj-AK-3BX"/>
                         <outlet property="emailTextField" destination="bGA-8l-G03" id="E5f-hT-Asc"/>
-                        <outlet property="nameTextField" destination="0Vr-5b-cjT" id="AVc-n3-8k9"/>
+                        <outlet property="firstNameTextField" destination="0Vr-5b-cjT" id="yHe-dL-9Oy"/>
+                        <outlet property="nameameTextField" destination="0Vr-5b-cjT" id="KDA-vJ-gXT"/>
                         <outlet property="passwordTextField" destination="0YY-b5-Daz" id="kGh-5X-M5s"/>
                         <outlet property="signUpButton" destination="cxb-f9-5HV" id="d7l-og-6p8"/>
                     </connections>
