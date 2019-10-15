@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
             user in
             self.user = user
             if(user.uid != Api.User.currentUser){
-                self.deletePostButton.isHidden = true
+//                self.deletePostButton.isHidden = true
             }
             completed()
         })

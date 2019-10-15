@@ -106,6 +106,21 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" id="6F4-EW-X3g">
+                                                    <rect key="frame" x="83" y="410" width="242" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBz-vh-c4m">
+                                                            <rect key="frame" x="16" y="11" width="45" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Delete"/>
+                                                            <connections>
+                                                                <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="bmv-Sz-pns"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -153,6 +168,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
                     <connections>
+                        <outlet property="deletePostButton" destination="oBz-vh-c4m" id="8ah-Oh-T5s"/>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
                         <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
