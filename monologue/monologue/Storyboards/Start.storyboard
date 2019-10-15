@@ -140,23 +140,23 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoJ-8H-H7v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="694"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="4RP-Ov-qeR" eventType="touchUpInside" id="d2k-MO-IOA"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqs-Wi-7SO">
-                                    <rect key="frame" x="41" y="200" width="293" height="294"/>
+                                    <rect key="frame" x="41" y="200" width="293" height="332"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="rfX-1z-slU">
-                                            <rect key="frame" x="116.66666666666666" y="10" width="60" height="60"/>
+                                            <rect key="frame" x="96.666666666666657" y="10" width="100" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="7DH-mK-Nkk"/>
-                                                <constraint firstAttribute="width" constant="60" id="uem-YB-eag"/>
+                                                <constraint firstAttribute="height" constant="100" id="7DH-mK-Nkk"/>
+                                                <constraint firstAttribute="width" constant="100" id="uem-YB-eag"/>
                                             </constraints>
                                         </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-6D-7j3">
-                                            <rect key="frame" x="20" y="94" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="132" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="caI-98-Mf8"/>
@@ -171,7 +171,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x63-B3-aUN">
-                                            <rect key="frame" x="20" y="142" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="180" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="DCF-IR-bqS"/>
@@ -186,7 +186,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-WT-vqj" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="190" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="228" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Idq-k3-Faf"/>
@@ -211,7 +211,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B04-Jg-gAU">
-                                            <rect key="frame" x="62" y="238" width="170" height="36"/>
+                                            <rect key="frame" x="62" y="276" width="170" height="36"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Forgot Password?">
                                                 <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,6 +233,7 @@
                                         <constraint firstAttribute="bottom" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="112" id="gHO-Tf-fxI"/>
                                         <constraint firstAttribute="bottom" secondItem="ecb-WT-vqj" secondAttribute="bottom" constant="64" id="jiW-6w-aSW"/>
                                         <constraint firstAttribute="bottom" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="160" id="mLe-J8-IvM"/>
+                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="mRa-aP-yg5"/>
                                         <constraint firstItem="n8b-6D-7j3" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="mrb-0S-PCX"/>
                                         <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="nHP-sM-OXu"/>
                                         <constraint firstItem="B04-Jg-gAU" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="62" id="omP-HT-BDX"/>
@@ -252,7 +253,7 @@
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="leading" secondItem="jlB-k8-EFW" secondAttribute="leading" id="6sL-vC-BNS"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="KkB-Ce-bzz"/>
                                 <constraint firstItem="Nqs-Wi-7SO" firstAttribute="top" secondItem="jlB-k8-EFW" secondAttribute="top" constant="200" id="LeS-3i-AG8"/>
-                                <constraint firstAttribute="bottom" secondItem="Nqs-Wi-7SO" secondAttribute="bottom" constant="318" id="Rkp-fV-OVh"/>
+                                <constraint firstAttribute="bottom" secondItem="Nqs-Wi-7SO" secondAttribute="bottom" constant="280" id="Rkp-fV-OVh"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="top" secondItem="jlB-k8-EFW" secondAttribute="top" id="bBu-2X-2vq"/>
                                 <constraint firstItem="Nqs-Wi-7SO" firstAttribute="leading" secondItem="jlB-k8-EFW" secondAttribute="leading" constant="41" id="k7N-iz-PZW"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="centerY" secondItem="Nqs-Wi-7SO" secondAttribute="centerY" id="tqw-ku-6I2"/>
