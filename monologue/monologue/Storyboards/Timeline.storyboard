@@ -537,6 +537,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentTextField" destination="Pwn-2F-Rsa" id="cfn-He-MQM"/>
+                        <outlet property="currentUserAvatar" destination="e2S-9X-JlV" id="92h-gY-ghF"/>
                         <outlet property="sendButton" destination="Nxu-Yj-PzR" id="eOy-Ax-wvZ"/>
                         <outlet property="tableView" destination="BKT-2V-Ja2" id="kqB-El-89o"/>
                         <segue destination="tj5-5z-mTN" kind="presentation" identifier="Comment_ProfileSegue" id="d63-la-oRC"/>

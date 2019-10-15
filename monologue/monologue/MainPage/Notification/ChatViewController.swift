@@ -164,7 +164,7 @@ final class ChatViewController: MessagesViewController {
               guard let image = image else {
                 return
               }
-                guard var message = Message(id: change.document.documentID, urlString: index["url"] as! String,image:image, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() as! Date, senderName: index["senderName"] as! String)
+                guard var message = Message(id: change.document.documentID, urlString: index["url"] as! String,image:image, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
                          
                          else {
                          return
@@ -181,7 +181,7 @@ final class ChatViewController: MessagesViewController {
         }
     }else{
     
-    guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() as! Date, senderName: index["senderName"] as! String)
+        guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
       
       else {
       return

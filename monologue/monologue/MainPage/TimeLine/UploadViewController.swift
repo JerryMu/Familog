@@ -98,10 +98,13 @@ class UploadViewController: UIViewController{
                             Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                             return
                         }
-//                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
+                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
+                        self.moveToTimeLinePage()
+                        
                     })
                 })
             }
+            
         }
     }
     
@@ -115,8 +118,6 @@ class UploadViewController: UIViewController{
             return
         }        
         getFamilyId(photo.image!)
-        
-        self.moveToTimeLinePage()
     }
     
     // Move to the timeline page
