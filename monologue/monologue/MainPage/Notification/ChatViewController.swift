@@ -294,7 +294,7 @@ final class ChatViewController: MessagesViewController {
           break
         }
     }
- 
+  
   }
   
   private func uploadImage(_ image: UIImage, to channel: Channel, completion: @escaping (URL?) -> Void) {
@@ -350,6 +350,7 @@ final class ChatViewController: MessagesViewController {
       self.save(message)
       self.messagesCollectionView.scrollToBottom()
     }
+    
   }
   
   private func downloadImage(at url: URL, completion: @escaping (UIImage?) -> Void) {
@@ -366,6 +367,7 @@ final class ChatViewController: MessagesViewController {
       
       completion(UIImage(data: imageData))
     }
+   
   }
   
 }
@@ -376,6 +378,7 @@ extension ChatViewController: MessagesDisplayDelegate {
   
   func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
     return isFromCurrentSender(message: message) ? .primary : .incomingMessage
+    self.messagesCollectionView.scrollToBottom()
   }
   
   func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
@@ -388,6 +391,7 @@ extension ChatViewController: MessagesDisplayDelegate {
   }
    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
    print("1")
+    
         let name = message.sender.displayName.components(separatedBy: " ").first
           //
           //     print(user.uid)
@@ -398,8 +402,7 @@ extension ChatViewController: MessagesDisplayDelegate {
             })
         
       
-             
-        self.messagesCollectionView.scrollToBottom()
+      
            
        }
        
@@ -469,6 +472,7 @@ extension ChatViewController: MessageInputBarDelegate {
 
     save(message)
     inputBar.inputTextView.text = ""
+    
   }
   
 }
