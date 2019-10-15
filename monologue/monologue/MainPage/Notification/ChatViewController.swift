@@ -18,6 +18,7 @@ final class ChatViewController: MessagesViewController {
        self.messageInputBar.leftStackViewItems.forEach { item in
         item. = !self.isSendingPhoto
         }
+     
       }
     }
   }*/
@@ -88,7 +89,7 @@ final class ChatViewController: MessagesViewController {
         self.handleDocumentChange(change)
       }
     }
-        
+    configureMessageInputBar()
     navigationItem.largeTitleDisplayMode = .never
     
     maintainPositionOnKeyboardFrameChanged = true
@@ -100,9 +101,9 @@ final class ChatViewController: MessagesViewController {
     messagesCollectionView.messagesLayoutDelegate = self
     messagesCollectionView.messagesDisplayDelegate = self
     
-    let cameraItem = InputBarButtonItem(type: .system) // 1
-    cameraItem.tintColor = .primary
-    cameraItem.image = #imageLiteral(resourceName: "addNewPic")
+    let cameraItem = makeButton(named: "ic_hashtag") // 1
+ //   cameraItem.tintColor = .primary
+//    cameraItem.image = #imageLiteral(resourceName: "addNew")
     cameraItem.addTarget(
       self,
       action: #selector(cameraButtonPressed), // 2
@@ -113,9 +114,58 @@ final class ChatViewController: MessagesViewController {
     messageInputBar.leftStackView.alignment = .center
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
     messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
-   
-
+    
+  // self.messagesCollectionView.scrollToBottom()
   }
+     func configureMessageInputBar() {
+       messageInputBar.delegate = self
+          messageInputBar.inputTextView.tintColor = .primaryColor
+          messageInputBar.sendButton.setTitleColor(.primaryColor, for: .normal)
+          messageInputBar.sendButton.setTitleColor(
+              UIColor.primaryColor.withAlphaComponent(0.3),
+              for: .highlighted
+          )
+        messageInputBar.layer.shadowColor = UIColor.black.cgColor
+        messageInputBar.layer.shadowRadius = 4
+        messageInputBar.layer.shadowOpacity = 0.3
+        messageInputBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        messageInputBar.separatorLine.isHidden = true
+        messageInputBar.setRightStackViewWidthConstant(to: 0, animated: false)
+        configureMessageInputBarForChat()
+    }
+    private func configureMessageInputBarForChat() {
+        messageInputBar.setMiddleContentView(messageInputBar.inputTextView, animated: false)
+        messageInputBar.setRightStackViewWidthConstant(to: 52, animated: false)
+  
+//change on send button
+        messageInputBar.sendButton.activityViewColor = .white
+        messageInputBar.sendButton.backgroundColor = .primaryColor
+        messageInputBar.sendButton.layer.cornerRadius = 10
+        messageInputBar.sendButton.setTitleColor(.white, for: .normal)
+        messageInputBar.sendButton.setTitleColor(UIColor(white: 1, alpha: 0.3), for: .highlighted)
+        messageInputBar.sendButton.setTitleColor(UIColor(white: 1, alpha: 0.3), for: .disabled)
+        messageInputBar.sendButton
+            .onSelected { item in
+                item.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            }.onDeselected { item in
+                item.transform = .identity
+        }
+    }
+    private func makeButton(named: String) -> InputBarButtonItem {
+          return InputBarButtonItem()
+              .configure {
+                  $0.spacing = .fixed(10)
+                  $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+                  $0.setSize(CGSize(width: 25, height: 25), animated: false)
+                  $0.tintColor = UIColor(white: 0.8, alpha: 1)
+              }.onSelected {
+                  $0.tintColor = .primaryColor
+              }.onDeselected {
+                  $0.tintColor = UIColor(white: 0.8, alpha: 1)
+              }.onTouchUpInside { _ in
+                  print("Item Tapped")
+          }
+      }
   
   // MARK: - Actions
   func downloadImage(from url: URL) {
@@ -173,11 +223,12 @@ final class ChatViewController: MessagesViewController {
     
     messagesCollectionView.reloadData()
     
-    if shouldScrollToBottom {
+   if shouldScrollToBottom {
       DispatchQueue.main.async {
         self.messagesCollectionView.scrollToBottom(animated: true)
       }
     }
+    
   }
   
   private func handleDocumentChange(_ change: DocumentChange) {
@@ -348,7 +399,7 @@ extension ChatViewController: MessagesDisplayDelegate {
         
       
              
-        
+        self.messagesCollectionView.scrollToBottom()
            
        }
        
