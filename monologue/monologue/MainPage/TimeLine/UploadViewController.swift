@@ -51,7 +51,7 @@ class UploadViewController: UIViewController{
         }
     }
     func getFamilyId(_ image: UIImage) {
-        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
                     let familyId = document.get("familyId") as! String
                     self.uploadToFirebase(image, fid: familyId)
@@ -98,10 +98,13 @@ class UploadViewController: UIViewController{
                             Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                             return
                         }
-//                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
+                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
+                        self.moveToTimeLinePage()
+                        
                     })
                 })
             }
+            
         }
     }
     
@@ -115,8 +118,6 @@ class UploadViewController: UIViewController{
             return
         }        
         getFamilyId(photo.image!)
-        
-        self.moveToTimeLinePage()
     }
     
     // Move to the timeline page

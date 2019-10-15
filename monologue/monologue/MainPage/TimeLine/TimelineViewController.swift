@@ -25,6 +25,7 @@ class TimelineViewController: UIViewController {
 
     
     override func viewDidLoad() {
+        print("CurrentUser:\(Api.User.currentUser)")
         super.viewDidLoad()
         self.tableView.reloadData()
         getFamilyId()
@@ -52,7 +53,7 @@ class TimelineViewController: UIViewController {
     }
     
     func getFamilyId() {
-        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
                     self.familyId = document.get("familyId") as! String
                     if self.familyId == "" {
@@ -77,7 +78,6 @@ class TimelineViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let post = Post.transformPostPhoto(dict: document.data())
-//                    print("timeStamp:\(post.timestamp)")
                     guard let postUid = post.userId else {
                         return
                     }

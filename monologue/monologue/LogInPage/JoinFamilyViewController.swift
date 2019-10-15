@@ -13,6 +13,7 @@ class JoinFamilyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("CurrentUser:\(Api.User.currentUser)")
 
         // Do any additional setup after loading the view.
     }
@@ -44,11 +45,11 @@ class JoinFamilyViewController: UIViewController {
                     Alert.presentAlert(on: self, with: "Error", message: "Can not find this family!")
                     return
                 } else {
-                    Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                         if let document = document, document.exists {
                             var familys = document.get("families") as! [String]
                             familys.append(familyId)
-                            Api.User.REF_USERS.document(Api.User.currentUser).updateData(  ["familyId": familyId, "families": familys])
+                            Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(  ["familyId": familyId, "families": familys])
                                 {err in
                                     if err != nil {
                                         Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")

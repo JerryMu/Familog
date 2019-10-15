@@ -12,6 +12,7 @@ class CreateFamilyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         familyIdTextField.text! = randomString()
+        print("CurrentUser:\(Api.User.currentUser)")
         // Do any additional setup after loading the view.
     }
     
@@ -50,14 +51,14 @@ class CreateFamilyViewController: UIViewController {
                     }
                 }
                 
-                Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+                Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
                     
                     var families = document.get("families") as! [String]
                     
                     families.append(familyId)
                     
-                    Api.User.REF_USERS.document(Api.User.currentUser).updateData(["familyId": familyId, "families": families])
+                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(["familyId": familyId, "families": families])
                     {
                         err in
                         if err != nil {

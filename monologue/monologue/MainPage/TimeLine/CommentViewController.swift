@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class CommentViewController: UIViewController {
 
+    @IBOutlet weak var currentUserAvatar: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -40,7 +41,7 @@ class CommentViewController: UIViewController {
           snapshot.documentChanges.forEach { change in
            
            
-            self.commentID =  change.document.data()["commentsID"] as! String
+            self.commentID =  change.document.data()["commentsID"] as? String
             
          
             Api.Comment.observeComments(commentID: self.commentID){comment in
