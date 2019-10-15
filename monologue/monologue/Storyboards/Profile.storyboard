@@ -484,14 +484,14 @@
                     <navigationItem key="navigationItem" id="9VF-pc-HKp"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="JSI-1G-AMx" id="Br0-UO-SMG"/>
-                        <outlet property="familyId" destination="WGt-62-Xfj" id="JO1-hW-KN9"/>
-                        <outlet property="familyName" destination="Ksb-EB-oxE" id="1ew-ra-Df1"/>
-                        <outlet property="userAvatar" destination="bbG-8p-eEw" id="BYu-HF-N8n"/>
-                        <outlet property="userBioLabel" destination="Vbk-ty-2U2" id="0oR-aG-K1W"/>
-                        <outlet property="userDobLabel" destination="Bsr-qG-mUy" id="HxO-Bo-D8L"/>
-                        <outlet property="userNameLabel" destination="9Yx-ZE-vNg" id="ZEY-m7-l5W"/>
-                        <segue destination="tBM-6l-Zqm" kind="show" identifier="Profile_DetailSegue" id="dPq-TO-J4H"/>
+                        <outlet property="collectionView" destination="JSI-1G-AMx" id="HNr-dm-2cV"/>
+                        <outlet property="familyId" destination="WGt-62-Xfj" id="aaU-U5-fuZ"/>
+                        <outlet property="familyName" destination="Ksb-EB-oxE" id="Gqz-hJ-SHj"/>
+                        <outlet property="userAvatar" destination="bbG-8p-eEw" id="V9s-ZG-Pg3"/>
+                        <outlet property="userBioLabel" destination="Vbk-ty-2U2" id="JkU-vQ-MiB"/>
+                        <outlet property="userDobLabel" destination="Bsr-qG-mUy" id="3MP-Ci-qGV"/>
+                        <outlet property="userNameLabel" destination="9Yx-ZE-vNg" id="KGg-Dg-KNI"/>
+                        <segue destination="tBM-6l-Zqm" kind="show" identifier="Profile_DetailSegue" id="0KJ-G8-0Qc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewK-yB-hIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -700,13 +700,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="kJP-fm-Srp" id="KbV-7m-hP1"/>
-                        <outlet property="familyId" destination="IUa-sY-EC5" id="aeJ-KH-f6H"/>
-                        <outlet property="userAvatar" destination="t7g-u2-Vjd" id="Bze-uH-93r"/>
-                        <outlet property="userBioLabel" destination="jiE-L7-Z3L" id="gGW-e1-CuT"/>
-                        <outlet property="userDobLabel" destination="lak-66-N1g" id="Ud0-14-KbY"/>
-                        <outlet property="userNameLabel" destination="fgp-C3-0dV" id="ghR-ec-192"/>
-                        <segue destination="tBM-6l-Zqm" kind="presentation" identifier="Profile_DetailSegue" id="glH-IK-0dd"/>
+                        <outlet property="collectionView" destination="kJP-fm-Srp" id="PAa-GH-jIz"/>
+                        <outlet property="familyId" destination="IUa-sY-EC5" id="Gzm-7a-Z37"/>
+                        <outlet property="familyName" destination="kcn-qZ-zyH" id="Db5-DS-lhh"/>
+                        <outlet property="userAvatar" destination="t7g-u2-Vjd" id="nAj-Pc-fpY"/>
+                        <outlet property="userBioLabel" destination="jiE-L7-Z3L" id="TRX-Sw-AIN"/>
+                        <outlet property="userDobLabel" destination="lak-66-N1g" id="KPn-e8-k01"/>
+                        <outlet property="userNameLabel" destination="fgp-C3-0dV" id="by9-92-mCF"/>
+                        <segue destination="tBM-6l-Zqm" kind="show" identifier="Profile_DetailSegue" id="sZm-QO-jrn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymo-5e-Ife" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -720,6 +721,6 @@
         <image name="profile" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dPq-TO-J4H"/>
+        <segue reference="sZm-QO-jrn"/>
     </inferredMetricsTieBreakers>
 </document>

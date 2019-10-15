@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  OthersProfileViewController.swift
 //  Familog
 //
 //  Created by Pengyu Mu on 18/9/19.
@@ -15,25 +15,33 @@ class OthersProfileViewController: UIViewController {
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var familyId: UILabel!
+    @IBOutlet weak var familyName: UILabel!
     
     var editButtonCenter: CGPoint!
     var setButtonCenter: CGPoint!
     var user: User!
     var posts: [Post] = []
-    var uid = ""
+    var uid =  ""
     let initImage =  "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/Avatar%2Fy8sEy6wi7VU2XzQ7IrwOyNpu4tD2?alt=media&token=04c3c554-eb96-4a49-b348-3f1404759acb"
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPost()
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
     }
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            self.posts.removeAll()
+            self.fetchPost()
+            self.fetchUser()
+            
+        }
     
-    //need change
     func fetchUser(){
-        Api.User.observeCurrentUser(){
+        Api.User.observeUser(withId: uid){
             user in
             self.user = user
             if(self.user != nil){
@@ -51,6 +59,10 @@ class OthersProfileViewController: UIViewController {
         userDobLabel.text = user.dob
         userNameLabel.text = user.firstname!
         familyId.text = user.familyId
+        Api.Family.getFamilyNameById(familyId: user.familyId!){
+            name in
+            self.familyName.text = name
+        }
     }
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
@@ -84,9 +96,11 @@ extension OthersProfileViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        let post = posts[indexPath.row]
-        cell.post = post
-        cell.delegate = self
+        if(posts.count > indexPath.row){
+            let post = posts[indexPath.row]
+            cell.post = post
+            cell.delegate = self
+        }
         return cell
     }
 
@@ -96,6 +110,10 @@ extension OthersProfileViewController: UICollectionViewDataSource {
         userBioLabel.text = user?.bio
         userDobLabel.text = user?.dob
         userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
+        Api.Family.getFamilyNameById(familyId: user.familyId!){
+            name in
+            self.familyName.text = name
+        }
     }
 }
 //set image distance and image size
