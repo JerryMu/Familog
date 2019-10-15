@@ -147,8 +147,7 @@ class ChannelsViewController: UITableViewController {
     guard let userFamilies = self.currentUser.families else {
         return
     }
-    print(userFamilies)
-    print(channel.id!)
+   
     if(userFamilies.contains(channel.id!)){
         channels.append(channel)
         channels.sort()
@@ -224,7 +223,7 @@ extension ChannelsViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let channel = channels[indexPath.row]
-    print("currentUser")
+
 
     let vc = ChatViewController(user: currentUser, channel: channel)
     navigationController?.pushViewController(vc, animated: true)
