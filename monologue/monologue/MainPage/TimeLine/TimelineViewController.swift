@@ -25,7 +25,6 @@ class TimelineViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        print("CurrentUser:\(Api.User.currentUser)")
         super.viewDidLoad()
         self.tableView.reloadData()
         getFamilyId()
@@ -39,9 +38,7 @@ class TimelineViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.refresh()
-        }
+        self.refresh()
         
     }
     

@@ -15,7 +15,7 @@ target 'Familog' do
   pod 'Protobuf', :inhibit_warnings => true
   pod 'SDWebImage', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
-
+  pod 'YPImagePicker'
   # Pods for Familog
 
   target 'FamilogTests' do

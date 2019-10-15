@@ -217,36 +217,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n1d-ZX-qXn" userLabel="ChoosePhoto">
-                                            <rect key="frame" x="65" y="264.33333333333331" width="210" height="32"/>
+                                            <rect key="frame" x="139.33333333333334" y="264.33333333333331" width="61" height="32"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAy-j5-YMO" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="32"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="4tm-6l-Yb3"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Library">
-                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="selectThePhoteTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="Sqs-A4-xOe"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xa-y6-dpe" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
-                                                    <rect key="frame" x="110" y="0.0" width="100" height="32"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="61" height="32"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -269,10 +243,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9Xa-y6-dpe" firstAttribute="width" secondItem="wAy-j5-YMO" secondAttribute="width" id="4LV-Vd-2aR"/>
-                                                <constraint firstItem="9Xa-y6-dpe" firstAttribute="height" secondItem="wAy-j5-YMO" secondAttribute="height" id="no9-gt-tvn"/>
-                                            </constraints>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-g3-xq2" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
                                             <rect key="frame" x="85" y="400.33333333333337" width="170" height="34"/>
@@ -337,9 +307,9 @@
                         <blurEffect style="regular"/>
                     </visualEffectView>
                     <connections>
+                        <outlet property="ShareButton" destination="ynw-g3-xq2" id="GI9-q4-Ix4"/>
                         <outlet property="descriptionField" destination="ZIg-ht-bSR" id="YqV-6D-iOC"/>
                         <outlet property="photo" destination="NNA-8G-ulq" id="B22-Xd-23Q"/>
-                        <outlet property="selectButton" destination="wAy-j5-YMO" id="Qdp-nx-dhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1j-c2-D9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -557,6 +527,6 @@
         <image name="addNewPic" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d63-la-oRC"/>
+        <segue reference="3us-vA-pXP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@ import FirebaseStorage
 import FirebaseFirestore
 import AVFoundation
 import FirebaseAuth
-
+import YPImagePicker
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,8 @@ class UploadViewController: UIViewController{
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    @IBOutlet weak var selectButton: UIButton!
+    
+    @IBOutlet weak var ShareButton: DesignableButton!
     
     @IBOutlet weak var photo: UIImageView!
     
@@ -31,24 +32,18 @@ class UploadViewController: UIViewController{
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func selectThePhoteTapped(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)
-    }
     
     @IBAction func cameraTapped(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = .camera
-            imagePicker.delegate = self
-            self.present(imagePicker, animated: true, completion: nil)
-         } else {
-            Alert.presentAlert(on: self, with: "Error", message: "Can not use camera")
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                self.selectedImage = photo.image
+                self.photo.image = self.selectedImage
+            }
+            picker.dismiss(animated: true, completion: nil)
         }
+        present(picker, animated: true, completion: nil)
+        
     }
     func getFamilyId(_ image: UIImage) {
         Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
@@ -98,7 +93,6 @@ class UploadViewController: UIViewController{
                             Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
                             return
                         }
-                        Alert.presentAlert(on: self, with: "Success", message: "Upload Successfully!")
                         self.moveToTimeLinePage()
                         
                     })
@@ -116,7 +110,9 @@ class UploadViewController: UIViewController{
         if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "" {
             Alert.presentAlert(on: self, with: "Error", message: "You must fill description")
             return
-        }        
+        }
+        self.ShareButton.isEnabled = false
+        
         getFamilyId(photo.image!)
     }
     
@@ -125,29 +121,6 @@ class UploadViewController: UIViewController{
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
-    }
-    
-}
-
-extension UploadViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    
-    // Pick the image from iphone's photo library
-    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
-        
-        var selectedImageFromPicker: UIImage?
-        
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            selectedImageFromPicker = editedImage
-        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImageFromPicker = originalImage
-        }
-        if let selectedImage = selectedImageFromPicker {
-            self.selectedImage = selectedImage
-//            self.selectButton.alpha = 0
-        }
-        photo.image =  self.selectedImage
-        picker.dismiss(animated: true, completion: nil)
-        
     }
     
 }
