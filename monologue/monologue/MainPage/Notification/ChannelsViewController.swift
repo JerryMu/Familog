@@ -45,6 +45,7 @@ class ChannelsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchUser()
+    setCustomebBackImage()
     
 //    toolbarItems = [
 //
@@ -129,6 +130,9 @@ class ChannelsViewController: UITableViewController {
 //    currentChannelAlertController = ac
 //  }
   
+    func setCustomebBackImage(){
+      navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
   @objc private func textFieldDidChange(_ field: UITextField) {
     guard let ac = currentChannelAlertController else {
       return
