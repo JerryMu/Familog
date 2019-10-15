@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mY0-HY-BDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12690" y="-5834"/>
+            <point key="canvasLocation" x="-12705" y="-5792"/>
         </scene>
         <!--OtherPeopleViewController-->
         <scene sceneID="Amw-Lx-2QO">
@@ -154,7 +154,7 @@
                     <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
                     <connections>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
-                        <segue destination="Pyd-rl-Mg1" kind="show" identifier="Detail_CommentVC" id="xFy-lc-Vax"/>
+                        <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
                     </connections>
                 </viewController>
@@ -165,7 +165,6 @@
         <!--Navigation Controller-->
         <scene sceneID="SB0-hg-pjU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DuW-gR-Lnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Sad-pw-Tbx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Timeline" id="FIe-9N-9D7" colorLabel="IBBuiltInLabel-Red">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
@@ -186,6 +185,7 @@
                         <segue destination="fB1-mE-2gz" kind="relationship" relationship="rootViewController" id="2SH-tO-uNj"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DuW-gR-Lnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-14705" y="-5834"/>
         </scene>
