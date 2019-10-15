@@ -106,21 +106,6 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="6F4-EW-X3g">
-                                                    <rect key="frame" x="83" y="410" width="242" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBz-vh-c4m">
-                                                            <rect key="frame" x="16" y="11" width="45" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="Delete"/>
-                                                            <connections>
-                                                                <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="bmv-Sz-pns"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -156,6 +141,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" id="6F4-EW-X3g">
+                                <rect key="frame" x="0.0" y="487" width="375" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBz-vh-c4m">
+                                        <rect key="frame" x="165" y="6" width="45" height="31"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="bmv-Sz-pns"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="oBz-vh-c4m" firstAttribute="centerY" secondItem="6F4-EW-X3g" secondAttribute="centerY" id="TMM-19-DdF"/>
+                                    <constraint firstItem="oBz-vh-c4m" firstAttribute="centerX" secondItem="6F4-EW-X3g" secondAttribute="centerX" id="XcD-cT-viR"/>
+                                    <constraint firstItem="oBz-vh-c4m" firstAttribute="centerX" secondItem="6F4-EW-X3g" secondAttribute="centerX" id="of1-KO-LrY"/>
+                                    <constraint firstItem="oBz-vh-c4m" firstAttribute="top" secondItem="6F4-EW-X3g" secondAttribute="top" constant="6" id="t18-cJ-wsc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
