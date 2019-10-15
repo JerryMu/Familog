@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
             user in
             self.user = user
             if(user.uid != Api.User.currentUser){
-                self.deletePostButton.isHidden = true
+//                self.deletePostButton.isHidden = true
             }
             completed()
         })
@@ -60,6 +60,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deletePostButtonTapped(_ sender : Any) {
+        print(self.user)
         Api.Post.deletePost(PostId: self.postId)
     }
     
