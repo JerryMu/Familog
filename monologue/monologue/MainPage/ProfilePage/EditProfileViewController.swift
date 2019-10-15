@@ -14,6 +14,8 @@ import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
+import Photos
+import YPImagePicker
 
 protocol EditProfileControllerDelegate {
     func updateUserInfor()
@@ -26,6 +28,8 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
+    
+    var selectImage : UIImage?
     let datePicker = UIDatePicker()
 
     var delegate: EditProfileControllerDelegate?
@@ -111,7 +115,15 @@ class EditProfileViewController: UIViewController {
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
-        moveToProfilePage()
+        if(self.selectImage != nil){
+            uploadAvatar()
+        }
+        
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.moveToProfilePage()
+            }
+        }
     }
     
     func moveToProfilePage() {
@@ -121,63 +133,38 @@ class EditProfileViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
-    @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.allowsEditing = true
-        pickerController.sourceType = .photoLibrary
-        pickerController.delegate = self
-        present(pickerController, animated: true, completion: nil)
-        
-    }
-    
     @IBAction func cameraTapped(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            pickerController.sourceType = .camera
-            pickerController.delegate = self
-            present(pickerController, animated: true, completion: nil)
-        } else {
-            Alert.presentAlert(on: self, with: "Error", message: "Can not use camera")
-        }
-        
-       
-    }
-    
-}
-
-extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-        func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info:[ UIImagePickerController.InfoKey : Any] ){
-            //editedImage
-            if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
-                UIImage{
-                avatar.image = imageSelected
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                self.selectImage = photo.image
+                self.avatar.image = self.selectImage
             }
-            //originalImage
-            if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as?
-                UIImage{
-                avatar.image = imageOriginal
-            }
-            //uploadToFirebase
-            
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser!.uid)
-            
-            storageRef.putData((avatar.image?.pngData())!, metadata: nil){ (metadata, error) in
-                if error != nil {
-                    return
-                }
-                storageRef.downloadURL { (url, error) in
-                    guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                    }
-                    Api.User.setCurrentUser(dictionary:["profileImageUrl" : downloadURL.absoluteString])
-                }
-                
-            }
-
             picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+        
     }
+    
+    func uploadAvatar(){
+        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser!.uid)
+        
+        storageRef.putData((avatar.image?.jpegData(compressionQuality: 0.1))!, metadata: nil){ (metadata, error) in
+            if error != nil {
+                return
+            }
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                // Uh-oh, an error occurred!
+                return
+                }
+                Api.User.setCurrentUser(dictionary:["profileImageUrl" : downloadURL.absoluteString])
+                self.moveToProfilePage()
+            }
+            
+        }
+    }
+    
 }
 
 
