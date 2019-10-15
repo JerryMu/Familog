@@ -62,6 +62,14 @@ class DetailViewController: UIViewController {
     @IBAction func deletePostButtonTapped(_ sender : Any) {
         print(self.postId)
         Api.Post.deletePost(PostId: self.postId)
+        moveToProfilePage()
+    }
+    
+    func moveToProfilePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        newViewController.selectedIndex = 2
+        self.present(newViewController, animated: true, completion: nil)
     }
     
 }

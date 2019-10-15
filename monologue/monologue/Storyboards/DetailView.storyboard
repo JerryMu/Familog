@@ -109,17 +109,12 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5F-cB-pU4">
-                                                            <rect key="frame" x="165" y="414.66666666666669" width="45" height="30"/>
-                                                            <state key="normal" title="Delete"/>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="nLs-Qp-svf" firstAttribute="top" secondItem="7wp-MD-t3Z" secondAttribute="top" constant="12" id="38T-Px-V5f"/>
                                                         <constraint firstAttribute="trailing" secondItem="hRp-Ls-HYh" secondAttribute="trailing" constant="12" id="44l-vS-8hF"/>
                                                         <constraint firstItem="Sm8-SB-L52" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="6Ng-aP-L4K"/>
-                                                        <constraint firstItem="j5F-cB-pU4" firstAttribute="centerY" secondItem="zkE-6J-kj6" secondAttribute="centerY" id="DrS-Db-CW7"/>
                                                         <constraint firstItem="cNK-u1-hoU" firstAttribute="leading" secondItem="nLs-Qp-svf" secondAttribute="trailing" constant="12" id="ERf-qB-xFB"/>
                                                         <constraint firstAttribute="trailing" secondItem="Sm8-SB-L52" secondAttribute="trailing" constant="12" id="KgR-x6-DNO"/>
                                                         <constraint firstItem="wXg-sE-sri" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" id="LJi-Pi-9OZ"/>
@@ -133,7 +128,6 @@
                                                         <constraint firstItem="nLs-Qp-svf" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="kuH-YT-BV6"/>
                                                         <constraint firstItem="zkE-6J-kj6" firstAttribute="top" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="15" id="ni4-dv-e5B"/>
                                                         <constraint firstAttribute="bottom" secondItem="wXg-sE-sri" secondAttribute="bottom" id="pBF-jW-Whi"/>
-                                                        <constraint firstItem="j5F-cB-pU4" firstAttribute="centerX" secondItem="7wp-MD-t3Z" secondAttribute="centerX" id="sdL-Ke-8FM"/>
                                                         <constraint firstAttribute="bottom" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="60" id="uZb-eQ-XIX"/>
                                                         <constraint firstItem="cNK-u1-hoU" firstAttribute="centerY" secondItem="nLs-Qp-svf" secondAttribute="centerY" id="xKA-4X-lHw"/>
                                                     </constraints>
@@ -150,6 +144,23 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <view contentMode="scaleToFill" id="GEF-CL-bEV">
+                                        <rect key="frame" x="0.0" y="488" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-Jn-AkV">
+                                                <rect key="frame" x="131" y="6" width="112" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete This Post">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -171,6 +182,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
                     <connections>
+                        <outlet property="deletePostButton" destination="pzo-Jn-AkV" id="ObJ-NV-WAx"/>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
                         <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
