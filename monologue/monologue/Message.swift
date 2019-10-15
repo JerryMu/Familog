@@ -13,7 +13,7 @@ private struct ImageMediaItem: MediaItem {
     var image: UIImage?
     var placeholderImage: UIImage
     var size: CGSize
-    
+   
   
     init(image: UIImage) {
         self.image = image
@@ -24,7 +24,7 @@ private struct ImageMediaItem: MediaItem {
 }
 struct Message: MessageType {
   var sender: SenderType
-  
+   var user: ChatUser
     var kind: MessageKind
   let id: String?
   let content: String
@@ -82,16 +82,18 @@ struct Message: MessageType {
        self.sentDate = sentDate
        self.id = id
      self.kind = .photo(mediaItem)
+        self.user = ChatUser(senderId: senderID, displayName: senderName)
     }
     
     
     
   init(user: User, content: String) {
-    sender = Sender(id: user.uid!, displayName: "jim")
+    sender = Sender(id: user.uid!, displayName: user.firstname!)
     self.content = content
     sentDate = Date()
      id = nil
     self.kind = .text(content)
+    self.user = ChatUser(senderId: user.uid!, displayName: user.firstname!)
   }
   
   
@@ -103,28 +105,31 @@ struct Message: MessageType {
      self.sentDate = sentDate
      self.id = id
     self.kind = .text(content)
+     self.user = ChatUser(senderId: senderID, displayName: senderName)
   }
     
 
   
   init(user: User, image: UIImage, id: String, sentDate: Date ) {
     let mediaItem = ImageMediaItem(image: image)
-    sender = Sender(id: user.uid!, displayName: "jim")
+    sender = Sender(id: user.uid!, displayName: user.firstname!)
     self.image = image
     content = ""
     self.sentDate = sentDate
     self.id = id
     self.kind = .photo(mediaItem)
+    self.user = ChatUser(senderId: user.uid!, displayName: user.firstname!)
   }
     
   init(user: User, image: UIImage) {
     let mediaItem = ImageMediaItem(image: image)
-    sender = Sender(id: user.uid!, displayName: "jim")
+    sender = Sender(id: user.uid!, displayName: user.firstname!)
     self.image = image
     content = ""
       sentDate = Date()
        id = nil
     self.kind = .photo(mediaItem)
+    self.user = ChatUser(senderId: user.uid!, displayName: user.firstname!)
   }
 
 

@@ -53,8 +53,7 @@ final class ChatViewController: MessagesViewController {
                 Api.User.observeUser(withId: uid, completion: {
                   user in
                   if user.profileImageUrl == "" {
-                   print( "1233211232341234124  \(self.imageView.image)")
-                       print("rexxxxachchhchdaifcojweoa")
+                 
                        self.imageView.image = self.initImage
                    
                   } else{
@@ -257,7 +256,7 @@ final class ChatViewController: MessagesViewController {
                        }
               
               message.image = image
-                print(message)
+              
               self.insertNewMessage(message)
             }
           
@@ -346,7 +345,7 @@ final class ChatViewController: MessagesViewController {
       
       var message = Message(user: self.user, image: image)
       message.downloadURL = url
-      
+        
       self.save(message)
       self.messagesCollectionView.scrollToBottom()
     }
@@ -369,7 +368,15 @@ final class ChatViewController: MessagesViewController {
     }
    
   }
-  
+    func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
+          return indexPath.section % 3 == 0 && !isPreviousMessageSameSender(at: indexPath)
+      }
+  func isPreviousMessageSameSender(at indexPath: IndexPath) -> Bool {
+        guard indexPath.section - 1 >= 0 else { return false }
+  //  print(messages[indexPath.section].user)
+  //   print(messages[indexPath.section - 1].user)
+        return messages[indexPath.section].user == messages[indexPath.section - 1].user
+    }
 }
 
 // MARK: - MessagesDisplayDelegate
@@ -390,12 +397,10 @@ extension ChatViewController: MessagesDisplayDelegate {
     return .bubbleTail(corner, .curved)
   }
    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-   print("1")
+   
     
-        let name = message.sender.displayName.components(separatedBy: " ").first
-          //
-          //     print(user.uid)
-        let initials = "\(name)"
+    let initials = "User"
+   
         self.fetchUser(uid: message.sender.senderId, completed: {
             let avatar = Avatar(image: self.imageView.image, initials: initials)
             avatarView.set(avatar: avatar)
@@ -426,6 +431,12 @@ extension ChatViewController: MessagesLayoutDelegate {
     
     return 0
   }
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+          if isTimeLabelVisible(at: indexPath) {
+              return 18
+          }
+          return 0
+      }
   
 }
 
@@ -433,7 +444,7 @@ extension ChatViewController: MessagesLayoutDelegate {
 
 extension ChatViewController: MessagesDataSource {
   func currentSender() -> SenderType {
-    return Sender(id: user.uid!, displayName: "jim")
+    return Sender(id: user.uid!, displayName: user.firstname!)
   }
   
   func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -450,14 +461,10 @@ extension ChatViewController: MessagesDataSource {
   }
   
   func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-    let name = message.sender.displayName
-    return NSAttributedString(
-      string: name,
-      attributes: [
-        .font: UIFont.preferredFont(forTextStyle: .caption1),
-        .foregroundColor: UIColor(white: 0.3, alpha: 1)
-      ]
-    )
+    if isTimeLabelVisible(at: indexPath) {
+           return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+       }
+       return nil
   }
   
 }
