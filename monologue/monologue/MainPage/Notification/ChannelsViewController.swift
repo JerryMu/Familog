@@ -90,7 +90,7 @@ class ChannelsViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    navigationController?.isToolbarHidden = false
+    navigationController?.isToolbarHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {

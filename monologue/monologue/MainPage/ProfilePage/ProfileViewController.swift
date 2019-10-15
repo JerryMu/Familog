@@ -26,12 +26,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPost()
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
         
     }
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.posts.removeAll()
+                self.fetchPost()
+                self.fetchUser()
+            }
+            
+        }
     
     func fetchUser(){
         Api.User.observeCurrentUser(){

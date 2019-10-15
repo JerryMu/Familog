@@ -26,7 +26,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Authentication" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Authentication" modalPresentationStyle="fullScreen" interfaceStyle="light" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
         <!--Log In View Controller-->
         <scene sceneID="Z64-Pr-iYD">
             <objects>
-                <viewController storyboardIdentifier="logInVC" modalPresentationStyle="fullScreen" id="4RP-Ov-qeR" customClass="LogInViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInVC" modalPresentationStyle="fullScreen" interfaceStyle="light" id="4RP-Ov-qeR" customClass="LogInViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="6pO-TC-5Kg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -272,7 +272,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="E8W-eb-RbI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8K6-Ex-LGP" customClass="ResetPasswordViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="8K6-Ex-LGP" customClass="ResetPasswordViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GUQ-tv-QVp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,7 +368,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="W0P-f7-Yrp">
             <objects>
-                <viewController id="YzZ-BC-BxQ" customClass="SignUpViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="YzZ-BC-BxQ" customClass="SignUpViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="pe1-1D-6cU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -42,7 +42,7 @@ class UserApi {
     func observeUser(uid : String, completion: @escaping (User) -> Void){
         let userRef = REF_USERS.document(uid)
 
-        userRef.getDocument { (document, error) in
+        userRef.addSnapshotListener { (document, error) in
             if let user = document.flatMap({
                 $0.data().flatMap({ (data) in
                     return User.transformUser(dict: data)

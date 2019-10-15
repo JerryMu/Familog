@@ -38,10 +38,7 @@ class TimelineViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        refreshControl.beginRefreshing()
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.tableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.bounds.height)
-        }) { (finish) in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.refresh()
         }
         
@@ -80,6 +77,10 @@ class TimelineViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let post = Post.transformPostPhoto(dict: document.data())
+<<<<<<< HEAD
+=======
+//                    print("timeStamp:\(post.timestamp)")
+>>>>>>> fa976788cf97feb83de0feb08fb84b092869c623
                     guard let postUid = post.userId else {
                         return
                     }

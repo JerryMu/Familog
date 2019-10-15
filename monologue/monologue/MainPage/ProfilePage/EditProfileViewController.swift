@@ -111,16 +111,23 @@ class EditProfileViewController: UIViewController {
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
-        
-        
-        
+        moveToProfilePage()
     }
+    
+    func moveToProfilePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        newViewController.selectedIndex = 2
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
     @IBAction func changeProfileBtn_TouchUpInside(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.allowsEditing = true
         pickerController.sourceType = .photoLibrary
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
+        
     }
     
     @IBAction func cameraTapped(_ sender: Any) {

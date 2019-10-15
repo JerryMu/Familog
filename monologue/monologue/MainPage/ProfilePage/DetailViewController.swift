@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     var post = Post()
     var user = User()
     
+    @IBOutlet weak var deletePostButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -36,6 +37,9 @@ class DetailViewController: UIViewController {
         Api.User.observeUser(uid: uid, completion: {
             user in
             self.user = user
+            if(user.uid != Api.User.currentUser){
+                self.deletePostButton.isHidden = true
+            }
             completed()
         })
         
@@ -53,6 +57,19 @@ class DetailViewController: UIViewController {
             let userId = sender  as! String
             profileVC.uid = userId
         }
+    }
+    
+    @IBAction func deletePostButtonTapped(_ sender : Any) {
+        print(self.postId)
+        Api.Post.deletePost(PostId: self.postId)
+        moveToProfilePage()
+    }
+    
+    func moveToProfilePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        newViewController.selectedIndex = 2
+        self.present(newViewController, animated: true, completion: nil)
     }
     
 }

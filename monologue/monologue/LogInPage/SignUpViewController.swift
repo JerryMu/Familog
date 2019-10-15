@@ -54,7 +54,7 @@
          }
          
          if password != confirmedPassword {
-             return " Please make sure that your passwords are same"
+             return " Please make sure that your passwords are same!"
          }
           
          return nil
@@ -81,7 +81,7 @@
              Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                  
                  if err != nil {
-                     Alert.presentAlert(on: self, with:"Error", message: "Creating user fail, please check all field you has filled")
+                     Alert.presentAlert(on: self, with:"Error", message: "Creating user fail, Please try using a different email account")
                  }
                  else {
                      let db = Firestore.firestore()

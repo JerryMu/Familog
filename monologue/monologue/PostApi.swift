@@ -65,6 +65,16 @@ class PostApi {
         return postRef.order(by: "timestamp", descending: true).whereField("familyId", isEqualTo: familyId)
     }
     
+    func deletePost(PostId : String){
+        postRef.document(PostId).delete(){ err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
     func setPostByUid(Uid : String, dictionary : [String : Any]){
         let post = postRef.document(Uid)
         
