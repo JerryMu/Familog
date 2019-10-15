@@ -115,6 +115,7 @@ class UploadViewController: UIViewController{
             return
         }        
         getFamilyId(photo.image!)
+        
         self.moveToTimeLinePage()
     }
     

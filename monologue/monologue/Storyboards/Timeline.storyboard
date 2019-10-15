@@ -346,6 +346,7 @@
         <!--Comment View Controller-->
         <scene sceneID="6SB-3G-wb2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUK-3p-aRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CommentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vw4-4i-oJg" customClass="CommentViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sac-0P-NXW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
@@ -452,7 +453,6 @@
                         <segue destination="tj5-5z-mTN" kind="presentation" identifier="Comment_ProfileSegue" id="HGD-My-UkH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kUK-3p-aRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12482.4" y="-5387.4384236453207"/>
         </scene>
