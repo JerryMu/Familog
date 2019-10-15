@@ -26,6 +26,7 @@
     
      override func viewDidLoad() {
          super.viewDidLoad()
+         print("CurrentUser:\(Api.User.currentUser)")
          // Do any additional setup after loading the view.
      }
      
@@ -87,9 +88,9 @@
                      let db = Firestore.firestore()
                      let currentUser = Api.User.currentUser
                                          
-                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "uid": currentUser, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId":"", "families": []] as [String : Any?]
+                    let user = ["email": email, "profileImageUrl": "", "firstname": firstName, "uid": currentUser!.uid, "dob": "Unknow", "bio" : "Write first bio", "postNumber" : 0, "familyId":"", "families": []] as [String : Any?]
                      
-                     db.collection("Users").document(currentUser).setData(user as [String : Any], completion: {(error) in
+                    db.collection("Users").document(currentUser!.uid).setData(user as [String : Any], completion: {(error) in
                          if error != nil {
                              Alert.presentAlert(on: self, with: "Error", message: "Saving user data")
                          }

@@ -51,7 +51,7 @@ class UploadViewController: UIViewController{
         }
     }
     func getFamilyId(_ image: UIImage) {
-        Api.User.REF_USERS.document(Api.User.currentUser).getDocument{(document, error) in
+        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
                     let familyId = document.get("familyId") as! String
                     self.uploadToFirebase(image, fid: familyId)

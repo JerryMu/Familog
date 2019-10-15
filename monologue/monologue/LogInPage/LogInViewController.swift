@@ -17,6 +17,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("CurrentUser:\(Api.User.currentUser)")
         // Do any additional setup after loading the view.
 //        Api.Family.getFamilyId()
     }
@@ -32,6 +33,7 @@ class LogInViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Validate first, if success then sign in and move to the timeline page
+        
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
                 Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)

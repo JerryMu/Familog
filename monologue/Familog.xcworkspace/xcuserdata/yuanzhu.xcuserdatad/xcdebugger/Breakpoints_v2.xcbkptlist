@@ -254,8 +254,8 @@
             filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "getFamilyId()"
             landmarkType = "7">
             <Locations>
@@ -302,10 +302,10 @@
             filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "TimelineViewController"
-            landmarkType = "3">
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "loadPosts(fid:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "A7B22563-0936-4A13-B6D3-EBAA4C286BE3 - a3c7464b027c302e"
@@ -350,22 +350,6 @@
             filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "loadPosts(fid:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "70F2B5EC-17A8-4B16-B205-1130F1BA333B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
             landmarkName = "loadPosts(fid:)"
@@ -375,7 +359,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBDF1BA2-9DA7-485A-BFA9-B578185D5B6C"
+            uuid = "70F2B5EC-17A8-4B16-B205-1130F1BA333B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -391,8 +375,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A06E86AD-B019-44A9-9F96-E2530739931D"
-            shouldBeEnabled = "Yes"
+            uuid = "EBDF1BA2-9DA7-485A-BFA9-B578185D5B6C"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
@@ -402,6 +386,70 @@
             endingLineNumber = "79"
             landmarkName = "loadPosts(fid:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A06E86AD-B019-44A9-9F96-E2530739931D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "monologue/MainPage/TimeLine/TimelineViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "loadPosts(fid:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "920166D0-DA1F-424A-B941-D33F685B7135"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "monologue/LogInPage/SignUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "signUpTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "920166D0-DA1F-424A-B941-D33F685B7135 - 835eeb7cb255a6fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Familog.SignUpViewController.signUpTapped(Any) -&gt; ()"
+                  moduleName = "Familog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuanzhu/Desktop/IT-Project/monologue/monologue/LogInPage/SignUpViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1768">
+               </Location>
+               <Location
+                  uuid = "920166D0-DA1F-424A-B941-D33F685B7135 - 40cf5dc4558e5a24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Familog.SignUpViewController.signUpTapped(Any) -&gt; ()"
+                  moduleName = "Familog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuanzhu/Desktop/IT-Project/monologue/monologue/LogInPage/SignUpViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

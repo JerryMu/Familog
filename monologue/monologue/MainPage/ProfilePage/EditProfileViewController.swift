@@ -163,7 +163,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             }
             //uploadToFirebase
             
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser)
+            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser!.uid)
             
             storageRef.putData((avatar.image?.pngData())!, metadata: nil){ (metadata, error) in
                 if error != nil {
