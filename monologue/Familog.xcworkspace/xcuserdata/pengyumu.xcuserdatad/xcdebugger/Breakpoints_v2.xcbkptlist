@@ -46,8 +46,8 @@
             filePath = "monologue/MainPage/ProfilePage/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "ProfileViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -314,38 +314,22 @@
             endingLineNumber = "30"
             landmarkName = "updateView()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C741190D-2E76-4D81-81CD-8A320C08653A - b00a1c76528081d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Familog.ProfileHeaderCollectionReusableView.updateView() -&gt; ()"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/ProfileHeaderCollectionReusableView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "1545">
-               </Location>
-               <Location
-                  uuid = "C741190D-2E76-4D81-81CD-8A320C08653A - e50cf08d99abed52"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; () in Familog.ProfileHeaderCollectionReusableView.updateView() -&gt; ()"
-                  moduleName = "Familog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pengyumu/Desktop/IT_Project/IT-Project/monologue/monologue/MainPage/ProfilePage/ProfileHeaderCollectionReusableView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "115">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC227B09-5131-4DC6-8D13-2A8B70FEC73C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "monologue/MainPage/ProfilePage/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

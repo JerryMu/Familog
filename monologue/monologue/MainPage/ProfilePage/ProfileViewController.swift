@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPost()
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self

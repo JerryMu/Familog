@@ -60,6 +60,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deletePostButtonTapped(_ sender : Any) {
+        print(self.postId)
         Api.Post.deletePost(PostId: self.postId)
     }
     
