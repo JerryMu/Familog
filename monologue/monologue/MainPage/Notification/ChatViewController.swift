@@ -11,7 +11,7 @@ import FirebaseFirestore
 import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController {
-  
+   let initImage =  #imageLiteral(resourceName: "Head_Icon")
   private var isSendingPhoto = false /* {
    didSet {
       DispatchQueue.main.async {
@@ -25,7 +25,7 @@ final class ChatViewController: MessagesViewController {
   private let db = Firestore.firestore()
   private var reference: CollectionReference?
   private let storage = Storage.storage().reference()
-
+    var imageView:UIImageView! = UIImageView()
   private var messages: [Message] = []
   private var messageListener: ListenerRegistration?
   
@@ -47,9 +47,29 @@ final class ChatViewController: MessagesViewController {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    func fetchUser(uid: String, completed:  @escaping () -> Void ) {
+        
+                Api.User.observeUser(withId: uid, completion: {
+                  user in
+                  if user.profileImageUrl == "" {
+                   print( "1233211232341234124  \(self.imageView.image)")
+                       print("rexxxxachchhchdaifcojweoa")
+                       self.imageView.image = self.initImage
+                   
+                  } else{
+                   let photoUrlString = user.profileImageUrl
+                   self.imageView.sd_setImage(with: URL(string: photoUrlString! ))}
+                  completed()
+              })
+
+    }
+
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
+        
+       
         
     guard let id = channel.id else {
       navigationController?.popViewController(animated: true)
@@ -94,10 +114,25 @@ final class ChatViewController: MessagesViewController {
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
     messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
    
+
   }
   
   // MARK: - Actions
-  
+  func downloadImage(from url: URL) {
+      print("Download Started")
+      getData(from: url) { data, response, error in
+          guard let data = data, error == nil else { return }
+          print(response?.suggestedFilename ?? url.lastPathComponent)
+          print("Download Finished")
+          DispatchQueue.main.async() {
+            self.imageView.image = UIImage(data: data)!
+          }
+      }
+  }
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
   @objc private func cameraButtonPressed() {
     let picker = UIImagePickerController()
     picker.delegate = self
@@ -114,7 +149,7 @@ final class ChatViewController: MessagesViewController {
   // MARK: - Helpers
   
   private func save(_ message: Message) {
-        print("rach")
+       
     reference?.addDocument(data: message.representation) { error in
       if let e = error {
         print("Error sending message: \(e.localizedDescription)")
@@ -300,7 +335,25 @@ extension ChatViewController: MessagesDisplayDelegate {
     let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
     return .bubbleTail(corner, .curved)
   }
-  
+   func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+   print("1")
+        let name = message.sender.displayName.components(separatedBy: " ").first
+          //
+          //     print(user.uid)
+        let initials = "\(name)"
+        self.fetchUser(uid: message.sender.senderId, completed: {
+            let avatar = Avatar(image: self.imageView.image, initials: initials)
+            avatarView.set(avatar: avatar)
+            })
+        
+      
+             
+        
+           
+       }
+       
+    
+
 }
 
 // MARK: - MessagesLayoutDelegate
@@ -360,7 +413,7 @@ extension ChatViewController: MessagesDataSource {
 extension ChatViewController: MessageInputBarDelegate {
   
   func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-        print("reach111")
+  
     let message = Message(user: user, content: text)
 
     save(message)

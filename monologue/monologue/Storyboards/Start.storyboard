@@ -149,7 +149,11 @@
                                     <rect key="frame" x="41" y="200" width="293" height="294"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="rfX-1z-slU">
-                                            <rect key="frame" x="107" y="24" width="81" height="36"/>
+                                            <rect key="frame" x="116.66666666666666" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="7DH-mK-Nkk"/>
+                                                <constraint firstAttribute="width" constant="60" id="uem-YB-eag"/>
+                                            </constraints>
                                         </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-6D-7j3">
                                             <rect key="frame" x="20" y="94" width="253" height="40"/>
@@ -219,23 +223,20 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.50461852549999997" green="0.70535296199999997" blue="0.85769456619999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="rfX-1z-slU" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="107" id="6tV-y3-a1K"/>
                                         <constraint firstAttribute="trailing" secondItem="x63-B3-aUN" secondAttribute="trailing" constant="20" id="DFP-eg-FLo"/>
                                         <constraint firstItem="x63-B3-aUN" firstAttribute="top" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="8" id="HJy-Dw-1c6"/>
-                                        <constraint firstItem="n8b-6D-7j3" firstAttribute="top" secondItem="rfX-1z-slU" secondAttribute="bottom" constant="34" id="Jam-bB-34Q"/>
                                         <constraint firstAttribute="bottom" secondItem="B04-Jg-gAU" secondAttribute="bottom" constant="20" id="Uf7-Au-1q4"/>
                                         <constraint firstAttribute="trailing" secondItem="n8b-6D-7j3" secondAttribute="trailing" constant="20" id="YbL-uT-8nj"/>
-                                        <constraint firstAttribute="bottom" secondItem="rfX-1z-slU" secondAttribute="bottom" constant="234" id="YrN-i0-lPw"/>
                                         <constraint firstAttribute="trailing" secondItem="ecb-WT-vqj" secondAttribute="trailing" constant="20" id="aPe-9a-zb5"/>
                                         <constraint firstItem="ecb-WT-vqj" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="dP1-4h-ir6"/>
                                         <constraint firstAttribute="trailing" secondItem="B04-Jg-gAU" secondAttribute="trailing" constant="61" id="ebi-Jh-8Iw"/>
                                         <constraint firstAttribute="bottom" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="112" id="gHO-Tf-fxI"/>
                                         <constraint firstAttribute="bottom" secondItem="ecb-WT-vqj" secondAttribute="bottom" constant="64" id="jiW-6w-aSW"/>
-                                        <constraint firstAttribute="trailing" secondItem="rfX-1z-slU" secondAttribute="trailing" constant="105" id="mHV-B0-AS9"/>
                                         <constraint firstAttribute="bottom" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="160" id="mLe-J8-IvM"/>
                                         <constraint firstItem="n8b-6D-7j3" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="mrb-0S-PCX"/>
-                                        <constraint firstItem="rfX-1z-slU" firstAttribute="top" secondItem="Nqs-Wi-7SO" secondAttribute="top" constant="24" id="o9m-0d-MEp"/>
+                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="nHP-sM-OXu"/>
                                         <constraint firstItem="B04-Jg-gAU" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="62" id="omP-HT-BDX"/>
+                                        <constraint firstItem="rfX-1z-slU" firstAttribute="top" secondItem="Nqs-Wi-7SO" secondAttribute="top" constant="10" id="rX7-iF-A4z"/>
                                         <constraint firstItem="ecb-WT-vqj" firstAttribute="top" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="8" id="tbG-J1-Vb0"/>
                                         <constraint firstItem="x63-B3-aUN" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="wDu-nz-wnB"/>
                                     </constraints>
@@ -267,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5U-I3-8pD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566.666666666667" y="515.625"/>
+            <point key="canvasLocation" x="2565.5999999999999" y="515.02463054187194"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="E8W-eb-RbI">
@@ -545,6 +546,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="25q-VI-4T4"/>
+        <segue reference="vE9-bx-knF"/>
     </inferredMetricsTieBreakers>
 </document>

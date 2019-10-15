@@ -11,7 +11,7 @@
         <!--Timeline-->
         <scene sceneID="L9y-sg-hy7">
             <objects>
-                <viewController storyboardIdentifier="timeLineVC" modalPresentationStyle="fullScreen" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeLineVC" modalPresentationStyle="fullScreen" interfaceStyle="light" id="54d-fd-gnY" customClass="TimelineViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YML-tG-442">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,13 +136,13 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Timeline" id="jsC-xk-USx">
                         <barButtonItem key="rightBarButtonItem" image="addNew" id="coO-WX-jdA">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="9u6-Z5-77Z" kind="presentation" modalPresentationStyle="overCurrentContext" id="Yoq-s8-BNF"/>
+                                <segue destination="9u6-Z5-77Z" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="Yoq-s8-BNF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="tj5-5z-mTN" kind="presentation" identifier="Home_ProfileSegue" id="3us-vA-pXP"/>
@@ -166,7 +166,7 @@
         <!--Upload View Controller-->
         <scene sceneID="owM-Lg-B3C">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="9u6-Z5-77Z" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="9u6-Z5-77Z" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="ytL-8q-vYm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -327,11 +327,11 @@
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="6HJ-ub-qbf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

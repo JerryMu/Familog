@@ -45,6 +45,7 @@ class ChannelsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchUser()
+    setCustomebBackImage()
     
 //    toolbarItems = [
 //
@@ -129,6 +130,9 @@ class ChannelsViewController: UITableViewController {
 //    currentChannelAlertController = ac
 //  }
   
+    func setCustomebBackImage(){
+      navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
   @objc private func textFieldDidChange(_ field: UITextField) {
     guard let ac = currentChannelAlertController else {
       return
@@ -147,8 +151,7 @@ class ChannelsViewController: UITableViewController {
     guard let userFamilies = self.currentUser.families else {
         return
     }
-    print(userFamilies)
-    print(channel.id!)
+   
     if(userFamilies.contains(channel.id!)){
         channels.append(channel)
         channels.sort()
@@ -224,7 +227,7 @@ extension ChannelsViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let channel = channels[indexPath.row]
-    print("currentUser")
+
 
     let vc = ChatViewController(user: currentUser, channel: channel)
     navigationController?.pushViewController(vc, animated: true)

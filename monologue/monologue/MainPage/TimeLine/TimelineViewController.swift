@@ -34,6 +34,8 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
+        
+        setCustomebBackImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +44,9 @@ class TimelineViewController: UIViewController {
         
     }
     
+    func setCustomebBackImage(){
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
     @objc func refresh() {
         posts.removeAll()
         users.removeAll()
