@@ -63,13 +63,12 @@ final class ChatViewController: MessagesViewController {
               })
 
     }
-
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
         
-       
+
         
     guard let id = channel.id else {
       navigationController?.popViewController(animated: true)
@@ -86,11 +85,15 @@ final class ChatViewController: MessagesViewController {
       
       snapshot.documentChanges.forEach { change in
         self.handleDocumentChange(change)
+        
+        
       }
+        
     }
+    
     configureMessageInputBar()
     navigationItem.largeTitleDisplayMode = .never
-    
+    scrollsToBottomOnKeyboardBeginsEditing = true
     maintainPositionOnKeyboardFrameChanged = true
     messageInputBar.inputTextView.tintColor = .primary
     messageInputBar.sendButton.setTitleColor(.primary, for: .normal)
@@ -114,8 +117,9 @@ final class ChatViewController: MessagesViewController {
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
     messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false) // 3
     
-  // self.messagesCollectionView.scrollToBottom()
+
   }
+    
      func configureMessageInputBar() {
        messageInputBar.delegate = self
           messageInputBar.inputTextView.tintColor = .primaryColor
@@ -205,7 +209,7 @@ final class ChatViewController: MessagesViewController {
         return
       }
       
-      self.messagesCollectionView.scrollToBottom()
+       self.messagesCollectionView.scrollToBottom(animated: true)
     }
   }
   
@@ -222,10 +226,10 @@ final class ChatViewController: MessagesViewController {
     
     messagesCollectionView.reloadData()
     
-   if shouldScrollToBottom {
+ //  if shouldScrollToBottom {
       DispatchQueue.main.async {
         self.messagesCollectionView.scrollToBottom(animated: true)
-      }
+   //   }
     }
     
   }
@@ -259,7 +263,8 @@ final class ChatViewController: MessagesViewController {
               
               self.insertNewMessage(message)
             }
-          
+         
+       
           
         default:
           break
@@ -288,7 +293,8 @@ final class ChatViewController: MessagesViewController {
           } else {
             insertNewMessage(message)
           }
-          
+         
+
         default:
           break
         }
@@ -347,7 +353,7 @@ final class ChatViewController: MessagesViewController {
       message.downloadURL = url
         
       self.save(message)
-      self.messagesCollectionView.scrollToBottom()
+       self.messagesCollectionView.scrollToBottom(animated: true)
     }
     
   }
@@ -385,7 +391,7 @@ extension ChatViewController: MessagesDisplayDelegate {
   
   func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
     return isFromCurrentSender(message: message) ? .primary : .incomingMessage
-    self.messagesCollectionView.scrollToBottom()
+    
   }
   
   func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
