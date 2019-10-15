@@ -93,8 +93,8 @@
                          if error != nil {
                              Alert.presentAlert(on: self, with: "Error", message: "Saving user data")
                          }
+                        self.moveToLogInPage()
                      })
-                     self.moveToLogInPage()
                  }
              }
          }

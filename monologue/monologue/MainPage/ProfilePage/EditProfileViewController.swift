@@ -111,7 +111,9 @@ class EditProfileViewController: UIViewController {
         if(bioTextView.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
-        moveToProfilePage()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.moveToProfilePage()
+        }
     }
     
     func moveToProfilePage() {
@@ -133,6 +135,7 @@ class EditProfileViewController: UIViewController {
     @IBAction func cameraTapped(_ sender: Any) {
         let pickerController = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            pickerController.allowsEditing = true
             pickerController.sourceType = .camera
             pickerController.delegate = self
             present(pickerController, animated: true, completion: nil)
