@@ -166,7 +166,7 @@
         <!--Upload View Controller-->
         <scene sceneID="owM-Lg-B3C">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="9u6-Z5-77Z" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="9u6-Z5-77Z" customClass="UploadViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="ytL-8q-vYm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -174,6 +174,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-gS-6nH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <state key="normal" title="returnButton">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="dismissPopup:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="Gm5-9x-wcm"/>
+                                    </connections>
+                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TQ-vD-D4A" userLabel="ContentView">
                                     <rect key="frame" x="17.666666666666657" y="150" width="340" height="450"/>
                                     <subviews>
@@ -201,16 +210,6 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-gS-6nH">
-                                            <rect key="frame" x="-24" y="-189" width="383" height="855"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="returnButton">
-                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="dismissPopup:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="Gm5-9x-wcm"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select photo from:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-4P-q5R">
                                             <rect key="frame" x="83" y="232.33333333333331" width="174" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -327,7 +326,11 @@
                                 </view>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="mty-gS-6nH" secondAttribute="trailing" id="LwV-Xc-6Pq"/>
+                                <constraint firstItem="mty-gS-6nH" firstAttribute="top" secondItem="kvL-pZ-H1X" secondAttribute="top" id="Ycr-bR-iB5"/>
                                 <constraint firstItem="9TQ-vD-D4A" firstAttribute="centerX" secondItem="kvL-pZ-H1X" secondAttribute="centerX" id="e0E-Q4-Zwe"/>
+                                <constraint firstItem="mty-gS-6nH" firstAttribute="leading" secondItem="kvL-pZ-H1X" secondAttribute="leading" id="fZQ-EH-Zcb"/>
+                                <constraint firstAttribute="bottom" secondItem="mty-gS-6nH" secondAttribute="bottom" id="lAf-Hz-HQn"/>
                                 <constraint firstItem="9TQ-vD-D4A" firstAttribute="top" secondItem="kvL-pZ-H1X" secondAttribute="top" constant="150" id="oI1-3u-l2h"/>
                             </constraints>
                         </view>
@@ -346,7 +349,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7zg-7q-k7a">
             <objects>
-                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="lQs-2V-bCt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="light" id="lQs-2V-bCt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Timeline" id="XB2-MA-DGf" colorLabel="IBBuiltInLabel-Red">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
@@ -373,7 +376,7 @@
         <!--Comment-->
         <scene sceneID="vIG-X8-LOl">
             <objects>
-                <viewController storyboardIdentifier="CommentViewController" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aJv-2v-UGa" customClass="CommentViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentViewController" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="aJv-2v-UGa" customClass="CommentViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAd-t5-o0u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

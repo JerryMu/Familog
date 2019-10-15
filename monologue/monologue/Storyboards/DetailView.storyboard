@@ -31,7 +31,7 @@
         <!--Detail View Controller-->
         <scene sceneID="lig-GZ-Bw6">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fB1-mE-2gz" customClass="DetailViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="fB1-mE-2gz" customClass="DetailViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YWe-nR-Wk6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
         <!--Navigation Controller-->
         <scene sceneID="SB0-hg-pjU">
             <objects>
-                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Sad-pw-Tbx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="light" id="Sad-pw-Tbx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Timeline" id="FIe-9N-9D7" colorLabel="IBBuiltInLabel-Red">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>

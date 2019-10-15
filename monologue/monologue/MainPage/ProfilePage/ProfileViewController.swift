@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController {
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.posts.removeAll()
                 self.fetchPost()
                 self.fetchUser()
             }

@@ -11,7 +11,7 @@
         <!--Edit Profile View Controller-->
         <scene sceneID="gty-j7-RHo">
             <objects>
-                <viewController id="YsS-rB-R2k" customClass="EditProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="YsS-rB-R2k" customClass="EditProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="lwj-tm-h7S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,7 +122,6 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="saveBtn_TouchUpInside:" destination="YsS-rB-R2k" eventType="touchUpInside" id="RHY-4H-QBG"/>
-                                                <segue destination="CHL-4N-RvH" kind="show" id="e2S-8k-OaU"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1s-Mk-nQf" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
@@ -302,7 +301,7 @@
         <!--Profile View Controller-->
         <scene sceneID="Elz-hg-bge">
             <objects>
-                <viewController storyboardIdentifier="ProfileStoryBoard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CHL-4N-RvH" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileStoryBoard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="CHL-4N-RvH" customClass="ProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ggS-C5-GEa"/>
                         <viewControllerLayoutGuide type="bottom" id="sje-4t-1Ig"/>
@@ -448,7 +447,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JSI-1G-AMx">
-                                <rect key="frame" x="10" y="382.66666666666674" width="355" height="346.33333333333326"/>
+                                <rect key="frame" x="10" y="382.66666666666674" width="355" height="395.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NQb-df-9CK">
                                     <size key="itemSize" width="84" height="86"/>
@@ -515,7 +514,7 @@
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="9VF-pc-HKp"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="JSI-1G-AMx" id="Br0-UO-SMG"/>
                         <outlet property="familyId" destination="WGt-62-Xfj" id="JO1-hW-KN9"/>
@@ -544,7 +543,7 @@
         <!--Others Profile View Controller-->
         <scene sceneID="hTr-ai-Wg3">
             <objects>
-                <viewController storyboardIdentifier="OtherPeopleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A4p-Ka-C1r" customClass="OthersProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherPeopleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="A4p-Ka-C1r" customClass="OthersProfileViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YCW-7d-sGc"/>
                         <viewControllerLayoutGuide type="bottom" id="Tzy-7d-WPc"/>
