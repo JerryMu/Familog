@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mY0-HY-BDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12690" y="-5834"/>
+            <point key="canvasLocation" x="-12705" y="-5792"/>
         </scene>
         <!--OtherPeopleViewController-->
         <scene sceneID="Amw-Lx-2QO">
@@ -154,7 +154,7 @@
                     <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
                     <connections>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
-                        <segue destination="Pyd-rl-Mg1" kind="show" identifier="Detail_CommentVC" id="xFy-lc-Vax"/>
+                        <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
                     </connections>
                 </viewController>
