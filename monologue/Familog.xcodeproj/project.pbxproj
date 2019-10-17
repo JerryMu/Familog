@@ -23,7 +23,6 @@
 		384120742348896A006EC47E /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384120732348896A006EC47E /* Post_CommentApi.swift */; };
 		3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */; };
 		3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D9412351EBAE004F8544 /* ChatUser.swift */; };
-		38880F162333323400E407A2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38880F152333323400E407A2 /* NotificationViewController.swift */; };
 		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
 		38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C3234C4AB300168FD1 /* Post_Comment.swift */; };
 		38D4CF24234EC0500006155D /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF23234EC0500006155D /* ChannelsViewController.swift */; };
@@ -110,7 +109,6 @@
 		384120732348896A006EC47E /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
 		3846D9412351EBAE004F8544 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
-		38880F152333323400E407A2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		38C822C3234C4AB300168FD1 /* Post_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Comment.swift; sourceTree = "<group>"; };
 		38D4CF23234EC0500006155D /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
@@ -408,7 +406,6 @@
 		B2BF697C2333345A00E846D5 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				38880F152333323400E407A2 /* NotificationViewController.swift */,
 				38D4CF23234EC0500006155D /* ChannelsViewController.swift */,
 				38D4CF25234EC06A0006155D /* ChatViewController.swift */,
 			);
@@ -729,7 +726,6 @@
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,
 				38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */,
 				3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */,
-				38880F162333323400E407A2 /* NotificationViewController.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
 				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,

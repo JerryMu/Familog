@@ -73,9 +73,6 @@ class CommentTableViewCell: UITableViewCell {
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
         }
     }
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         commentLabel.text = ""
@@ -90,9 +87,6 @@ class CommentTableViewCell: UITableViewCell {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
-    
-
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         profileImageView.image = UIImage(named: "placeholderImg")

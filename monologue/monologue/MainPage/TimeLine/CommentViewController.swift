@@ -30,24 +30,21 @@ class CommentViewController: UIViewController {
         Api.User.observeUser(withId: currentUser!, completion: {
                        user in
             if let photoUrlString = user.profileImageUrl {
-               let photoUrl = URL(string: photoUrlString)
+                let photoUrl = URL(string: photoUrlString)
                 self.currentUserAvatar.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
            }
-                       
-                     
-                   })
-   
-    }
+        })
+   }
     @objc func refresh() {
-           comments.removeAll()
-           users.removeAll()
-           load()
-           refreshControl.endRefreshing()
-       }
-    func load(){
-    Api.User.observeCurrentUser(){ currentUser in
-        self.loadPosts(postId : self.postId)
+        comments.removeAll()
+        users.removeAll()
+        load()
+        refreshControl.endRefreshing()
     }
+    func load(){
+        Api.User.observeCurrentUser(){ currentUser in
+            self.loadPosts(postId : self.postId)
+        }
     }
 
     func loadPosts(postId : String) {
@@ -57,51 +54,18 @@ class CommentViewController: UIViewController {
         } else {
             for document in querySnapshot!.documents {
                 let comment = Comment.transformComment(dict: document.data())
-                  
-                    self.fetchUser(uid: comment.uid!, completed: {
-                                          
-                        self.comments.append(comment)
-                                                         
-                        self.tableView.reloadData()
-                    
+                self.fetchUser(uid: comment.uid!, completed: {
+                    self.comments.append(comment)
+                    self.tableView.reloadData()
                 })
             }
-        }
+            }
     }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserInfo()
-      
-   /*     reference = Firestore.firestore().collection(["Post-comments", self.postId, "Comment"].joined(separator: "/"))
-       
-        
-        messageListener = reference?.addSnapshotListener { querySnapshot, error in
-          guard let snapshot = querySnapshot else {
-            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-            return
-          }
-          
-          snapshot.documentChanges.forEach { change in
-           
-           
-            self.commentID =  change.document.data()["commentsID"] as? String
-            
-         print("333\(self.commentID)")
-            Api.Comment.observeComments(commentID: self.commentID, postId: self.postId){comment in
-                print("123\(comment.commentText)")
-                           self.fetchUser(uid: comment.uid!, completed: {
-                           
-                                              self.comments.append(comment)
-                                          
-                                              self.tableView.reloadData()
-                                          })
-                       }
-            
-            
-            }
-        }*/
         self.refresh()
         title = "Comment"
         tableView.dataSource = self
@@ -109,22 +73,14 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         empty()
         handleTextField()
-     
-
-    }
-    
-         
-        
-    
-    //test
+     }
+     //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
-        
-                Api.User.observeUser(withId: uid, completion: {
-                  user in
-                  self.users.append(user)
-                  completed()
-              })
-
+        Api.User.observeUser(withId: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()
+        })
     }
    
     func handleTextField() {
@@ -153,10 +109,8 @@ class CommentViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    
-    //
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
-         let timestamp = Int(Date().timeIntervalSince1970)
+        let timestamp = Int(Date().timeIntervalSince1970)
         let ref =   Firestore.firestore().collection("Comment").document().documentID
         let text = self.commentTextField.text!
         reference?.addDocument(data:[
@@ -165,24 +119,21 @@ class CommentViewController: UIViewController {
             print("Error sending message: \(e.localizedDescription)")
             return
           }
-          }
+        }
         Firestore.firestore().collection("Comment").document(ref).setData([
-                                  "commentText": text,
-                                  "timestamp": timestamp,
-                                  "uid": self.currentUser! ,
-                                   "postId":self.postId
-                                  
-                              ]) { err in
-                                  if let err = err {
-                                      print("Error writing document: \(err)")
-                                  } else {
-                                      print("Document successfully written!")
-                                  }
-                              }
-        
+            "commentText": text,
+            "timestamp": timestamp,
+            "uid": self.currentUser! ,
+            "postId":self.postId]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
         self.empty()
         self.view.endEditing(true)
-    refresh()
+        refresh()
     }
     
     
@@ -191,7 +142,6 @@ class CommentViewController: UIViewController {
         self.sendButton.isEnabled = false
         sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
     }
-    
   }
 
 
