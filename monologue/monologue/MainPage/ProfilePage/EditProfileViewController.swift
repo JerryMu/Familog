@@ -99,10 +99,13 @@ class EditProfileViewController: UIViewController {
     
     
     func fetchCurrentUser() {
-//        Api.User.observeCurrentUser(){
-//            user in
-//            self.user = user
-//        }
+        Api.User.observeCurrentUser(){
+            user in
+            if let photoUrlString = user.profileImageUrl {
+                let photoUrl = URL(string: photoUrlString)
+                self.avatar.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+            }
+        }
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
 //            ProgressHUD.show("Waiting...")
