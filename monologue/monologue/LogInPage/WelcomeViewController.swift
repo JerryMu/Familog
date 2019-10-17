@@ -13,8 +13,6 @@
     @IBOutlet weak var logInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CurrentUser:\(Api.User.currentUser)")
-        // Do any additional setup after loading the view.
     }
  }
  
