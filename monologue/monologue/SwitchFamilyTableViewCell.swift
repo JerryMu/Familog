@@ -26,7 +26,9 @@ class SwitchFamilyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func famliyTapped(_ sender: Any) {
-        TimelineViewController.familyId = familyId
+        print("famliyTapped")
+        Api.User.setCurrentUser(dictionary: ["familyId" : familyId])
+//        TimelineViewController.familyId = familyId
         delegate?.moveToTimeLinePage()
     }
     

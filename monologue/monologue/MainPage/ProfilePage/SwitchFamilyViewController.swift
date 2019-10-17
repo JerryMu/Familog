@@ -7,8 +7,10 @@
 
 import UIKit
 
-class SwitchFamilyViewController: UITableViewController {
+class SwitchFamilyViewController: UIViewController{
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -16,7 +18,6 @@ class SwitchFamilyViewController: UITableViewController {
         getFamilies()
     }
     
-    @IBOutlet weak var tableView: UITableView!
     
     var families = [Family]()
     var familyDict : [String: String] = [:]
@@ -63,7 +64,10 @@ class SwitchFamilyViewController: UITableViewController {
     }
 
     
-
+    @IBAction func newFamilyButtonTouch(_ sender: Any) {
+        moveToFamilyPage()
+    }
+    
 }
 extension SwitchFamilyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +86,12 @@ extension SwitchFamilyViewController: UITableViewDataSource {
 
 extension SwitchFamilyViewController: SwitchFamilyTableViewCellDelegate {
     func moveToTimeLinePage() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
+    func moveToFamilyPage(){
         let storyBoard = UIStoryboard(name: "Family", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
         self.present(newViewController, animated: true, completion: nil)
