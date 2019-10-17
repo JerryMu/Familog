@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SwitchFamilyViewController: UIViewController {
+class SwitchFamilyViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
