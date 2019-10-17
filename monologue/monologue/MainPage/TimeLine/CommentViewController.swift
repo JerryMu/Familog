@@ -10,7 +10,8 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class CommentViewController: UIViewController {
-
+     let refreshControl = UIRefreshControl()
+    var commentRef = Firestore.firestore().collection("Comment")
     @IBOutlet weak var currentUserAvatar: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
@@ -25,11 +26,55 @@ class CommentViewController: UIViewController {
     var commentIDList :[String] = []
     var commentID: String!
     
+    func setupUserInfo() {
+        Api.User.observeUser(withId: currentUser!, completion: {
+                       user in
+            if let photoUrlString = user.profileImageUrl {
+               let photoUrl = URL(string: photoUrlString)
+                self.currentUserAvatar.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+           }
+                       
+                     
+                   })
+   
+    }
+    @objc func refresh() {
+           comments.removeAll()
+           users.removeAll()
+           load()
+           refreshControl.endRefreshing()
+       }
+    func load(){
+    Api.User.observeCurrentUser(){ currentUser in
+        self.loadPosts(postId : self.postId)
+    }
+    }
+
+    func loadPosts(postId : String) {
+        commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
+        if let err = err {
+            print("Error getting documents: \(err)")
+        } else {
+            for document in querySnapshot!.documents {
+                let comment = Comment.transformComment(dict: document.data())
+                  
+                    self.fetchUser(uid: comment.uid!, completed: {
+                                          
+                        self.comments.append(comment)
+                                                         
+                        self.tableView.reloadData()
+                    
+                })
+            }
+        }
+    }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUserInfo()
       
-        reference = Firestore.firestore().collection(["Post-comments", self.postId, "Comment"].joined(separator: "/"))
+   /*     reference = Firestore.firestore().collection(["Post-comments", self.postId, "Comment"].joined(separator: "/"))
        
         
         messageListener = reference?.addSnapshotListener { querySnapshot, error in
@@ -43,8 +88,9 @@ class CommentViewController: UIViewController {
            
             self.commentID =  change.document.data()["commentsID"] as? String
             
-         
-            Api.Comment.observeComments(commentID: self.commentID){comment in
+         print("333\(self.commentID)")
+            Api.Comment.observeComments(commentID: self.commentID, postId: self.postId){comment in
+                print("123\(comment.commentText)")
                            self.fetchUser(uid: comment.uid!, completed: {
                            
                                               self.comments.append(comment)
@@ -55,7 +101,8 @@ class CommentViewController: UIViewController {
             
             
             }
-        }
+        }*/
+        self.refresh()
         title = "Comment"
         tableView.dataSource = self
         tableView.estimatedRowHeight = 77
@@ -109,6 +156,7 @@ class CommentViewController: UIViewController {
     
     //
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
+         let timestamp = Int(Date().timeIntervalSince1970)
         let ref =   Firestore.firestore().collection("Comment").document().documentID
         let text = self.commentTextField.text!
         reference?.addDocument(data:[
@@ -120,7 +168,10 @@ class CommentViewController: UIViewController {
           }
         Firestore.firestore().collection("Comment").document(ref).setData([
                                   "commentText": text,
+                                  "timestamp": timestamp,
                                   "uid": self.currentUser! ,
+                                   "postId":self.postId
+                                  
                               ]) { err in
                                   if let err = err {
                                       print("Error writing document: \(err)")
@@ -131,7 +182,7 @@ class CommentViewController: UIViewController {
         
         self.empty()
         self.view.endEditing(true)
-    
+    refresh()
     }
     
     

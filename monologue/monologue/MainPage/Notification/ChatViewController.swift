@@ -9,6 +9,7 @@ import Firebase
 import MessageKit
 import FirebaseFirestore
 import InputBarAccessoryView
+import YPImagePicker
 
 final class ChatViewController: MessagesViewController {
    let initImage =  #imageLiteral(resourceName: "Head_Icon")
@@ -185,6 +186,18 @@ final class ChatViewController: MessagesViewController {
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
+ /*   @IBAction func cameraTapped(_ sender: Any) {
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                self.selectImage = photo.image
+                self.avatar.image = self.selectImage
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+        
+    }*/
     
   @objc private func cameraButtonPressed() {
     let picker = UIImagePickerController()

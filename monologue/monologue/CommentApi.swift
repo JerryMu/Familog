@@ -12,22 +12,12 @@ class CommentApi {
      var commentRef = Firestore.firestore().collection("Comment")
      let currentUser = Auth.auth().currentUser?.uid
   
-  /*  var REF_COMMENTS = Database.database().reference().child("comments")
-    
-    func observeComments(withPostId id: String, completion: @escaping (Comment) -> Void) {
-        REF_COMMENTS.child(id).observeSingleEvent(of: .value, with: {
-            snapshot in
-            if let dict = snapshot.value as? [String: Any] {
-                let newComment = Comment.transformComment(dict: dict)
-                completion(newComment)
-            }
-        })
-    }*/
+  
     // get the comment
-    func observeComments(commentID: String, completion : @escaping (Comment) -> Void){
-               commentRef.document(commentID)
+/*    func observeComments(commentID: String, completion : @escaping (Comment) -> Void){
+        commentRef.document(commentID)
              .addSnapshotListener { documentSnapshot, error in
-               guard let document = documentSnapshot else {
+                guard let document = documentSnapshot else {
                  print("Error fetching document: \(error!)")
                  return
                }
@@ -42,7 +32,7 @@ class CommentApi {
                 }
          }
          
-         }
+         }*/
     func updateComment(commentId: String, newComment : String)
     {
         let commentref = commentRef.document(commentId)
@@ -50,16 +40,23 @@ class CommentApi {
         commentref.updateData(["uid" :currentUser! ,"commentText" :newComment])
 
     }
-  /*  func setupComment(postId: String, newComment : String)
-     {
-        let commentref = commentRef.document(postId)
-         
-         commentref.putData(["uid" :currentUser ,"commentText" :newComment ])
-
+    func observeCommentsBycommentID(commentID: String) -> Query{
+        return commentRef.order(by: "timestamp", descending: true)
      }
-     
-    */
     
+    func observeComments(commentID: String,postId: String, completion : @escaping (Comment) -> Void){
+       
+       commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let comment = Comment.transformComment(dict: document.data())
+              completion(comment)
+                                 }
+                          }
+                          
+                          }
 
-
+}
 }

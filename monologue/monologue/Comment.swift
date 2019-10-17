@@ -9,7 +9,7 @@ import Foundation
 class Comment {
     var commentText: String?
     var uid: String?
-    
+    var timestamp : Int?
     init(commentText: String, uid: String){
         self.commentText = commentText
         self.uid = uid
@@ -21,6 +21,7 @@ extension Comment {
         let comment = Comment(commentText: "", uid: "")
         comment.commentText = dict["commentText"] as? String
         comment.uid = dict["uid"] as? String
+        comment.timestamp = dict["timestamp"] as? Int
         return comment
     }
 }
