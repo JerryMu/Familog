@@ -31,14 +31,14 @@
             </objects>
             <point key="canvasLocation" x="1123" y="1551"/>
         </scene>
-        <!--Channel-->
+        <!--Family Chat-->
         <scene sceneID="VLA-uF-SeV">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="osa-bq-emt" customClass="ChannelsViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="group Chat" id="ER8-dg-qFL">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Channel" id="Zgt-bW-323"/>
+                    <navigationItem key="navigationItem" title="Family Chat" id="Zgt-bW-323"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQi-XO-U3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
