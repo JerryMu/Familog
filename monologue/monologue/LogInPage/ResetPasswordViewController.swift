@@ -17,14 +17,6 @@ class ResetPasswordViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    // Move to log in page
-    func moveToLogInPage() {
-        let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let logInViewController = storyboard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
-        self.present(logInViewController, animated: true, completion: nil)
-    }
-    
     // The function of reset password
     @IBAction func resetPasswordTapped(_ sender: Any) {
         // Validate the email address, if it is nil, shows error message
@@ -45,4 +37,12 @@ class ResetPasswordViewController: UIViewController {
             
         }
     }
+    
+    // Move to log in page
+    func moveToLogInPage() {
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let logInViewController = storyboard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
+        self.present(logInViewController, animated: true, completion: nil)
+    }
+
 }

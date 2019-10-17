@@ -11,37 +11,81 @@ class SwitchFamilyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+        tableView.dataSource = self
+        getFamilies()
     }
-    var familys : [String: String] = [:]
     
-    func switchFamily() {
-        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
-            if let document = document, document.exists {
-                let familys = document.get("families") as! [String]
-                for familyId in familys {
-                    Api.Family.REF_FAMILY.document(familyId).getDocument{(document, error) in
-                        if let document = document, document.exists {
-                            let familyName = document.get("familyName") as! String
-                            self.familys[familyName] = familyId
-                        } else {
-                            Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
-                        }
+    @IBOutlet weak var tableView: UITableView!
+    
+    var families = [Family]()
+    var familyDict : [String: String] = [:]
+    
+    func getFamilies() {
+//        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
+//            if let document = document, document.exists {
+//                let families = document.get("families") as! [String]
+//                for familyId in families {
+//                    Api.Family.REF_FAMILY.document(familyId).getDocument{(document, error) in
+//                        if let document = document, document.exists {
+//                            let family = Family.transformFamily(dict: document.data()!)
+//                            self.families.append(family)
+//                            print("FAMILY\(self.familyDict)")
+//                            self.familyDict[family.uid!] = family.familyName
+//                        } else {
+//                            Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+//                        }
+//                    }
+//                }
+//            } else {
+//                Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+//            }
+//        }
+        Api.User.REF_USERS.document(Api.User.currentUser!.uid).addSnapshotListener{ documentSnapshot, error in
+            if let document = documentSnapshot {
+                let families = document.get("families") as! [String]
+                for familyId in families {
+                Api.Family.REF_FAMILY.document(familyId).addSnapshotListener{ documentSnapshot, error in
+                    if let document = documentSnapshot {
+                        let family = Family.transformFamily(dict: document.data()!)
+                        self.families.append(family)
+                        self.familyDict[family.uid!] = family.familyName
+                        self.tableView.reloadData()
+                    } else {
+                        Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+                    }
                     }
                 }
             } else {
-                Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+                 Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
             }
         }
-    }
-    
-    //TimelineViewController.familyId
-    
-    func moveToFamilyPage() {
-        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
-        self.present(newViewController, animated: true, completion: nil)
     }
 
     
 
 }
+extension SwitchFamilyViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return families.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyCell", for: indexPath) as! SwitchFamilyTableViewCell
+        let family = families[indexPath.row]
+        cell.famliyButton.text(familyDict[family.uid!]!)
+        cell.familyId = family.uid!
+        cell.delegate = self
+        return cell
+        
+    }
+}
+
+extension SwitchFamilyViewController: SwitchFamilyTableViewCellDelegate {
+    func moveToTimeLinePage() {
+        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
+        self.present(newViewController, animated: true, completion: nil)
+    }
+}
+
+

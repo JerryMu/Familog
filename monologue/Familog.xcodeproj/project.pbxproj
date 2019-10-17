@@ -49,6 +49,8 @@
 		862AD3DD230298C400CB350C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862AD3DB230298C400CB350C /* LaunchScreen.storyboard */; };
 		862AD3F3230298C400CB350C /* monologueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862AD3F2230298C400CB350C /* monologueUITests.swift */; };
 		862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862AD4002302AB1000CB350C /* GoogleService-Info.plist */; };
+		865C17462358738A00EC9679 /* SwitchFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */; };
+		865C174823587B9600EC9679 /* MoveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C174723587B9600EC9679 /* MoveApi.swift */; };
 		866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F797223154AF90059FB81 /* ResetPasswordViewController.swift */; };
 		86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */; };
 		86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */; };
@@ -144,6 +146,8 @@
 		862AD3F2230298C400CB350C /* monologueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monologueUITests.swift; sourceTree = "<group>"; };
 		862AD3F4230298C400CB350C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		862AD4002302AB1000CB350C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFamilyTableViewCell.swift; sourceTree = "<group>"; };
+		865C174723587B9600EC9679 /* MoveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveApi.swift; sourceTree = "<group>"; };
 		866F797223154AF90059FB81 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFamilyViewController.swift; sourceTree = "<group>"; };
 		86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */,
 				35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */,
 				3841206D234841BC006EC47E /* CommentTableViewCell.swift */,
+				865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				B2603E942344660000797EF8 /* FamilyApi.swift */,
 				3841207123488836006EC47E /* CommentApi.swift */,
 				384120732348896A006EC47E /* Post_CommentApi.swift */,
+				865C174723587B9600EC9679 /* MoveApi.swift */,
 			);
 			name = HelperClass;
 			sourceTree = "<group>";
@@ -702,6 +708,7 @@
 				38C822C22349F91800168FD1 /* Comment.swift in Sources */,
 				38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
+				865C17462358738A00EC9679 /* SwitchFamilyTableViewCell.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
@@ -716,6 +723,7 @@
 				86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */,
 				38EFE8962352C7B90092C4AF /* Message.swift in Sources */,
 				38D4CF31234EC73F0006155D /* UIColor+Additions.swift in Sources */,
+				865C174823587B9600EC9679 /* MoveApi.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,
@@ -949,13 +957,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -970,13 +978,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = X7CP88LH3K;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

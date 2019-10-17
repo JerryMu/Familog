@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHL-4N-RvH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHL-4N-RvH">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -135,6 +135,9 @@
                                                     <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="aVN-i7-QfD" kind="presentation" id="83O-dv-RXu"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKO-PR-LJS" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
                                             <rect key="frame" x="94.666666666666686" y="442" width="150" height="40"/>
@@ -251,41 +254,46 @@
             </objects>
             <point key="canvasLocation" x="2749.5999999999999" y="-321.42857142857144"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Switch Family View Controller-->
         <scene sceneID="YKz-JR-J1p">
             <objects>
-                <tableViewController id="aVN-i7-QfD" sceneMemberID="viewController">
+                <tableViewController id="aVN-i7-QfD" customClass="SwitchFamilyViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d0y-BH-Dwa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="73" id="f1y-QN-35b">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FamliyCell" rowHeight="73" id="f1y-QN-35b" customClass="SwitchFamilyTableViewCell" customModule="Familog" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f1y-QN-35b" id="CCh-kJ-RG5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-kL-LPS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
-                                            <state key="normal" title="Family 1"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxx-Pe-00i">
+                                            <rect key="frame" x="16" y="11" width="343" height="51"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="famliyTapped:" destination="f1y-QN-35b" eventType="touchUpInside" id="VQ3-NQ-Cwi"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="HJR-kL-LPS" secondAttribute="bottom" id="3ps-YH-0tU"/>
-                                        <constraint firstItem="HJR-kL-LPS" firstAttribute="leading" secondItem="CCh-kJ-RG5" secondAttribute="leading" id="6eH-ac-WTc"/>
-                                        <constraint firstAttribute="trailing" secondItem="HJR-kL-LPS" secondAttribute="trailing" id="Vac-5z-0Qi"/>
-                                        <constraint firstItem="HJR-kL-LPS" firstAttribute="top" secondItem="CCh-kJ-RG5" secondAttribute="top" id="kNo-IA-uvJ"/>
+                                        <constraint firstItem="Zxx-Pe-00i" firstAttribute="top" secondItem="CCh-kJ-RG5" secondAttribute="topMargin" id="Ew3-RA-KCT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Zxx-Pe-00i" secondAttribute="trailing" id="IFb-GR-ydc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Zxx-Pe-00i" secondAttribute="bottom" id="U2S-Sh-STY"/>
+                                        <constraint firstItem="Zxx-Pe-00i" firstAttribute="leading" secondItem="CCh-kJ-RG5" secondAttribute="leadingMargin" id="jzx-Wu-sqc"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="famliyButton" destination="Zxx-Pe-00i" id="8VQ-8d-Dc0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aVN-i7-QfD" id="0VY-Hz-Sl8"/>
-                            <outlet property="delegate" destination="aVN-i7-QfD" id="CVZ-Mk-xNN"/>
-                        </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="d0y-BH-Dwa" id="gJH-Wa-vpG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCP-li-NMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

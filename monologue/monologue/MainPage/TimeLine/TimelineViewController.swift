@@ -17,7 +17,7 @@ class TimelineViewController: UIViewController {
     
     var posts = [Post]()
     var users = [User]()
-    var familyId: String = ""
+    static var familyId: String = ""
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
     let refreshControl = UIRefreshControl()
@@ -34,7 +34,6 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        
         setCustomebBackImage()
     }
     
@@ -57,8 +56,8 @@ class TimelineViewController: UIViewController {
     func getFamilyId() {
         Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
-                    self.familyId = document.get("familyId") as! String
-                    if self.familyId == "" {
+                    TimelineViewController.self.familyId = document.get("familyId") as! String
+                    if TimelineViewController.self.familyId == "" {
                         self.moveToFamilyPage()
                     }
                 }

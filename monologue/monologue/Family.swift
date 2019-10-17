@@ -17,9 +17,9 @@ class Family {
     var userNumber : Int?
 }
 
-extension User {
+extension Family {
     
-    static func transformFamily(dict: [String: Any], key: String) -> Family {
+    static func transformFamily(dict: [String: Any]) -> Family {
         let family = Family()
         family.profileImageUrl = dict["profileImageUrl"] as? URL
         family.familyName = dict["familyName"] as? String

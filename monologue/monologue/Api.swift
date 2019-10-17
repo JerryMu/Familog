@@ -13,6 +13,7 @@ struct Api {
     static var Post = PostApi()
     static var Family = FamilyApi()
     static var Comment = CommentApi()
+    static var Move = MoveApi()
     static var Post_Comment = Post_CommentApi()
     
 }
