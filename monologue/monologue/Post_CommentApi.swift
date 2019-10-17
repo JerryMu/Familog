@@ -34,7 +34,7 @@ class Post_CommentApi {
     {
         let post_commentref = post_commentRef.document(postid)
         
-            post_commentref .updateData(["commentid" : commentsID])
+            post_commentref.updateData(["commentid" : commentsID])
 
     }
 }

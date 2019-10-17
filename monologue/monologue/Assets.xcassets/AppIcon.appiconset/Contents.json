@@ -3,109 +3,109 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "settlement.png",
+      "filename" : "appicon.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 2.png",
+      "filename" : "appicon-1.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "58*58.png",
+      "filename" : "appicon-2.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 4.png",
+      "filename" : "appicon-3.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 5.png",
+      "filename" : "appicon-4.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 7-1.png",
+      "filename" : "appicon-5.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 7.png",
+      "filename" : "appicon-6.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "settlement的副本 6.png",
+      "filename" : "appicon-7.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "20*20.png",
+      "filename" : "appicon-8.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "settlement-1.png",
+      "filename" : "appicon-9.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "settlement的副本 2-1.png",
+      "filename" : "appicon-17.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "58*58-1.png",
+      "filename" : "appicon-16.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "settlement-2.png",
+      "filename" : "appicon-15.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "settlement的副本 5-1.png",
+      "filename" : "appicon-14.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "settlement的副本 3.png",
+      "filename" : "appicon-13.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "settlement的副本 2-2.png",
+      "filename" : "appicon-12.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "167*167.png",
+      "filename" : "appicon-11.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "settlement的副本 4-1.png",
+      "filename" : "appicon-10.png",
       "scale" : "1x"
     }
   ],
