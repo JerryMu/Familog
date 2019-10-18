@@ -10,18 +10,14 @@ import UIKit
 class SwitchFamilyViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.reloadData()
-        tableView.dataSource = self
-        getFamilies()
-    }
-    
-    
     var families = [Family]()
     var familyDict : [String: String] = [:]
-    
+    override func viewDidLoad() {
+          super.viewDidLoad()
+          tableView.reloadData()
+          tableView.dataSource = self
+          getFamilies()
+      }
     func getFamilies() {
 //        Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
 //            if let document = document, document.exists {

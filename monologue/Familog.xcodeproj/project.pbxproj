@@ -21,7 +21,6 @@
 		3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206D234841BC006EC47E /* CommentTableViewCell.swift */; };
 		3841207223488836006EC47E /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841207123488836006EC47E /* CommentApi.swift */; };
 		384120742348896A006EC47E /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384120732348896A006EC47E /* Post_CommentApi.swift */; };
-		3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */; };
 		3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D9412351EBAE004F8544 /* ChatUser.swift */; };
 		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
 		38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C3234C4AB300168FD1 /* Post_Comment.swift */; };
@@ -34,7 +33,6 @@
 		38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF34234EC7800006155D /* UIView+Additions.swift */; };
 		38D4CF8D234EEB920006155D /* FamilogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF8C234EEB920006155D /* FamilogTests.swift */; };
 		38D4CF99234EEDF60006155D /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF98234EEDF60006155D /* UserTests.swift */; };
-		38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */; };
 		38EFE8962352C7B90092C4AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE8952352C7B90092C4AF /* Message.swift */; };
 		38EFE8982352C7C70092C4AF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE8972352C7C70092C4AF /* Channel.swift */; };
 		66D3CBEEB8E3F0075044E746 /* Pods_FamilogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */; };
@@ -107,7 +105,6 @@
 		3841206D234841BC006EC47E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		3841207123488836006EC47E /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		384120732348896A006EC47E /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
-		3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
 		3846D9412351EBAE004F8544 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		38C822C3234C4AB300168FD1 /* Post_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Comment.swift; sourceTree = "<group>"; };
@@ -122,7 +119,6 @@
 		38D4CF8C234EEB920006155D /* FamilogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilogTests.swift; sourceTree = "<group>"; };
 		38D4CF8E234EEB920006155D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38D4CF98234EEDF60006155D /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
-		38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		38EFE8952352C7B90092C4AF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		38EFE8972352C7C70092C4AF /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		3DE50D5C7EDD78A4A5589BB9 /* Pods-FamilogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogUITests/Pods-FamilogUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,7 +224,6 @@
 				38C822C12349F91800168FD1 /* Comment.swift */,
 				38C822C3234C4AB300168FD1 /* Post_Comment.swift */,
 				38D4CF2B234EC0CD0006155D /* DatabaseRepresentation.swift */,
-				3846D93F2351E822004F8544 /* Settings+UserDefaults.swift */,
 				3846D9412351EBAE004F8544 /* ChatUser.swift */,
 				38EFE8952352C7B90092C4AF /* Message.swift */,
 				38EFE8972352C7C70092C4AF /* Channel.swift */,
@@ -248,7 +243,6 @@
 		35E6A2E32332616C00B66E4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				38DF0BA22333011A0051C21E /* NotificationTableViewCell.swift */,
 				35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */,
 				3841206D234841BC006EC47E /* CommentTableViewCell.swift */,
 				865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */,
@@ -697,7 +691,6 @@
 				384120742348896A006EC47E /* Post_CommentApi.swift in Sources */,
 				3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */,
 				861572002333631B00AD5CB5 /* UploadViewController.swift in Sources */,
-				38DF0BA32333011A0051C21E /* NotificationTableViewCell.swift in Sources */,
 				35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */,
 				862AD3D5230298C200CB350C /* WelcomeViewController.swift in Sources */,
 				B2603E952344660000797EF8 /* FamilyApi.swift in Sources */,
@@ -725,7 +718,6 @@
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,
 				38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */,
-				3846D9402351E822004F8544 /* Settings+UserDefaults.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
 				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,

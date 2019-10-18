@@ -2,7 +2,7 @@
 //  NotificationViewController.swift
 //  Familog
 //
-//  Created by 刘仕晟 on 2019/10/10.
+//  Created by shisheng liu on 2019/10/10.
 //
 //  The entire file is working for the notification page
 
@@ -11,74 +11,35 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class ChannelsViewController: UITableViewController {
-    
-//  private let toolbarLabel: UILabel = {
-//    let label = UILabel()
-//    label.textAlignment = .center
-//    label.font = UIFont.systemFont(ofSize: 15)
-//    return label
-//  }()
-    
-    
-   
   var currentUser: User!
   private let channelCellIdentifier = "channelCell"
   private var currentChannelAlertController: UIAlertController?
-   let uid =  Auth.auth().currentUser!.uid
+  let uid =  Auth.auth().currentUser!.uid
   private let db = Firestore.firestore()
-  
   private var channelReference: CollectionReference {
     return db.collection("channels")
   }
-  
   private var channels = [Channel]()
   private var channelListener: ListenerRegistration?
-  
- 
-  
   deinit {
     channelListener?.remove()
   }
-  
-
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchUser()
     setCustomebBackImage()
-    
-//    toolbarItems = [
-//
-//      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-//      UIBarButtonItem(customView: toolbarLabel),
-//      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-//      UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
-//    ]
-//    channelListener = channelReference.addSnapshotListener { querySnapshot, error in
-//      guard let snapshot = querySnapshot else {
-//        print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-//        return
-//      }
-//
-//      snapshot.documentChanges.forEach { change in
-//        self.handleDocumentChange(change)
-//      }
-//    }
   }
-    
-    func fetchUser(){
+  func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
             self.currentUser = user
             self.clearsSelectionOnViewWillAppear = true
             self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.channelCellIdentifier)
-            
             self.channelListener = self.channelReference.addSnapshotListener { querySnapshot, error in
               guard let snapshot = querySnapshot else {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                 return
               }
-              
               snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
               }
@@ -101,36 +62,8 @@ class ChannelsViewController: UITableViewController {
   }
   
   // MARK: - Actions
-  
-  
-  
-//  @objc private func addButtonPressed() {
-//    let ac = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
-//    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//    ac.addTextField { field in
-//      field.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-//      field.enablesReturnKeyAutomatically = true
-//      field.autocapitalizationType = .words
-//      field.clearButtonMode = .whileEditing
-//      field.placeholder = "Channel name"
-//      field.returnKeyType = .done
-//      field.tintColor = .primary
-//    }
-//
-//    let createAction = UIAlertAction(title: "Create", style: .default, handler: { _ in
-//      self.createChannel()
-//    })
-//    createAction.isEnabled = false
-//    ac.addAction(createAction)
-//    ac.preferredAction = createAction
-//
-//    present(ac, animated: true) {
-//      ac.textFields?.first?.becomeFirstResponder()
-//    }
-//    currentChannelAlertController = ac
-//  }
-  
-    func setCustomebBackImage(){
+
+  func setCustomebBackImage(){
       navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
   @objc private func textFieldDidChange(_ field: UITextField) {
