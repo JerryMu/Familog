@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQs-2V-bCt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQs-2V-bCt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -262,7 +262,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.80174225570000002" green="0.90605419870000004" blue="0.97544652220000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="9Xa-y6-dpe" firstAttribute="centerX" secondItem="9TQ-vD-D4A" secondAttribute="centerX" id="5jd-9r-Owq"/>
                                         <constraint firstItem="NNA-8G-ulq" firstAttribute="top" secondItem="cs1-1Y-x9g" secondAttribute="bottom" constant="8" id="7Fm-AU-5GI"/>
@@ -520,6 +520,6 @@
         <image name="addNewPic" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d63-la-oRC"/>
+        <segue reference="3us-vA-pXP"/>
     </inferredMetricsTieBreakers>
 </document>
