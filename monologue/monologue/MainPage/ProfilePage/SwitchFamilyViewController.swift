@@ -79,6 +79,7 @@ extension SwitchFamilyViewController: UITableViewDataSource {
         return cell
         
     }
+    
 }
 
 extension SwitchFamilyViewController: SwitchFamilyTableViewCellDelegate {
@@ -89,9 +90,7 @@ extension SwitchFamilyViewController: SwitchFamilyTableViewCellDelegate {
     }
     
     func moveToFamilyPage(){
-        let storyBoard = UIStoryboard(name: "Family", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
-        self.present(newViewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "Profile_FamilySegue", sender: nil)
     }
 }
 

@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="Rmc-yZ-qxV">
             <objects>
-                <viewController storyboardIdentifier="familyVC" modalPresentationStyle="fullScreen" interfaceStyle="light" id="EWq-Ns-TvE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="familyVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="EWq-Ns-TvE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2my-RF-1fb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,6 +338,7 @@
                         <blurEffect style="light"/>
                     </visualEffectView>
                     <connections>
+                        <outlet property="creatFamilyButton" destination="GnH-wi-WjZ" id="EoA-Ey-PSd"/>
                         <outlet property="familyIdTextField" destination="t4D-2b-0tH" id="eCe-jE-Nf5"/>
                         <outlet property="familyNameTextField" destination="Oaf-KD-rKp" id="G0t-ZF-jqE"/>
                     </connections>
