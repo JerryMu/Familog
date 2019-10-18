@@ -225,6 +225,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="x63-B3-aUN" secondAttribute="trailing" constant="20" id="DFP-eg-FLo"/>
                                         <constraint firstItem="x63-B3-aUN" firstAttribute="top" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="8" id="HJy-Dw-1c6"/>
+                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="OqQ-O4-2M3"/>
                                         <constraint firstAttribute="bottom" secondItem="B04-Jg-gAU" secondAttribute="bottom" constant="20" id="Uf7-Au-1q4"/>
                                         <constraint firstAttribute="trailing" secondItem="n8b-6D-7j3" secondAttribute="trailing" constant="20" id="YbL-uT-8nj"/>
                                         <constraint firstAttribute="trailing" secondItem="ecb-WT-vqj" secondAttribute="trailing" constant="20" id="aPe-9a-zb5"/>
@@ -233,9 +234,7 @@
                                         <constraint firstAttribute="bottom" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="112" id="gHO-Tf-fxI"/>
                                         <constraint firstAttribute="bottom" secondItem="ecb-WT-vqj" secondAttribute="bottom" constant="64" id="jiW-6w-aSW"/>
                                         <constraint firstAttribute="bottom" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="160" id="mLe-J8-IvM"/>
-                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="mRa-aP-yg5"/>
                                         <constraint firstItem="n8b-6D-7j3" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="mrb-0S-PCX"/>
-                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="nHP-sM-OXu"/>
                                         <constraint firstItem="B04-Jg-gAU" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="62" id="omP-HT-BDX"/>
                                         <constraint firstItem="rfX-1z-slU" firstAttribute="top" secondItem="Nqs-Wi-7SO" secondAttribute="top" constant="10" id="rX7-iF-A4z"/>
                                         <constraint firstItem="ecb-WT-vqj" firstAttribute="top" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="8" id="tbG-J1-Vb0"/>
@@ -547,6 +546,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="25q-VI-4T4"/>
+        <segue reference="vE9-bx-knF"/>
     </inferredMetricsTieBreakers>
 </document>

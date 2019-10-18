@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKw-Y7-U6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-1032"/>
+            <point key="canvasLocation" x="4406" y="552"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="gty-j7-RHo">
@@ -394,7 +394,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCP-li-NMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="-1029"/>
+            <point key="canvasLocation" x="3662" y="552"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Elz-hg-bge">

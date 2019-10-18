@@ -160,7 +160,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7w-3c-ofW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13656" y="-4961"/>
+            <point key="canvasLocation" x="-13661" y="-4864"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="owM-Lg-B3C">
@@ -508,7 +508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSk-QB-7aV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12482" y="-5317"/>
+            <point key="canvasLocation" x="-12482" y="-5300"/>
         </scene>
     </scenes>
     <resources>
@@ -520,6 +520,6 @@
         <image name="addNewPic" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3us-vA-pXP"/>
+        <segue reference="d63-la-oRC"/>
     </inferredMetricsTieBreakers>
 </document>
