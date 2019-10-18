@@ -8,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--familyVC-->
+        <scene sceneID="Xcw-gv-uCO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Family" referencedIdentifier="familyVC" id="cjX-eP-wZG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aVg-3h-cKO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKw-Y7-U6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2719" y="-1032"/>
+        </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="gty-j7-RHo">
             <objects>
@@ -379,6 +389,7 @@
                     </tableView>
                     <connections>
                         <outlet property="tableView" destination="d0y-BH-Dwa" id="pTr-KC-2an"/>
+                        <segue destination="cjX-eP-wZG" kind="presentation" identifier="Profile_FamilySegue" modalPresentationStyle="automatic" id="h2R-bE-bLz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCP-li-NMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
