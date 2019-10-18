@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 //import FirebaseFirestore
 
 class LogInViewController: UIViewController {
@@ -33,7 +34,7 @@ class LogInViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
-                Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
+                ProgressHUD.showError(error!.localizedDescription)
             } else {
                 Api.User.REF_USERS.whereField("email", isEqualTo: email).getDocuments() { (querySnapshot, err) in
                         if let err = err {

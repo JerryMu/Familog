@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class ResetPasswordViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class ResetPasswordViewController: UIViewController {
     @IBAction func resetPasswordTapped(_ sender: Any) {
         // Validate the email address, if it is nil, shows error message
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            Alert.presentAlert(on: self, with: "Error!", message: "Please fill your email address")
+            ProgressHUD.showError("Please fill your email address")
         }
             
             // If the email address is not nil, send the reset password email to it
@@ -29,7 +30,7 @@ class ResetPasswordViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().sendPasswordReset(withEmail: email) { (error) in
                 if error != nil {
-                    Alert.presentAlert(on: self, with: "Error!", message: error!.localizedDescription)
+                     ProgressHUD.showError(error!.localizedDescription)
                 }
                 
             }

@@ -14,6 +14,7 @@ class TimelineViewController: UIViewController {
 //  Each of our tablecells is dynamic.
 //  It can determine the width of each cell based on the length of the text uploaded by the user.
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var posts = [Post]()
     var users = [User]()
@@ -32,7 +33,7 @@ class TimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 650
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
-        setCustomebBackImage()
+        loading.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +83,7 @@ class TimelineViewController: UIViewController {
                     }
                     self.fetchUser(uid: postUid, completed: {
                         self.posts.append(post)
+                        self.loading.stopAnimating()
                         self.tableView.reloadData()
                     })
                     

@@ -9,21 +9,21 @@ import UIKit
 
 class MoveApi: UIViewController {
     
-    func moveToTimeLinePage() {
+    func moveToTimeLinePage(vc: UIViewController) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
-        self.present(newViewController, animated: true, completion: nil)
+        vc.present(newViewController, animated: true, completion: nil)
     }
     
-    func moveToFamilyPage() {
+    func moveToFamilyPage(vc: UIViewController) {
         let storyBoard = UIStoryboard(name: "Family", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")
-        self.present(newViewController, animated: true, completion: nil)
+        vc.present(newViewController, animated: true, completion: nil)
     }
 
-    func moveToLogInPage() {
+    func moveToLogInPage(vc: UIViewController) {
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let logInViewController = storyboard.instantiateViewController(withIdentifier: "logInVC") as! LogInViewController
-        self.present(logInViewController, animated: true, completion: nil)
+        vc.present(logInViewController, animated: true, completion: nil)
     }
 }

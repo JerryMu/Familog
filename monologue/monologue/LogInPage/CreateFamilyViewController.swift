@@ -7,12 +7,12 @@
 
 import UIKit
 import FirebaseFirestore
+import ProgressHUD
 class CreateFamilyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         familyIdTextField.text! = randomString()
-        print("CurrentUser:\(Api.User.currentUser)")
         // Do any additional setup after loading the view.
     }
     
@@ -29,7 +29,7 @@ class CreateFamilyViewController: UIViewController {
         creatFamilyButton.isEnabled = false
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyName == "" {
-            Alert.presentAlert(on: self, with: "Error!", message: "You must fill family name")
+            ProgressHUD.showError("You must fill family name")
             return
         }
         
@@ -41,9 +41,8 @@ class CreateFamilyViewController: UIViewController {
         let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
-                Alert.presentAlert(on: self, with: "Error", message: "Can not Creat this family!")
+                ProgressHUD.showError("Can not Creat this family!")
             } else {
-                
                 // add channel to firebase
                 let channel = Channel(name: familyName, id : familyId)
                 Firestore.firestore().collection("channels").addDocument(data: channel.representation) { error in
@@ -63,14 +62,16 @@ class CreateFamilyViewController: UIViewController {
                     {
                         err in
                         if err != nil {
-                            Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+                            ProgressHUD.showError("Can not create this family!")
                         } else {
-                            Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
-                            self.moveToTimeLinePage()
+                            ProgressHUD.showSuccess("Create family successfully!", interaction: false)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.moveToTimeLinePage()
+                            }
                         }
                     }
                 } else {
-                    Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+                    ProgressHUD.showError("Can not get families!")
                     }
                 }
             }
