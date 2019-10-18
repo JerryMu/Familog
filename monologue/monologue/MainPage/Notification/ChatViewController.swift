@@ -53,6 +53,7 @@ final class ChatViewController: MessagesViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     guard let id = channel.id else {
         navigationController?.popViewController(animated: true)
         return
@@ -77,7 +78,7 @@ final class ChatViewController: MessagesViewController {
     messagesCollectionView.messagesDataSource = self
     messagesCollectionView.messagesLayoutDelegate = self
     messagesCollectionView.messagesDisplayDelegate = self
-    let cameraItem = makeButton(named: "ic_hashtag")
+    let cameraItem = makeButton(named: "addNewPicture")
     cameraItem.addTarget(
         self,
         action: #selector(cameraButtonPressed),
