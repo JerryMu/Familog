@@ -18,6 +18,7 @@ class CreateFamilyViewController: UIViewController {
     
     @IBOutlet weak var familyNameTextField: UITextField!
     
+    @IBOutlet weak var creatFamilyButton: DesignableButton!
     @IBOutlet weak var familyIdTextField: UITextField!
     
     @IBAction func dismissPopup(_ sender: UIButton) {
@@ -25,7 +26,7 @@ class CreateFamilyViewController: UIViewController {
     }
     
     @IBAction func createTapped(_ sender: Any) {
-        
+        creatFamilyButton.isEnabled = false
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyName == "" {
             Alert.presentAlert(on: self, with: "Error!", message: "You must fill family name")
