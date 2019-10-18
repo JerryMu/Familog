@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SwitchFamilyViewController: UIViewController{
 
@@ -49,12 +50,12 @@ class SwitchFamilyViewController: UIViewController{
                         self.familyDict[family.uid!] = family.familyName
                         self.tableView.reloadData()
                     } else {
-                        Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+                        ProgressHUD.showError("Can not get families!")
                     }
                     }
                 }
             } else {
-                 Alert.presentAlert(on: self, with: "Error", message: "Can not get families!")
+                 ProgressHUD.showError("Can not get families!")
             }
         }
     }

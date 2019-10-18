@@ -16,6 +16,7 @@ target 'Familog' do
   pod 'SDWebImage', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'YPImagePicker'
+  pod 'ProgressHUD'
   # Pods for Familog
 
   target 'FamilogTests' do

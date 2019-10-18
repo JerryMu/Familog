@@ -120,6 +120,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-2Z-Hiq">
+                                <rect key="frame" x="177" y="352" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -143,6 +147,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loading" destination="Yod-2Z-Hiq" id="oPi-va-C9T"/>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="tj5-5z-mTN" kind="presentation" identifier="Home_ProfileSegue" id="3us-vA-pXP"/>
                         <segue destination="aJv-2v-UGa" kind="show" identifier="CommentSegue" id="4Y6-nI-AtL"/>

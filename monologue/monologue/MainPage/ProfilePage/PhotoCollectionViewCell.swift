@@ -28,7 +28,7 @@ class PhotoCollectionViewCell : UICollectionViewCell {
     func updateView() {
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
-            photo.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+            photo.sd_setImage(with: photoUrl, placeholderImage: nil)
             
         }
         

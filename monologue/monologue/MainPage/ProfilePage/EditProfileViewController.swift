@@ -16,6 +16,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import Photos
 import YPImagePicker
+import ProgressHUD
 
 protocol EditProfileControllerDelegate {
     func updateUserInfor()
@@ -108,7 +109,7 @@ class EditProfileViewController: UIViewController {
         }
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
-//            ProgressHUD.show("Waiting...")
+        ProgressHUD.show("Waiting...")
         if(nameTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["firstname" : nameTextField.text!])
         }
@@ -123,7 +124,8 @@ class EditProfileViewController: UIViewController {
         }
         
         else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            ProgressHUD.showSuccess("Update Successfully", interaction: false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.moveToProfilePage()
             }
         }
@@ -150,6 +152,7 @@ class EditProfileViewController: UIViewController {
     }
     
     func uploadAvatar(){
+        ProgressHUD.show("Waiting...", interaction: false)
         let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("Avatar").child(Api.User.currentUser!.uid)
         
         storageRef.putData((avatar.image?.jpegData(compressionQuality: 0.1))!, metadata: nil){ (metadata, error) in
@@ -162,7 +165,10 @@ class EditProfileViewController: UIViewController {
                 return
                 }
                 Api.User.setCurrentUser(dictionary:["profileImageUrl" : downloadURL.absoluteString])
-                self.moveToProfilePage()
+                ProgressHUD.showSuccess("Update Successfully", interaction: false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.moveToProfilePage()
+                }
             }
             
         }

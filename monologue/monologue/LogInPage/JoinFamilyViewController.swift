@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import ProgressHUD
 
 class JoinFamilyViewController: UIViewController {
 
@@ -25,8 +26,9 @@ class JoinFamilyViewController: UIViewController {
     @IBAction func joinTapped(_ sender: Any) {
         
         let familyId = familyIdTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+        // Must fill family ID
         if familyId == "" {
-            Alert.presentAlert(on: self, with: "Error", message: "Please enter family!")
+            ProgressHUD.showError("Please enter family!")
             return
         }
         
@@ -39,7 +41,7 @@ class JoinFamilyViewController: UIViewController {
                     familys.append(document.documentID)
                 }
                 if !familys.contains(familyId) {
-                    Alert.presentAlert(on: self, with: "Error", message: "Can not find this family!")
+                    ProgressHUD.showError("Can not find this family!")
                     return
                 } else {
                     Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
@@ -49,14 +51,16 @@ class JoinFamilyViewController: UIViewController {
                             Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(  ["familyId": familyId, "families": familys])
                                 {err in
                                     if err != nil {
-                                        Alert.presentAlert(on: self, with: "Error", message: "Can not join this family!")
+                                        ProgressHUD.showError("Can not join this family!")
                                     } else {
-                                        Alert.presentAlert(on: self, with: "Success", message: "Join family successfully!")
-                                        self.moveToTimeLinePage()
+                                        ProgressHUD.showSuccess("Join family successfully!", interaction: false)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                            self.moveToTimeLinePage()
+                                        }
                                     }
                                 }
                             } else {
-                                Alert.presentAlert(on: self, with: "Error", message: "Can not get familys!")
+                               ProgressHUD.showError("Can not get familys!")
                             }
                     }
                 }

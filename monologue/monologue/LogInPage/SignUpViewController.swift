@@ -9,6 +9,7 @@
  import UIKit
  import FirebaseAuth
  import FirebaseFirestore
+ import ProgressHUD
    
  class SignUpViewController: UIViewController {
      
@@ -68,7 +69,7 @@
          
          if error != nil {
              // something wrong show error message!
-             Alert.presentAlert(on: self, with: "Error!", message: error!)
+             ProgressHUD.showError(error!)
          }
          else {
              // Create users
@@ -80,7 +81,7 @@
              Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                  
                  if err != nil {
-                     Alert.presentAlert(on: self, with:"Error", message: "Creating user fail, Please try using a different email account")
+                     ProgressHUD.showError("Creating user fail, Please try using a different email account")
                  }
                  else {
                      let db = Firestore.firestore()
@@ -90,9 +91,12 @@
                      
                     db.collection("Users").document(currentUser!.uid).setData(user as [String : Any], completion: {(error) in
                          if error != nil {
-                             Alert.presentAlert(on: self, with: "Error", message: "Saving user data")
+                             ProgressHUD.showError("Saving user data")
                          }
-                        self.moveToLogInPage()
+                        ProgressHUD.showSuccess("Sign Up Successfully", interaction: false)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.moveToLogInPage()
+                        }
                      })
                  }
              }

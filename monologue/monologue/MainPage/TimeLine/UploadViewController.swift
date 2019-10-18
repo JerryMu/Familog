@@ -10,6 +10,8 @@ import FirebaseFirestore
 import AVFoundation
 import FirebaseAuth
 import YPImagePicker
+import ProgressHUD
+
 class UploadViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,7 @@ class UploadViewController: UIViewController{
     
     // Upload image to Firebase
     func uploadToFirebase(_ image: UIImage, fid : String) {
+        ProgressHUD.show("Waiting...", interaction: false)
         let imageName = NSUUID().uuidString
         // Set the image folder in the firebase storage
         let imageRef = Storage.storage().reference(forURL: "gs://monologue-10303.appspot.com/").child("images").child(imageName)
@@ -63,19 +66,18 @@ class UploadViewController: UIViewController{
         if  let uploadData = image.jpegData(compressionQuality: 0.8) {
             imageRef.putData(uploadData, metadata: nil) {(metadata, error) in
                 if error != nil {
-                    Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
+                    ProgressHUD.showError("Failed to upload")
                     return
                 }
                 imageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
-                        Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
+                        ProgressHUD.showError("Failed to upload")
                         return
                     }
                     guard let downloadurl = url else {
-                        Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
+                        ProgressHUD.showError("Failed to upload")
                         return
-                    }
-                    
+                    }                    
                     // Upload the image download URL and uid to the database
                     let db = Firestore.firestore()
                     let postRef = db.collection("Post").document()
@@ -90,11 +92,13 @@ class UploadViewController: UIViewController{
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
-                            Alert.presentAlert(on: self, with: "Error", message: "Failed to upload")
+                            ProgressHUD.showError("Failed to upload")
                             return
                         }
-                        self.moveToTimeLinePage()
-                        
+                        ProgressHUD.showSuccess("Upload Successfully", interaction: false)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.moveToTimeLinePage()
+                        }
                     })
                 })
             }
@@ -104,11 +108,11 @@ class UploadViewController: UIViewController{
     
     @IBAction func shareTapped(_ sender: Any) {
         if selectedImage == nil {
-            Alert.presentAlert(on: self, with: "Error", message: "You must pick one Photo")
+            ProgressHUD.showError("You must pick one Photo")
             return
         }
         if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "" {
-            Alert.presentAlert(on: self, with: "Error", message: "You must fill description")
+            ProgressHUD.showError("You must fill description")
             return
         }
         self.ShareButton.isEnabled = false
