@@ -21,9 +21,7 @@ class TimelineViewController: UIViewController {
     let currentUser = Auth.auth().currentUser!.uid
     let userRef = Firestore.firestore().collection("User")
     let refreshControl = UIRefreshControl()
-//    let NaviImg = UIImage(named: "NaviBackground")
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
