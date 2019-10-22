@@ -89,7 +89,9 @@ class TimelineTableViewCell: UITableViewCell {
         captionLabel.text = ""
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
+        profileImageView.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
+        profileImageView.isUserInteractionEnabled = true
         
         let tapGestureForImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.postImageView_TouchUpInside))
         postImageView.addGestureRecognizer(tapGestureForImageLabel)

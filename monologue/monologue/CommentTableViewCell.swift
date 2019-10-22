@@ -78,7 +78,9 @@ class CommentTableViewCell: UITableViewCell {
         commentLabel.text = ""
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
+        profileImageView.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
+        profileImageView.isUserInteractionEnabled = true
     }
     
     //for jump to view other users profile page
