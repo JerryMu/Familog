@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
     var user: User!
     var posts: [Post] = []
     var uid =  Api.User.currentUser!.uid
-    let initImage =  "https://firebasestorage.googleapis.com/v0/b/monologue-10303.appspot.com/o/Avatar%2Fy8sEy6wi7VU2XzQ7IrwOyNpu4tD2?alt=media&token=04c3c554-eb96-4a49-b348-3f1404759acb"
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -108,7 +107,10 @@ extension ProfileViewController: UICollectionViewDataSource {
         userNameLabel.text = user?.firstname
         userBioLabel.text = user?.bio
         userDobLabel.text = user?.dob
-        userAvatar.sd_setImage(with: URL(string: user?.profileImageUrl ?? initImage))
+        if let avatarString = user?.profileImageUrl {
+            let avatarUrl = URL(string: avatarString)
+            userAvatar.sd_setImage(with: avatarUrl, placeholderImage: nil)
+        }
         Api.Family.getFamilyNameById(familyId: user.familyId!){
             name in
             self.familyName.text = name

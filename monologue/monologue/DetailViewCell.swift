@@ -20,6 +20,7 @@ class DetailViewCell:UITableViewCell{
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    
     var timelineVC : TimelineViewController?
     var delegate: DetailTableViewCellDelegate?
     

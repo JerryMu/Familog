@@ -21,10 +21,12 @@ class JoinFamilyViewController: UIViewController {
     }
     
     @IBOutlet weak var familyIdTextField: UITextField!
+    @IBOutlet weak var joinButton: DesignableButton!
     
     
     @IBAction func joinTapped(_ sender: Any) {
         
+        ProgressHUD.show("Waiting...", interaction: false)
         let familyId = familyIdTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         // Must fill family ID
         if familyId == "" {
@@ -48,7 +50,8 @@ class JoinFamilyViewController: UIViewController {
                         if let document = document, document.exists {
                             var familys = document.get("families") as! [String]
                             familys.append(familyId)
-                            Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(  ["familyId": familyId, "families": familys])
+                            let newFamilys = Array(Set(familys))
+                            Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(  ["familyId": familyId, "families": newFamilys])
                                 {err in
                                     if err != nil {
                                         ProgressHUD.showError("Can not join this family!")
