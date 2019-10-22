@@ -88,6 +88,10 @@ class DetailViewCell:UITableViewCell{
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
+        
+        let tapGestureForUserImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        profileImageView.addGestureRecognizer(tapGestureForUserImageLabel)
+        profileImageView.isUserInteractionEnabled = true
        
         
     }
