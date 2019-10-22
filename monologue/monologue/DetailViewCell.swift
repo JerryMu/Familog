@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Vision
 
 protocol DetailTableViewCellDelegate {
     func goToCommentVC(postId: String)
@@ -14,7 +15,15 @@ protocol DetailTableViewCellDelegate {
 }
 
 class DetailViewCell:UITableViewCell{
+    let classificationModel = MobileNetV2()
+             
+             // MARK: - Vision Properties
+             var request: VNCoreMLRequest?
+             var visionModel: VNCoreMLModel?
     
+    @IBOutlet weak var top1ConfidenceLabel: UILabel!
+    
+    @IBOutlet weak var top1ResultLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -69,8 +78,19 @@ class DetailViewCell:UITableViewCell{
             }
             
             timeLabel.text = timeText
+            setUpModel()
+            self.predict(with: URL(string:post!.url!)!)
         }
     }
+    func setUpModel() {
+            if let visionModel = try? VNCoreMLModel(for: classificationModel.model) {
+                self.visionModel = visionModel
+                request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+                request?.imageCropAndScaleOption = .scaleFill
+            } else {
+                fatalError()
+            }
+        }
     
     func setupUserInfo() {
         nameLabel.text = user?.firstname
@@ -118,6 +138,23 @@ class DetailViewCell:UITableViewCell{
         // Configure the view for the selected state
     }
 
-    
-
+    func predict(with url: URL) {
+           guard let request = request else { fatalError() }
+           
+           // vision framework configures the input size of image following our model's input configuration automatically
+           let handler = VNImageRequestHandler(url: url, options: [:])
+           try? handler.perform([request])
+       }
+    // post-processing
+    func visionRequestDidComplete(request: VNRequest, error: Error?) {
+        print(request)
+        
+        if let result = request.results?.first as? VNClassificationObservation {
+            top1ResultLabel.text = result.identifier
+            top1ConfidenceLabel.text = "\(String(format: "%.2f", result.confidence * 100))%"
+        } else {
+            top1ResultLabel.text = "no result"
+            top1ConfidenceLabel.text = "--%"
+        }
+    }
 }

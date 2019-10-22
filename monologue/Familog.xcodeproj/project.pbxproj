@@ -23,6 +23,19 @@
 		3841207223488836006EC47E /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841207123488836006EC47E /* CommentApi.swift */; };
 		384120742348896A006EC47E /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384120732348896A006EC47E /* Post_CommentApi.swift */; };
 		3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D9412351EBAE004F8544 /* ChatUser.swift */; };
+		38997E51235F178E0041BD4B /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997E40235F176F0041BD4B /* VideoCapture.swift */; };
+		38997E52235F178E0041BD4B /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997E41235F176F0041BD4B /* Measure.swift */; };
+		38997E53235F178E0041BD4B /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E44235F178E0041BD4B /* Resnet50.mlmodel */; };
+		38997E54235F178E0041BD4B /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E45235F178E0041BD4B /* Resnet50FP16.mlmodel */; };
+		38997E55235F178E0041BD4B /* Resnet50Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E46235F178E0041BD4B /* Resnet50Int8LUT.mlmodel */; };
+		38997E56235F178E0041BD4B /* Resnet50Headless.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E47235F178E0041BD4B /* Resnet50Headless.mlmodel */; };
+		38997E57235F178E0041BD4B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E49235F178E0041BD4B /* MobileNet.mlmodel */; };
+		38997E58235F178E0041BD4B /* MobileNetV2FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E4A235F178E0041BD4B /* MobileNetV2FP16.mlmodel */; };
+		38997E59235F178E0041BD4B /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E4B235F178E0041BD4B /* MobileNetV2.mlmodel */; };
+		38997E5A235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E4C235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel */; };
+		38997E5B235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E4E235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel */; };
+		38997E5C235F178E0041BD4B /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E4F235F178E0041BD4B /* SqueezeNet.mlmodel */; };
+		38997E5D235F178E0041BD4B /* SqueezeNetFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E50235F178E0041BD4B /* SqueezeNetFP16.mlmodel */; };
 		38C822C22349F91800168FD1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C12349F91800168FD1 /* Comment.swift */; };
 		38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C822C3234C4AB300168FD1 /* Post_Comment.swift */; };
 		38D4CF24234EC0500006155D /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CF23234EC0500006155D /* ChannelsViewController.swift */; };
@@ -109,6 +122,19 @@
 		3841207123488836006EC47E /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		384120732348896A006EC47E /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		3846D9412351EBAE004F8544 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		38997E40235F176F0041BD4B /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		38997E41235F176F0041BD4B /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		38997E44235F178E0041BD4B /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		38997E45235F178E0041BD4B /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
+		38997E46235F178E0041BD4B /* Resnet50Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50Int8LUT.mlmodel; sourceTree = "<group>"; };
+		38997E47235F178E0041BD4B /* Resnet50Headless.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50Headless.mlmodel; sourceTree = "<group>"; };
+		38997E49235F178E0041BD4B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		38997E4A235F178E0041BD4B /* MobileNetV2FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2FP16.mlmodel; sourceTree = "<group>"; };
+		38997E4B235F178E0041BD4B /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		38997E4C235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2Int8LUT.mlmodel; sourceTree = "<group>"; };
+		38997E4E235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNetInt8LUT.mlmodel; sourceTree = "<group>"; };
+		38997E4F235F178E0041BD4B /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		38997E50235F178E0041BD4B /* SqueezeNetFP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNetFP16.mlmodel; sourceTree = "<group>"; };
 		38C822C12349F91800168FD1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		38C822C3234C4AB300168FD1 /* Post_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_Comment.swift; sourceTree = "<group>"; };
 		38D4CF23234EC0500006155D /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +282,57 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		38997E3F235F176F0041BD4B /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				38997E40235F176F0041BD4B /* VideoCapture.swift */,
+				38997E41235F176F0041BD4B /* Measure.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		38997E42235F178E0041BD4B /* mlmodel */ = {
+			isa = PBXGroup;
+			children = (
+				38997E43235F178E0041BD4B /* Resnet50 */,
+				38997E48235F178E0041BD4B /* MobileNet */,
+				38997E4D235F178E0041BD4B /* SqueezeNet */,
+			);
+			path = mlmodel;
+			sourceTree = "<group>";
+		};
+		38997E43235F178E0041BD4B /* Resnet50 */ = {
+			isa = PBXGroup;
+			children = (
+				38997E44235F178E0041BD4B /* Resnet50.mlmodel */,
+				38997E45235F178E0041BD4B /* Resnet50FP16.mlmodel */,
+				38997E46235F178E0041BD4B /* Resnet50Int8LUT.mlmodel */,
+				38997E47235F178E0041BD4B /* Resnet50Headless.mlmodel */,
+			);
+			path = Resnet50;
+			sourceTree = "<group>";
+		};
+		38997E48235F178E0041BD4B /* MobileNet */ = {
+			isa = PBXGroup;
+			children = (
+				38997E49235F178E0041BD4B /* MobileNet.mlmodel */,
+				38997E4A235F178E0041BD4B /* MobileNetV2FP16.mlmodel */,
+				38997E4B235F178E0041BD4B /* MobileNetV2.mlmodel */,
+				38997E4C235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel */,
+			);
+			path = MobileNet;
+			sourceTree = "<group>";
+		};
+		38997E4D235F178E0041BD4B /* SqueezeNet */ = {
+			isa = PBXGroup;
+			children = (
+				38997E4E235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel */,
+				38997E4F235F178E0041BD4B /* SqueezeNet.mlmodel */,
+				38997E50235F178E0041BD4B /* SqueezeNetFP16.mlmodel */,
+			);
+			path = SqueezeNet;
+			sourceTree = "<group>";
+		};
 		38D4CF2D234EC6B30006155D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +389,8 @@
 		862AD3D1230298C200CB350C /* monologue */ = {
 			isa = PBXGroup;
 			children = (
+				38997E42235F178E0041BD4B /* mlmodel */,
+				38997E3F235F176F0041BD4B /* utils */,
 				38D4CF2D234EC6B30006155D /* Extensions */,
 				35AD5677234C387200964364 /* IBDesignables */,
 				35E6A2E32332616C00B66E4E /* Views */,
@@ -704,31 +783,44 @@
 				38C822C22349F91800168FD1 /* Comment.swift in Sources */,
 				38C822C4234C4AB300168FD1 /* Post_Comment.swift in Sources */,
 				869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */,
+				38997E54235F178E0041BD4B /* Resnet50FP16.mlmodel in Sources */,
 				865C17462358738A00EC9679 /* SwitchFamilyTableViewCell.swift in Sources */,
+				38997E5A235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel in Sources */,
+				38997E52235F178E0041BD4B /* Measure.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
+				38997E55235F178E0041BD4B /* Resnet50Int8LUT.mlmodel in Sources */,
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
+				38997E58235F178E0041BD4B /* MobileNetV2FP16.mlmodel in Sources */,
+				38997E51235F178E0041BD4B /* VideoCapture.swift in Sources */,
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				B203B6C8235E9AB400A85F69 /* DetailViewCell.swift in Sources */,
 				86AD48CA2352EC7700069A1E /* SwitchFamilyViewController.swift in Sources */,
+				38997E5B235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel in Sources */,
 				38D4CF26234EC06A0006155D /* ChatViewController.swift in Sources */,
 				38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */,
 				35AD5681234C40DE00964364 /* DesignableView.swift in Sources */,
+				38997E59235F178E0041BD4B /* MobileNetV2.mlmodel in Sources */,
 				86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */,
 				B25C0F86234EA2FD00E1104D /* DetailViewController.swift in Sources */,
 				865C174F2359CB1E00EC9679 /* EditFamilyViewController.swift in Sources */,
 				86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */,
 				38EFE8962352C7B90092C4AF /* Message.swift in Sources */,
+				38997E57235F178E0041BD4B /* MobileNet.mlmodel in Sources */,
 				38D4CF31234EC73F0006155D /* UIColor+Additions.swift in Sources */,
 				865C174823587B9600EC9679 /* MoveApi.swift in Sources */,
 				B26E7B582329CF0000AA852C /* User.swift in Sources */,
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
+				38997E53235F178E0041BD4B /* Resnet50.mlmodel in Sources */,
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,
 				38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */,
 				350C4A09235E9BFB00132BE0 /* DesignableTextView.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
+				38997E5D235F178E0041BD4B /* SqueezeNetFP16.mlmodel in Sources */,
 				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
+				38997E56235F178E0041BD4B /* Resnet50Headless.mlmodel in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,
+				38997E5C235F178E0041BD4B /* SqueezeNet.mlmodel in Sources */,
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,
 				38EFE8982352C7C70092C4AF /* Channel.swift in Sources */,
@@ -953,13 +1045,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
+				DEVELOPMENT_TEAM = 888CT2VGZ3;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.909090";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005j";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -974,13 +1066,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
+				DEVELOPMENT_TEAM = 888CT2VGZ3;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005j";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

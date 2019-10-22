@@ -12,19 +12,25 @@ import FirebaseAuth
 import YPImagePicker
 import ProgressHUD
 
+
 class UploadViewController: UIViewController{
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+   
     }
+
     
     
     @IBOutlet weak var ShareButton: DesignableButton!
     
     @IBOutlet weak var photo: UIImageView!
     
+  
     @IBOutlet weak var descriptionField: UITextView!
+    
     
     var selectedImage: UIImage?
     
@@ -34,6 +40,7 @@ class UploadViewController: UIViewController{
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func cameraTapped(_ sender: Any) {
         let picker = YPImagePicker()
@@ -87,7 +94,6 @@ class UploadViewController: UIViewController{
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                     
                     let timestamp = Int(Date().timeIntervalSince1970)
-                    
                     let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId": fid,"timestamp": timestamp, "comment" : []] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
@@ -126,5 +132,6 @@ class UploadViewController: UIViewController{
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         self.present(newViewController, animated: true, completion: nil)
     }
-    
+
+  
 }
