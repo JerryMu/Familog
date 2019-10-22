@@ -80,7 +80,7 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TimelineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! DetailViewCell
         cell.post = post
         cell.user = user
         cell.delegate = self
@@ -88,7 +88,7 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
-extension DetailViewController: TimelineTableViewCellDelegate {
+extension DetailViewController: DetailTableViewCellDelegate {
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }

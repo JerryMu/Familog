@@ -39,12 +39,11 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
         nameTextField.delegate = self
-//        dateOfBirth.delegate = self
         fetchCurrentUser()
 
         dateOfBirth.inputView = datePicker
         datePicker.datePickerMode = .date
-//
+
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))

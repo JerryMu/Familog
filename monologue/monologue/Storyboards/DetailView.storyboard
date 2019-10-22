@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,32 +41,12 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GNI-ms-AMo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <view key="tableFooterView" contentMode="scaleToFill" id="GEF-CL-bEV">
-                                            <rect key="frame" x="0.0" y="506" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-Jn-AkV">
-                                                    <rect key="frame" x="165" y="7" width="45" height="30"/>
-                                                    <state key="normal" title="Delete">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <constraints>
-                                                <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerX" secondItem="GEF-CL-bEV" secondAttribute="centerX" id="HAz-IF-Pn0"/>
-                                                <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerY" secondItem="GEF-CL-bEV" secondAttribute="centerY" id="hKY-fk-PBa"/>
-                                            </constraints>
-                                        </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="F50-Kv-61V" customClass="TimelineTableViewCell" customModule="Familog" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="450"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="F50-Kv-61V" customClass="DetailViewCell" customModule="Familog" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="462"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F50-Kv-61V" id="7wp-MD-t3Z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNK-u1-hoU">
@@ -76,7 +55,7 @@
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Sm8-SB-L52">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addNewPic" translatesAutoresizingMaskIntoConstraints="NO" id="Sm8-SB-L52">
                                                             <rect key="frame" x="12" y="62" width="351" height="300"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="300" id="uRy-Sw-VZg"/>
@@ -88,7 +67,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dh-tZ-NLF">
-                                                            <rect key="frame" x="5.6666666666666572" y="372" width="364" height="18"/>
+                                                            <rect key="frame" x="5.6666666666666572" y="372" width="364" height="30"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="364" id="pL4-Dh-xW3"/>
@@ -98,7 +77,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-6J-kj6">
-                                                            <rect key="frame" x="12" y="405" width="25" height="25"/>
+                                                            <rect key="frame" x="12" y="417" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="Shd-hp-TYN"/>
                                                                 <constraint firstAttribute="height" constant="25" id="nc4-8n-fFC"/>
@@ -117,8 +96,8 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-sE-sri" userLabel="Seperate">
-                                                            <rect key="frame" x="0.0" y="449" width="375" height="1"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="0.0" y="461" width="375" height="1"/>
+                                                            <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="uyn-e4-cvy"/>
                                                             </constraints>
@@ -140,29 +119,50 @@
                                                         <constraint firstItem="wXg-sE-sri" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" id="LJi-Pi-9OZ"/>
                                                         <constraint firstItem="6dh-tZ-NLF" firstAttribute="top" secondItem="Sm8-SB-L52" secondAttribute="bottom" constant="10" id="O1l-Lf-yEi"/>
                                                         <constraint firstItem="zkE-6J-kj6" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="WdY-Br-O7Z"/>
-                                                        <constraint firstItem="wXg-sE-sri" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zkE-6J-kj6" secondAttribute="bottom" constant="19" id="Xzw-Fs-r8a"/>
                                                         <constraint firstAttribute="trailing" secondItem="wXg-sE-sri" secondAttribute="trailing" id="dlc-Hd-sY3"/>
                                                         <constraint firstItem="Sm8-SB-L52" firstAttribute="top" secondItem="nLs-Qp-svf" secondAttribute="bottom" constant="12" id="eDm-jN-Ojx"/>
                                                         <constraint firstItem="6dh-tZ-NLF" firstAttribute="centerX" secondItem="7wp-MD-t3Z" secondAttribute="centerX" id="iFG-S9-Z6m"/>
                                                         <constraint firstItem="hRp-Ls-HYh" firstAttribute="centerY" secondItem="cNK-u1-hoU" secondAttribute="centerY" id="iZ7-Vl-tL3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Sm8-SB-L52" secondAttribute="bottom" constant="100" id="iul-gm-cQf"/>
                                                         <constraint firstItem="nLs-Qp-svf" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="kuH-YT-BV6"/>
+                                                        <constraint firstItem="zkE-6J-kj6" firstAttribute="top" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="15" id="ni4-dv-e5B"/>
                                                         <constraint firstAttribute="bottom" secondItem="wXg-sE-sri" secondAttribute="bottom" id="pBF-jW-Whi"/>
-                                                        <constraint firstItem="zkE-6J-kj6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="15" id="s7e-26-j4P"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="60" id="uZb-eQ-XIX"/>
                                                         <constraint firstItem="cNK-u1-hoU" firstAttribute="centerY" secondItem="nLs-Qp-svf" secondAttribute="centerY" id="xKA-4X-lHw"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <outlet property="captionLabel" destination="6dh-tZ-NLF" id="GED-Xr-cMd"/>
-                                                    <outlet property="commentImageView" destination="zkE-6J-kj6" id="kD2-9x-5ho"/>
-                                                    <outlet property="nameLabel" destination="cNK-u1-hoU" id="PVh-Yg-vzx"/>
-                                                    <outlet property="postImageView" destination="Sm8-SB-L52" id="U8d-If-WVf"/>
-                                                    <outlet property="profileImageView" destination="nLs-Qp-svf" id="AKo-wS-3sT"/>
-                                                    <outlet property="timeLabel" destination="hRp-Ls-HYh" id="am1-VB-Sqa"/>
+                                                    <outlet property="captionLabel" destination="6dh-tZ-NLF" id="RMK-KE-0eB"/>
+                                                    <outlet property="commentImageView" destination="zkE-6J-kj6" id="TTT-kV-eyh"/>
+                                                    <outlet property="nameLabel" destination="cNK-u1-hoU" id="lp5-Np-nkv"/>
+                                                    <outlet property="postImageView" destination="Sm8-SB-L52" id="9lS-ls-F9z"/>
+                                                    <outlet property="profileImageView" destination="nLs-Qp-svf" id="gYF-TT-XpC"/>
+                                                    <outlet property="timeLabel" destination="hRp-Ls-HYh" id="wIn-aV-ps6"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <view contentMode="scaleToFill" id="GEF-CL-bEV">
+                                        <rect key="frame" x="0.0" y="488" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-Jn-AkV">
+                                                <rect key="frame" x="165" y="7" width="45" height="30"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerX" secondItem="GEF-CL-bEV" secondAttribute="centerX" id="HAz-IF-Pn0"/>
+                                            <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerY" secondItem="GEF-CL-bEV" secondAttribute="centerY" id="hKY-fk-PBa"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -184,6 +184,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
                     <connections>
+                        <outlet property="deletePostButton" destination="pzo-Jn-AkV" id="ObJ-NV-WAx"/>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
                         <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
@@ -224,7 +225,7 @@
     <resources>
         <image name="Comment" width="43" height="41"/>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="ProfileBackground" width="1241" height="2688"/>
         <image name="Timeline" width="35" height="35"/>
+        <image name="addNewPic" width="512" height="512"/>
     </resources>
 </document>
