@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Vision
 
 protocol TimelineTableViewCellDelegate {
     func goToCommentVC(postId: String)
@@ -14,8 +15,10 @@ protocol TimelineTableViewCellDelegate {
 }
 
 class TimelineTableViewCell: UITableViewCell {
-
-
+  
+    @IBOutlet weak var top1ResultLabel: UILabel!
+    
+    @IBOutlet weak var top1ConfidenceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -70,9 +73,10 @@ class TimelineTableViewCell: UITableViewCell {
                 timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
             }
             
-            timeLabel.text = timeText
+         
         }
     }
+ 
     
     func setupUserInfo() {
         nameLabel.text = user?.firstname
@@ -131,7 +135,9 @@ class TimelineTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    
+
+       
+
 
 }
 
