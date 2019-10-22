@@ -49,18 +49,18 @@ class CommentViewController: UIViewController {
 
     func loadPosts(postId : String) {
         commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            for document in querySnapshot!.documents {
-                let comment = Comment.transformComment(dict: document.data())
-                self.fetchUser(uid: comment.uid!, completed: {
-                    self.comments.append(comment)
-                    self.tableView.reloadData()
-                })
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let comment = Comment.transformComment(dict: document.data())
+                    self.fetchUser(uid: comment.uid!, completed: {
+                        self.comments.append(comment)
+                        self.tableView.reloadData()
+                    })
+                }
             }
-            }
-    }
+        }
     }
     
     override func viewDidLoad() {
