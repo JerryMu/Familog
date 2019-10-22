@@ -142,6 +142,14 @@ class CommentViewController: UIViewController {
         self.sendButton.isEnabled = false
         sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Comment_ProfileSegue" {
+            let detailVC = segue.destination as! OthersProfileViewController
+            let userId = sender  as! String
+            detailVC.uid = userId
+        }
+    }
   }
 
 

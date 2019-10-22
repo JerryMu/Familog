@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="F50-Kv-61V" customClass="TimelineTableViewCell" customModule="Familog" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="F50-Kv-61V" customClass="DetailViewCell" customModule="Familog" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="462"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F50-Kv-61V" id="7wp-MD-t3Z">
@@ -134,12 +133,12 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <outlet property="captionLabel" destination="6dh-tZ-NLF" id="GED-Xr-cMd"/>
-                                                    <outlet property="commentImageView" destination="zkE-6J-kj6" id="kD2-9x-5ho"/>
-                                                    <outlet property="nameLabel" destination="cNK-u1-hoU" id="PVh-Yg-vzx"/>
-                                                    <outlet property="postImageView" destination="Sm8-SB-L52" id="U8d-If-WVf"/>
-                                                    <outlet property="profileImageView" destination="nLs-Qp-svf" id="AKo-wS-3sT"/>
-                                                    <outlet property="timeLabel" destination="hRp-Ls-HYh" id="am1-VB-Sqa"/>
+                                                    <outlet property="captionLabel" destination="6dh-tZ-NLF" id="RMK-KE-0eB"/>
+                                                    <outlet property="commentImageView" destination="zkE-6J-kj6" id="TTT-kV-eyh"/>
+                                                    <outlet property="nameLabel" destination="cNK-u1-hoU" id="lp5-Np-nkv"/>
+                                                    <outlet property="postImageView" destination="Sm8-SB-L52" id="9lS-ls-F9z"/>
+                                                    <outlet property="profileImageView" destination="nLs-Qp-svf" id="gYF-TT-XpC"/>
+                                                    <outlet property="timeLabel" destination="hRp-Ls-HYh" id="wIn-aV-ps6"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

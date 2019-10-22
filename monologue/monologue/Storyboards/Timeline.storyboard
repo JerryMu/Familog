@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQs-2V-bCt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,11 +150,22 @@
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="tj5-5z-mTN" kind="presentation" identifier="Home_ProfileSegue" id="3us-vA-pXP"/>
                         <segue destination="aJv-2v-UGa" kind="show" identifier="CommentSegue" id="4Y6-nI-AtL"/>
+                        <segue destination="Srw-l6-OFI" kind="show" identifier="Home_DetailSegue" id="qrK-fY-xfq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22j-sW-vTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13704.799999999999" y="-5833.004926108375"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="jQR-U2-JDI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailView" referencedIdentifier="DetailViewController" id="Srw-l6-OFI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8oO-F6-F0k"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce5-VN-Ktx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14454" y="-4864"/>
         </scene>
         <!--OtherPeopleViewController-->
         <scene sceneID="k6F-Dc-Kdi">
@@ -525,6 +535,6 @@
         <image name="addNewPic" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d63-la-oRC"/>
+        <segue reference="3us-vA-pXP"/>
     </inferredMetricsTieBreakers>
 </document>

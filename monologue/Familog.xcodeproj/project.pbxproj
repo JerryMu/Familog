@@ -53,6 +53,7 @@
 		869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC7E230920C000ACF10C /* LogInViewController.swift */; };
 		869DAC81230920CD00ACF10C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DAC80230920CD00ACF10C /* SignUpViewController.swift */; };
 		86AD48CA2352EC7700069A1E /* SwitchFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AD48C92352EC7600069A1E /* SwitchFamilyViewController.swift */; };
+		B203B6C8235E9AB400A85F69 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203B6C7235E9AB400A85F69 /* DetailViewCell.swift */; };
 		B25C0F86234EA2FD00E1104D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25C0F85234EA2FD00E1104D /* DetailViewController.swift */; };
 		B2603E932344613800797EF8 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E922344613800797EF8 /* Family.swift */; };
 		B2603E952344660000797EF8 /* FamilyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2603E942344660000797EF8 /* FamilyApi.swift */; };
@@ -149,6 +150,7 @@
 		876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBD9E4A3036FF9A18D451F1 /* Pods-FamilogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Familog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B203B6C7235E9AB400A85F69 /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		B25C0F85234EA2FD00E1104D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B2603E922344613800797EF8 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		B2603E942344660000797EF8 /* FamilyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyApi.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */,
 				3841206D234841BC006EC47E /* CommentTableViewCell.swift */,
 				865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */,
+				B203B6C7235E9AB400A85F69 /* DetailViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
+				B203B6C8235E9AB400A85F69 /* DetailViewCell.swift in Sources */,
 				86AD48CA2352EC7700069A1E /* SwitchFamilyViewController.swift in Sources */,
 				38D4CF26234EC06A0006155D /* ChatViewController.swift in Sources */,
 				38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */,
@@ -869,7 +873,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -924,7 +928,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -941,7 +945,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X7CP88LH3K;
+				DEVELOPMENT_TEAM = QK8Y9WPQKQ;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

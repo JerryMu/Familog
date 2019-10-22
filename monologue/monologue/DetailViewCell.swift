@@ -1,30 +1,28 @@
 //
-//  TimelineTableViewCell.swift
+//  DetailViewCell.swift
 //  Familog
 //
-//  Created by Ziyuan on 18/09/19.
+//  Created by Pengyu Mu on 22/10/19.
 //
 
+import Foundation
 import UIKit
 
-protocol TimelineTableViewCellDelegate {
+protocol DetailTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
-    func goToDeatilVC(postId: String)
 }
 
-class TimelineTableViewCell: UITableViewCell {
-
-
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+class DetailViewCell:UITableViewCell{
     
     @IBOutlet weak var commentImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     var timelineVC : TimelineViewController?
-    var delegate: TimelineTableViewCellDelegate?
+    var delegate: DetailTableViewCellDelegate?
     
     var post: Post? {
          didSet {
@@ -95,10 +93,6 @@ class TimelineTableViewCell: UITableViewCell {
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
-        
-        let tapGestureForImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.postImageView_TouchUpInside))
-        postImageView.addGestureRecognizer(tapGestureForImageLabel)
-        postImageView.isUserInteractionEnabled = true
        
         
     }
@@ -119,13 +113,6 @@ class TimelineTableViewCell: UITableViewCell {
         }
     }
     
-    @objc func postImageView_TouchUpInside() {
-        print("postImageView_TouchUpInside")
-        if let id = post?.uid {
-            delegate?.goToDeatilVC(postId: id)
-        }
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -135,4 +122,3 @@ class TimelineTableViewCell: UITableViewCell {
     
 
 }
-

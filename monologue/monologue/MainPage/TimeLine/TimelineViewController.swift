@@ -102,17 +102,24 @@ class TimelineViewController: UIViewController {
      
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "CommentSegue" {
-                let commentVC = segue.destination as! CommentViewController
-                let postId = sender  as! String
-                commentVC.postId = postId
-            }
+        if segue.identifier == "CommentSegue" {
+            let commentVC = segue.destination as! CommentViewController
+            let postId = sender  as! String
+            commentVC.postId = postId
+        }
         
         if segue.identifier == "Home_ProfileSegue" {
             let profileVC = segue.destination as! OthersProfileViewController
             let userId = sender  as! String
             profileVC.uid = userId
         }
+        
+        if segue.identifier == "Home_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender  as! String
+            detailVC.postId = postId
+        }
+        
         
         
     }
@@ -151,6 +158,9 @@ extension TimelineViewController: TimelineTableViewCellDelegate {
     }
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
+    }
+    func goToDeatilVC(postId: String){
+        performSegue(withIdentifier: "Home_DetailSegue", sender: postId)
     }
 }
 
