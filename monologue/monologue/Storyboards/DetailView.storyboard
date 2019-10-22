@@ -101,14 +101,6 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-6c-iVv">
-                                                            <rect key="frame" x="12" y="421" width="104" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="View Comment"/>
-                                                            <connections>
-                                                                <action selector="commentButton:" destination="F50-Kv-61V" eventType="touchUpInside" id="aid-F1-6Ax"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -139,28 +131,58 @@
                                                     <outlet property="timeLabel" destination="hRp-Ls-HYh" id="wIn-aV-ps6"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="81" id="cjc-eb-384" userLabel="CommentCell">
+                                                <rect key="frame" x="0.0" y="490" width="375" height="81"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cjc-eb-384" id="yMb-CN-Jtv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Zzj-Qa-txl">
+                                                            <rect key="frame" x="15" y="21.666666666666671" width="38" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="Abl-yT-fVx"/>
+                                                                <constraint firstAttribute="width" constant="38" id="Ewo-A2-PiT"/>
+                                                                <constraint firstAttribute="height" constant="38" id="jpt-XT-bXS"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="mWP-jg-gyh"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="19"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="049-dy-6Vt">
+                                                            <rect key="frame" x="61" y="21" width="76" height="18"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sM7-ui-deF">
+                                                            <rect key="frame" x="61" y="47" width="300" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="300" id="bwX-iL-P0S"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sM7-ui-deF" secondAttribute="bottom" constant="13" id="Fci-bC-tg1"/>
+                                                        <constraint firstItem="sM7-ui-deF" firstAttribute="leading" secondItem="049-dy-6Vt" secondAttribute="leading" id="MEY-Kw-BBu"/>
+                                                        <constraint firstItem="049-dy-6Vt" firstAttribute="top" secondItem="yMb-CN-Jtv" secondAttribute="topMargin" constant="10" id="ZXE-W5-SBL"/>
+                                                        <constraint firstItem="sM7-ui-deF" firstAttribute="top" secondItem="049-dy-6Vt" secondAttribute="bottom" constant="8" id="agF-cs-h7Z"/>
+                                                        <constraint firstItem="Zzj-Qa-txl" firstAttribute="centerY" secondItem="yMb-CN-Jtv" secondAttribute="centerY" id="bM2-2d-weX"/>
+                                                        <constraint firstItem="Zzj-Qa-txl" firstAttribute="leading" secondItem="yMb-CN-Jtv" secondAttribute="leadingMargin" id="jql-j8-xRO"/>
+                                                        <constraint firstItem="049-dy-6Vt" firstAttribute="leading" secondItem="Zzj-Qa-txl" secondAttribute="trailing" constant="8" id="vSK-YC-3Gz"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view contentMode="scaleToFill" id="GEF-CL-bEV">
-                                        <rect key="frame" x="0.0" y="488" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-Jn-AkV">
-                                                <rect key="frame" x="165" y="7" width="45" height="30"/>
-                                                <state key="normal" title="Delete">
-                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerX" secondItem="GEF-CL-bEV" secondAttribute="centerX" id="HAz-IF-Pn0"/>
-                                            <constraint firstItem="pzo-Jn-AkV" firstAttribute="centerY" secondItem="GEF-CL-bEV" secondAttribute="centerY" id="hKY-fk-PBa"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -180,7 +202,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPA-pM-yWy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zmu-uy-Sbk"/>
+                    <navigationItem key="navigationItem" id="zmu-uy-Sbk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="RoU-Ig-HDb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pzo-Jn-AkV">
+                                <rect key="frame" x="314" y="7" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="deletePostButton" destination="pzo-Jn-AkV" id="ObJ-NV-WAx"/>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
@@ -191,6 +226,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYW-a9-4cM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13599.200000000001" y="-5834.4827586206902"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dFL-mE-740">
+            <objects>
+                <viewController id="Uy9-GC-VGb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nc7-ig-80g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="RnF-D6-sy1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Cq-t6-33k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13599" y="-5147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SB0-hg-pjU">
