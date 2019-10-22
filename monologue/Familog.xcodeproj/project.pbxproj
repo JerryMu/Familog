@@ -11,6 +11,7 @@
 		35005A242330BF3B00239C7E /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A232330BF3B00239C7E /* Timeline.storyboard */; };
 		35005A262330BF8300239C7E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* Notification.storyboard */; };
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
+		350C4A09235E9BFB00132BE0 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */; };
 		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35AD5674234C373E00964364 /* Redressed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35AD5673234C373D00964364 /* Redressed.ttf */; };
@@ -94,6 +95,7 @@
 		35005A232330BF3B00239C7E /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		35005A252330BF8300239C7E /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		35005A2D2330C23500239C7E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
 		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35AD5673234C373D00964364 /* Redressed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Redressed.ttf; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				35AD567E234C402B00964364 /* DesignableButton.swift */,
 				35AD5680234C40DE00964364 /* DesignableView.swift */,
+				350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */,
 			);
 			path = IBDesignables;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				B2BF69732332612000E846D5 /* ProfileViewController.swift in Sources */,
 				B2B16A4C2336197A0086E97B /* LaunchScreen.swift in Sources */,
 				38D4CF33234EC7610006155D /* UIImage+Additions.swift in Sources */,
+				350C4A09235E9BFB00132BE0 /* DesignableTextView.swift in Sources */,
 				3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */,
 				B27D66542352981F00AAAFD9 /* OthersProfileViewController.swift in Sources */,
 				38D4CF2F234EC70D0006155D /* UICollectionView+Additions.swift in Sources */,
@@ -945,13 +949,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X7CP88LH3K;
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -966,13 +970,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X7CP88LH3K;
+				DEVELOPMENT_TEAM = 2P7UCQAGJ9;
 				INFOPLIST_FILE = monologue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

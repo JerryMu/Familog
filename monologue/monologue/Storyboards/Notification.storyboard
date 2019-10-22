@@ -10,6 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4Es-iJ-ZkV">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGo-yn-yY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NotificationStoryBoard" modalPresentationStyle="fullScreen" interfaceStyle="light" id="r3E-Vf-fS6" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jyS-xn-Obh">
@@ -27,20 +28,19 @@
                         <segue destination="osa-bq-emt" kind="relationship" relationship="rootViewController" id="48b-01-ith"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zGo-yn-yY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1123" y="1551"/>
         </scene>
         <!--Family Chat-->
         <scene sceneID="VLA-uF-SeV">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQi-XO-U3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="osa-bq-emt" customClass="ChannelsViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="group Chat" id="ER8-dg-qFL">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Family Chat" id="Zgt-bW-323"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQi-XO-U3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1969.5652173913045" y="1550.8928571428571"/>
         </scene>

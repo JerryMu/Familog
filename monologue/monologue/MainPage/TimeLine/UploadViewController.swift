@@ -24,7 +24,7 @@ class UploadViewController: UIViewController{
     
     @IBOutlet weak var photo: UIImageView!
     
-    @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var descriptionField: UITextView!
     
     var selectedImage: UIImage?
     
@@ -111,7 +111,7 @@ class UploadViewController: UIViewController{
             ProgressHUD.showError("You must pick one Photo")
             return
         }
-        if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "" {
+        if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "Describe your artifacts..." {
             ProgressHUD.showError("You must fill description")
             return
         }

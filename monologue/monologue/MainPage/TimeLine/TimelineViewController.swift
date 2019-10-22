@@ -30,7 +30,7 @@ class TimelineViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refreshControl
-        tableView.estimatedRowHeight = 650
+        tableView.estimatedRowHeight = 900
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         loading.startAnimating()
