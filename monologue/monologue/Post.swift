@@ -15,6 +15,8 @@ class Post {
     var familyId : String?
     var timestamp : Int?
     var commentsIDList : [String] = []
+    var predictItem : String?
+    var predictAcc : String?
 }
 
 // Unlike using initializers, here we use different methods with distinctly meaningful name for
@@ -31,7 +33,8 @@ extension Post {
         post.url = dict["url"] as? String
         post.userId = dict["userId"] as? String
         post.timestamp = dict["timestamp"] as? Int
-//        post.commentsIDList = dict["comment"] as! [String]
+        post.predictItem = dict["predictType"] as? String
+        post.predictAcc = dict["predictAcc"] as? String
         return post
     }
 }
