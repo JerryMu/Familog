@@ -9,11 +9,11 @@
 import Foundation
 
 class Family {
-    var profileImageUrl: URL?
+    var profileImageUrl: String?
     var familyName: String?
     var uid: String?
     var introduce : String?
-    var familyOwner : String?
+    //var familyOwner : String?
     var userNumber : Int?
 }
 
@@ -21,11 +21,11 @@ extension Family {
     
     static func transformFamily(dict: [String: Any]) -> Family {
         let family = Family()
-        family.profileImageUrl = dict["profileImageUrl"] as? URL
+        family.profileImageUrl = dict["profileImageUrl"] as? String
         family.familyName = dict["familyName"] as? String
         family.uid = dict["uid"] as? String
         family.introduce = dict["introduce"] as? String
-        family.familyOwner = dict["familyOwner"] as? String
+        //family.familyOwner = dict["familyOwner"] as? String
         family.userNumber = dict["userNumber"] as? Int
         return family
     }

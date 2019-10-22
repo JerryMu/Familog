@@ -26,12 +26,10 @@ class LogInViewController: UIViewController {
     
     // The function of log in
     @IBAction func logInTapped(_ sender: Any) {
-        
+        ProgressHUD.show("Waiting...", interaction: false)
         let email = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        // Validate first, if success then sign in and move to the timeline page
-        
+        // Validate first, if success then sign in and move to the timeline page        
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)

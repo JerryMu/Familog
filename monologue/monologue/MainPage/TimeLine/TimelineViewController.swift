@@ -39,12 +39,12 @@ class TimelineViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.refresh()
-        
     }
     
     func setCustomebBackImage(){
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
     @objc func refresh() {
         posts.removeAll()
         users.removeAll()
@@ -83,13 +83,12 @@ class TimelineViewController: UIViewController {
                     }
                     self.fetchUser(uid: postUid, completed: {
                         self.posts.append(post)
-                        self.loading.stopAnimating()
                         self.tableView.reloadData()
-                    })
-                    
+                    })                    
                 }
             }
         }
+        self.loading.stopAnimating()
     }
     
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {

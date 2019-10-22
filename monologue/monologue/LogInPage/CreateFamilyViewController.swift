@@ -26,6 +26,7 @@ class CreateFamilyViewController: UIViewController {
     }
     
     @IBAction func createTapped(_ sender: Any) {
+        ProgressHUD.show("Waiting...", interaction: false)
         creatFamilyButton.isEnabled = false
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyName == "" {
@@ -35,7 +36,7 @@ class CreateFamilyViewController: UIViewController {
         
         let familyId = familyIdTextField.text!
         
-        let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : "", "familyOwner":"", "userNumber" : 1] as [String : Any?]
+        let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : "", "userNumber" : 1] as [String : Any?]
     
         
         let family = Api.Family.REF_FAMILY.document(familyId)

@@ -64,6 +64,7 @@
  // If the account password is wrong, an error message will be displayed.
 
      @IBAction func signUpTapped(_ sender: Any) {
+         ProgressHUD.show("Waiting...", interaction: false)
          // Validate
          let error = validateFields()
          
