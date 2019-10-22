@@ -120,9 +120,7 @@ class UploadViewController: UIViewController{
         if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "Describe your artifacts..." {
             ProgressHUD.showError("You must fill description")
             return
-        }
-        self.ShareButton.isEnabled = false
-        
+        }        
         getFamilyId(photo.image!)
     }
     

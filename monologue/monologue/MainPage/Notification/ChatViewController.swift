@@ -10,19 +10,22 @@ import MessageKit
 import FirebaseFirestore
 import InputBarAccessoryView
 import YPImagePicker
+import ProgressHUD
 
 final class ChatViewController: MessagesViewController {
     let initImage =  #imageLiteral(resourceName: "Head_Icon")
     private var isSendingPhoto = false
     var selectImage : UIImage?
     private let db = Firestore.firestore()
-    private var reference: CollectionReference?
+    private var reference: CollectionReference?  
     private let storage = Storage.storage().reference()
     var imageView:UIImageView! = UIImageView()
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     private let user: User
     private let channel: Channel
+    private var massageNumber = 15
+    var refreshControl = UIRefreshControl()
   
     deinit {
         messageListener?.remove()
@@ -53,21 +56,10 @@ final class ChatViewController: MessagesViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    fetchmessages()
     
-    guard let id = channel.id else {
-        navigationController?.popViewController(animated: true)
-        return
-    }
-    reference = db.collection(["channels", id, "thread"].joined(separator: "/"))
-    messageListener = reference?.addSnapshotListener { querySnapshot, error in
-        guard let snapshot = querySnapshot else {
-            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-            return
-        }
-    snapshot.documentChanges.forEach { change in
-        self.handleDocumentChange(change)
-    }
-    }
+    
     configureMessageInputBar()
     navigationItem.largeTitleDisplayMode = .never
     scrollsToBottomOnKeyboardBeginsEditing = true
@@ -88,7 +80,38 @@ final class ChatViewController: MessagesViewController {
     messageInputBar.leftStackView.alignment = .center
     messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
     messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false)
+    
+    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    messagesCollectionView.addSubview(refreshControl)
     }
+    
+    @objc func refresh() {
+        self.massageNumber += 15
+        fetchmessages()
+        refreshControl.endRefreshing()
+    }
+    
+    func fetchmessages(){
+        guard let id = channel.id else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        self.reference = db.collection("channels").document(id).collection("thread")
+        let reference = db.collection("channels").document(id).collection("thread").order(by: "created", descending: true).limit(to: massageNumber)
+        messageListener = reference.addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                return
+            }
+                    
+            snapshot.documentChanges.forEach { change in
+                self.handleDocumentChange(change)
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+            }
+        }
+        
+    }
+    
  
     func configureMessageInputBar() {
         messageInputBar.delegate = self
@@ -174,7 +197,7 @@ final class ChatViewController: MessagesViewController {
         print("Error sending message: \(e.localizedDescription)")
         return
       }
-      self.messagesCollectionView.scrollToBottom(animated: true)
+      self.messagesCollectionView.scrollToBottom(animated: false)
     }
   }
   
@@ -185,9 +208,9 @@ final class ChatViewController: MessagesViewController {
     messages.append(message)
     messages.sort()
     messagesCollectionView.reloadData()
-    DispatchQueue.main.async {
-        self.messagesCollectionView.scrollToBottom(animated: true)
-    }
+//    DispatchQueue.main.async {
+//        self.messagesCollectionView.scrollToBottom(animated: true)
+//    }
   }
   
   private func handleDocumentChange(_ change: DocumentChange) {
@@ -237,7 +260,7 @@ final class ChatViewController: MessagesViewController {
       completion(nil)
       return
     }
-    guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.4) else {
+    guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.1) else {
       completion(nil)
       return
     }

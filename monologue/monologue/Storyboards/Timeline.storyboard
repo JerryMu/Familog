@@ -79,8 +79,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
-                                                    <rect key="frame" x="172.66666666666666" y="405" width="30" height="26"/>
-                                                    <state key="normal" title="⬇️"/>
+                                                    <rect key="frame" x="154" y="405" width="67" height="26"/>
+                                                    <state key="normal" title="Comment"/>
                                                     <connections>
                                                         <action selector="commentButton:" destination="Pkc-0G-hMU" eventType="touchUpInside" id="635-w2-pcG"/>
                                                     </connections>

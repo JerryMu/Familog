@@ -26,8 +26,8 @@ class CreateFamilyViewController: UIViewController {
     }
     
     @IBAction func createTapped(_ sender: Any) {
+        
         ProgressHUD.show("Waiting...", interaction: false)
-        creatFamilyButton.isEnabled = false
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyName == "" {
             ProgressHUD.showError("You must fill family name")
@@ -58,8 +58,9 @@ class CreateFamilyViewController: UIViewController {
                     var families = document.get("families") as! [String]
                     
                     families.append(familyId)
+                    let newFamilies = Array(Set(families))
                     
-                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(["familyId": familyId, "families": families])
+                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(["familyId": familyId, "families": newFamilies])
                     {
                         err in
                         if err != nil {

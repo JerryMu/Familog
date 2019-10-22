@@ -22,7 +22,7 @@ protocol EditProfileControllerDelegate {
     func updateUserInfor()
 }
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UITextViewDelegate {
     
     // set profile photo function
     @IBOutlet weak var avatar: UIImageView!
@@ -38,7 +38,7 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
-        nameTextField.delegate = self
+        self.bioTextView.delegate = self
         fetchCurrentUser()
 
         dateOfBirth.inputView = datePicker
@@ -149,6 +149,12 @@ class EditProfileViewController: UIViewController {
         present(picker, animated: true, completion: nil)
         
     }
+
+    // UITextViewDelegate
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return bioTextView.text.count + (text.count - range.length) <= 1
+    }
     
     func uploadAvatar(){
         ProgressHUD.show("Waiting...", interaction: false)
@@ -176,10 +182,10 @@ class EditProfileViewController: UIViewController {
 }
 
 
-extension EditProfileViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return")
-        textField.resignFirstResponder()
-        return true
-    }
-}
+//extension EditProfileViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        print("return")
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8y-1X-hs9">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -139,13 +139,13 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoJ-8H-H7v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="4RP-Ov-qeR" eventType="touchUpInside" id="d2k-MO-IOA"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqs-Wi-7SO">
-                                    <rect key="frame" x="41" y="200" width="293" height="332"/>
+                                    <rect key="frame" x="41" y="200" width="293" height="330"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="rfX-1z-slU">
                                             <rect key="frame" x="96.666666666666657" y="10" width="100" height="100"/>
@@ -155,14 +155,14 @@
                                             </constraints>
                                         </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-6D-7j3">
-                                            <rect key="frame" x="20" y="132" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="130" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="caI-98-Mf8"/>
                                             </constraints>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <integer key="value" value="20"/>
@@ -170,14 +170,14 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x63-B3-aUN">
-                                            <rect key="frame" x="20" y="180" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="178" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="DCF-IR-bqS"/>
                                             </constraints>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <integer key="value" value="20"/>
@@ -185,7 +185,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-WT-vqj" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="228" width="253" height="40"/>
+                                            <rect key="frame" x="20" y="226" width="253" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Idq-k3-Faf"/>
@@ -210,7 +210,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B04-Jg-gAU">
-                                            <rect key="frame" x="62" y="276" width="170" height="36"/>
+                                            <rect key="frame" x="62" y="274" width="170" height="36"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Forgot Password?">
                                                 <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -224,13 +224,13 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="x63-B3-aUN" secondAttribute="trailing" constant="20" id="DFP-eg-FLo"/>
                                         <constraint firstItem="x63-B3-aUN" firstAttribute="top" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="8" id="HJy-Dw-1c6"/>
-                                        <constraint firstItem="rfX-1z-slU" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="OqQ-O4-2M3"/>
                                         <constraint firstAttribute="bottom" secondItem="B04-Jg-gAU" secondAttribute="bottom" constant="20" id="Uf7-Au-1q4"/>
                                         <constraint firstAttribute="trailing" secondItem="n8b-6D-7j3" secondAttribute="trailing" constant="20" id="YbL-uT-8nj"/>
                                         <constraint firstAttribute="trailing" secondItem="ecb-WT-vqj" secondAttribute="trailing" constant="20" id="aPe-9a-zb5"/>
                                         <constraint firstItem="ecb-WT-vqj" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="dP1-4h-ir6"/>
                                         <constraint firstAttribute="trailing" secondItem="B04-Jg-gAU" secondAttribute="trailing" constant="61" id="ebi-Jh-8Iw"/>
                                         <constraint firstAttribute="bottom" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="112" id="gHO-Tf-fxI"/>
+                                        <constraint firstItem="rfX-1z-slU" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="96.670000000000002" id="j5g-BP-Wbg"/>
                                         <constraint firstAttribute="bottom" secondItem="ecb-WT-vqj" secondAttribute="bottom" constant="64" id="jiW-6w-aSW"/>
                                         <constraint firstAttribute="bottom" secondItem="n8b-6D-7j3" secondAttribute="bottom" constant="160" id="mLe-J8-IvM"/>
                                         <constraint firstItem="n8b-6D-7j3" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="mrb-0S-PCX"/>
@@ -238,6 +238,8 @@
                                         <constraint firstItem="rfX-1z-slU" firstAttribute="top" secondItem="Nqs-Wi-7SO" secondAttribute="top" constant="10" id="rX7-iF-A4z"/>
                                         <constraint firstItem="ecb-WT-vqj" firstAttribute="top" secondItem="x63-B3-aUN" secondAttribute="bottom" constant="8" id="tbG-J1-Vb0"/>
                                         <constraint firstItem="x63-B3-aUN" firstAttribute="leading" secondItem="Nqs-Wi-7SO" secondAttribute="leading" constant="20" id="wDu-nz-wnB"/>
+                                        <constraint firstAttribute="height" constant="330" id="xJ7-2d-Mrj"/>
+                                        <constraint firstAttribute="trailing" secondItem="rfX-1z-slU" secondAttribute="trailing" constant="96.329999999999998" id="yAV-9O-uhW"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -251,7 +253,6 @@
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="leading" secondItem="jlB-k8-EFW" secondAttribute="leading" id="6sL-vC-BNS"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="centerX" secondItem="Nqs-Wi-7SO" secondAttribute="centerX" id="KkB-Ce-bzz"/>
                                 <constraint firstItem="Nqs-Wi-7SO" firstAttribute="top" secondItem="jlB-k8-EFW" secondAttribute="top" constant="200" id="LeS-3i-AG8"/>
-                                <constraint firstAttribute="bottom" secondItem="Nqs-Wi-7SO" secondAttribute="bottom" constant="280" id="Rkp-fV-OVh"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="top" secondItem="jlB-k8-EFW" secondAttribute="top" id="bBu-2X-2vq"/>
                                 <constraint firstItem="Nqs-Wi-7SO" firstAttribute="leading" secondItem="jlB-k8-EFW" secondAttribute="leading" constant="41" id="k7N-iz-PZW"/>
                                 <constraint firstItem="qoJ-8H-H7v" firstAttribute="centerY" secondItem="Nqs-Wi-7SO" secondAttribute="centerY" id="tqw-ku-6I2"/>
@@ -291,7 +292,7 @@
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="20"/>
@@ -402,7 +403,7 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <integer key="value" value="5"/>
@@ -417,7 +418,7 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="given-name"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <integer key="value" value="5"/>
@@ -432,7 +433,7 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <integer key="value" value="5"/>
@@ -447,7 +448,7 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <integer key="value" value="5"/>
