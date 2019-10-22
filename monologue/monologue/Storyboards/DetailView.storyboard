@@ -76,13 +76,6 @@
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-6J-kj6">
-                                                            <rect key="frame" x="12" y="417" width="25" height="25"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="25" id="Shd-hp-TYN"/>
-                                                                <constraint firstAttribute="height" constant="25" id="nc4-8n-fFC"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-Qp-svf">
                                                             <rect key="frame" x="12" y="12" width="38" height="38"/>
                                                             <constraints>
@@ -108,6 +101,14 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGk-6c-iVv">
+                                                            <rect key="frame" x="12" y="421" width="104" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="View Comment"/>
+                                                            <connections>
+                                                                <action selector="commentButton:" destination="F50-Kv-61V" eventType="touchUpInside" id="aid-F1-6Ax"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -118,14 +119,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="Sm8-SB-L52" secondAttribute="trailing" constant="12" id="KgR-x6-DNO"/>
                                                         <constraint firstItem="wXg-sE-sri" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" id="LJi-Pi-9OZ"/>
                                                         <constraint firstItem="6dh-tZ-NLF" firstAttribute="top" secondItem="Sm8-SB-L52" secondAttribute="bottom" constant="10" id="O1l-Lf-yEi"/>
-                                                        <constraint firstItem="zkE-6J-kj6" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="WdY-Br-O7Z"/>
                                                         <constraint firstAttribute="trailing" secondItem="wXg-sE-sri" secondAttribute="trailing" id="dlc-Hd-sY3"/>
                                                         <constraint firstItem="Sm8-SB-L52" firstAttribute="top" secondItem="nLs-Qp-svf" secondAttribute="bottom" constant="12" id="eDm-jN-Ojx"/>
                                                         <constraint firstItem="6dh-tZ-NLF" firstAttribute="centerX" secondItem="7wp-MD-t3Z" secondAttribute="centerX" id="iFG-S9-Z6m"/>
                                                         <constraint firstItem="hRp-Ls-HYh" firstAttribute="centerY" secondItem="cNK-u1-hoU" secondAttribute="centerY" id="iZ7-Vl-tL3"/>
                                                         <constraint firstAttribute="bottom" secondItem="Sm8-SB-L52" secondAttribute="bottom" constant="100" id="iul-gm-cQf"/>
                                                         <constraint firstItem="nLs-Qp-svf" firstAttribute="leading" secondItem="7wp-MD-t3Z" secondAttribute="leading" constant="12" id="kuH-YT-BV6"/>
-                                                        <constraint firstItem="zkE-6J-kj6" firstAttribute="top" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="15" id="ni4-dv-e5B"/>
                                                         <constraint firstAttribute="bottom" secondItem="wXg-sE-sri" secondAttribute="bottom" id="pBF-jW-Whi"/>
                                                         <constraint firstAttribute="bottom" secondItem="6dh-tZ-NLF" secondAttribute="bottom" constant="60" id="uZb-eQ-XIX"/>
                                                         <constraint firstItem="cNK-u1-hoU" firstAttribute="centerY" secondItem="nLs-Qp-svf" secondAttribute="centerY" id="xKA-4X-lHw"/>
@@ -134,7 +133,6 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="captionLabel" destination="6dh-tZ-NLF" id="RMK-KE-0eB"/>
-                                                    <outlet property="commentImageView" destination="zkE-6J-kj6" id="TTT-kV-eyh"/>
                                                     <outlet property="nameLabel" destination="cNK-u1-hoU" id="lp5-Np-nkv"/>
                                                     <outlet property="postImageView" destination="Sm8-SB-L52" id="9lS-ls-F9z"/>
                                                     <outlet property="profileImageView" destination="nLs-Qp-svf" id="gYF-TT-XpC"/>
@@ -187,7 +185,7 @@
                         <outlet property="deletePostButton" destination="pzo-Jn-AkV" id="ObJ-NV-WAx"/>
                         <outlet property="tableView" destination="GNI-ms-AMo" id="g2q-pc-wVd"/>
                         <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
-                        <segue destination="Mxg-ii-X1M" kind="show" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
+                        <segue destination="Mxg-ii-X1M" kind="presentation" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYW-a9-4cM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -223,9 +221,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Comment" width="43" height="41"/>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="Timeline" width="35" height="35"/>
-        <image name="addNewPic" width="512" height="512"/>
+        <image name="addNewPic" width="966" height="604"/>
     </resources>
 </document>

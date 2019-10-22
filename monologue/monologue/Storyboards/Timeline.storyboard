@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQs-2V-bCt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,13 +53,6 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-Hp-oa1">
-                                                    <rect key="frame" x="12" y="405" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="Woc-vU-jbK"/>
-                                                        <constraint firstAttribute="width" constant="25" id="uwY-Px-TEQ"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Head_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ytH-nW-9ic">
                                                     <rect key="frame" x="12" y="12" width="38" height="38"/>
                                                     <constraints>
@@ -86,10 +78,17 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
+                                                    <rect key="frame" x="15" y="396" width="104" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="View Comment"/>
+                                                    <connections>
+                                                        <action selector="commentButton:" destination="Pkc-0G-hMU" eventType="touchUpInside" id="635-w2-pcG"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="dN1-Y9-bvL" firstAttribute="top" secondItem="KDb-Hp-oa1" secondAttribute="bottom" constant="6" id="1M1-8p-yAe"/>
                                                 <constraint firstItem="7iR-sk-KsW" firstAttribute="leading" secondItem="ytH-nW-9ic" secondAttribute="trailing" constant="12" id="3AM-CF-0Pv"/>
                                                 <constraint firstAttribute="bottom" secondItem="dN1-Y9-bvL" secondAttribute="bottom" id="40D-Ex-Oci"/>
                                                 <constraint firstAttribute="trailing" secondItem="YUL-Ym-ojN" secondAttribute="trailing" constant="12" id="CLH-gU-9HX"/>
@@ -97,13 +96,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="dN1-Y9-bvL" secondAttribute="trailing" id="NF4-Wp-nZc"/>
                                                 <constraint firstAttribute="trailing" secondItem="4BC-r5-ZeE" secondAttribute="trailing" constant="12" id="OG4-zA-6fd"/>
                                                 <constraint firstItem="YUL-Ym-ojN" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="OQP-Vd-fad"/>
-                                                <constraint firstItem="KDb-Hp-oa1" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="V1T-fO-Xb7"/>
                                                 <constraint firstAttribute="trailing" secondItem="tpc-oT-txc" secondAttribute="trailing" constant="12" id="YkB-Dt-s4H"/>
                                                 <constraint firstItem="7iR-sk-KsW" firstAttribute="centerY" secondItem="ytH-nW-9ic" secondAttribute="centerY" id="b1X-me-x5X"/>
                                                 <constraint firstItem="YUL-Ym-ojN" firstAttribute="top" secondItem="tpc-oT-txc" secondAttribute="bottom" constant="20" id="eC5-nP-kZb"/>
                                                 <constraint firstItem="ytH-nW-9ic" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="fNa-iT-vE9"/>
                                                 <constraint firstItem="ytH-nW-9ic" firstAttribute="top" secondItem="WIb-Nq-Qf5" secondAttribute="top" constant="12" id="h38-3L-AVg"/>
-                                                <constraint firstItem="KDb-Hp-oa1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YUL-Ym-ojN" secondAttribute="bottom" constant="5" id="iYl-qW-OvD"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="top" secondItem="ytH-nW-9ic" secondAttribute="bottom" constant="12" id="iug-cz-toF"/>
                                                 <constraint firstItem="dN1-Y9-bvL" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" id="n41-mb-iN7"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="tMi-ip-sqN"/>
@@ -113,7 +110,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="captionLabel" destination="YUL-Ym-ojN" id="bvY-qI-8kf"/>
-                                            <outlet property="commentImageView" destination="KDb-Hp-oa1" id="4PE-kE-Fe0"/>
                                             <outlet property="nameLabel" destination="7iR-sk-KsW" id="FFe-hS-yOa"/>
                                             <outlet property="postImageView" destination="tpc-oT-txc" id="Kgm-OY-7jB"/>
                                             <outlet property="profileImageView" destination="ytH-nW-9ic" id="8lM-VH-3Ov"/>
@@ -151,7 +147,9 @@
                     <connections>
                         <outlet property="loading" destination="Yod-2Z-Hiq" id="oPi-va-C9T"/>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
-                        <segue destination="aJv-2v-UGa" kind="show" identifier="CommentSegue" id="4Y6-nI-AtL"/>
+                        <segue destination="aJv-2v-UGa" kind="presentation" identifier="CommentSegue" id="4Y6-nI-AtL"/>
+                        <segue destination="JhB-0y-pdM" kind="show" identifier="Home_ProfileSegue" id="Znv-Ks-LAz"/>
+                        <segue destination="nHb-NR-lrT" kind="show" identifier="Home_DetailSegue" id="6Xv-vv-pZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22j-sW-vTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,19 +339,39 @@
             </objects>
             <point key="canvasLocation" x="-14723" y="-5833"/>
         </scene>
+        <!--DetailViewController-->
+        <scene sceneID="9R9-hP-mjr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailView" referencedIdentifier="DetailViewController" id="nHb-NR-lrT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JFR-1d-wgH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLS-iO-Ggx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14207" y="-4875"/>
+        </scene>
+        <!--OtherPeopleViewController-->
+        <scene sceneID="Bt7-AI-Sl1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="OtherPeopleViewController" id="JhB-0y-pdM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="D0a-d8-J82"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECh-gi-Wrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13705" y="-4875"/>
+        </scene>
         <!--Comment-->
         <scene sceneID="vIG-X8-LOl">
             <objects>
                 <viewController storyboardIdentifier="CommentViewController" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="aJv-2v-UGa" customClass="CommentViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAd-t5-o0u">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSr-nl-bDI" userLabel="ContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKT-2V-Ja2" userLabel="CommentList">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="637"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
@@ -424,7 +442,7 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYT-2m-4ft" userLabel="SendArea">
-                                        <rect key="frame" x="0.0" y="604" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="638" width="375" height="120"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJw-oc-JTQ" userLabel="SepUp">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -509,6 +527,7 @@
                         <outlet property="currentUserAvatar" destination="e2S-9X-JlV" id="92h-gY-ghF"/>
                         <outlet property="sendButton" destination="Nxu-Yj-PzR" id="eOy-Ax-wvZ"/>
                         <outlet property="tableView" destination="BKT-2V-Ja2" id="kqB-El-89o"/>
+                        <segue destination="JhB-0y-pdM" kind="show" identifier="Comment_ProfileSegue" id="ANV-Xj-9fB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSk-QB-7aV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -517,11 +536,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Comment" width="43" height="41"/>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="IMG_7537" width="1242" height="2688"/>
         <image name="Timeline" width="35" height="35"/>
         <image name="addNew" width="25" height="25"/>
         <image name="addNewPic" width="966" height="604"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Znv-Ks-LAz"/>
+    </inferredMetricsTieBreakers>
 </document>

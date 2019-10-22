@@ -22,7 +22,6 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var commentImageView: UIImageView!
     var timelineVC : TimelineViewController?
     var delegate: TimelineTableViewCellDelegate?
     
@@ -88,10 +87,6 @@ class TimelineTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         captionLabel.text = ""
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
-        commentImageView.addGestureRecognizer(tapGesture)
-        commentImageView.isUserInteractionEnabled = true
-        
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
@@ -111,12 +106,12 @@ class TimelineTableViewCell: UITableViewCell {
         }
     }
     
-    @objc func commentImageView_TouchUpInside() {
-      print("commentImageView_TouchUpInside")
-        
-        if let id = post?.uid {
-            delegate?.goToCommentVC(postId: id)
-        }
+    @IBAction func commentButton(_ sender: Any) {
+        print("commentImageView_TouchUpInside")
+          
+          if let id = post?.uid {
+              delegate?.goToCommentVC(postId: id)
+          }
     }
     
     @objc func postImageView_TouchUpInside() {
