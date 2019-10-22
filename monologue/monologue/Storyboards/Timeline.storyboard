@@ -79,8 +79,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
-                                                    <rect key="frame" x="15" y="405" width="104" height="26"/>
-                                                    <state key="normal" title="View Comment"/>
+                                                    <rect key="frame" x="172.66666666666666" y="405" width="30" height="26"/>
+                                                    <state key="normal" title="⬇️"/>
                                                     <connections>
                                                         <action selector="commentButton:" destination="Pkc-0G-hMU" eventType="touchUpInside" id="635-w2-pcG"/>
                                                     </connections>
@@ -96,6 +96,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="dN1-Y9-bvL" secondAttribute="trailing" id="NF4-Wp-nZc"/>
                                                 <constraint firstAttribute="trailing" secondItem="4BC-r5-ZeE" secondAttribute="trailing" constant="12" id="OG4-zA-6fd"/>
                                                 <constraint firstItem="YUL-Ym-ojN" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="OQP-Vd-fad"/>
+                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="centerX" secondItem="WIb-Nq-Qf5" secondAttribute="centerX" id="XNz-44-A0A"/>
                                                 <constraint firstAttribute="trailing" secondItem="tpc-oT-txc" secondAttribute="trailing" constant="12" id="YkB-Dt-s4H"/>
                                                 <constraint firstItem="7iR-sk-KsW" firstAttribute="centerY" secondItem="ytH-nW-9ic" secondAttribute="centerY" id="b1X-me-x5X"/>
                                                 <constraint firstItem="YUL-Ym-ojN" firstAttribute="top" secondItem="tpc-oT-txc" secondAttribute="bottom" constant="20" id="eC5-nP-kZb"/>
@@ -104,7 +105,6 @@
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="top" secondItem="ytH-nW-9ic" secondAttribute="bottom" constant="12" id="iug-cz-toF"/>
                                                 <constraint firstItem="dN1-Y9-bvL" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" id="n41-mb-iN7"/>
                                                 <constraint firstItem="RKi-ml-sFR" firstAttribute="top" secondItem="YUL-Ym-ojN" secondAttribute="bottom" constant="5" id="sJB-T9-TFQ"/>
-                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="15" id="tJj-AJ-BNl"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="tMi-ip-sqN"/>
                                                 <constraint firstItem="4BC-r5-ZeE" firstAttribute="centerY" secondItem="7iR-sk-KsW" secondAttribute="centerY" id="ufZ-Di-uhb"/>
                                             </constraints>
