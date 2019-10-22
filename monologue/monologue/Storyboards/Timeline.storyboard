@@ -32,7 +32,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7537" translatesAutoresizingMaskIntoConstraints="NO" id="tpc-oT-txc">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tpc-oT-txc">
                                                     <rect key="frame" x="12" y="62" width="351" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="KmY-0e-QGl"/>
@@ -78,9 +78,23 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
-                                                    <rect key="frame" x="15" y="405" width="104" height="26"/>
-                                                    <state key="normal" title="View Comment"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="405" width="355" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Show All Comments">
+                                                        <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="commentButton:" destination="Pkc-0G-hMU" eventType="touchUpInside" id="635-w2-pcG"/>
                                                     </connections>
@@ -102,9 +116,10 @@
                                                 <constraint firstItem="ytH-nW-9ic" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="fNa-iT-vE9"/>
                                                 <constraint firstItem="ytH-nW-9ic" firstAttribute="top" secondItem="WIb-Nq-Qf5" secondAttribute="top" constant="12" id="h38-3L-AVg"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="top" secondItem="ytH-nW-9ic" secondAttribute="bottom" constant="12" id="iug-cz-toF"/>
+                                                <constraint firstAttribute="trailing" secondItem="RKi-ml-sFR" secondAttribute="trailing" constant="10" id="kyl-2S-n9F"/>
                                                 <constraint firstItem="dN1-Y9-bvL" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" id="n41-mb-iN7"/>
                                                 <constraint firstItem="RKi-ml-sFR" firstAttribute="top" secondItem="YUL-Ym-ojN" secondAttribute="bottom" constant="5" id="sJB-T9-TFQ"/>
-                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="15" id="tJj-AJ-BNl"/>
+                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="10" id="tJj-AJ-BNl"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="tMi-ip-sqN"/>
                                                 <constraint firstItem="4BC-r5-ZeE" firstAttribute="centerY" secondItem="7iR-sk-KsW" secondAttribute="centerY" id="ufZ-Di-uhb"/>
                                             </constraints>
@@ -138,7 +153,7 @@
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Timeline" id="jsC-xk-USx">
-                        <barButtonItem key="rightBarButtonItem" image="addNew" id="coO-WX-jdA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="coO-WX-jdA">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="9u6-Z5-77Z" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Yoq-s8-BNF"/>
@@ -182,7 +197,7 @@
                                     <rect key="frame" x="17.666666666666657" y="150" width="340" height="450"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All memories start here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-1Y-x9g">
-                                            <rect key="frame" x="24.333333333333343" y="8" width="291" height="32.333333333333336"/>
+                                            <rect key="frame" x="10" y="8" width="320" height="32.333333333333336"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -214,14 +229,6 @@
                                                 <action selector="cameraTapped:" destination="9u6-Z5-77Z" eventType="touchUpInside" id="jMG-xp-UeA"/>
                                             </connections>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addNewPic" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-8G-ulq">
-                                            <rect key="frame" x="20" y="48.333333333333343" width="300" height="180"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="Gs4-4h-BaP"/>
-                                                <constraint firstAttribute="height" constant="180" id="Lhp-aj-pBh"/>
-                                            </constraints>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-g3-xq2" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
                                             <rect key="frame" x="85" y="390.33333333333337" width="170" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -256,7 +263,7 @@
                                             </constraints>
                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="PlaceholderText" value="Describe your artifacts..."/>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="PlaceholderColor">
@@ -267,15 +274,25 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addNewPic" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-8G-ulq">
+                                            <rect key="frame" x="20" y="48.333333333333343" width="300" height="180"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="Gs4-4h-BaP"/>
+                                                <constraint firstAttribute="height" constant="180" id="Lhp-aj-pBh"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.80174225570000002" green="0.90605419870000004" blue="0.97544652220000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="NNA-8G-ulq" firstAttribute="top" secondItem="cs1-1Y-x9g" secondAttribute="bottom" constant="8" id="7Fm-AU-5GI"/>
                                         <constraint firstItem="ynw-g3-xq2" firstAttribute="top" secondItem="iJI-xr-O4M" secondAttribute="bottom" constant="12" id="8aj-Wy-OAl"/>
                                         <constraint firstAttribute="trailing" secondItem="9Xa-y6-dpe" secondAttribute="trailing" constant="20" id="Bd4-bN-sbl"/>
+                                        <constraint firstItem="cs1-1Y-x9g" firstAttribute="leading" secondItem="9TQ-vD-D4A" secondAttribute="leading" constant="10" id="EON-2t-MOr"/>
                                         <constraint firstAttribute="height" constant="450" id="Rm4-Uk-nLC"/>
                                         <constraint firstItem="iJI-xr-O4M" firstAttribute="leading" secondItem="9TQ-vD-D4A" secondAttribute="leading" constant="20" id="Ugc-Ct-Y2h"/>
                                         <constraint firstAttribute="width" constant="340" id="fd1-Hi-3xd"/>
+                                        <constraint firstAttribute="trailing" secondItem="cs1-1Y-x9g" secondAttribute="trailing" constant="10" id="feN-IZ-fVV"/>
                                         <constraint firstItem="9Xa-y6-dpe" firstAttribute="leading" secondItem="9TQ-vD-D4A" secondAttribute="leading" constant="20" id="hGD-zR-9Ix"/>
                                         <constraint firstItem="cs1-1Y-x9g" firstAttribute="top" secondItem="9TQ-vD-D4A" secondAttribute="top" constant="8" id="hVg-1b-yHt"/>
                                         <constraint firstItem="9Xa-y6-dpe" firstAttribute="top" secondItem="cs1-1Y-x9g" secondAttribute="bottom" constant="8" id="jbC-xe-iG9"/>
@@ -325,6 +342,7 @@
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="6HJ-ub-qbf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -539,10 +557,9 @@
     </scenes>
     <resources>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="IMG_7537" width="1242" height="2688"/>
+        <image name="ProfileBackground" width="1241" height="2688"/>
         <image name="Timeline" width="35" height="35"/>
-        <image name="addNew" width="25" height="25"/>
-        <image name="addNewPic" width="966" height="604"/>
+        <image name="addNewPic" width="882" height="544"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Znv-Ks-LAz"/>
