@@ -78,9 +78,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
-                                                    <rect key="frame" x="15" y="396" width="104" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKi-ml-sFR">
+                                                    <rect key="frame" x="15" y="405" width="104" height="26"/>
                                                     <state key="normal" title="View Comment"/>
                                                     <connections>
                                                         <action selector="commentButton:" destination="Pkc-0G-hMU" eventType="touchUpInside" id="635-w2-pcG"/>
@@ -92,6 +91,7 @@
                                                 <constraint firstItem="7iR-sk-KsW" firstAttribute="leading" secondItem="ytH-nW-9ic" secondAttribute="trailing" constant="12" id="3AM-CF-0Pv"/>
                                                 <constraint firstAttribute="bottom" secondItem="dN1-Y9-bvL" secondAttribute="bottom" id="40D-Ex-Oci"/>
                                                 <constraint firstAttribute="trailing" secondItem="YUL-Ym-ojN" secondAttribute="trailing" constant="12" id="CLH-gU-9HX"/>
+                                                <constraint firstItem="dN1-Y9-bvL" firstAttribute="top" secondItem="RKi-ml-sFR" secondAttribute="bottom" constant="5" id="JHz-Hz-P7c"/>
                                                 <constraint firstItem="YUL-Ym-ojN" firstAttribute="centerX" secondItem="WIb-Nq-Qf5" secondAttribute="centerX" id="M1E-vv-TnN"/>
                                                 <constraint firstAttribute="trailing" secondItem="dN1-Y9-bvL" secondAttribute="trailing" id="NF4-Wp-nZc"/>
                                                 <constraint firstAttribute="trailing" secondItem="4BC-r5-ZeE" secondAttribute="trailing" constant="12" id="OG4-zA-6fd"/>
@@ -103,6 +103,8 @@
                                                 <constraint firstItem="ytH-nW-9ic" firstAttribute="top" secondItem="WIb-Nq-Qf5" secondAttribute="top" constant="12" id="h38-3L-AVg"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="top" secondItem="ytH-nW-9ic" secondAttribute="bottom" constant="12" id="iug-cz-toF"/>
                                                 <constraint firstItem="dN1-Y9-bvL" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" id="n41-mb-iN7"/>
+                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="top" secondItem="YUL-Ym-ojN" secondAttribute="bottom" constant="5" id="sJB-T9-TFQ"/>
+                                                <constraint firstItem="RKi-ml-sFR" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="15" id="tJj-AJ-BNl"/>
                                                 <constraint firstItem="tpc-oT-txc" firstAttribute="leading" secondItem="WIb-Nq-Qf5" secondAttribute="leading" constant="12" id="tMi-ip-sqN"/>
                                                 <constraint firstItem="4BC-r5-ZeE" firstAttribute="centerY" secondItem="7iR-sk-KsW" secondAttribute="centerY" id="ufZ-Di-uhb"/>
                                             </constraints>
@@ -148,7 +150,7 @@
                         <outlet property="loading" destination="Yod-2Z-Hiq" id="oPi-va-C9T"/>
                         <outlet property="tableView" destination="vdO-Kw-Zh0" id="uQX-zy-MsS"/>
                         <segue destination="aJv-2v-UGa" kind="presentation" identifier="CommentSegue" id="4Y6-nI-AtL"/>
-                        <segue destination="JhB-0y-pdM" kind="show" identifier="Home_ProfileSegue" id="Znv-Ks-LAz"/>
+                        <segue destination="JhB-0y-pdM" kind="presentation" identifier="Home_ProfileSegue" id="Znv-Ks-LAz"/>
                         <segue destination="nHb-NR-lrT" kind="show" identifier="Home_DetailSegue" id="6Xv-vv-pZ4"/>
                     </connections>
                 </viewController>
