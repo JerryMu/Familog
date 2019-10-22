@@ -12,6 +12,7 @@ import Vision
 protocol DetailTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
+    func moveToProfilePage()
 }
 
 class DetailViewCell:UITableViewCell{
@@ -24,6 +25,7 @@ class DetailViewCell:UITableViewCell{
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var timelineVC : TimelineViewController?
     var delegate: DetailTableViewCellDelegate?
@@ -79,12 +81,24 @@ class DetailViewCell:UITableViewCell{
         }
     }
     
+    @IBAction func deletePostButtonTapped(_ sender : Any) {
+        Api.Post.deletePost(PostId: post!.uid!)
+        delegate?.moveToProfilePage()
+    }
+    
+    
     func setupUserInfo() {
         nameLabel.text = user?.firstname
         
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+        }
+        
+        if(user?.uid != Api.User.currentUser?.uid){
+            deleteButton.isHidden = true
+        }else{
+            deleteButton.isHidden = false
         }
     }
     

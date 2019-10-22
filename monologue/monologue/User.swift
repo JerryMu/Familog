@@ -19,14 +19,6 @@ class User {
     var postNumber = 0
     var familyId : String?
     var families : [String]?
-//    var dictionary: [String: Any] {
-//        return ["email": email!,
-//                "profileImageUrl": profileImageUrl!,
-//                "firstname": firstname!,
-//                "lastname" : lastname!,
-//                "bio" : bio!
-//                ]
-//    }
 }
 
 
