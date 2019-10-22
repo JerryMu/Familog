@@ -23,8 +23,6 @@
 		3841207223488836006EC47E /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841207123488836006EC47E /* CommentApi.swift */; };
 		384120742348896A006EC47E /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384120732348896A006EC47E /* Post_CommentApi.swift */; };
 		3846D9422351EBAE004F8544 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846D9412351EBAE004F8544 /* ChatUser.swift */; };
-		38997E51235F178E0041BD4B /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997E40235F176F0041BD4B /* VideoCapture.swift */; };
-		38997E52235F178E0041BD4B /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997E41235F176F0041BD4B /* Measure.swift */; };
 		38997E53235F178E0041BD4B /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E44235F178E0041BD4B /* Resnet50.mlmodel */; };
 		38997E54235F178E0041BD4B /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E45235F178E0041BD4B /* Resnet50FP16.mlmodel */; };
 		38997E55235F178E0041BD4B /* Resnet50Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38997E46235F178E0041BD4B /* Resnet50Int8LUT.mlmodel */; };
@@ -122,8 +120,6 @@
 		3841207123488836006EC47E /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		384120732348896A006EC47E /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		3846D9412351EBAE004F8544 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
-		38997E40235F176F0041BD4B /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
-		38997E41235F176F0041BD4B /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		38997E44235F178E0041BD4B /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		38997E45235F178E0041BD4B /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
 		38997E46235F178E0041BD4B /* Resnet50Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50Int8LUT.mlmodel; sourceTree = "<group>"; };
@@ -282,15 +278,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		38997E3F235F176F0041BD4B /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				38997E40235F176F0041BD4B /* VideoCapture.swift */,
-				38997E41235F176F0041BD4B /* Measure.swift */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
 		38997E42235F178E0041BD4B /* mlmodel */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				38997E42235F178E0041BD4B /* mlmodel */,
-				38997E3F235F176F0041BD4B /* utils */,
 				38D4CF2D234EC6B30006155D /* Extensions */,
 				35AD5677234C387200964364 /* IBDesignables */,
 				35E6A2E32332616C00B66E4E /* Views */,
@@ -786,12 +772,10 @@
 				38997E54235F178E0041BD4B /* Resnet50FP16.mlmodel in Sources */,
 				865C17462358738A00EC9679 /* SwitchFamilyTableViewCell.swift in Sources */,
 				38997E5A235F178E0041BD4B /* MobileNetV2Int8LUT.mlmodel in Sources */,
-				38997E52235F178E0041BD4B /* Measure.swift in Sources */,
 				B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */,
 				38997E55235F178E0041BD4B /* Resnet50Int8LUT.mlmodel in Sources */,
 				B2603E932344613800797EF8 /* Family.swift in Sources */,
 				38997E58235F178E0041BD4B /* MobileNetV2FP16.mlmodel in Sources */,
-				38997E51235F178E0041BD4B /* VideoCapture.swift in Sources */,
 				3841207223488836006EC47E /* CommentApi.swift in Sources */,
 				869DAC7F230920C000ACF10C /* LogInViewController.swift in Sources */,
 				B203B6C8235E9AB400A85F69 /* DetailViewCell.swift in Sources */,
