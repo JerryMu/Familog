@@ -17,6 +17,7 @@ class Comment {
 }
 
 extension Comment {
+    // get the information  a comment needed from dictionary
     static func transformComment(dict: [String: Any]) -> Comment {
         let comment = Comment(commentText: "", uid: "")
         comment.commentText = dict["commentText"] as? String

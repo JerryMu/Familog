@@ -94,6 +94,7 @@ class CommentTableViewCell: UITableViewCell {
     //initialise it
     override func prepareForReuse() {
         super.prepareForReuse()
+     //initialise its profileImage
         profileImageView.image = UIImage(named: "placeholderImg")
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
