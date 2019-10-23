@@ -22,25 +22,25 @@ class CommentTableViewCell: UITableViewCell {
    
     var comment: Comment? {
         didSet {
+            // update the content of comment  and its date
             updateView()
         }
     }
     
     var user: User? {
         didSet {
+           // update the content of user
             setupUserInfo()
         }
     }
     func updateView() {
            commentLabel.text = comment?.commentText
-      
-           if let timestamp = comment?.timestamp {
-               print(timestamp)
+        if let timestamp = comment?.timestamp {
                let timestampDate = Date(timeIntervalSince1970: Double(timestamp))
                let now = Date()
                let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
                let diff = Calendar.current.dateComponents(components, from: timestampDate, to: now)
-               
+               // show different  unit of times accordingly
                var timeText = ""
                if diff.second! <= 0 {
                    timeText = "Now"
@@ -60,7 +60,6 @@ class CommentTableViewCell: UITableViewCell {
                if diff.weekOfMonth! > 0 {
                    timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
                }
-               
                timeLabel.text = timeText
            }
        }
@@ -77,10 +76,11 @@ class CommentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         commentLabel.text = ""
+        //  nameLabel can be tapped
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
-        
+        //  profileImageView can be tapped
         let tapGestureForUserImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         profileImageView.addGestureRecognizer(tapGestureForUserImageLabel)
         profileImageView.isUserInteractionEnabled = true
@@ -92,14 +92,14 @@ class CommentTableViewCell: UITableViewCell {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
+    //initialise it
     override func prepareForReuse() {
         super.prepareForReuse()
+     //initialise its profileImage
         profileImageView.image = UIImage(named: "placeholderImg")
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

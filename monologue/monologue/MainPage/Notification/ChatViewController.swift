@@ -26,18 +26,15 @@ final class ChatViewController: MessagesViewController {
     private let channel: Channel
     private var massageNumber = 15
     var refreshControl = UIRefreshControl()
-  
     deinit {
         messageListener?.remove()
     }
-
     init(user: User, channel: Channel) {
         self.user = user
         self.channel = channel
         super.init(nibName: nil, bundle: nil)
         title = channel.name
     }
-  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -54,42 +51,40 @@ final class ChatViewController: MessagesViewController {
     }
   
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    fetchmessages()
-    
-    
-    configureMessageInputBar()
-    navigationItem.largeTitleDisplayMode = .never
-    scrollsToBottomOnKeyboardBeginsEditing = true
-    maintainPositionOnKeyboardFrameChanged = true
-    messageInputBar.inputTextView.tintColor = .primary
-    messageInputBar.sendButton.setTitleColor(.primary, for: .normal)
-    messageInputBar.delegate = self
-    messagesCollectionView.messagesDataSource = self
-    messagesCollectionView.messagesLayoutDelegate = self
-    messagesCollectionView.messagesDisplayDelegate = self
-    let cameraItem = makeButton(named: "addNewPicture")
-    cameraItem.addTarget(
-        self,
-        action: #selector(cameraButtonPressed),
-        for: .primaryActionTriggered
-    )
-    cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
-    messageInputBar.leftStackView.alignment = .center
-    messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
-    messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false)
-    
-    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    messagesCollectionView.addSubview(refreshControl)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchmessages()
+        configureMessageInputBar()
+        navigationItem.largeTitleDisplayMode = .never
+        scrollsToBottomOnKeyboardBeginsEditing = true
+        maintainPositionOnKeyboardFrameChanged = true
+        messageInputBar.inputTextView.tintColor = .primary
+        messageInputBar.sendButton.setTitleColor(.primary, for: .normal)
+        messageInputBar.delegate = self
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        let cameraItem = makeButton(named: "addNewPicture")
+        cameraItem.addTarget(
+            self,
+            action: #selector(cameraButtonPressed),
+            for: .primaryActionTriggered
+        )
+        cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
+        messageInputBar.leftStackView.alignment = .center
+        messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
+        messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        messagesCollectionView.addSubview(refreshControl)
     }
+    
     
     @objc func refresh() {
         self.massageNumber += 15
         fetchmessages()
         refreshControl.endRefreshing()
     }
+    
     
     func fetchmessages(){
         guard let id = channel.id else {
@@ -103,13 +98,11 @@ final class ChatViewController: MessagesViewController {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                 return
             }
-                    
             snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
                 self.messagesCollectionView.reloadDataAndKeepOffset()
             }
         }
-        
     }
     
  
@@ -129,6 +122,8 @@ final class ChatViewController: MessagesViewController {
         messageInputBar.setRightStackViewWidthConstant(to: 0, animated: false)
         configureMessageInputBarForChat()
     }
+    
+    
     private func configureMessageInputBarForChat() {
         messageInputBar.setMiddleContentView(messageInputBar.inputTextView, animated: false)
         messageInputBar.setRightStackViewWidthConstant(to: 52, animated: false)
@@ -146,6 +141,8 @@ final class ChatViewController: MessagesViewController {
                 item.transform = .identity
         }
     }
+    
+    
     private func makeButton(named: String) -> InputBarButtonItem {
           return InputBarButtonItem()
               .configure {
@@ -162,6 +159,7 @@ final class ChatViewController: MessagesViewController {
           }
       }
   
+    
   // MARK: - Actions
     func downloadImage(from url: URL) {
         getData(from: url) { data, response, error in
@@ -172,9 +170,11 @@ final class ChatViewController: MessagesViewController {
       }
   }
     
+    
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
+    
     
    @objc private func cameraButtonPressed() {
         let picker = YPImagePicker()
@@ -210,48 +210,49 @@ final class ChatViewController: MessagesViewController {
     messages.sort()
     messagesCollectionView.reloadData()
   }
-  
-  private func handleDocumentChange(_ change: DocumentChange) {
-    let index = change.document.data()
-    let FIRdate = index["created"] as! Timestamp
-    if index["url"] != nil {
-        let url = index["url"] as! String
-        let trueurl = URL.init(string: url)
-        downloadImage(at: trueurl!) { [weak self] image in
-            guard let `self` = self else {
-                return
-            }
-            guard let image = image else {
-                return
-            }
-            guard var message = Message(id: change.document.documentID, urlString: index["url"] as! String,image:image, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
-            else {
-                 return
-            }
-            message.image = image
-            self.insertNewMessage(message)
-            }
-    }else{
-        guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
-            else {
-                return
-            }
-        if let url = message.downloadURL {
-            downloadImage(at: url) { [weak self] image in
+ 
+    
+    private func handleDocumentChange(_ change: DocumentChange) {
+        let index = change.document.data()
+        let FIRdate = index["created"] as! Timestamp
+        if index["url"] != nil {
+            let url = index["url"] as! String
+            let trueurl = URL.init(string: url)
+            downloadImage(at: trueurl!) { [weak self] image in
                 guard let `self` = self else {
                     return
                 }
                 guard let image = image else {
                     return
                 }
+                guard var message = Message(id: change.document.documentID, urlString: index["url"] as! String,image:image, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
+                    else {
+                        return
+                }
                 message.image = image
                 self.insertNewMessage(message)
+                }
+        }else{
+            guard var message = Message(id: change.document.documentID, content: index["content"] as! String, senderID: index["senderID"] as! String, sentDate: FIRdate.dateValue() , senderName: index["senderName"] as! String)
+                else {
+                    return
+                }
+            if let url = message.downloadURL {
+                downloadImage(at: url) { [weak self] image in
+                    guard let `self` = self else {
+                        return
+                    }
+                    guard let image = image else {
+                        return
+                    }
+                    message.image = image
+                    self.insertNewMessage(message)
+                }
+            } else {
+                insertNewMessage(message)
             }
-        } else {
-            insertNewMessage(message)
         }
     }
-  }
   
   private func uploadImage(_ image: UIImage, to channel: Channel, completion: @escaping (URL?) -> Void) {
     guard let channelID = channel.id else {

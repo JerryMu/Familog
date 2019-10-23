@@ -5,12 +5,14 @@
 //  Created by shisheng liu on 2019/10/5.
 //
 
+
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
+
 class CommentViewController: UIViewController {
-     let refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     var commentRef = Firestore.firestore().collection("Comment")
     @IBOutlet weak var currentUserAvatar: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
@@ -26,6 +28,7 @@ class CommentViewController: UIViewController {
     var commentIDList :[String] = []
     var commentID: String!
     
+    
     func setupUserInfo() {
         Api.User.observeUser(withId: currentUser!, completion: {
                        user in
@@ -35,6 +38,8 @@ class CommentViewController: UIViewController {
            }
         })
    }
+    
+    
     @objc func refresh() {
         comments.removeAll()
         users.removeAll()
@@ -42,12 +47,15 @@ class CommentViewController: UIViewController {
         
         refreshControl.endRefreshing()
     }
+    
+    
     func load(){
         Api.User.observeCurrentUser(){ currentUser in
             self.loadPosts(postId : self.postId)
         }
     }
 
+    
     func loadPosts(postId : String) {
         commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
             if let err = err {
@@ -64,6 +72,7 @@ class CommentViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserInfo()
@@ -75,6 +84,7 @@ class CommentViewController: UIViewController {
         commentTextField.delegate = self
         handleTextField()
      }
+    
      //test
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.User.observeUser(withId: uid, completion: {
@@ -83,6 +93,7 @@ class CommentViewController: UIViewController {
             completed()
         })
     }
+    
    
     func handleTextField() {
         commentTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -100,15 +111,18 @@ class CommentViewController: UIViewController {
         sendButton.isEnabled = false
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
         sendComment()
@@ -147,6 +161,7 @@ class CommentViewController: UIViewController {
         sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Comment_ProfileSegue" {
             let detailVC = segue.destination as! OthersProfileViewController
@@ -154,13 +169,15 @@ class CommentViewController: UIViewController {
             detailVC.uid = userId
         }
     }
-  }
+}
 
 
 extension CommentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
         let comment = comments[indexPath.row]
@@ -168,10 +185,10 @@ extension CommentViewController: UITableViewDataSource {
         cell.delegate = self
         cell.comment = comment
         cell.user = user
-       
         return cell
     }
 }
+
 
 extension CommentViewController: CommentTableViewCellDelegate {
     func goToProfileUserVC(userId: String) {
