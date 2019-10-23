@@ -12,14 +12,10 @@ import Vision
 protocol DetailTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
+    func moveToProfilePage()
 }
 
 class DetailViewCell:UITableViewCell{
-    let classificationModel = MobileNetV2()
-             
-             // MARK: - Vision Properties
-             var request: VNCoreMLRequest?
-             var visionModel: VNCoreMLModel?
     
     @IBOutlet weak var top1ConfidenceLabel: UILabel!
     
@@ -29,6 +25,7 @@ class DetailViewCell:UITableViewCell{
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var timelineVC : TimelineViewController?
     var delegate: DetailTableViewCellDelegate?
@@ -47,6 +44,8 @@ class DetailViewCell:UITableViewCell{
     
     func updateView() {
         captionLabel.text = post?.discription
+        top1ResultLabel.text = post?.predictItem
+        top1ConfidenceLabel.text = post?.predictAcc
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
@@ -79,25 +78,27 @@ class DetailViewCell:UITableViewCell{
             }
             
             timeLabel.text = timeText
-            setUpModel()
-            self.predict(with: URL(string:post!.url!)!)
         }
     }
-    func setUpModel() {
-            if let visionModel = try? VNCoreMLModel(for: classificationModel.model) {
-                self.visionModel = visionModel
-                request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
-                request?.imageCropAndScaleOption = .scaleFill
-            } else {
-                fatalError()
-            }
-        }
+    
+    @IBAction func deletePostButtonTapped(_ sender : Any) {
+        Api.Post.deletePost(PostId: post!.uid!)
+        delegate?.moveToProfilePage()
+    }
+    
     
     func setupUserInfo() {
         nameLabel.text = user?.firstname
+        
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
+        }
+        
+        if(user?.uid != Api.User.currentUser?.uid){
+            deleteButton.isHidden = true
+        }else{
+            deleteButton.isHidden = false
         }
     }
     
@@ -139,23 +140,4 @@ class DetailViewCell:UITableViewCell{
         // Configure the view for the selected state
     }
 
-    func predict(with url: URL) {
-           guard let request = request else { fatalError() }
-           
-           // vision framework configures the input size of image following our model's input configuration automatically
-           let handler = VNImageRequestHandler(url: url, options: [:])
-           try? handler.perform([request])
-       }
-    // post-processing
-    func visionRequestDidComplete(request: VNRequest, error: Error?) {
-        print(request)
-        
-        if let result = request.results?.first as? VNClassificationObservation {
-            top1ResultLabel.text = result.identifier
-            top1ConfidenceLabel.text = "\(String(format: "%.2f", result.confidence * 100))%"
-        } else {
-            top1ResultLabel.text = "no result"
-            top1ConfidenceLabel.text = "--%"
-        }
-    }
 }

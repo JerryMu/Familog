@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,14 +32,14 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="fB1-mE-2gz" customClass="DetailViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fO8-XB-lh7" userLabel="Screen">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-Ty-z7l">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-1s-86V">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="461" id="fW2-as-kcU" customClass="DetailViewCell" customModule="Familog" customModuleProvider="target">
@@ -119,6 +119,13 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJ5-hK-YJy">
+                                                            <rect key="frame" x="147.66666666666666" y="16" width="45" height="30"/>
+                                                            <state key="normal" title="Delete"/>
+                                                            <connections>
+                                                                <action selector="deletePostButtonTapped:" destination="fW2-as-kcU" eventType="touchUpInside" id="6zc-lv-K99"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -126,6 +133,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="Ypo-Ug-Om6" secondAttribute="bottom" id="8qN-dV-R2a"/>
                                                         <constraint firstAttribute="trailing" secondItem="qK9-aG-Itg" secondAttribute="trailing" constant="12" id="9mm-iN-76s"/>
                                                         <constraint firstAttribute="trailing" secondItem="BQj-h9-V7J" secondAttribute="trailing" constant="8" id="C2K-fq-df0"/>
+                                                        <constraint firstItem="MJ5-hK-YJy" firstAttribute="leading" secondItem="1Eq-Iq-hTu" secondAttribute="trailing" constant="10" id="CeM-Ya-jr3"/>
                                                         <constraint firstItem="Oag-Yr-EuA" firstAttribute="centerX" secondItem="TS5-io-r9m" secondAttribute="centerX" id="Ekq-6Y-qu2"/>
                                                         <constraint firstItem="Ypo-Ug-Om6" firstAttribute="top" secondItem="Oag-Yr-EuA" secondAttribute="bottom" constant="4" id="NzV-mw-S54"/>
                                                         <constraint firstAttribute="bottom" secondItem="qK9-aG-Itg" secondAttribute="bottom" constant="100" id="TwS-5N-eTB"/>
@@ -138,6 +146,7 @@
                                                         <constraint firstItem="qK9-aG-Itg" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="12" id="Z1S-zu-cP3"/>
                                                         <constraint firstItem="1Eq-Iq-hTu" firstAttribute="leading" secondItem="ysc-mD-CSH" secondAttribute="trailing" constant="12" id="aiJ-uG-SkH"/>
                                                         <constraint firstItem="ysc-mD-CSH" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="12" id="cQm-lz-wjH"/>
+                                                        <constraint firstItem="MJ5-hK-YJy" firstAttribute="centerY" secondItem="1Eq-Iq-hTu" secondAttribute="centerY" id="fDf-7I-0Bn"/>
                                                         <constraint firstItem="ysc-mD-CSH" firstAttribute="top" secondItem="TS5-io-r9m" secondAttribute="top" constant="12" id="gA8-Jo-Zeg"/>
                                                         <constraint firstItem="aDx-kQ-97Q" firstAttribute="centerY" secondItem="1Eq-Iq-hTu" secondAttribute="centerY" id="sdv-Hd-Mps"/>
                                                         <constraint firstItem="Ypo-Ug-Om6" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" id="uxb-yG-e3w"/>
@@ -147,6 +156,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="captionLabel" destination="BQj-h9-V7J" id="wc8-QQ-dR5"/>
+                                                    <outlet property="deleteButton" destination="MJ5-hK-YJy" id="shk-N0-gtr"/>
                                                     <outlet property="nameLabel" destination="1Eq-Iq-hTu" id="Go6-wK-2Vd"/>
                                                     <outlet property="postImageView" destination="qK9-aG-Itg" id="f1Q-5b-dNu"/>
                                                     <outlet property="profileImageView" destination="ysc-mD-CSH" id="4Ms-qt-kcP"/>
@@ -240,23 +250,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hgg-CV-fEF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zmu-uy-Sbk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="RoU-Ig-HDb">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pzo-Jn-AkV">
-                                <rect key="frame" x="314" y="7" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deletePostButtonTapped:" destination="fB1-mE-2gz" eventType="touchUpInside" id="L2Y-yp-8mI"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="deletePostButton" destination="pzo-Jn-AkV" id="ObJ-NV-WAx"/>
                         <outlet property="tableView" destination="jjp-1s-86V" id="Btw-Ch-6CM"/>
                         <segue destination="Pyd-rl-Mg1" kind="presentation" identifier="Detail_CommentVC" modalPresentationStyle="formSheet" id="xFy-lc-Vax"/>
                         <segue destination="Mxg-ii-X1M" kind="presentation" identifier="Detail_ProfileUserSegue" id="5Qh-oo-dSB"/>
@@ -266,37 +262,9 @@
             </objects>
             <point key="canvasLocation" x="-13599.200000000001" y="-5834.4827586206902"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SB0-hg-pjU">
-            <objects>
-                <navigationController storyboardIdentifier="TimeLineStoryBoard" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="light" id="Sad-pw-Tbx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Timeline" id="FIe-9N-9D7" colorLabel="IBBuiltInLabel-Red">
-                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Eq4-pK-f3I">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fB1-mE-2gz" kind="relationship" relationship="rootViewController" id="2SH-tO-uNj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DuW-gR-Lnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-14705" y="-5834"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="Timeline" width="35" height="35"/>
-        <image name="addNewPic" width="966" height="604"/>
+        <image name="addNewPic" width="882" height="544"/>
     </resources>
 </document>

@@ -11,9 +11,16 @@ import AVFoundation
 import FirebaseAuth
 import YPImagePicker
 import ProgressHUD
+import Vision
 
 
 class UploadViewController: UIViewController{
+    
+    let classificationModel = MobileNetV2()
+             
+             // MARK: - Vision Properties
+     var request: VNCoreMLRequest?
+     var visionModel: VNCoreMLModel?
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +70,8 @@ class UploadViewController: UIViewController{
         }
     }
     
+
+    
     // Upload image to Firebase
     func uploadToFirebase(_ image: UIImage, fid : String) {
         ProgressHUD.show("Waiting...", interaction: false)
@@ -84,8 +93,42 @@ class UploadViewController: UIViewController{
                     guard let downloadurl = url else {
                         ProgressHUD.showError("Failed to upload")
                         return
-                    }                    
+                    }
+                    
+                    
+                    func predict(with url: URL) {
+                        guard let request = self.request else { fatalError() }
+
+                           // vision framework configures the input size of image following our model's input configuration automatically
+                           let handler = VNImageRequestHandler(url: url, options: [:])
+                           try? handler.perform([request])
+                       }
+                    // post-processing
+                    func setUpModel() {
+                        if let visionModel = try? VNCoreMLModel(for: self.classificationModel.model) {
+                            self.visionModel = visionModel
+                            self.request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+                            self.request?.imageCropAndScaleOption = .scaleFill
+                        } else {
+                            fatalError()
+                            }
+                        }
+                    
+                    
+                    
                     // Upload the image download URL and uid to the database
+                    setUpModel()
+                    predict(with: downloadurl)
+                    
+                    func visionRequestDidComplete(request: VNRequest, error: Error?) {
+                        print(request)
+
+                        if let result = request.results?.first as? VNClassificationObservation {
+                            let top1ResultLabel = result.identifier
+                            let top1ConfidenceLabel = "\(String(format: "%.2f", result.confidence * 100))%"
+                        
+
+                    
                     let db = Firestore.firestore()
                     let postRef = db.collection("Post").document()
                     let uid = postRef.documentID
@@ -94,7 +137,7 @@ class UploadViewController: UIViewController{
                     let description = self.descriptionField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                     
                     let timestamp = Int(Date().timeIntervalSince1970)
-                    let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId": fid,"timestamp": timestamp, "comment" : []] as [String : Any]
+                    let data = ["description": description, "url": urlString, "uid": uid, "userId": currentUser, "familyId": fid,"timestamp": timestamp, "comment" : [], "predictType": top1ResultLabel, "predictAcc":top1ConfidenceLabel] as [String : Any]
                     
                     postRef.setData(data as [String : Any], completion: {(error) in
                         if error != nil {
@@ -106,6 +149,9 @@ class UploadViewController: UIViewController{
                             self.moveToTimeLinePage()
                         }
                     })
+                }
+                    }
+            
                 })
             }
             
@@ -120,7 +166,7 @@ class UploadViewController: UIViewController{
         if self.descriptionField.text?.trimmingCharacters(in:.whitespacesAndNewlines) == "Describe your artifacts..." {
             ProgressHUD.showError("You must fill description")
             return
-        }        
+        }
         getFamilyId(photo.image!)
     }
     
