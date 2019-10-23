@@ -38,6 +38,8 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
+        self.nameTextField.delegate = self
+        self.dateOfBirth.delegate = self
         self.bioTextView.delegate = self
         fetchCurrentUser()
 
@@ -153,7 +155,7 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
     // UITextViewDelegate
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return bioTextView.text.count + (text.count - range.length) <= 1
+        return bioTextView.text.count + (text.count - range.length) <= 38
     }
     
     func uploadAvatar(){
@@ -182,10 +184,9 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
 }
 
 
-//extension EditProfileViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        print("return")
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
+extension EditProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

@@ -44,8 +44,8 @@ class DetailViewCell:UITableViewCell{
     
     func updateView() {
         captionLabel.text = post?.discription
-        top1ResultLabel.text = post?.predictItem
-        top1ConfidenceLabel.text = post?.predictAcc
+//        top1ResultLabel.text = post?.predictItem
+//        top1ConfidenceLabel.text = post?.predictAcc
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)

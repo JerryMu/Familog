@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8y-1X-hs9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D8y-1X-hs9">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -38,6 +38,10 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="zcA-bA-roK">
                                 <rect key="frame" x="122" y="119" width="131" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="gku-6C-oCX"/>
+                                    <constraint firstAttribute="width" constant="130" id="x0n-wD-bxH"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-g8-xsC">
                                 <rect key="frame" x="16" y="312.33333333333331" width="343" height="187.66666666666669"/>
@@ -100,7 +104,6 @@
                             <constraint firstItem="E1V-Xe-KeG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D3G-LD-K4h"/>
                             <constraint firstItem="E1V-Xe-KeG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ft5-u9-4BR"/>
                             <constraint firstItem="E1V-Xe-KeG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GNm-e6-Is7"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="zcA-bA-roK" secondAttribute="bottom" constant="529" id="JKG-QP-NsR"/>
                             <constraint firstAttribute="bottom" secondItem="E1V-Xe-KeG" secondAttribute="bottom" id="M5K-Wj-tmT"/>
                             <constraint firstItem="zcA-bA-roK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="PVS-UZ-Fgd"/>
                             <constraint firstItem="dm7-g8-xsC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WR8-VX-dJq"/>
@@ -192,7 +195,7 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <state key="normal" title="Log in">
-                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -202,7 +205,7 @@
                                                     <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -213,7 +216,7 @@
                                             <rect key="frame" x="62" y="274" width="170" height="36"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Forgot Password?">
-                                                <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="8K6-Ex-LGP" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="vE9-bx-knF"/>
@@ -477,7 +480,7 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                             <state key="normal" title="Sign Up">
-                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -487,7 +490,7 @@
                                                     <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -546,6 +549,6 @@
         <image name="password" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vE9-bx-knF"/>
+        <segue reference="VIj-YU-lVl"/>
     </inferredMetricsTieBreakers>
 </document>
