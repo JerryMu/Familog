@@ -1,8 +1,9 @@
 //
-//  TimelineTableViewCell.swift
-//  Familog
+//  File Name : TimelineTableViewCell.swift
+//  Project Name : Familog
 //
 //  Created by Ziyuan on 18/09/19.
+//
 //
 
 import UIKit
@@ -16,9 +17,6 @@ protocol TimelineTableViewCellDelegate {
 
 class TimelineTableViewCell: UITableViewCell {
   
-    @IBOutlet weak var top1ResultLabel: UILabel!
-    
-    @IBOutlet weak var top1ConfidenceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -47,7 +45,6 @@ class TimelineTableViewCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
         }
         if let timestamp = post?.timestamp {
-            print(timestamp)
             let timestampDate = Date(timeIntervalSince1970: Double(timestamp))
             let now = Date()
             let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
@@ -72,7 +69,8 @@ class TimelineTableViewCell: UITableViewCell {
             if diff.weekOfMonth! > 0 {
                 timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
             }
-            
+             
+            self.timeLabel.text = timeText
          
         }
     }
@@ -134,10 +132,6 @@ class TimelineTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-
-       
-
 
 }
 
