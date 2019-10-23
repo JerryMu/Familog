@@ -120,14 +120,14 @@ class DetailViewCell:UITableViewCell{
     
     
     @objc func nameLabel_TouchUpInside() {
-        print("nameLabel_TouchUpInside")
+//        print("nameLabel_TouchUpInside")
         if let id = user?.uid {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
     
     @IBAction func commentButton(_ sender: Any) {
-        print("commentImageView_TouchUpInside")
+//        print("commentImageView_TouchUpInside")
           
           if let id = post?.uid {
               delegate?.goToCommentVC(postId: id)

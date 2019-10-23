@@ -14,25 +14,6 @@ class CommentApi {
   
   
     // get the comment
-/*    func observeComments(commentID: String, completion : @escaping (Comment) -> Void){
-        commentRef.document(commentID)
-             .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else {
-                 print("Error fetching document: \(error!)")
-                 return
-               }
-               guard let data = document.data() else {
-                 print("Document data was empty.")
-                 return
-               }
-                 if let dict = documentSnapshot!.data() {
-             
-                     let comment = Comment.transformComment(dict: dict)
-                        completion(comment)
-                }
-         }
-         
-         }*/
     func updateComment(commentId: String, newComment : String)
     {
         let commentref = commentRef.document(commentId)
@@ -53,10 +34,10 @@ class CommentApi {
                 for document in querySnapshot!.documents {
                     let comment = Comment.transformComment(dict: document.data())
               completion(comment)
-                                 }
-                          }
+                 }
+              }
                           
-                          }
+          }
 
-}
+    }
 }

@@ -64,6 +64,7 @@ class CommentTableViewCell: UITableViewCell {
                timeLabel.text = timeText
            }
        }
+    
  
     
     func setupUserInfo() {

@@ -510,7 +510,10 @@
                                                 </constraints>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Nxu-Yj-PzR" id="sID-FI-EUU"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -556,7 +559,7 @@
                     <connections>
                         <outlet property="commentTextField" destination="Pwn-2F-Rsa" id="cfn-He-MQM"/>
                         <outlet property="currentUserAvatar" destination="e2S-9X-JlV" id="92h-gY-ghF"/>
-                        <outlet property="sendButton" destination="Nxu-Yj-PzR" id="eOy-Ax-wvZ"/>
+                        <outlet property="sendButton" destination="Nxu-Yj-PzR" id="S8r-2o-XKt"/>
                         <outlet property="tableView" destination="BKT-2V-Ja2" id="kqB-El-89o"/>
                         <segue destination="JhB-0y-pdM" kind="show" identifier="Comment_ProfileSegue" id="ANV-Xj-9fB"/>
                     </connections>
