@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
-    
+        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
+        IQKeyboardManager.shared.disabledTouchResignedClasses.append(ChatViewController.self)
+        IQKeyboardManager.shared.disabledToolbarClasses.append(CommentViewController.self)
+
         return true
     }
 

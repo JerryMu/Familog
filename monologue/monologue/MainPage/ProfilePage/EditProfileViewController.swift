@@ -1,6 +1,6 @@
 //
-//  EditProfileViewController.swift
-//  Familog
+//  File Name : EditProfileViewController.swift
+//  Project : Familog
 //
 //  Created by Pengyu Mu on 12/9/19.
 //
@@ -18,6 +18,7 @@ import Photos
 import YPImagePicker
 import ProgressHUD
 
+// for update user infomation
 protocol EditProfileControllerDelegate {
     func updateUserInfor()
 }
@@ -35,6 +36,7 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
 
     var delegate: EditProfileControllerDelegate?
     
+    //initialize all data
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
@@ -74,6 +76,8 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         dateOfBirth.text = formatter.string(from: datePicker.date)
         
     }
+    
+    
     @IBAction func logoutTapped(_ sender: Any) {
         do{
             // database signout
@@ -107,15 +111,19 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
+    
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
-        ProgressHUD.show("Waiting...")
+        ProgressHUD.show("Uploading...")
         if(nameTextField.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["firstname" : nameTextField.text!])
         }
+        
         if(dateOfBirth.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["dob" : dateOfBirth.text!])
         }
-        if(bioTextView.text!.count > 0){
+        
+        if(bioTextView.text!.count > 0 && bioTextView.text!.count < 40){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }
         if(self.selectImage != nil){
@@ -129,6 +137,7 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
     
     func moveToProfilePage() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -148,12 +157,6 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         }
         present(picker, animated: true, completion: nil)
         
-    }
-
-    // UITextViewDelegate
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return bioTextView.text.count + (text.count - range.length) <= 1
     }
     
     func uploadAvatar(){
@@ -180,12 +183,3 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
     }
     
 }
-
-
-//extension EditProfileViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        print("return")
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}

@@ -44,6 +44,7 @@ class CommentViewController: UIViewController {
         comments.removeAll()
         users.removeAll()
         load()
+        
         refreshControl.endRefreshing()
     }
     
@@ -80,7 +81,7 @@ class CommentViewController: UIViewController {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 77
         tableView.rowHeight = UITableView.automaticDimension
-        empty()
+        commentTextField.delegate = self
         handleTextField()
      }
     
@@ -124,6 +125,9 @@ class CommentViewController: UIViewController {
     
     
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
+        sendComment()
+    }
+    func sendComment(){
         let timestamp = Int(Date().timeIntervalSince1970)
         let ref =   Firestore.firestore().collection("Comment").document().documentID
         let text = self.commentTextField.text!
@@ -192,3 +196,11 @@ extension CommentViewController: CommentTableViewCellDelegate {
     }
 }
 
+extension CommentViewController: UITextFieldDelegate {
+     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.sendComment()
+        return true;
+    }
+}
