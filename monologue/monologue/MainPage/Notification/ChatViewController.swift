@@ -209,9 +209,6 @@ final class ChatViewController: MessagesViewController {
     messages.append(message)
     messages.sort()
     messagesCollectionView.reloadData()
-//    DispatchQueue.main.async {
-//        self.messagesCollectionView.scrollToBottom(animated: true)
-//    }
   }
   
   private func handleDocumentChange(_ change: DocumentChange) {
@@ -414,3 +411,4 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true, completion: nil)
   }
 }
+

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.disabledTouchResignedClasses.append(ChatViewController.self)
+        IQKeyboardManager.shared.disabledToolbarClasses.append(CommentViewController.self)
 
         return true
     }
