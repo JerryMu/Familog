@@ -210,27 +210,7 @@ final class ChatViewController: MessagesViewController {
     messages.sort()
     messagesCollectionView.reloadData()
   }
-  
-    private func save(_ message: Message) {
-        reference?.addDocument(data: message.representation) { error in
-            if let e = error {
-                print("Error sending message: \(e.localizedDescription)")
-                return
-            }
-            self.messagesCollectionView.scrollToBottom(animated: false)
-        }
-    }
-  
-    
-    private func insertNewMessage(_ message: Message) {
-        guard !messages.contains(message) else {
-            return
-        }
-        messages.append(message)
-        messages.sort()
-        messagesCollectionView.reloadData()
-    }
-  
+ 
     
     private func handleDocumentChange(_ change: DocumentChange) {
         let index = change.document.data()
