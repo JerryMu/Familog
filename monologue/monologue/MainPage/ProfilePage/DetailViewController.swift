@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import Lightbox
 
 class DetailViewController: UIViewController {
 
@@ -126,6 +127,9 @@ extension DetailViewController: DetailTableViewCellDelegate, CommentTableViewCel
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         newViewController.selectedIndex = 2
         self.present(newViewController, animated: true, completion: nil)
+    }
+    func presentImage(imageViewController : LightboxController){
+        self.present(imageViewController, animated: true, completion: nil)
     }
 }
 

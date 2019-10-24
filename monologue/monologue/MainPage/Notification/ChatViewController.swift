@@ -11,6 +11,7 @@ import FirebaseFirestore
 import InputBarAccessoryView
 import YPImagePicker
 import ProgressHUD
+import Lightbox
 
 final class ChatViewController: MessagesViewController {
     let initImage =  #imageLiteral(resourceName: "Head_Icon")
@@ -19,7 +20,8 @@ final class ChatViewController: MessagesViewController {
     private let db = Firestore.firestore()
     private var reference: CollectionReference?  
     private let storage = Storage.storage().reference()
-    var imageView:UIImageView! = UIImageView()
+    var imageView : UIImageView! = UIImageView()
+    var avatarView : UIImageView! = UIImageView()
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
     private let user: User
@@ -42,10 +44,10 @@ final class ChatViewController: MessagesViewController {
         Api.User.observeUser(withId: uid, completion: {
             user in
             if user.profileImageUrl == "" {
-                self.imageView.image = self.initImage
+                self.avatarView.image = self.initImage
                 } else{
                 let photoUrlString = user.profileImageUrl
-                    self.imageView.sd_setImage(with: URL(string: photoUrlString! ))}
+                    self.avatarView.sd_setImage(with: URL(string: photoUrlString! ))}
             completed()
               })
     }
@@ -166,7 +168,7 @@ final class ChatViewController: MessagesViewController {
         guard let data = data, error == nil else { return }
         DispatchQueue.main.async() {
             self.imageView.image = UIImage(data: data)!
-            }
+        }
       }
   }
     
@@ -317,6 +319,7 @@ final class ChatViewController: MessagesViewController {
     guard indexPath.section - 1 >= 0 else { return false }
     return messages[indexPath.section].user == messages[indexPath.section - 1].user
     }
+    
 }
 
 // MARK: - MessagesDisplayDelegate
@@ -339,7 +342,7 @@ extension ChatViewController: MessagesDisplayDelegate {
    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
     let initials = "User"
     self.fetchUser(uid: message.sender.senderId, completed: {
-        let avatar = Avatar(image: self.imageView.image, initials: initials)
+        let avatar = Avatar(image: self.avatarView.image, initials: initials)
         avatarView.set(avatar: avatar)
     })
     }

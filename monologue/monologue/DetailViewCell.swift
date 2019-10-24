@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 import Vision
+import Lightbox
 
 protocol DetailTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
     func moveToProfilePage()
+    func presentImage(imageViewController : LightboxController)
 }
 
 class DetailViewCell:UITableViewCell{
@@ -114,6 +116,10 @@ class DetailViewCell:UITableViewCell{
         let tapGestureForUserImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         profileImageView.addGestureRecognizer(tapGestureForUserImageLabel)
         profileImageView.isUserInteractionEnabled = true
+        
+        let tapGestureForPostImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.showLightbox))
+        postImageView.addGestureRecognizer(tapGestureForPostImageLabel)
+        postImageView.isUserInteractionEnabled = true
        
         
     }
@@ -139,5 +145,22 @@ class DetailViewCell:UITableViewCell{
 
         // Configure the view for the selected state
     }
-
+    
+    @objc func showLightbox() {
+        if let photoUrlString = post?.url {
+            let photoUrl = URL(string: photoUrlString)
+        
+            let images = [
+                LightboxImage(
+                    imageURL: photoUrl!,
+                    text: self.post!.discription!
+                )
+            ]
+          
+            let controller = LightboxController(images: images)
+            controller.dynamicBackground = true
+            controller.modalPresentationStyle = .currentContext
+            delegate?.presentImage(imageViewController: controller)
+        }
+    }
 }

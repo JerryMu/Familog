@@ -99,6 +99,7 @@ struct Message: MessageType {
         id = nil
         self.kind = .photo(mediaItem)
         self.user = ChatUser(senderId: user.uid!, displayName: user.firstname!)
+        
     }
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 //test only
 import FirebaseAuth
+import Lightbox
 //The main page of personal profile storyboard
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userAvatar: UIImageView!
@@ -86,6 +87,28 @@ class ProfileViewController: UIViewController {
             detailVC.postId = postId
         }
     }
+    @IBAction func avaterPressed(_ sender: Any) {
+        showLightbox()
+    }
+    
+    
+    @objc func showLightbox() {
+        if let avatar = user?.profileImageUrl {
+            let photoUrl = URL(string: avatar)
+        
+            let images = [
+                LightboxImage(
+                    imageURL: photoUrl!,
+                    text: self.user!.bio!
+                )
+            ]
+          
+            let controller = LightboxController(images: images)
+            controller.dynamicBackground = true
+            controller.modalPresentationStyle = .currentContext
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
 }
 
 // Show how many and what kinds of artificates user has uploaded and add them the cell
@@ -117,6 +140,8 @@ extension ProfileViewController: UICollectionViewDataSource {
         }
     }
 }
+
+
 //set image distance and image size
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

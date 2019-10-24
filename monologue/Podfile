@@ -17,6 +17,7 @@ target 'Familog' do
   pod 'IQKeyboardManagerSwift'
   pod 'YPImagePicker'
   pod 'ProgressHUD'
+  pod 'Lightbox'
   # Pods for Familog
 
   target 'FamilogTests' do
