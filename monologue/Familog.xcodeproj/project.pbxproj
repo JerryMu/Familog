@@ -13,6 +13,7 @@
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
 		350C4A09235E9BFB00132BE0 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */; };
 		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
+		35648EB32361791700EB848D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35648EB22361791700EB848D /* TabBarViewController.swift */; };
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35AD5674234C373E00964364 /* Redressed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35AD5673234C373D00964364 /* Redressed.ttf */; };
 		35AD567F234C402B00964364 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD567E234C402B00964364 /* DesignableButton.swift */; };
@@ -59,7 +60,6 @@
 		862AD4012302AB1000CB350C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862AD4002302AB1000CB350C /* GoogleService-Info.plist */; };
 		865C17462358738A00EC9679 /* SwitchFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */; };
 		865C174823587B9600EC9679 /* MoveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C174723587B9600EC9679 /* MoveApi.swift */; };
-		865C174F2359CB1E00EC9679 /* EditFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C174E2359CB1E00EC9679 /* EditFamilyViewController.swift */; };
 		866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F797223154AF90059FB81 /* ResetPasswordViewController.swift */; };
 		86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */; };
 		86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */; };
@@ -81,7 +81,6 @@
 		B2BF69752332F3BD00E846D5 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69742332F3BD00E846D5 /* UserApi.swift */; };
 		B2BF69772332F4BF00E846D5 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69762332F4BF00E846D5 /* Api.swift */; };
 		B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */; };
-		B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF697E233335E900E846D5 /* TabBarViewController.swift */; };
 		B2BF6981233335F500E846D5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF6980233335F500E846D5 /* TimelineViewController.swift */; };
 		D479382E25C4356F8A42E217 /* Pods_Familog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCE46088F2D9CE4DFF16B62 /* Pods_Familog.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +108,7 @@
 		35005A2D2330C23500239C7E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
 		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
+		35648EB22361791700EB848D /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35AD5673234C373D00964364 /* Redressed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Redressed.ttf; sourceTree = "<group>"; };
 		35AD567E234C402B00964364 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -166,7 +166,6 @@
 		862AD4002302AB1000CB350C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		865C17452358738A00EC9679 /* SwitchFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		865C174723587B9600EC9679 /* MoveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveApi.swift; sourceTree = "<group>"; };
-		865C174E2359CB1E00EC9679 /* EditFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFamilyViewController.swift; sourceTree = "<group>"; };
 		866F797223154AF90059FB81 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		86960E472349B4FF00F3996F /* CreateFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFamilyViewController.swift; sourceTree = "<group>"; };
 		86960E492349B5DD00F3996F /* JoinFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +191,6 @@
 		B2BF69742332F3BD00E846D5 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		B2BF69762332F4BF00E846D5 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B2BF69782332FFF200E846D5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		B2BF697E233335E900E846D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B2BF6980233335F500E846D5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		B678C54CDA1A2E953513EA2E /* Pods-Familog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Familog.debug.xcconfig"; path = "Target Support Files/Pods-Familog/Pods-Familog.debug.xcconfig"; sourceTree = "<group>"; };
 		BE9C838F1475D8DDA35607E0 /* Pods-FamilogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilogTests.release.xcconfig"; path = "Target Support Files/Pods-FamilogTests/Pods-FamilogTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -472,7 +470,6 @@
 			children = (
 				38D4CF23234EC0500006155D /* ChannelsViewController.swift */,
 				38D4CF25234EC06A0006155D /* ChatViewController.swift */,
-				865C174E2359CB1E00EC9679 /* EditFamilyViewController.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -480,9 +477,9 @@
 		B2BF697D2333348800E846D5 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
+				35648EB22361791700EB848D /* TabBarViewController.swift */,
 				B2BF6980233335F500E846D5 /* TimelineViewController.swift */,
 				861571FF2333631B00AD5CB5 /* UploadViewController.swift */,
-				B2BF697E233335E900E846D5 /* TabBarViewController.swift */,
 				3841206B2348418D006EC47E /* CommentViewController.swift */,
 			);
 			path = TimeLine;
@@ -783,11 +780,11 @@
 				38997E5B235F178E0041BD4B /* SqueezeNetInt8LUT.mlmodel in Sources */,
 				38D4CF26234EC06A0006155D /* ChatViewController.swift in Sources */,
 				38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */,
+				35648EB32361791700EB848D /* TabBarViewController.swift in Sources */,
 				35AD5681234C40DE00964364 /* DesignableView.swift in Sources */,
 				38997E59235F178E0041BD4B /* MobileNetV2.mlmodel in Sources */,
 				86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */,
 				B25C0F86234EA2FD00E1104D /* DetailViewController.swift in Sources */,
-				865C174F2359CB1E00EC9679 /* EditFamilyViewController.swift in Sources */,
 				86960E482349B4FF00F3996F /* CreateFamilyViewController.swift in Sources */,
 				38EFE8962352C7B90092C4AF /* Message.swift in Sources */,
 				38997E57235F178E0041BD4B /* MobileNet.mlmodel in Sources */,
@@ -808,7 +805,6 @@
 				B2BF69792332FFF200E846D5 /* PhotoCollectionViewCell.swift in Sources */,
 				35AD567F234C402B00964364 /* DesignableButton.swift in Sources */,
 				38EFE8982352C7C70092C4AF /* Channel.swift in Sources */,
-				B2BF697F233335EA00E846D5 /* TabBarViewController.swift in Sources */,
 				358E61642332375500A5A8B8 /* Post.swift in Sources */,
 				B26E7B5C2329F2C900AA852C /* EditProfileViewController.swift in Sources */,
 				866F797323154AF90059FB81 /* ResetPasswordViewController.swift in Sources */,
@@ -1035,7 +1031,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.971005j";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-unimelb-it-project.Familog.980601";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

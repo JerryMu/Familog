@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,42 +9,62 @@
         <!--Navigation Controller-->
         <scene sceneID="4Es-iJ-ZkV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zGo-yn-yY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NotificationStoryBoard" modalPresentationStyle="fullScreen" interfaceStyle="light" id="r3E-Vf-fS6" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jyS-xn-Obh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" shadowImage="sep" id="jyS-xn-Obh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="osa-bq-emt" kind="relationship" relationship="rootViewController" id="48b-01-ith"/>
+                        <segue destination="hNZ-VG-h4F" kind="relationship" relationship="rootViewController" id="zAp-oC-Pc0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGo-yn-yY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1123" y="1551"/>
         </scene>
         <!--Family Chat-->
-        <scene sceneID="VLA-uF-SeV">
+        <scene sceneID="lJm-hh-NWf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQi-XO-U3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController modalPresentationStyle="fullScreen" interfaceStyle="light" id="osa-bq-emt" customClass="ChannelsViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="group Chat" id="ER8-dg-qFL">
+                <tableViewController id="hNZ-VG-h4F" customClass="ChannelsViewController" customModule="Familog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8zE-Ma-hxd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7578" id="32q-xL-dVE">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <connections>
+                            <outlet property="dataSource" destination="hNZ-VG-h4F" id="Mz3-ju-CLW"/>
+                            <outlet property="delegate" destination="hNZ-VG-h4F" id="klh-Zy-FTq"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="group Chat" id="e2P-sM-jUv">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Family Chat" id="Zgt-bW-323"/>
-                </viewController>
+                    <navigationItem key="navigationItem" title="Family Chat" id="ZBU-9R-iBs"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6KJ-nS-rMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969.5652173913045" y="1550.8928571428571"/>
+            <point key="canvasLocation" x="2008.6956521739132" y="1550.8928571428571"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_7578" width="1241" height="2688"/>
         <image name="group Chat" width="35" height="35"/>
+        <image name="sep" width="2" height="1"/>
     </resources>
 </document>
