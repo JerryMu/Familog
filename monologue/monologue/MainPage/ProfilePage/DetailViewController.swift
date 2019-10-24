@@ -101,17 +101,6 @@ extension DetailViewController: UITableViewDataSource {
             cell.delegate = self
             return cell
         
-//            else{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-//            if(indexPath.row <= comments.count && indexPath.row <= commentUsers.count){
-//                let comment = comments[indexPath.row - 1]
-//                let user = commentUsers[indexPath.row - 1]
-//                cell.delegate = self
-//                cell.comment = comment
-//                cell.user = user
-//            }
-//            return cell
-//            }
     }
 }
 

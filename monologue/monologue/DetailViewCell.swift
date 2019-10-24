@@ -153,7 +153,7 @@ class DetailViewCell:UITableViewCell{
             let images = [
                 LightboxImage(
                     imageURL: photoUrl!,
-                    text: self.post!.discription!
+                    text: self.post!.predictItem! + "\n" + self.post!.predictAcc!
                 )
             ]
           
