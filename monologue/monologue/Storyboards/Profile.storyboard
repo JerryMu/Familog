@@ -219,7 +219,7 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.86488288639999999" green="0.94061654809999995" blue="0.98470622299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="gHe-cK-W3e" firstAttribute="top" secondItem="4Zu-gm-FnG" secondAttribute="top" constant="20" id="0xi-En-ILD"/>
                                         <constraint firstItem="GzD-ki-JyB" firstAttribute="top" secondItem="Ird-d6-Mbv" secondAttribute="bottom" constant="10" id="3rB-tC-eKX"/>
@@ -558,7 +558,11 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQp-UF-bnF">
-                                        <rect key="frame" x="128" y="52" width="120" height="118"/>
+                                        <rect key="frame" x="128" y="50" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="7do-lp-Tsb"/>
+                                            <constraint firstAttribute="height" constant="120" id="KKa-1e-ZeB"/>
+                                        </constraints>
                                         <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -569,10 +573,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="YQp-UF-bnF" firstAttribute="leading" secondItem="GJ6-J2-OSX" secondAttribute="leading" constant="128" id="440-cT-D9e"/>
                                     <constraint firstItem="bbG-8p-eEw" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" constant="50" id="4iB-UX-0BZ"/>
                                     <constraint firstItem="KnL-SN-g1D" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" id="7Ed-LX-KR1"/>
                                     <constraint firstItem="o8o-na-Tbv" firstAttribute="leading" secondItem="GJ6-J2-OSX" secondAttribute="leading" constant="20" id="8En-WS-EF1"/>
+                                    <constraint firstItem="YQp-UF-bnF" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" constant="50" id="8gc-0x-JCb"/>
                                     <constraint firstItem="2Wq-Zm-4Yy" firstAttribute="leading" secondItem="GJ6-J2-OSX" secondAttribute="leading" id="AJE-oN-mwB"/>
                                     <constraint firstItem="VPD-6l-Jhu" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" constant="40" id="BGH-02-foG"/>
                                     <constraint firstItem="WoX-c3-yVP" firstAttribute="leading" secondItem="o8o-na-Tbv" secondAttribute="trailing" constant="20" id="DUP-iy-2J7"/>
@@ -580,21 +584,20 @@
                                     <constraint firstAttribute="trailing" secondItem="VPD-6l-Jhu" secondAttribute="trailing" constant="20" id="Jcp-DI-EbH"/>
                                     <constraint firstAttribute="trailing" secondItem="2Wq-Zm-4Yy" secondAttribute="trailing" id="Jin-9H-QhY"/>
                                     <constraint firstItem="9Yx-ZE-vNg" firstAttribute="centerX" secondItem="GJ6-J2-OSX" secondAttribute="centerX" id="K6C-iD-HZK"/>
-                                    <constraint firstItem="VPD-6l-Jhu" firstAttribute="leading" secondItem="YQp-UF-bnF" secondAttribute="trailing" constant="67" id="L8L-CV-amy"/>
                                     <constraint firstAttribute="bottom" secondItem="o8o-na-Tbv" secondAttribute="bottom" constant="10" id="Ncx-Af-XuO"/>
                                     <constraint firstItem="2Wq-Zm-4Yy" firstAttribute="top" secondItem="9Yx-ZE-vNg" secondAttribute="bottom" constant="15" id="OHC-2K-f4j"/>
                                     <constraint firstAttribute="bottom" secondItem="2Wq-Zm-4Yy" secondAttribute="bottom" id="V4W-Fv-tPv"/>
                                     <constraint firstAttribute="trailing" secondItem="KnL-SN-g1D" secondAttribute="trailing" id="eFD-c8-Z51"/>
                                     <constraint firstAttribute="height" constant="400" id="ehd-8X-IXO"/>
                                     <constraint firstItem="9Yx-ZE-vNg" firstAttribute="top" secondItem="bbG-8p-eEw" secondAttribute="bottom" constant="10" id="f3w-Ya-30h"/>
-                                    <constraint firstItem="YQp-UF-bnF" firstAttribute="top" secondItem="GJ6-J2-OSX" secondAttribute="top" constant="52" id="fFL-sk-4oS"/>
                                     <constraint firstAttribute="bottom" secondItem="KnL-SN-g1D" secondAttribute="bottom" id="geW-7r-8Xq"/>
-                                    <constraint firstItem="9Yx-ZE-vNg" firstAttribute="top" secondItem="YQp-UF-bnF" secondAttribute="bottom" constant="10" id="hWk-03-AI5"/>
+                                    <constraint firstItem="YQp-UF-bnF" firstAttribute="leading" secondItem="GJ6-J2-OSX" secondAttribute="leading" constant="128" id="i1V-FH-Jfd"/>
                                     <constraint firstAttribute="trailing" secondItem="WoX-c3-yVP" secondAttribute="trailing" constant="20" id="jEZ-oP-KOr"/>
                                     <constraint firstItem="bbG-8p-eEw" firstAttribute="centerX" secondItem="GJ6-J2-OSX" secondAttribute="centerX" id="jpR-HK-i49"/>
                                     <constraint firstAttribute="trailing" secondItem="9Yx-ZE-vNg" secondAttribute="trailing" constant="10" id="syN-rp-GPW"/>
                                     <constraint firstItem="WoX-c3-yVP" firstAttribute="centerY" secondItem="o8o-na-Tbv" secondAttribute="centerY" id="wdV-KM-rWB"/>
                                     <constraint firstItem="9Yx-ZE-vNg" firstAttribute="leading" secondItem="GJ6-J2-OSX" secondAttribute="leading" constant="10" id="xju-2Q-mom"/>
+                                    <constraint firstItem="VPD-6l-Jhu" firstAttribute="leading" secondItem="YQp-UF-bnF" secondAttribute="trailing" constant="67" id="z7j-yq-sAK"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JSI-1G-AMx">
@@ -804,6 +807,10 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXk-nX-0JB">
                                         <rect key="frame" x="128" y="52" width="120" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="118" id="2R5-82-VL1"/>
+                                            <constraint firstAttribute="width" constant="120" id="yEk-v5-y0A"/>
+                                        </constraints>
                                         <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -917,6 +924,6 @@
         <image name="profile" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0KJ-G8-0Qc"/>
+        <segue reference="sZm-QO-jrn"/>
     </inferredMetricsTieBreakers>
 </document>
