@@ -134,36 +134,14 @@
                                                                 <action selector="commentButton:" destination="fW2-as-kcU" eventType="touchUpInside" id="sLZ-NC-xYj"/>
                                                             </connections>
                                                         </button>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="azb-tf-URI">
-                                                            <rect key="frame" x="329" y="586.66666666666663" width="31" height="30.666666666666629"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLn-dY-9wA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="14.333333333333334"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvC-rD-KOf">
-                                                                    <rect key="frame" x="0.0" y="16.333333333333332" width="31" height="14.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reco" translatesAutoresizingMaskIntoConstraints="NO" id="230-fn-d7X">
-                                                            <rect key="frame" x="330" y="551.66666666666663" width="30" height="30"/>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="MJ5-hK-YJy" firstAttribute="leading" secondItem="Sf2-gY-PnA" secondAttribute="trailing" constant="10" id="1bS-dp-woQ"/>
                                                         <constraint firstItem="MJ5-hK-YJy" firstAttribute="centerY" secondItem="Sf2-gY-PnA" secondAttribute="centerY" id="2vT-6M-ED7"/>
-                                                        <constraint firstItem="azb-tf-URI" firstAttribute="top" secondItem="230-fn-d7X" secondAttribute="bottom" constant="5" id="5UL-et-7oX"/>
                                                         <constraint firstItem="ysc-mD-CSH" firstAttribute="top" secondItem="TS5-io-r9m" secondAttribute="top" constant="20" id="5rl-EZ-yM2"/>
                                                         <constraint firstItem="BQj-h9-V7J" firstAttribute="top" secondItem="qK9-aG-Itg" secondAttribute="bottom" constant="30" id="6Za-u0-O1x"/>
                                                         <constraint firstAttribute="trailing" secondItem="BQj-h9-V7J" secondAttribute="trailing" constant="12" id="C2K-fq-df0"/>
-                                                        <constraint firstItem="230-fn-d7X" firstAttribute="centerY" secondItem="MJ5-hK-YJy" secondAttribute="centerY" id="EqB-Vl-Lf9"/>
                                                         <constraint firstAttribute="trailing" secondItem="qK9-aG-Itg" secondAttribute="trailing" constant="12" id="Qnm-Ds-S2v"/>
                                                         <constraint firstItem="qK9-aG-Itg" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="12" id="SmW-nA-hLy"/>
                                                         <constraint firstItem="qK9-aG-Itg" firstAttribute="top" secondItem="ysc-mD-CSH" secondAttribute="bottom" constant="12" id="UkV-en-Tyb"/>
@@ -171,9 +149,7 @@
                                                         <constraint firstItem="BQj-h9-V7J" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="12" id="YRC-p0-M4w"/>
                                                         <constraint firstItem="Sf2-gY-PnA" firstAttribute="top" secondItem="BQj-h9-V7J" secondAttribute="bottom" constant="30" id="Ypo-9T-A7k"/>
                                                         <constraint firstItem="1Eq-Iq-hTu" firstAttribute="leading" secondItem="ysc-mD-CSH" secondAttribute="trailing" constant="12" id="aiJ-uG-SkH"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="azb-tf-URI" secondAttribute="trailing" id="awe-mW-lJr"/>
                                                         <constraint firstItem="ysc-mD-CSH" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="12" id="cQm-lz-wjH"/>
-                                                        <constraint firstItem="230-fn-d7X" firstAttribute="trailing" secondItem="TS5-io-r9m" secondAttribute="trailingMargin" id="jn9-Wg-GUg"/>
                                                         <constraint firstItem="Sf2-gY-PnA" firstAttribute="leading" secondItem="TS5-io-r9m" secondAttribute="leading" constant="10" id="ppf-0c-R0N"/>
                                                         <constraint firstItem="aDx-kQ-97Q" firstAttribute="centerY" secondItem="1Eq-Iq-hTu" secondAttribute="centerY" id="sdv-Hd-Mps"/>
                                                         <constraint firstAttribute="bottom" secondItem="Sf2-gY-PnA" secondAttribute="bottom" constant="40" id="xwA-Wc-EQb"/>
@@ -188,8 +164,6 @@
                                                     <outlet property="postImageView" destination="qK9-aG-Itg" id="f1Q-5b-dNu"/>
                                                     <outlet property="profileImageView" destination="ysc-mD-CSH" id="4Ms-qt-kcP"/>
                                                     <outlet property="timeLabel" destination="aDx-kQ-97Q" id="Kvb-4P-vni"/>
-                                                    <outlet property="top1ConfidenceLabel" destination="hvC-rD-KOf" id="jqj-4s-mRI"/>
-                                                    <outlet property="top1ResultLabel" destination="PLn-dY-9wA" id="gd7-Gm-Ifw"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -238,7 +212,6 @@
         <image name="Comment" width="170.66667175292969" height="170.66667175292969"/>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="IMG_7578" width="1241" height="2688"/>
-        <image name="reco" width="30" height="30"/>
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>

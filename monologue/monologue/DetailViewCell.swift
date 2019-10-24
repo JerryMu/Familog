@@ -19,9 +19,9 @@ protocol DetailTableViewCellDelegate {
 
 class DetailViewCell:UITableViewCell{
     
-    @IBOutlet weak var top1ConfidenceLabel: UILabel!
+//    @IBOutlet weak var top1ConfidenceLabel: UILabel!
     
-    @IBOutlet weak var top1ResultLabel: UILabel!
+//    @IBOutlet weak var top1ResultLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -46,8 +46,8 @@ class DetailViewCell:UITableViewCell{
     
     func updateView() {
         captionLabel.text = post?.discription
-        top1ResultLabel.text = post?.predictItem
-        top1ConfidenceLabel.text = post?.predictAcc
+//        top1ResultLabel.text = post?.predictItem
+//        top1ConfidenceLabel.text = post?.predictAcc
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
