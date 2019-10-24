@@ -9,6 +9,8 @@ import UIKit
 //test only
 import FirebaseAuth
 //The main page of personal profile storyboard
+import Lightbox
+
 class OthersProfileViewController: UIViewController {
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userBioLabel: UILabel!
@@ -83,6 +85,28 @@ class OthersProfileViewController: UIViewController {
             let detailVC = segue.destination as! DetailViewController
             let postId = sender  as! String
             detailVC.postId = postId
+        }
+    }
+    
+    @IBAction func avaterPress(_ sender: Any) {
+        showLightbox()
+    }
+    
+    @objc func showLightbox() {
+        if let avatar = user?.profileImageUrl {
+            let photoUrl = URL(string: avatar)
+        
+            let images = [
+                LightboxImage(
+                    imageURL: photoUrl!,
+                    text: self.user!.bio!
+                )
+            ]
+          
+            let controller = LightboxController(images: images)
+            controller.dynamicBackground = true
+            controller.modalPresentationStyle = .currentContext
+            self.present(controller, animated: true, completion: nil)
         }
     }
 }
