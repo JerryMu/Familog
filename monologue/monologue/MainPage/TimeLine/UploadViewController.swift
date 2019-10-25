@@ -74,7 +74,7 @@ class UploadViewController: UIViewController{
     
     // Upload image to Firebase
     func uploadToFirebase(_ image: UIImage, fid : String) {
-        ProgressHUD.show("Waiting...", interaction: false)
+        ProgressHUD.show("Uploading...", interaction: false)
         let imageName = NSUUID().uuidString
         // Set the image folder in the firebase storage
         let imageRef = Storage.storage().reference(forURL: "gs://monologue-10303.appspot.com/").child("images").child(imageName)
