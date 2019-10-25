@@ -290,9 +290,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbX-YC-S2w" customClass="DesignableButton" customModule="Familog" customModuleProvider="target">
-                                    <rect key="frame" x="58" y="18" width="166" height="34"/>
+                                    <rect key="frame" x="58" y="18" width="167" height="34"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                    <state key="normal" title="Create a new family">
+                                    <state key="normal" title="Create a Join family">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
