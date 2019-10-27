@@ -13,7 +13,6 @@ class Family {
     var familyName: String?
     var uid: String?
     var introduce : String?
-    //var familyOwner : String?
     var userNumber : Int?
 }
 
@@ -25,7 +24,6 @@ extension Family {
         family.familyName = dict["familyName"] as? String
         family.uid = dict["uid"] as? String
         family.introduce = dict["introduce"] as? String
-        //family.familyOwner = dict["familyOwner"] as? String
         family.userNumber = dict["userNumber"] as? Int
         return family
     }

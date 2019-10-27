@@ -4,8 +4,11 @@
 //  TextViewPlaceholder
 //
 //  Created by Ziyuan Xiao on 22/10/19.
-//  Copyright © 2019 Akash Patel. All rights reserved.
+//  Copyright © 2019 Ziyuan Xiao. All rights reserved.
 //
+//  This file would create a reusable text view for the UI part.
+//  This text view would have the place holder text paramater and custom place holder text color.
+
 import Foundation
 import UIKit
 
@@ -37,7 +40,7 @@ class APTextView : UITextView, UITextViewDelegate {
             self.defaultPlaceholderText = newValue
         }
     }
-    
+// set color of place holder text
     @IBInspectable var PlaceholderColor : UIColor {
         get{
             return self.defaultPlaceholderColor

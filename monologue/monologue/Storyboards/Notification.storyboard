@@ -41,7 +41,7 @@
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7578" id="32q-xL-dVE">
+                        <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgoundColor" id="32q-xL-dVE">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -63,7 +63,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_7578" width="1241" height="2688"/>
+        <image name="BackgoundColor" width="1241" height="2688"/>
         <image name="group Chat" width="35" height="35"/>
         <image name="sep" width="2" height="1"/>
     </resources>
