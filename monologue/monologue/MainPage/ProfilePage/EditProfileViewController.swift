@@ -18,11 +18,12 @@ import Photos
 import YPImagePicker
 import ProgressHUD
 
-// for update user infomation
+// Give edit profile page User information
 protocol EditProfileControllerDelegate {
     func updateUserInfor()
 }
 
+//For edit profile view
 class EditProfileViewController: UIViewController, UITextViewDelegate {
     
     // set profile photo function
@@ -60,6 +61,8 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         datePicker.addTarget(self, action: #selector(dateChannged), for: .valueChanged)
         
     }
+    
+    //finish processing HUD
     @objc func doneAction(){
         getDateFromPicker()
         view.endEditing(true)
@@ -94,15 +97,10 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         self.present(signInVC,animated: true , completion: nil)
     }
     
+    // dismiss current page if click other places
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
     
     func fetchCurrentUser() {
         Api.User.observeCurrentUser(){
@@ -114,7 +112,7 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
+    //upload all information to firebase
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
         ProgressHUD.show("Uploading...")
         if(nameTextField.text!.count > 0){
@@ -124,7 +122,7 @@ class EditProfileViewController: UIViewController, UITextViewDelegate {
         if(dateOfBirth.text!.count > 0){
             Api.User.setCurrentUser(dictionary:["dob" : dateOfBirth.text!])
         }
-        
+        // make sure biotext not too long
         if(bioTextView.text!.count > 0 && bioTextView.text!.count < 40){
             Api.User.setCurrentUser(dictionary:["bio" : bioTextView.text!])
         }

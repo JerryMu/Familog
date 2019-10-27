@@ -4,7 +4,9 @@
 //
 //  Created by Pengyu Mu on 18/9/19.
 //
-
+// The profile page functions include
+// 1. send post data to collection view
+// 2. show users information
 import UIKit
 //test only
 import FirebaseAuth
@@ -31,8 +33,9 @@ class ProfileViewController: UIViewController {
         fetchUser()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
     }
+    
+    // everytime jump to this page data will reload
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.posts.removeAll()
@@ -40,6 +43,7 @@ class ProfileViewController: UIViewController {
         self.fetchUser()
     }
     
+    //get current users information
     func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
@@ -50,6 +54,7 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    //get user informations
     func updateInfo(){
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
@@ -65,6 +70,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //get post of this user and send data to collection view
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
             if let err = err {
@@ -87,11 +93,12 @@ class ProfileViewController: UIViewController {
             detailVC.postId = postId
         }
     }
+    
     @IBAction func avaterPressed(_ sender: Any) {
         showLightbox()
     }
     
-    
+    //show detail image of user avatar
     @objc func showLightbox() {
         if let avatar = user?.profileImageUrl {
             let photoUrl = URL(string: avatar)

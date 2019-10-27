@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 10/10/19.
 //
+// This class is for showing detail of
 
 import UIKit
 import FirebaseFirestore

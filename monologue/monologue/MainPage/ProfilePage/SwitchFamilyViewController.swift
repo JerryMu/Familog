@@ -5,7 +5,7 @@
 //
 //  Created by 袁翥 on 2019/10/13.
 //
-//  This file is for achieve switch family function
+//  This file is for achieve switch family function, and list all family to family list
 
 import UIKit
 import ProgressHUD
@@ -33,6 +33,7 @@ class SwitchFamilyViewController: UIViewController{
                 Api.Family.REF_FAMILY.document(familyId).addSnapshotListener{
                     documentSnapshot, error in
                     if let document = documentSnapshot {
+                        //get family data from firebase and append family list to table view
                         let family = Family.transformFamily(dict: document.data()!)
                         self.families.append(family)
                         self.familyDict[family.uid!] = family.familyName
