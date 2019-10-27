@@ -42,11 +42,12 @@ class JoinFamilyViewController: UIViewController {
                 for document in querySnapshot!.documents {
                     familys.append(document.documentID)
                 }
+                // check the famliy id whether exists
                 if !familys.contains(familyId) {
                     ProgressHUD.showError("Can not find this family!")
                     return
-                } else {
-                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
+                // if the family id exists, send it to the current user
+                } else {                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                         if let document = document, document.exists {
                             var familys = document.get("families") as! [String]
                             familys.append(familyId)

@@ -150,7 +150,7 @@
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Timeline" id="jsC-xk-USx">
-                        <barButtonItem key="rightBarButtonItem" image="addNew" id="coO-WX-jdA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="coO-WX-jdA">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="9u6-Z5-77Z" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Yoq-s8-BNF"/>
@@ -573,11 +573,10 @@
         <image name="Comment" width="170.66667175292969" height="170.66667175292969"/>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="Timeline" width="35" height="35"/>
-        <image name="addNew" width="22" height="22"/>
         <image name="addNewPic" width="882" height="544"/>
-        <image name="send" width="22" height="22"/>
+        <image name="send" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ANV-Xj-9fB"/>
+        <segue reference="Znv-Ks-LAz"/>
     </inferredMetricsTieBreakers>
 </document>

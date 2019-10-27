@@ -24,11 +24,11 @@ class LogInViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    // The function of log in
     @IBAction func logInTapped(_ sender: Any) {
         ProgressHUD.show("Waiting...", interaction: false)
         let email = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         // Validate first, if success then sign in and move to the timeline page        
         Auth.auth().signIn(withEmail: email, password: password) {(result, error) in
             if error != nil {
@@ -59,6 +59,7 @@ class LogInViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
+    // Move to family page
     func moveToFamilyPage() {
         let storyBoard = UIStoryboard(name: "Family", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")

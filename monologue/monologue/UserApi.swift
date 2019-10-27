@@ -13,7 +13,6 @@ import FirebaseDatabase
 class UserApi {
     
     var REF_USERS = Firestore.firestore().collection("Users")
-    //let currentUser = Auth.auth().currentUser
     var currentUser: FirebaseAuth.User? {
         if let currentUser = Auth.auth().currentUser {
             return currentUser

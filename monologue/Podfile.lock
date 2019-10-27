@@ -157,7 +157,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
-  - IQKeyboardManagerSwift
+  - IQKeyboardManagerSwift (~> 6.5.0)
   - Lightbox
   - MessageKit
   - ProgressHUD
@@ -236,6 +236,6 @@ SPEC CHECKSUMS:
   SteviaLayout: 0c83442390c8a369c21f975ffbd812d11532645b
   YPImagePicker: bdaa46782668e260fdd9709f19043a9f469fd2ad
 
-PODFILE CHECKSUM: d6e5485eabb72b42a32128e72681e077c4a7d2a2
+PODFILE CHECKSUM: 1ce344e280610321b4dd8bde68acfa701a7c342b
 
 COCOAPODS: 1.8.4

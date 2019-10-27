@@ -410,7 +410,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJ6-J2-OSX" userLabel="Content">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7553" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-SN-g1D">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_Background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-SN-g1D">
                                         <rect key="frame" x="0.0" y="-20" width="375" height="420"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -697,7 +697,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sg8-h4-tZD" userLabel="Content">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7553" translatesAutoresizingMaskIntoConstraints="NO" id="c6x-ua-ezd">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_Background" translatesAutoresizingMaskIntoConstraints="NO" id="c6x-ua-ezd">
                                         <rect key="frame" x="0.0" y="-50" width="375" height="450"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -917,13 +917,13 @@
         <image name="Bio" width="200" height="200"/>
         <image name="Head_Icon" width="200" height="200"/>
         <image name="ID" width="200" height="200"/>
-        <image name="IMG_7553" width="1241" height="2688"/>
+        <image name="Profile_Background" width="1241" height="2688"/>
         <image name="add" width="512" height="512"/>
         <image name="birthday" width="238" height="200"/>
         <image name="family" width="200" height="200"/>
         <image name="profile" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0KJ-G8-0Qc"/>
+        <segue reference="sZm-QO-jrn"/>
     </inferredMetricsTieBreakers>
 </document>

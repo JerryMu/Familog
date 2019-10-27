@@ -38,7 +38,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-Ty-z7l">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7578" translatesAutoresizingMaskIntoConstraints="NO" id="F1d-Ve-Ekm">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgoundColor" translatesAutoresizingMaskIntoConstraints="NO" id="F1d-Ve-Ekm">
                                         <rect key="frame" x="0.0" y="500" width="375" height="268"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jk-K3-dOk">
@@ -209,9 +209,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BackgoundColor" width="1241" height="2688"/>
         <image name="Comment" width="170.66667175292969" height="170.66667175292969"/>
         <image name="Head_Icon" width="200" height="200"/>
-        <image name="IMG_7578" width="1241" height="2688"/>
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>

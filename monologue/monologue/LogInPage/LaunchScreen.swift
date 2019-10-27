@@ -20,6 +20,7 @@ class LaunchScreenViewController: UIViewController {
    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Auto sign in, if user logged in before, skip the authentication page and direct user to timeline page.
         if Auth.auth().currentUser != nil {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
 
@@ -28,6 +29,7 @@ class LaunchScreenViewController: UIViewController {
                 self.present(newViewController, animated: true, completion: nil)
             })
         }
+        // if user logged out before or use this app first time, direct user to authentication page
         else
         {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in

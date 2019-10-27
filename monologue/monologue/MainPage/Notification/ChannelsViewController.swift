@@ -13,6 +13,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
+
 class ChannelsViewController: UITableViewController {
     var currentUser: User!
     private let channelCellIdentifier = "channelCell"
@@ -27,6 +28,9 @@ class ChannelsViewController: UITableViewController {
     deinit {
         channelListener?.remove()
     }
+    
+    
+    // when the view did load ,do the following things
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUser()
@@ -34,18 +38,21 @@ class ChannelsViewController: UITableViewController {
     }
     
     
+    // when view will appear,do the following things
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
      }
      
     
+    // when view will disappear,do the following things
      override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = true
      }
     
     
+    // fetch the information of the user
     func fetchUser(){
         Api.User.observeCurrentUser(){
             user in
@@ -64,13 +71,16 @@ class ChannelsViewController: UITableViewController {
         }
     }
    
-  
+    
+  // set custom back image
   // MARK: - Actions
+    
+    // set back image
     func setCustomebBackImage(){
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    
+// if text Field Did Change
     @objc private func textFieldDidChange(_ field: UITextField) {
         guard let ac = currentChannelAlertController else {
             return
@@ -79,6 +89,8 @@ class ChannelsViewController: UITableViewController {
     }
   
     // MARK: - Helpers
+    
+    // add current family's channel to table
     private func addChannelToTable(_ channel: Channel) {
         guard !channels.contains(channel) else {
             return
@@ -96,7 +108,7 @@ class ChannelsViewController: UITableViewController {
         tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
   
-    
+     // update current family's channel in table
     private func updateChannelInTable(_ channel: Channel) {
         guard let index = channels.firstIndex(of: channel) else {
             return
@@ -106,6 +118,7 @@ class ChannelsViewController: UITableViewController {
     }
   
     
+     // remove current family's channel from table
     private func removeChannelFromTable(_ channel: Channel) {
         guard let index = channels.firstIndex(of: channel) else {
             return
@@ -115,6 +128,7 @@ class ChannelsViewController: UITableViewController {
     }
   
     
+    // if the data of channel in the database has changed
     private func handleDocumentChange(_ change: DocumentChange) {
         guard let channel = Channel(document: change.document) else {
             return

@@ -29,7 +29,7 @@ class CommentViewController: UIViewController {
     var commentIDList :[String] = []
     var commentID: String!
     
-    
+    // set up user's avatar
     func setupUserInfo() {
         Api.User.observeUser(withId: currentUser!, completion: {
                        user in
@@ -40,23 +40,22 @@ class CommentViewController: UIViewController {
         })
    }
     
-    
+    // refresh comment
     @objc func refresh() {
         comments.removeAll()
         users.removeAll()
         load()
-        
         refreshControl.endRefreshing()
     }
     
-    
+    // load post of currentuser
     func load(){
         Api.User.observeCurrentUser(){ currentUser in
             self.loadPosts(postId : self.postId)
         }
     }
 
-    
+    // load all the posts
     func loadPosts(postId : String) {
         commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
             if let err = err {
@@ -86,7 +85,7 @@ class CommentViewController: UIViewController {
         handleTextField()
      }
     
-     //test
+     // fetch the data of the user and store it in the users array
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.User.observeUser(withId: uid, completion: {
             user in
@@ -96,6 +95,7 @@ class CommentViewController: UIViewController {
     }
     
    
+    // if testfield did change
     func handleTextField() {
         commentTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
@@ -112,22 +112,24 @@ class CommentViewController: UIViewController {
         sendButton.isEnabled = false
     }
     
-    
+    //hide the tabbar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    
+    //hide the tabbar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    
+    // if the send button is tapped
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
         sendComment()
     }
+    
+    // send the comment to the database
     func sendComment(){
         let timestamp = Int(Date().timeIntervalSince1970)
         let ref =   Firestore.firestore().collection("Comment").document().documentID
@@ -156,6 +158,7 @@ class CommentViewController: UIViewController {
     }
     
     
+    // empty the sendbutton testfield
     func empty() {
         self.commentTextField.text = ""
         self.sendButton.isEnabled = false
@@ -163,6 +166,7 @@ class CommentViewController: UIViewController {
     }
     
     
+    //move to OthersProfileView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Comment_ProfileSegue" {
             let detailVC = segue.destination as! OthersProfileViewController
@@ -173,6 +177,8 @@ class CommentViewController: UIViewController {
 }
 
 
+
+// MARK: - UITableViewDataSource
 extension CommentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
@@ -191,14 +197,18 @@ extension CommentViewController: UITableViewDataSource {
 }
 
 
+// MARK: - CommentTableViewCellDelegate
 extension CommentViewController: CommentTableViewCellDelegate {
+    // goToProfile
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)
     }
 }
 
+
+// MARK: - UITextFieldDelegate
 extension CommentViewController: UITextFieldDelegate {
-     
+     // send the comment if the send button is tapped
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         self.sendComment()
