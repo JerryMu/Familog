@@ -29,13 +29,13 @@
          super.viewDidLoad()
      }
      
-
+     // check the password format, it must have one uppercase, one lowercase letter and one number.
      func isPasswordValid(_ password : String) -> Bool{
          let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]{8,}")
          return passwordTest.evaluate(with: password)
      }
      
-
+     // validate all text fields need to be filled
      func validateFields() -> String? {
          
          if  nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -60,9 +60,8 @@
          return nil
      }
      
- // Check the input information and the database to match, if the account password is correct, you can enter
- // If the account password is wrong, an error message will be displayed.
-
+     // Check the input information and the database to match, if the account password is correct, you can enter
+     // If the account password is wrong, an error message will be displayed.
      @IBAction func signUpTapped(_ sender: Any) {
          ProgressHUD.show("Waiting...", interaction: false)
          // Validate
@@ -104,6 +103,7 @@
          }
      }
      
+     // move to family page
      func moveToFamilyPage() {
          let storyBoard = UIStoryboard(name: "Family", bundle: nil)
          let newViewController = storyBoard.instantiateViewController(withIdentifier: "familyVC")

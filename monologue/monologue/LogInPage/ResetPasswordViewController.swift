@@ -25,7 +25,7 @@ class ResetPasswordViewController: UIViewController {
             ProgressHUD.showError("Please fill your email address")
         }
             
-            // If the email address is not nil, send the reset password email to it
+        // If the email address is not nil, send the reset password email to it
         else {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().sendPasswordReset(withEmail: email) { (error) in

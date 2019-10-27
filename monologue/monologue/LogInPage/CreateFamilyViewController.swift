@@ -28,6 +28,7 @@ class CreateFamilyViewController: UIViewController {
     @IBAction func createTapped(_ sender: Any) {
         
         ProgressHUD.show("Waiting...", interaction: false)
+        // Create a family by family name
         let familyName = familyNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if familyName == "" {
             ProgressHUD.showError("You must fill family name")
@@ -38,13 +39,13 @@ class CreateFamilyViewController: UIViewController {
         
         let data = ["profileImageUrl": "", "familyName": familyName, "uid":familyId, "introduce" : "", "userNumber" : 1] as [String : Any?]
     
-        
+        // send family data to firebase
         let family = Api.Family.REF_FAMILY.document(familyId)
         family.setData(data as [String : Any], completion: {(error) in
             if error != nil {
                 ProgressHUD.showError("Can not Creat this family!")
             } else {
-                // add channel to firebase
+                // add this family channel to firebase
                 let channel = Channel(name: familyName, id : familyId)
                 Firestore.firestore().collection("channels").addDocument(data: channel.representation) { error in
                     if let e = error {
@@ -52,15 +53,16 @@ class CreateFamilyViewController: UIViewController {
                     }
                 }
                 
+                // append new family into user's famlies list
                 Api.User.REF_USERS.document(Api.User.currentUser!.uid).getDocument{(document, error) in
                 if let document = document, document.exists {
                     
                     var families = document.get("families") as! [String]
                     
                     families.append(familyId)
+                    // make sure each family is unique
                     let newFamilies = Array(Set(families))
-                    
-                    Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(["familyId": familyId, "families": newFamilies])
+                   Api.User.REF_USERS.document(Api.User.currentUser!.uid).updateData(["familyId": familyId, "families": newFamilies])
                     {
                         err in
                         if err != nil {

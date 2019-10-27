@@ -14,7 +14,7 @@ target 'Familog' do
   pod 'MessageKit'
   pod 'Protobuf', :inhibit_warnings => true
   pod 'SDWebImage', '~> 5.0'
-  pod 'IQKeyboardManagerSwift'
+  pod 'IQKeyboardManagerSwift','~> 6.5.0'
   pod 'YPImagePicker'
   pod 'ProgressHUD'
   pod 'Lightbox'
