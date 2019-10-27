@@ -13,6 +13,7 @@ import YPImagePicker
 import ProgressHUD
 import Lightbox
 
+
 final class ChatViewController: MessagesViewController {
     let initImage =  #imageLiteral(resourceName: "Head_Icon")
     private var isSendingPhoto = false
@@ -31,15 +32,18 @@ final class ChatViewController: MessagesViewController {
     deinit {
         messageListener?.remove()
     }
+    
     init(user: User, channel: Channel) {
         self.user = user
         self.channel = channel
         super.init(nibName: nil, bundle: nil)
         title = channel.name
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    // fetch the information of the user and set avatar
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.User.observeUser(withId: uid, completion: {
             user in
@@ -57,6 +61,11 @@ final class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         fetchmessages()
         configureMessageInputBar()
+        initialize()
+    }
+
+    func initialize(){
+    //initialize the information of the chat interface
         navigationItem.largeTitleDisplayMode = .never
         scrollsToBottomOnKeyboardBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
@@ -66,6 +75,7 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+     //initialize camera item
         let cameraItem = makeButton(named: "addNewPicture")
         cameraItem.addTarget(
             self,
@@ -81,13 +91,15 @@ final class ChatViewController: MessagesViewController {
     }
     
     
+    
+    // refresh the page
     @objc func refresh() {
         self.massageNumber += 15
         fetchmessages()
         refreshControl.endRefreshing()
     }
     
-    
+    // fetch all the messages
     func fetchmessages(){
         guard let id = channel.id else {
             navigationController?.popViewController(animated: true)
@@ -107,7 +119,7 @@ final class ChatViewController: MessagesViewController {
         }
     }
     
- 
+ //configure Message InputBar
     func configureMessageInputBar() {
         messageInputBar.delegate = self
         messageInputBar.inputTextView.tintColor = .primaryColor
@@ -125,7 +137,7 @@ final class ChatViewController: MessagesViewController {
         configureMessageInputBarForChat()
     }
     
-    
+// configure Message InputBar ForChat
     private func configureMessageInputBarForChat() {
         messageInputBar.setMiddleContentView(messageInputBar.inputTextView, animated: false)
         messageInputBar.setRightStackViewWidthConstant(to: 52, animated: false)
@@ -144,7 +156,7 @@ final class ChatViewController: MessagesViewController {
         }
     }
     
-    
+    // configure send button
     private func makeButton(named: String) -> InputBarButtonItem {
           return InputBarButtonItem()
               .configure {
@@ -163,6 +175,7 @@ final class ChatViewController: MessagesViewController {
   
     
   // MARK: - Actions
+// download image from url
     func downloadImage(from url: URL) {
         getData(from: url) { data, response, error in
         guard let data = data, error == nil else { return }
@@ -172,12 +185,12 @@ final class ChatViewController: MessagesViewController {
       }
   }
     
-    
+    // get data baswd on url
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    
+    // if camera button is pressed
    @objc private func cameraButtonPressed() {
         let picker = YPImagePicker()
         picker.didFinishPicking { [unowned picker] items, _ in
@@ -191,29 +204,28 @@ final class ChatViewController: MessagesViewController {
     }
   
   // MARK: - Helpers
-  
-  private func save(_ message: Message) {
-       
-    reference?.addDocument(data: message.representation) { error in
-      if let e = error {
-        print("Error sending message: \(e.localizedDescription)")
-        return
-      }
-      self.messagesCollectionView.scrollToBottom(animated: false)
-    
+  // if send button is tapped ,save the mesage and scroll To Bottom
+    private func save(_ message: Message) {
+        reference?.addDocument(data: message.representation) { error in
+            if let e = error {
+                print("Error sending message: \(e.localizedDescription)")
+                return
+            }
+            self.messagesCollectionView.scrollToBottom(animated: false)
+        }
     }
-  }
   
-  private func insertNewMessage(_ message: Message) {
-    guard !messages.contains(message) else {
-        return
+  // insert new message
+    private func insertNewMessage(_ message: Message) {
+        guard !messages.contains(message) else {
+            return
+        }
+        messages.append(message)
+        messages.sort()
+        messagesCollectionView.reloadData()
     }
-    messages.append(message)
-    messages.sort()
-    messagesCollectionView.reloadData()
-  }
  
-    
+    // if the data of messages in the database has changed,insert new message
     private func handleDocumentChange(_ change: DocumentChange) {
         let index = change.document.data()
         let FIRdate = index["created"] as! Timestamp
@@ -256,69 +268,75 @@ final class ChatViewController: MessagesViewController {
         }
     }
   
-  private func uploadImage(_ image: UIImage, to channel: Channel, completion: @escaping (URL?) -> Void) {
-    guard let channelID = channel.id else {
-      completion(nil)
-      return
-    }
-    guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.1) else {
-      completion(nil)
-      return
-    }
-    let metaData = StorageMetadata()
-    metaData.contentType = "image/jpeg"
-    let imageName = [UUID().uuidString, String(Date().timeIntervalSince1970)].joined()
-    let storageRef = storage.child(channelID).child(imageName)
-    storageRef.putData(data, metadata: metaData) { metaData, error in
-          // success!
-        if error == nil, metaData != nil {
-            storageRef.downloadURL { url, error in
-                completion(url)
-        }
-              // failed
-        } else {
+    // upload the image
+    private func uploadImage(_ image: UIImage, to channel: Channel, completion: @escaping (URL?) -> Void) {
+        guard let channelID = channel.id else {
             completion(nil)
+            return
         }
-    }
+        guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.1) else {
+            completion(nil)
+            return
+        }
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        let imageName = [UUID().uuidString, String(Date().timeIntervalSince1970)].joined()
+        let storageRef = storage.child(channelID).child(imageName)
+        storageRef.putData(data, metadata: metaData) { metaData, error in
+            // success!
+            if error == nil, metaData != nil {
+                storageRef.downloadURL { url, error in
+                    completion(url)
+                }
+              // failed
+            } else {
+                completion(nil)
+            }
+        }
 }
   
-
-  private func sendPhoto(_ image: UIImage) {
-    isSendingPhoto = true
-    uploadImage(image, to: channel) { [weak self] url in
-        guard let `self` = self else {
-            return
+    // show photo on the screen
+    private func sendPhoto(_ image: UIImage) {
+        isSendingPhoto = true
+        uploadImage(image, to: channel) { [weak self] url in
+            guard let `self` = self else {
+                return
+            }
+            self.isSendingPhoto = false
+            guard let url = url else {
+                return
+            }
+            var message = Message(user: self.user, image: image)
+            message.downloadURL = url
+            self.save(message)
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }
-        self.isSendingPhoto = false
-        guard let url = url else {
-            return
-        }
-        var message = Message(user: self.user, image: image)
-        message.downloadURL = url
-        self.save(message)
-        self.messagesCollectionView.scrollToBottom(animated: true)
     }
-  }
   
-  private func downloadImage(at url: URL, completion: @escaping (UIImage?) -> Void) {
-    let ref = Storage.storage().reference(forURL: url.absoluteString)
-    let megaByte = Int64(1 * 1024 * 1024)
+    // download the image at url
+    private func downloadImage(at url: URL, completion: @escaping (UIImage?) -> Void) {
+        let ref = Storage.storage().reference(forURL: url.absoluteString)
+        let megaByte = Int64(1 * 1024 * 1024)
+        ref.getData(maxSize: megaByte) { data, error in
+            guard let imageData = data else {
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: imageData))
+        }
+    }
     
-    ref.getData(maxSize: megaByte) { data, error in
-      guard let imageData = data else {
-        completion(nil)
-        return
-      }
-        completion(UIImage(data: imageData))
-    }
-  }
- func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
-    return indexPath.section % 3 == 0 && !isPreviousMessageSameSender(at: indexPath)
-    }
-  func isPreviousMessageSameSender(at indexPath: IndexPath) -> Bool {
-    guard indexPath.section - 1 >= 0 else { return false }
-    return messages[indexPath.section].user == messages[indexPath.section - 1].user
-    }
+    
+    // return if timelabel is visible
+    func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
+        return indexPath.section % 3 == 0 && !isPreviousMessageSameSender(at: indexPath)
+        }
+    
+    // return if it is Previous Message Same Sender
+    func isPreviousMessageSameSender(at indexPath: IndexPath) -> Bool {
+        guard indexPath.section - 1 >= 0 else { return false }
+        return messages[indexPath.section].user == messages[indexPath.section - 1].user
+        }
     
 }
 
@@ -326,74 +344,75 @@ final class ChatViewController: MessagesViewController {
 
 extension ChatViewController: MessagesDisplayDelegate {
   
-  func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-    return isFromCurrentSender(message: message) ? .primary : .incomingMessage
-    
-  }
-  
-  func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
-    return false
-  }
-  
-  func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-    let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
-    return .bubbleTail(corner, .curved)
-  }
-   func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-    let initials = "User"
-    self.fetchUser(uid: message.sender.senderId, completed: {
-        let avatar = Avatar(image: self.avatarView.image, initials: initials)
-        avatarView.set(avatar: avatar)
-    })
+    // set the backgroudcolor
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? .primary : .incomingMessage
     }
+  
+    func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
+        return false
+    }
+  // configure message Style
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(corner, .curved)
+    }
+    
+    // configure Avatar View
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let initials = "User"
+        self.fetchUser(uid: message.sender.senderId, completed: {
+            let avatar = Avatar(image: self.avatarView.image, initials: initials)
+            avatarView.set(avatar: avatar)
+        })
+        }
 }
 
 // MARK: - MessagesLayoutDelegate
-
 extension ChatViewController: MessagesLayoutDelegate {
   
-  func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-    return .zero
-  }
+    func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        return .zero
+    }
   
-  func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-    return CGSize(width: 0, height: 8)
-  }
+    func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        return CGSize(width: 0, height: 8)
+    }
   
-  func heightForLocation(message: MessageType, at indexPath: IndexPath, with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+    func heightForLocation(message: MessageType, at indexPath: IndexPath, with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 0
+    }
     
-    return 0
-  }
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-          if isTimeLabelVisible(at: indexPath) {
-              return 18
-          }
-          return 0
-      }
+        if isTimeLabelVisible(at: indexPath) {
+            return 18
+        }
+        return 0
+    }
   
 }
 
 // MARK: - MessagesDataSource
 
 extension ChatViewController: MessagesDataSource {
-  func currentSender() -> SenderType {
-    return Sender(id: user.uid!, displayName: user.firstname!)
-  }
-  
-  func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-   return  messages.count
-  }
-  
-  func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-    return messages[indexPath.section]
-  }
-  
-  func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-    if isTimeLabelVisible(at: indexPath) {
-           return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+    func currentSender() -> SenderType {
+        return Sender(id: user.uid!, displayName: user.firstname!)
     }
-    return nil
-  }
+  
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return  messages.count
+    }
+  
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
+    }
+  
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if isTimeLabelVisible(at: indexPath) {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        }
+        return nil
+    }
   
 }
 
@@ -401,11 +420,11 @@ extension ChatViewController: MessagesDataSource {
 
 extension ChatViewController: MessageInputBarDelegate {
   
-  func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-    let message = Message(user: user, content: text)
-    save(message)
-    inputBar.inputTextView.text = ""
-  }
+    func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        let message = Message(user: user, content: text)
+        save(message)
+        inputBar.inputTextView.text = ""
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate
@@ -413,6 +432,6 @@ extension ChatViewController: MessageInputBarDelegate {
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-  }
+    }
 }
 
