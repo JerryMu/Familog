@@ -17,7 +17,6 @@
 		358E61642332375500A5A8B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358E61632332375500A5A8B8 /* Post.swift */; };
 		35AD5674234C373E00964364 /* Redressed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35AD5673234C373D00964364 /* Redressed.ttf */; };
 		35AD567F234C402B00964364 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD567E234C402B00964364 /* DesignableButton.swift */; };
-		35AD5681234C40DE00964364 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD5680234C40DE00964364 /* DesignableView.swift */; };
 		35E6A2E923326CF200B66E4E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */; };
 		3841206C2348418D006EC47E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206B2348418D006EC47E /* CommentViewController.swift */; };
 		3841206E234841BC006EC47E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841206D234841BC006EC47E /* CommentTableViewCell.swift */; };
@@ -112,7 +111,6 @@
 		358E61632332375500A5A8B8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35AD5673234C373D00964364 /* Redressed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Redressed.ttf; sourceTree = "<group>"; };
 		35AD567E234C402B00964364 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
-		35AD5680234C40DE00964364 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		35E6A2E823326CF200B66E4E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36FC9F8793B8BA6235E20962 /* Pods_FamilogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3841206B2348418D006EC47E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				35AD567E234C402B00964364 /* DesignableButton.swift */,
-				35AD5680234C40DE00964364 /* DesignableView.swift */,
 				350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */,
 			);
 			path = IBDesignables;
@@ -376,11 +373,11 @@
 			children = (
 				38997E42235F178E0041BD4B /* mlmodel */,
 				38D4CF2D234EC6B30006155D /* Extensions */,
-				35AD5677234C387200964364 /* IBDesignables */,
 				35E6A2E32332616C00B66E4E /* Views */,
 				358E61622332373C00A5A8B8 /* Model */,
 				86D45C6C230B0E40007724E4 /* HelperClass */,
 				8646B1FF2309119900A4C785 /* ViewControllers */,
+				35AD5677234C387200964364 /* IBDesignables */,
 				862AD3D9230298C400CB350C /* Assets.xcassets */,
 				862AD4002302AB1000CB350C /* GoogleService-Info.plist */,
 				862AD3DE230298C400CB350C /* Info.plist */,
@@ -781,7 +778,6 @@
 				38D4CF26234EC06A0006155D /* ChatViewController.swift in Sources */,
 				38D4CF35234EC7800006155D /* UIView+Additions.swift in Sources */,
 				35648EB32361791700EB848D /* TabBarViewController.swift in Sources */,
-				35AD5681234C40DE00964364 /* DesignableView.swift in Sources */,
 				38997E59235F178E0041BD4B /* MobileNetV2.mlmodel in Sources */,
 				86960E4A2349B5DD00F3996F /* JoinFamilyViewController.swift in Sources */,
 				B25C0F86234EA2FD00E1104D /* DetailViewController.swift in Sources */,
