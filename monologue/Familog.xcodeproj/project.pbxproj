@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		067EF39523F599A975D21B9A /* Pods_FamilogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876A9CB9037DC84C1ABF4296 /* Pods_FamilogTests.framework */; };
 		35005A242330BF3B00239C7E /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A232330BF3B00239C7E /* Timeline.storyboard */; };
-		35005A262330BF8300239C7E /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* Notification.storyboard */; };
+		35005A262330BF8300239C7E /* FamilyChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A252330BF8300239C7E /* FamilyChat.storyboard */; };
 		35005A2E2330C23500239C7E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35005A2D2330C23500239C7E /* Profile.storyboard */; };
 		350C4A09235E9BFB00132BE0 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */; };
 		35555B662347272900B0D7CD /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35555B652347272900B0D7CD /* Family.storyboard */; };
@@ -103,7 +103,7 @@
 
 /* Begin PBXFileReference section */
 		35005A232330BF3B00239C7E /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
-		35005A252330BF8300239C7E /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		35005A252330BF8300239C7E /* FamilyChat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FamilyChat.storyboard; sourceTree = "<group>"; };
 		35005A2D2330C23500239C7E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		350C4A08235E9BFB00132BE0 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
 		35555B652347272900B0D7CD /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
@@ -490,7 +490,7 @@
 				862AD3D6230298C200CB350C /* Main.storyboard */,
 				35555B652347272900B0D7CD /* Family.storyboard */,
 				35005A232330BF3B00239C7E /* Timeline.storyboard */,
-				35005A252330BF8300239C7E /* Notification.storyboard */,
+				35005A252330BF8300239C7E /* FamilyChat.storyboard */,
 				35005A2D2330C23500239C7E /* Profile.storyboard */,
 				B27D66512352853A00AAAFD9 /* DetailView.storyboard */,
 			);
@@ -636,7 +636,7 @@
 				B27D66522352853A00AAAFD9 /* DetailView.storyboard in Resources */,
 				35AD5674234C373E00964364 /* Redressed.ttf in Resources */,
 				862AD3D8230298C200CB350C /* Main.storyboard in Resources */,
-				35005A262330BF8300239C7E /* Notification.storyboard in Resources */,
+				35005A262330BF8300239C7E /* FamilyChat.storyboard in Resources */,
 				35555B662347272900B0D7CD /* Family.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

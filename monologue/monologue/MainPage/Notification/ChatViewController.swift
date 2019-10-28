@@ -76,7 +76,7 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
      //initialize camera item
-        let cameraItem = makeButton(named: "addNewPicture")
+        let cameraItem = makeButton(named: "addPic")
         cameraItem.addTarget(
             self,
             action: #selector(cameraButtonPressed),

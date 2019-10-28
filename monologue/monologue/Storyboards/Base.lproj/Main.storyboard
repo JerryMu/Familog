@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="91f-RJ-gNu">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,7 @@
         <!--NotificationStoryBoard-->
         <scene sceneID="RjG-QP-Mvm">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notification" referencedIdentifier="NotificationStoryBoard" id="Mix-ry-nw1" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FamilyChat" referencedIdentifier="NotificationStoryBoard" id="Mix-ry-nw1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="8Ye-Bb-vvs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1b-hD-nRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
