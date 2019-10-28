@@ -4,11 +4,12 @@
 //
 //  Created by Ziyuan on 18/09/19.
 //
-//
+// The Cell for every post of a family
 
 import UIKit
 import Vision
 
+//delegate of going to other pages
 protocol TimelineTableViewCellDelegate {
     func goToCommentVC(postId: String)
     func goToProfileUserVC(userId: String)
@@ -26,24 +27,29 @@ class TimelineTableViewCell: UITableViewCell {
     var timelineVC : TimelineViewController?
     var delegate: TimelineTableViewCellDelegate?
     
+    //check if post been fetched
     var post: Post? {
          didSet {
              updateView()
          }
      }
      
+    //check if user been fetched
      var user: User? {
          didSet {
              setupUserInfo()
          }
      }
     
+    // update information for every post
     func updateView() {
         captionLabel.text = post?.discription
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
+        
+        //add timestamp for every post
         if let timestamp = post?.timestamp {
             let timestampDate = Date(timeIntervalSince1970: Double(timestamp))
             let now = Date()
@@ -75,7 +81,7 @@ class TimelineTableViewCell: UITableViewCell {
         }
     }
  
-    
+    //update users information
     func setupUserInfo() {
         nameLabel.text = user?.firstname
         if let photoUrlString = user?.profileImageUrl {
@@ -88,15 +94,18 @@ class TimelineTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        //tap name label will go to profile page
         captionLabel.text = ""
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
         
+        //tap user image also go to profile page
         let tapGestureForUserImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         profileImageView.addGestureRecognizer(tapGestureForUserImageLabel)
         profileImageView.isUserInteractionEnabled = true
         
+        //tap post image will show detail image
         let tapGestureForImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.postImageView_TouchUpInside))
         postImageView.addGestureRecognizer(tapGestureForImageLabel)
         postImageView.isUserInteractionEnabled = true
@@ -104,14 +113,14 @@ class TimelineTableViewCell: UITableViewCell {
         
     }
     
-    
+    //for jump to other profile page
     @objc func nameLabel_TouchUpInside() {
         print("nameLabel_TouchUpInside")
         if let id = user?.uid {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
-    
+    //for jump to other comment page
     @IBAction func commentButton(_ sender: Any) {
         print("commentImageView_TouchUpInside")
           
@@ -120,6 +129,7 @@ class TimelineTableViewCell: UITableViewCell {
           }
     }
     
+    //for jump to other detail page
     @objc func postImageView_TouchUpInside() {
         print("postImageView_TouchUpInside")
         if let id = post?.uid {
@@ -127,10 +137,9 @@ class TimelineTableViewCell: UITableViewCell {
         }
     }
     
+    // Configure the view for the selected state
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

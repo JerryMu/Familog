@@ -4,6 +4,7 @@
 //
 //  Created by shisheng liu on 2019/10/5.
 //
+// Show all comments, users, and Timestamp
 
 import UIKit
 protocol CommentTableViewCellDelegate {
@@ -15,11 +16,9 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     var delegate: CommentTableViewCellDelegate?
     
-   
     var comment: Comment? {
         didSet {
             // update the content of comment  and its date
@@ -33,8 +32,10 @@ class CommentTableViewCell: UITableViewCell {
             setupUserInfo()
         }
     }
+    
     func updateView() {
            commentLabel.text = comment?.commentText
+        //for update time information
         if let timestamp = comment?.timestamp {
                let timestampDate = Date(timeIntervalSince1970: Double(timestamp))
                let now = Date()
@@ -64,8 +65,7 @@ class CommentTableViewCell: UITableViewCell {
            }
        }
     
- 
-    
+    //fetch user avatar and user name for every post
     func setupUserInfo() {
         nameLabel.text = user?.firstname
         if let photoUrlString = user?.profileImageUrl {
@@ -73,6 +73,8 @@ class CommentTableViewCell: UITableViewCell {
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
         }
     }
+    
+    //tap user name or image will jump to user profile page
     override func awakeFromNib() {
         super.awakeFromNib()
         commentLabel.text = ""
@@ -92,12 +94,15 @@ class CommentTableViewCell: UITableViewCell {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
+    
     //initialise it
     override func prepareForReuse() {
         super.prepareForReuse()
-     //initialise its profileImage
+        //initialise its profileImage
         profileImageView.image = UIImage(named: "placeholderImg")
     }
+    
+    //fix select problem
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 22/10/19.
 //
+// show the detail of every post, include view big image function
 
 import Foundation
 import UIKit
@@ -41,14 +42,17 @@ class DetailViewCell:UITableViewCell{
          }
      }
     
+    //update information for every post
     func updateView() {
         captionLabel.text = post?.discription
-//        top1ResultLabel.text = post?.predictItem
-//        top1ConfidenceLabel.text = post?.predictAcc
+        
+        //get image url
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
+        
+        //add temp stamp for every post
         if let timestamp = post?.timestamp {
             print(timestamp)
             let timestampDate = Date(timeIntervalSince1970: Double(timestamp))
@@ -80,12 +84,13 @@ class DetailViewCell:UITableViewCell{
         }
     }
     
+    //delete current post
     @IBAction func deletePostButtonTapped(_ sender : Any) {
         Api.Post.deletePost(PostId: post!.uid!)
         delegate?.moveToProfilePage()
     }
     
-    
+    // update users' information
     func setupUserInfo() {
         nameLabel.text = user?.firstname
         
@@ -93,7 +98,7 @@ class DetailViewCell:UITableViewCell{
             let photoUrl = URL(string: photoUrlString)
             profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "Head_Icon"))
         }
-        
+        //only if the post is current user's post show delete button
         if(user?.uid != Api.User.currentUser?.uid){
             deleteButton.isHidden = true
         }else{
@@ -105,15 +110,18 @@ class DetailViewCell:UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        //touch name label will go to user's profile page
         captionLabel.text = ""
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
         
+        // tap user image will also go to profile page
         let tapGestureForUserImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         profileImageView.addGestureRecognizer(tapGestureForUserImageLabel)
         profileImageView.isUserInteractionEnabled = true
         
+        // tap post image will show detail image
         let tapGestureForPostImageLabel = UITapGestureRecognizer(target: self, action: #selector(self.showLightbox))
         postImageView.addGestureRecognizer(tapGestureForPostImageLabel)
         postImageView.isUserInteractionEnabled = true
@@ -128,19 +136,19 @@ class DetailViewCell:UITableViewCell{
         }
     }
     
+    // tap comment button to
     @IBAction func commentButton(_ sender: Any) {
-          
           if let id = post?.uid {
               delegate?.goToCommentVC(postId: id)
           }
     }
     
+    // Configure the view for the selected state
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    // show detailed image with image recognition result
     @objc func showLightbox() {
         if let photoUrlString = post?.url {
             let photoUrl = URL(string: photoUrlString)
@@ -148,6 +156,7 @@ class DetailViewCell:UITableViewCell{
             let images = [
                 LightboxImage(
                     imageURL: photoUrl!,
+                    //include the image recognition result
                     text: self.post!.predictItem! + "\n" + self.post!.predictAcc!
                 )
             ]

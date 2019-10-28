@@ -4,7 +4,7 @@
 //
 //  Created by Pengyu Mu on 10/10/19.
 //
-// This class is for showing detail of
+// This class is for showing detail of users' posts and provide delete function
 
 import UIKit
 import FirebaseFirestore
@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
         loadPost()
     }
 
+    //send data to table view
     func loadPost() {
         Api.Post.observePost(uid: postId) { (post) in
             guard let postUid = post.userId else {
@@ -33,20 +34,12 @@ class DetailViewController: UIViewController {
             }
             self.fetchUser(uid: postUid, completed: {
                 self.post = post
-                self.fetchComment(postId: self.postId)
                 self.tableView.reloadData()
             })
         }
     }
     
-    func fetchCommentUsers(uid: String, completed:  @escaping () -> Void ) {
-        Api.User.observeUser(withId: uid, completion: {
-            user in
-            self.commentUsers.append(user)
-            completed()
-        })
-    }
-    
+    //get user information
     func fetchUser(uid: String, completed:  @escaping () -> Void ) {
         Api.User.observeUser(uid: uid, completion: {
             user in
@@ -56,22 +49,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func fetchComment(postId : String) {
-        commentRef.order(by: "timestamp", descending: false).whereField("postId", isEqualTo: postId).getDocuments{ (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let comment = Comment.transformComment(dict: document.data())
-                    self.fetchCommentUsers(uid: comment.uid!, completed: {
-                        self.comments.append(comment)
-                        self.tableView.reloadData()
-                    })
-                }
-            }
-        }
-    }
-    
+    //functions of jump to other pages
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail_CommentVC" {
             let commentVC = segue.destination as! CommentViewController
@@ -96,28 +74,32 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! DetailViewCell
-            cell.post = post
-            cell.user = user
-            cell.delegate = self
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! DetailViewCell
+        cell.post = post
+        cell.user = user
+        cell.delegate = self
+        return cell
         
     }
 }
 
 extension DetailViewController: DetailTableViewCellDelegate, CommentTableViewCellDelegate {
+    
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "Detail_CommentVC", sender: postId)
     }
+    //go to others profile page
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Detail_ProfileUserSegue", sender: userId)
     }
+    //move to users' own profile page
     func moveToProfilePage() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Tabbar") as! TabBarViewController
         newViewController.selectedIndex = 2
         self.present(newViewController, animated: true, completion: nil)
     }
+    // present detailed image
     func presentImage(imageViewController : LightboxController){
         self.present(imageViewController, animated: true, completion: nil)
     }

@@ -19,10 +19,14 @@ class UserApi {
         }
         return nil
     }
+    
+    //get user from user id
     func observeUserByUid(Uid: String) -> Query{
         return REF_USERS.whereField("uid", isEqualTo: Uid)
 
     }
+    
+
     func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
         REF_USERS.document(uid).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
@@ -63,6 +67,7 @@ class UserApi {
     }
     
     
+    //get current user by uid
     func observeCurrentUser(completion: @escaping (User) -> Void){
         guard let currentUser = Auth.auth().currentUser else {
             return
@@ -84,12 +89,14 @@ class UserApi {
         }
     }
     
+    //set user infromtion by dictionary input and uer id
     func setUserByUid(Uid : String, dictionary : [String : Any]){
         let userRef = REF_USERS.document(Uid)
         
         userRef.updateData(dictionary)
     }
     
+    //edit current user's information
     func setCurrentUser(dictionary : [String : Any]){
         guard let currentUser = Auth.auth().currentUser else {
             return

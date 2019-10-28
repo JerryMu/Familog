@@ -16,21 +16,19 @@ class SwitchFamilyTableViewCell: UITableViewCell {
     var switchFamliyVC : SwitchFamilyViewController?
     var delegate: SwitchFamilyTableViewCellDelegate?
     
+    // Initialization code
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    // Configure the view for the selected state
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
+    
+    //click every joined family
     @IBAction func famliyTapped(_ sender: Any) {
-        print("famliyTapped")
         Api.User.setCurrentUser(dictionary: ["familyId" : familyId])
         delegate?.moveToTimeLinePage()
     }
-    
-
-    
 }

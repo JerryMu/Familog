@@ -4,11 +4,15 @@
 //
 //  Created by shisheng liu on 2019/10/6.
 //
+// The comment class
 
 import Foundation
 class Comment {
+    //comment text
     var commentText: String?
+    //comment id
     var uid: String?
+    //comment time stamp
     var timestamp : Int?
     init(commentText: String, uid: String){
         self.commentText = commentText

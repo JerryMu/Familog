@@ -4,6 +4,7 @@
 //
 //  Created by 袁翥 on 2019/9/23.
 //
+// fetch data of post from firebase
 
 import Foundation
 import FirebaseFirestore
@@ -36,7 +37,7 @@ class PostApi {
     }
     
     
-
+    // update comment to post
     func updateComment(postId: String, commentsIDList : String)
     {
         let postref = postRef.document(postId)
@@ -44,6 +45,8 @@ class PostApi {
             postref.updateData(["comment" : commentsIDList])
 
     }
+    
+    //get post number from user id
     func observePostsNumberByUser(userId: String, completion : @escaping (Int) -> Void){
         
         postRef.whereField("userId", isEqualTo: userId).getDocuments{(querySnapshot, err) in
@@ -55,16 +58,20 @@ class PostApi {
         }
         
     }
+    
+    //get all post of this user
     func observePostsByUser(userId: String) -> Query{
         
         return postRef.whereField("userId", isEqualTo: userId)
         
     }
     
+    //get all post of a family
     func observePostsByFamily(familyId: String) -> Query{
         return postRef.order(by: "timestamp", descending: true).whereField("familyId", isEqualTo: familyId)
     }
     
+    // delete a post from firebase by id
     func deletePost(PostId : String){
         postRef.document(PostId).delete(){ err in
             if let err = err {
@@ -75,6 +82,7 @@ class PostApi {
         }
     }
     
+    //update post data by id
     func setPostByUid(Uid : String, dictionary : [String : Any]){
         let post = postRef.document(Uid)
         

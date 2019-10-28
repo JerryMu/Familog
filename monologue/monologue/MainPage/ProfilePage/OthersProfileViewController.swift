@@ -4,6 +4,7 @@
 //
 //  Created by Pengyu Mu on 18/9/19.
 //
+// view other users profile is different to users own profile
 
 import UIKit
 //test only
@@ -19,8 +20,6 @@ class OthersProfileViewController: UIViewController {
     @IBOutlet weak var familyId: UILabel!
     @IBOutlet weak var familyName: UILabel!
     
-    var editButtonCenter: CGPoint!
-    var setButtonCenter: CGPoint!
     var user: User!
     var posts: [Post] = []
     var uid =  ""
@@ -51,6 +50,7 @@ class OthersProfileViewController: UIViewController {
         }
     }
 
+    //update users information
     func updateInfo(){
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
@@ -65,6 +65,8 @@ class OthersProfileViewController: UIViewController {
             self.familyName.text = name
         }
     }
+    
+    // fetch post of user and send to table view
     func fetchPost() {
         Api.Post.observePostsByUser(userId: self.uid).getDocuments{ (querySnapshot, err) in
             if let err = err {
@@ -87,6 +89,7 @@ class OthersProfileViewController: UIViewController {
             detailVC.postId = postId
         }
     }
+    // view detail  avatar
     
     @IBAction func avaterPress(_ sender: Any) {
         showLightbox()
@@ -156,6 +159,7 @@ extension OthersProfileViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
     }
 }
+
 
 extension OthersProfileViewController: PhotoCollectionViewCellDelegate {
     func goToDetailVC(postId: String) {

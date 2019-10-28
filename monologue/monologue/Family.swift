@@ -9,22 +9,18 @@
 import Foundation
 
 class Family {
-    var profileImageUrl: String?
+    // the name of this family
     var familyName: String?
+    // unique id of this family
     var uid: String?
-    var introduce : String?
-    var userNumber : Int?
 }
 
 extension Family {
-    
+    //convert firebase dictionary to Family instance
     static func transformFamily(dict: [String: Any]) -> Family {
         let family = Family()
-        family.profileImageUrl = dict["profileImageUrl"] as? String
         family.familyName = dict["familyName"] as? String
         family.uid = dict["uid"] as? String
-        family.introduce = dict["introduce"] as? String
-        family.userNumber = dict["userNumber"] as? Int
         return family
     }
 }
