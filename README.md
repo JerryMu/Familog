@@ -1,5 +1,5 @@
 # IT-Project
-Project Name: Monologue\n
+Project Name: Monologue
 Start Date: June 2019
 Team member: Ziyuan Xiao,
               Shisheng Liu,
